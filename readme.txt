@@ -1,4 +1,4 @@
- === WP Email Template  ===
+=== WP Email Template  ===
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
@@ -53,6 +53,7 @@ WP Email Template requires no set up or configuration. As soon as you install an
 If you do a translation for your site please send it to us and we'll include it in the plugins language folder and credit you here with the translation and a link to your site.
 
 * English (default) - always included.
+* Russian - (wp_email_template-ru_RU.po) Thanks to Viktor Demidov
 *.po file (wp_email_template.po) in languages folder for translations.
 * [Go here](http://a3rev.com/contact/) to send your translation files to us.
 
@@ -117,5 +118,3 @@ Support and access to this plugin documents are available from the [HELP tab](ht
 = 1.0.0 - 2012/09/03 =
 
 * First Release.
-
-  
