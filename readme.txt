@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
-Tested up to: 3.4.1
-Stable tag: 1.0.0
+Tested up to: 3.5
+Stable tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -59,9 +59,9 @@ If you do a translation for your site please send it to us and we'll include it 
 
 = Plugin Resources =
 
-[PRO Version](http://a3rev.com/products-page/wordpress/wp-email-template/) |
+[PRO Version](http://a3rev.com/shop/wp-email-template/) |
 [Documentation](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) |
-[Support](http://a3rev.com/products-page/wordpress/wp-email-template/#help)
+[Support](http://a3rev.com/shop/wp-email-template/#tab-reviews)
 
 
 == Installation ==
@@ -111,9 +111,16 @@ The manual installation method involves down loading our plugin and uploading it
  
 == Support ==
 
-Support and access to this plugin documents are available from the [HELP tab](http://a3rev.com/products-page/wordpress/wp-email-template/#help) on the Pro Versions Home page.
+Support and access to this plugin documents are available from the [HELP tab](http://a3rev.com/shop/wp-email-template/#tab-reviews) on the Pro Versions Home page.
 
 == Changelog ==
+
+= 1.0.1 - 2013/01/09 =
+
+* Tweak: Updated Support and Pro Version link URL's on wordpress.org description, plugins and plugins dashboard. Links were returning 404 errors since the launch of the all new a3rev.com mobile responsive site as the base e-commerce permalinks is changed.
+
+* Fixed: When user server does not support  file_get_contents function changes made to the template were not applying to the WooCommerce Email template. We had added a get file from get_stylesheet_directory_uri constant as a work around but had missed the () at the end of the function so it wasn't working
+
 
 = 1.0.0 - 2012/09/03 =
 

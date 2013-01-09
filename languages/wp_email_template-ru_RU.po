@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Email Template LITE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-08 10:05+0700\n"
-"PO-Revision-Date: 2012-11-08 10:05+0700\n"
+"POT-Creation-Date: 2013-01-09 16:40+0700\n"
+"PO-Revision-Date: 2013-01-09 16:40+0700\n"
 "Last-Translator: Nguyen Tuan <mr.nguyencongtuan@gmail.com>\n"
 "Language-Team: a3rev <hidemka@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -23,291 +23,332 @@ msgstr "Настройки шаблона Email успешно сохранен�
 msgid "Email Template Settings Successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/classes/class-email-settings.php:133
+#: admin/classes/class-email-settings.php:134
 msgid "Email Template Settings"
 msgstr "Настройки шаблона Email"
 
-#: admin/classes/class-email-settings.php:136
+#: admin/classes/class-email-settings.php:137
 msgid "Live Preview"
 msgstr "Предварительный просмотр"
 
-#: admin/classes/class-email-settings.php:137
+#: admin/classes/class-email-settings.php:138
 msgid "For a live preview of changes save them and then"
 msgstr "Для предварительного просмотра сохраните изменения и затем"
 
-#: admin/classes/class-email-settings.php:137
+#: admin/classes/class-email-settings.php:138
 msgid "Click here to preview your email template."
 msgstr "Щелкните здесь, чтобы просмотреть шаблон email."
 
-#: admin/classes/class-email-settings.php:138
+#: admin/classes/class-email-settings.php:139
 msgid "Template Header"
 msgstr "Шапка шаблона"
 
-#: admin/classes/class-email-settings.php:142
+#: admin/classes/class-email-settings.php:143
 msgid "Header image"
 msgstr "Изображение в заголовке"
 
-#: admin/classes/class-email-settings.php:143
+#: admin/classes/class-email-settings.php:144
 msgid "Enter a URL to an image you want to show in the email's header. Upload your image using the"
 msgstr "Укажите URL изображения, которое вы хотите показать в заголовке письма. Загрузить изображение с помощью"
 
-#: admin/classes/class-email-settings.php:143
+#: admin/classes/class-email-settings.php:144
 msgid "media uploader"
 msgstr "загрузка изображения"
 
-#: admin/classes/class-email-settings.php:148
+#: admin/classes/class-email-settings.php:149
 msgid "Template Background"
 msgstr "Фон шаблона"
 
-#: admin/classes/class-email-settings.php:152
+#: admin/classes/class-email-settings.php:153
 msgid "Background colour"
 msgstr "Цвет фона"
 
-#: admin/classes/class-email-settings.php:154
+#: admin/classes/class-email-settings.php:155
 msgid "The template background pattern colour. Default"
 msgstr "Образец цвета фона шаблона. По умолчанию"
 
-#: admin/classes/class-email-settings.php:161
+#: admin/classes/class-email-settings.php:162
 msgid "Email Header"
 msgstr "Заголовок Email"
 
-#: admin/classes/class-email-settings.php:165
+#: admin/classes/class-email-settings.php:166
 msgid "Header background colour"
 msgstr "Цвет фона заголовка"
 
-#: admin/classes/class-email-settings.php:167
-#: admin/classes/class-email-settings.php:184
-#: admin/classes/class-email-settings.php:202
-#: admin/classes/class-email-settings.php:213
-#: admin/classes/class-email-settings.php:219
-#: admin/classes/class-email-settings.php:248
-#: admin/classes/class-email-settings.php:266
-#: admin/classes/class-email-settings.php:277
-#: admin/classes/class-email-settings.php:283
+#: admin/classes/class-email-settings.php:168
+#: admin/classes/class-email-settings.php:185
+#: admin/classes/class-email-settings.php:203
+#: admin/classes/class-email-settings.php:214
+#: admin/classes/class-email-settings.php:220
+#: admin/classes/class-email-settings.php:249
+#: admin/classes/class-email-settings.php:267
+#: admin/classes/class-email-settings.php:278
+#: admin/classes/class-email-settings.php:284
 msgid "Default"
 msgstr "По умолчанию"
 
-#: admin/classes/class-email-settings.php:172
+#: admin/classes/class-email-settings.php:173
 msgid "Header title font"
 msgstr "Название шрифта в заголовке"
 
-#: admin/classes/class-email-settings.php:188
-#: admin/classes/class-email-settings.php:252
+#: admin/classes/class-email-settings.php:189
+#: admin/classes/class-email-settings.php:253
 msgid "Font size"
 msgstr "Размер шрифта"
 
-#: admin/classes/class-email-settings.php:206
-#: admin/classes/class-email-settings.php:270
+#: admin/classes/class-email-settings.php:207
+#: admin/classes/class-email-settings.php:271
 msgid "Font style"
 msgstr "Стиль шрифта"
 
-#: admin/classes/class-email-settings.php:209
-#: admin/classes/class-email-settings.php:273
+#: admin/classes/class-email-settings.php:210
+#: admin/classes/class-email-settings.php:274
 msgid "Normal"
 msgstr "Нормальный"
 
-#: admin/classes/class-email-settings.php:210
-#: admin/classes/class-email-settings.php:213
-#: admin/classes/class-email-settings.php:274
-#: admin/classes/class-email-settings.php:277
+#: admin/classes/class-email-settings.php:211
+#: admin/classes/class-email-settings.php:214
+#: admin/classes/class-email-settings.php:275
+#: admin/classes/class-email-settings.php:278
 msgid "Italic"
 msgstr "Наклонный"
 
-#: admin/classes/class-email-settings.php:211
-#: admin/classes/class-email-settings.php:275
+#: admin/classes/class-email-settings.php:212
+#: admin/classes/class-email-settings.php:276
 msgid "Bold"
 msgstr "Жирный"
 
-#: admin/classes/class-email-settings.php:212
-#: admin/classes/class-email-settings.php:276
+#: admin/classes/class-email-settings.php:213
+#: admin/classes/class-email-settings.php:277
 msgid "Bold/Italic"
 msgstr "Жирный/Наклонный"
 
-#: admin/classes/class-email-settings.php:217
+#: admin/classes/class-email-settings.php:218
 msgid "Colour"
 msgstr "Цвет шрифта"
 
-#: admin/classes/class-email-settings.php:225
+#: admin/classes/class-email-settings.php:226
 msgid "Email Body"
 msgstr "Содержание Email"
 
-#: admin/classes/class-email-settings.php:229
+#: admin/classes/class-email-settings.php:230
 msgid "Email body background colour"
 msgstr "Цвет фона содержания письма"
 
-#: admin/classes/class-email-settings.php:231
+#: admin/classes/class-email-settings.php:232
 msgid "The main body background colour. Default"
 msgstr "Основной цвет фона содержания. По умолчанию"
 
-#: admin/classes/class-email-settings.php:236
+#: admin/classes/class-email-settings.php:237
 msgid "Font"
 msgstr "Шрифт"
 
-#: admin/classes/class-email-settings.php:281
+#: admin/classes/class-email-settings.php:282
 msgid "Email body text colour"
 msgstr "Цвет текста содержания письма"
 
-#: admin/classes/class-email-settings.php:290
+#: admin/classes/class-email-settings.php:292
 msgid "Follow Us On"
 msgstr "Читайте нас"
 
-#: admin/classes/class-email-settings.php:294
+#: admin/classes/class-email-settings.php:296
 msgid "Facebook URI"
 msgstr ""
 
-#: admin/classes/class-email-settings.php:295
+#: admin/classes/class-email-settings.php:297
 msgid "Enter your facebook URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт facebook для показа иконки внизу письма"
 
-#: admin/classes/class-email-settings.php:299
+#: admin/classes/class-email-settings.php:301
 msgid "Twitter URI"
 msgstr ""
 
-#: admin/classes/class-email-settings.php:300
+#: admin/classes/class-email-settings.php:302
 msgid "Enter your Twitter URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Twitter для показа иконки внизу письма"
 
-#: admin/classes/class-email-settings.php:304
+#: admin/classes/class-email-settings.php:306
 msgid "LinkedIn URI"
 msgstr ""
 
-#: admin/classes/class-email-settings.php:305
+#: admin/classes/class-email-settings.php:307
 msgid "Enter your Linkedin URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Linkedin для показа иконки внизу письма"
 
-#: admin/classes/class-email-settings.php:309
+#: admin/classes/class-email-settings.php:311
 msgid "Pinterest URI"
 msgstr ""
 
-#: admin/classes/class-email-settings.php:310
+#: admin/classes/class-email-settings.php:312
 msgid "Enter your Pinterest URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Pinterest для показа иконки внизу письма"
 
-#: admin/classes/class-email-settings.php:314
+#: admin/classes/class-email-settings.php:316
 msgid "Google+1 URI"
 msgstr ""
 
-#: admin/classes/class-email-settings.php:315
+#: admin/classes/class-email-settings.php:317
 msgid "Enter your Google+1 URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Google+1 для показа иконки внизу письма"
 
-#: admin/classes/class-email-settings.php:320
+#: admin/classes/class-email-settings.php:322
 msgid "Email Footer Content"
 msgstr "Подвал Email"
 
-#: admin/classes/class-email-settings.php:324
+#: admin/classes/class-email-settings.php:326
 msgid "Email footer text"
 msgstr "Текст внизу письма"
 
-#: admin/classes/class-email-settings.php:327
+#: admin/classes/class-email-settings.php:329
 #, fuzzy
 msgid "The text to appear in the footer of the email template. Allowed HTML tags <p> <strong> <i> <u>"
 msgstr "Текст будет показан внизу шаблона email."
 
-#: admin/classes/class-email-settings.php:332
+#: admin/classes/class-email-settings.php:334
 msgid "WooCommerce Configuration"
 msgstr "Конфигурация WooCommerce"
 
-#: admin/classes/class-email-settings.php:336
+#: admin/classes/class-email-settings.php:338
 msgid "Apply to WooCommerce emails"
 msgstr "Применить к электронным письмам WooCommerce"
 
-#: admin/classes/class-email-settings.php:338
+#: admin/classes/class-email-settings.php:340
 msgid "Yes"
 msgstr "Да"
 
-#: admin/classes/class-email-settings.php:339
+#: admin/classes/class-email-settings.php:341
 msgid "No"
 msgstr "Нет"
 
-#: admin/classes/class-email-settings.php:340
+#: admin/classes/class-email-settings.php:342
 msgid "If WooCommerce is installed, select YES to apply this template to all WooCommerce emails."
 msgstr "Если WooCommerce установлена, выберите Да, чтобы применить этот шаблон для всех электронной почты WooCommerce."
 
-#: admin/classes/class-email-settings.php:345
+#: admin/classes/class-email-settings.php:347
 msgid "Help Promote This Plugin"
 msgstr "Реклама этого плагина"
 
-#: admin/classes/class-email-settings.php:349
+#: admin/classes/class-email-settings.php:351
 #: classes/class-email-functions.php:109
 msgid "WP Email Template"
 msgstr "WP Email шаблон"
 
-#: admin/classes/class-email-settings.php:352
+#: admin/classes/class-email-settings.php:354
 msgid "Help spread the word by showing this at the bottom of your emails. The text is linked to the plugins WordPress.org page."
 msgstr "Помогите распространять информацию, показывая это в нижней части вашего письма. Текст связано со страницей плагинов WordPress.org."
 
-#: admin/classes/class-email-settings.php:358
+#: admin/classes/class-email-settings.php:360
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
-#: admin/classes/class-email-settings.php:359
+#: admin/classes/class-email-settings.php:361
 msgid "Reset Settings"
 msgstr "Сбросить настройки"
 
-#: admin/classes/class-email-settings.php:368
-msgid "Help us help you!"
-msgstr ""
-
-#: admin/classes/class-email-settings.php:369
-msgid "Creating a great plugin, keeping it upgraded, giving support, listening to users feedback and building in enhancements takes a lot of time and money."
-msgstr ""
-
-#: admin/classes/class-email-settings.php:370
-msgid "No Donations Accepted"
-msgstr ""
-
 #: admin/classes/class-email-settings.php:372
-msgid "We don't accept donations for our plugins because we are not hobbiests or a charity. We are a business and we build quality WordPress plugins & themes for a living."
+#, fuzzy
+msgid "Upgrade to WP Email Template Pro"
+msgstr "WP Email шаблон"
+
+#: admin/classes/class-email-settings.php:373
+msgid "Visit the"
 msgstr ""
 
 #: admin/classes/class-email-settings.php:373
-msgid "Upgrade to a Pro Version License."
+msgid "a3rev website"
 msgstr ""
 
-#: admin/classes/class-email-settings.php:374
-msgid "If you believe this plugin adds value to your website - Instead of making a donation - upgrade to this plugins"
+#: admin/classes/class-email-settings.php:373
+msgid "to see all the extra features the Pro version of this plugin offers inside this yellow box."
 msgstr ""
 
 #: admin/classes/class-email-settings.php:374
 #, fuzzy
-msgid "Pro version"
-msgstr "Показать версию"
+msgid "Plugin Documentation"
+msgstr "Документация"
 
-#: admin/classes/class-email-settings.php:374
-msgid "for the small once only"
-msgstr ""
-
-#: admin/classes/class-email-settings.php:374
-msgid "Pro license fee."
+#: admin/classes/class-email-settings.php:375
+msgid "All of our plugins have comprehensive online documentation. Please refer to the plugins docs before raising a support request"
 msgstr ""
 
 #: admin/classes/class-email-settings.php:375
-msgid "Go Pro and help us help you!"
+msgid "Visit the a3rev wiki."
 msgstr ""
 
 #: admin/classes/class-email-settings.php:376
-msgid "Upgrading to the Pro version will not only unlock the template styling features you see inside of this yellow border, it gives you lifetime guaranteed same day support, new Pro version only enhancements and helps you ensure that we are around forever to maintain and improve this plugin for you."
+msgid "More a3rev Quality Plugins"
 msgstr ""
 
 #: admin/classes/class-email-settings.php:377
-msgid "Spreading the Word about this plugin."
+msgid "Below is a list of the a3rev plugins that are available for free download from wordpress.org"
 msgstr ""
 
 #: admin/classes/class-email-settings.php:378
-msgid "Things you can do to help"
-msgstr ""
-
-#: admin/classes/class-email-settings.php:380
-msgid "Rate this plugin 5"
-msgstr ""
-
-#: admin/classes/class-email-settings.php:380
-msgid "on WordPress.org"
+msgid "WordPress Plugins"
 msgstr ""
 
 #: admin/classes/class-email-settings.php:381
-msgid "Write about it in your blog"
+#, fuzzy
+msgid "WordPress Email Template"
+msgstr "WP Email шаблон"
+
+#: admin/classes/class-email-settings.php:382
+msgid "Page View Count"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:386
+#, fuzzy
+msgid "WooCommerce Plugins"
+msgstr "Конфигурация WooCommerce"
+
+#: admin/classes/class-email-settings.php:389
+msgid "WooCommerce Dynamic Products Gallery"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:390
+msgid "WooCommerce Predictive Search"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:391
+#, fuzzy
+msgid "WooCommerce Compare Products"
+msgstr "Конфигурация WooCommerce"
+
+#: admin/classes/class-email-settings.php:392
+msgid "WooCommerce Widget Product Slideshow"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:393
+#, fuzzy
+msgid "WooCommerce Email Inquiry & Cart Options"
+msgstr "Конфигурация WooCommerce"
+
+#: admin/classes/class-email-settings.php:393
+msgid " - Pro Version only from a3rev"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:397
+msgid "WP e-Commerce Plugins"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:400
+msgid "WP e-Commerce Dynamic Gallery"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:401
+msgid "WP e-Commerce Predictive Search"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:402
+msgid "WP e-Commerce Compare Products"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:403
+msgid "WP e-Commerce Catalog Visibility & Email Inquiry"
+msgstr ""
+
+#: admin/classes/class-email-settings.php:404
+msgid "WP e-Commerce Grid View"
 msgstr ""
 
 #: classes/class-email-functions.php:87
@@ -364,6 +405,10 @@ msgstr "Документация"
 #: classes/class-email-hook.php:150
 msgid "Support"
 msgstr "Поддержка"
+
+#, fuzzy
+#~ msgid "Pro version"
+#~ msgstr "Показать версию"
 
 #~ msgid "No find the encryp.inc file. Please copy encryp.inc file to folder"
 #~ msgstr ""

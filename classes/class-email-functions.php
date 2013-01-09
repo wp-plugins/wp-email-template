@@ -152,7 +152,7 @@ class WP_Email_Template_Functions{
 		} else {
 			
 			$header_template_path = WP_EMAIL_TEMPLATE_DIR . '/emails/'. $file;
-			$header_template_url = get_stylesheet_directory_uri() . '/emails/'. $file;
+			$header_template_url = WP_EMAIL_TEMPLATE_URL . '/emails/'. $file;
 		}
 		
 		$template_html = file_get_contents($header_template_path);
@@ -175,10 +175,10 @@ class WP_Email_Template_Functions{
 		if (file_exists(STYLESHEETPATH . '/'. $file)) {
 			// $footer_template_path = get_stylesheet_directory() . '/emails/'. $file; 
 			$footer_template_path = STYLESHEETPATH . '/emails/'. $file;
-			$footer_template_url = get_stylesheet_directory_uri . '/emails/'. $file;
+			$footer_template_url = get_stylesheet_directory_uri() . '/emails/'. $file;
 		} else {
 			$footer_template_path = WP_EMAIL_TEMPLATE_DIR . '/emails/'. $file;
-			$footer_template_url = get_stylesheet_directory_uri . '/emails/'. $file;
+			$footer_template_url = WP_EMAIL_TEMPLATE_URL . '/emails/'. $file;
 		}
 		
 		$template_html = file_get_contents($footer_template_path);

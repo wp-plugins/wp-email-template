@@ -147,7 +147,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 			return $links;
 		}
 		$links[] = '<a href="http://docs.a3rev.com/user-guides/wordpress/wp-email-template/" target="_blank">'.__('Documentation', 'wp_email_template').'</a>';
-		$links[] = '<a href="http://a3rev.com/products-page/wordpress/wp-email-template/#help" target="_blank">'.__('Support', 'wp_email_template').'</a>';
+		$links[] = '<a href="http://a3rev.com/shop/wp-email-template/#tab-reviews" target="_blank">'.__('Support', 'wp_email_template').'</a>';
 		return $links;
 	}
 }

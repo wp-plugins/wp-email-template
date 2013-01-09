@@ -112,10 +112,12 @@ class WP_Email_Template_Settings {
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = $wp_email_template_default_settings;
 		?>
         <style type="text/css">
+		.form-table { margin:0; }
 		input.colorpick{text-transform:uppercase;}
-		#email_template_upgrade_area { border:2px solid #FFFBCC; border-right-width:470px; -webkit-border-radius:10px;-moz-border-radius:10px;-o-border-radius:10px; border-radius: 10px; padding:0; position:relative; min-height:550px; margin-top:10px;}
-	   	#email_template_upgrade_area h3{ margin-left:10px;}
-	   	#email_template_upgrade_notice { -webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px; border-radius: 4px 4px 4px 4px; color: #555555; float: right; margin: 0px; padding: 5px; position: absolute; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); width: 450px; right:-468px; top:0px;}
+		#email_template_upgrade_area { border:2px solid #E6DB55;-webkit-border-radius:10px;-moz-border-radius:10px;-o-border-radius:10px; border-radius: 10px; padding:0 0; position:relative; float:left; display:block; margin-bottom:10px; }
+	   	#email_template_upgrade_inner { background:#FFF; -webkit-border-radius:10px 0 0 10px;-moz-border-radius:10px 0 0 10px;-o-border-radius:10px 0 0 10px; border-radius: 10px 0 0 10px; float:left; width:58%;}
+		#email_template_upgrade_inner h3{ margin-left:10px;}
+	   	#email_template_upgrade_notice { background:#FFFBCC; -webkit-border-radius:0 10px 10px 0;-moz-border-radius:0 10px 10px 0;-o-border-radius:0 10px 10px 0; border-radius: 0 10px 10px 0; color: #555555; float: right; margin: 0px; padding: 5px 5px 5px 2%; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8); width: 38%; right:0; top:0px;}
         </style>
         <?php 
 		
@@ -157,8 +159,8 @@ class WP_Email_Template_Settings {
                	</tr>
 			</tbody>
 		</table>
-        <div id="email_template_upgrade_area"><?php echo WP_Email_Template_Settings::email_template_upgrade_notice(); ?>
-        <h3><?php _e('Email Header', 'wp_email_template'); ?></h3>
+        <div id="email_template_upgrade_area"><?php echo WP_Email_Template_Settings::email_template_upgrade_notice(); ?><div id="email_template_upgrade_inner">
+        <h3 style=""><?php _e('Email Header', 'wp_email_template'); ?></h3>
 		<table cellspacing="0" class="form-table">
 			<tbody>
 				<tr valign="top">
@@ -287,6 +289,7 @@ class WP_Email_Template_Settings {
 			</tbody>
 		</table>
         </div>
+        </div>
         <h3><?php _e('Follow Us On', 'wp_email_template'); ?></h3>
 		<table cellspacing="0" class="form-table">
 			<tbody>
@@ -365,24 +368,44 @@ class WP_Email_Template_Settings {
 	
 	function email_template_upgrade_notice() {
 		$html = '';
-		$html .= '<div id="email_template_upgrade_notice"><h3>'.__('Help us help you!', 'wp_email_template').'</h3>';
-		$html .= '<p>'.__('Creating a great plugin, keeping it upgraded, giving support, listening to users feedback and building in enhancements takes a lot of time and money.', 'wp_email_template').'</p>';
-		$html .= '<h3>'.__('No Donations Accepted', 'wp_email_template').'</h3>';
-		$html .= '<img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/btn_donate.png" />';
-		$html .= '<p>'.__("We don't accept donations for our plugins because we are not hobbiests or a charity. We are a business and we build quality WordPress plugins & themes for a living.", 'wp_email_template').'</p>';
-		$html .= '<h3>'.__('Upgrade to a Pro Version License.', 'wp_email_template').'</h3>';
-		$html .= '<p>'.__("If you believe this plugin adds value to your website - Instead of making a donation - upgrade to this plugins", '').' <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__('Pro version', 'wp_email_template').'</a> '.__('for the small once only', 'wp_email_template'). ' <strong>$10</strong> '.__('Pro license fee.', 'wp_email_template').'</p>';
-		$html .= '<h3>'.__('Go Pro and help us help you!', 'wp_email_template').'</h3>';
-		$html .= '<p>'.__("Upgrading to the Pro version will not only unlock the template styling features you see inside of this yellow border, it gives you lifetime guaranteed same day support, new Pro version only enhancements and helps you ensure that we are around forever to maintain and improve this plugin for you.", 'wp_email_template').'</p>';
-		$html .= '<h3>'.__('Spreading the Word about this plugin.', 'wp_email_template').'</h3>';
-		$html .= '<p>'.__("Things you can do to help", 'wp_email_template');
+		$html .= '<div id="email_template_upgrade_notice">';
+		$html .= '<a href="http://a3rev.com/shop/" target="_blank" style="float:right;margin-top:5px; margin-left:10px;" ><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/a3logo.png" /></a>';
+		$html .= '<h3>'.__('Upgrade to WP Email Template Pro', 'wp_email_template').'</h3>';
+		$html .= '<p>'.__("Visit the", 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__("a3rev website", 'wp_email_template').'</a> '.__("to see all the extra features the Pro version of this plugin offers inside this yellow box.", 'wp_email_template').'</p>';
+		$html .= '<h3>'.__('Plugin Documentation', 'wp_email_template').'</h3>';
+		$html .= '<p>'.__('All of our plugins have comprehensive online documentation. Please refer to the plugins docs before raising a support request', 'wp_email_template').'. <a href="http://docs.a3rev.com/user-guides/wordpress/wp-email-template/" target="_blank">'.__('Visit the a3rev wiki.', 'wp_email_template').'</a></p>';
+		$html .= '<h3>'.__('More a3rev Quality Plugins', 'wp_email_template').'</h3>';
+		$html .= '<p>'.__('Below is a list of the a3rev plugins that are available for free download from wordpress.org', 'wp_email_template').'</p>';
+		$html .= '<h3>'.__('WordPress Plugins', 'wp_email_template').'</h3>';
+		$html .= '<p>';
 		$html .= '<ul style="padding-left:10px;">';
-		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/wp-email-template/" target="_blank">'.__('Rate this plugin 5', 'wp_email_template').' <img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/stars.png" align="top" /> '.__('on WordPress.org', 'wp_email_template').'</a></li>';
-		$html .= '<li>* <a href="http://a3rev.com/products-page/wordpress/wp-email-template/" target="_blank">'.__('Write about it in your blog', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/page-views-count/" target="_blank">'.__('Page View Count', 'wp_email_template').'</a></li>';
+		$html .= '</ul>';
+		$html .= '</p>';
+		
+		$html .= '<h3>'.__('WooCommerce Plugins', 'wp_email_template').'</h3>';
+		$html .= '<p>';
+		$html .= '<ul style="padding-left:10px;">';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/woocommerce-dynamic-gallery/" target="_blank">'.__('WooCommerce Dynamic Products Gallery', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/woocommerce-predictive-search/" target="_blank">'.__('WooCommerce Predictive Search', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/woocommerce-compare-products/" target="_blank">'.__('WooCommerce Compare Products', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/woo-widget-product-slideshow/" target="_blank">'.__('WooCommerce Widget Product Slideshow', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://a3rev.com/shop/woocommerce-email-inquiry-and-cart-options/" target="_blank">'.__('WooCommerce Email Inquiry & Cart Options', 'wp_email_template').'</a>'.__(' - Pro Version only from a3rev', 'wp_email_template').'</li>';
+		$html .= '</ul>';
+		$html .= '</p>';
+		
+		$html .= '<h3>'.__('WP e-Commerce Plugins', 'wp_email_template').'</h3>';
+		$html .= '<p>';
+		$html .= '<ul style="padding-left:10px;">';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/wp-e-commerce-dynamic-gallery/" target="_blank">'.__('WP e-Commerce Dynamic Gallery', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/wp-e-commerce-predictive-search/" target="_blank">'.__('WP e-Commerce Predictive Search', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/wp-ecommerce-compare-products/" target="_blank">'.__('WP e-Commerce Compare Products', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/wp-e-commerce-catalog-visibility-and-email-inquiry/" target="_blank">'.__('WP e-Commerce Catalog Visibility & Email Inquiry', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/wp-e-commerce-grid-view/" target="_blank">'.__('WP e-Commerce Grid View', 'wp_email_template').'</a></li>';
 		$html .= '</ul>';
 		$html .= '</p>';
 		$html .= '</div>';
-		return $html;	
+		return $html;
 	}
 }
 ?>
