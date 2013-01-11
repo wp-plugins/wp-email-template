@@ -120,6 +120,7 @@ Support and access to this plugin documents are available from the [HELP tab](ht
 <bold>Important bug fix! Please update now.</bold>
 
 * Fixed: WP Email Template apply to WooCommerce Email template when user had selected do not apply for that option.
+
 Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping us to locate and fix these bugs.
 
 
