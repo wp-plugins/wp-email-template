@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -114,6 +114,14 @@ The manual installation method involves down loading our plugin and uploading it
 Support and access to this plugin documents are available from the [HELP tab](http://a3rev.com/shop/wp-email-template/#tab-reviews) on the Pro Versions Home page.
 
 == Changelog ==
+
+= 1.0.2 - 2013/01/11 =
+
+<bold>Important bug fix! Please update now.</bold>
+
+* Fixed: WP Email Template apply to WooCommerce Email template when user had selected do not apply for that option.
+Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping us to locate and fix these bugs.
+
 
 = 1.0.1 - 2013/01/09 =
 

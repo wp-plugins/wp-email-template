@@ -78,9 +78,9 @@ class WP_Email_Template_Hook_Filter{
 		if (isset($wp_email_template_settings['apply_for_woo_emails']) && trim(esc_attr($wp_email_template_settings['apply_for_woo_emails'])) == 'yes') {
 			echo '<!--WOO_EMAIL_TEMPLATE_FOOTER_END-->';
 			ob_get_clean();
-			echo '<!--NO_USE_EMAIL_TEMPLATE-->';
 			echo WP_Email_Template_Functions::email_footer();
 		}
+		echo '<!--NO_USE_EMAIL_TEMPLATE-->';
 	}
 	
 	function preview_wp_email_template() {
