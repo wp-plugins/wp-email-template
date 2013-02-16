@@ -14,6 +14,7 @@
  * admin_head_scripts()
  * admin_plugin_scripts()
  * plugin_extra_links()
+ * settings_plugin_links()
  */
 class WP_Email_Template_Hook_Filter{
 	
@@ -147,8 +148,14 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 			return $links;
 		}
 		$links[] = '<a href="http://docs.a3rev.com/user-guides/wordpress/wp-email-template/" target="_blank">'.__('Documentation', 'wp_email_template').'</a>';
-		$links[] = '<a href="http://a3rev.com/shop/wp-email-template/#tab-reviews" target="_blank">'.__('Support', 'wp_email_template').'</a>';
+		$links[] = '<a href="http://a3rev.com/shop/wp-email-template/#help_tab" target="_blank">'.__('Support', 'wp_email_template').'</a>';
 		return $links;
+	}
+	
+	function settings_plugin_links($actions) {
+		$actions = array_merge( array( 'settings' => '<a href="options-general.php?page=email_template">' . __( 'Settings', 'wp_email_template' ) . '</a>' ), $actions );
+		
+		return $actions;
 	}
 }
 ?>

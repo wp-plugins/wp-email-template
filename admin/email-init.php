@@ -3,7 +3,7 @@
  * Call this function when plugin is activate
  */
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.2');
+	update_option('a3rev_wp_email_template_version', '1.0.2.1');
 	WP_Email_Template_Settings::set_settings_default(true);
 }
 
@@ -17,6 +17,9 @@ function wp_email_template_init() {
 }
 // Add language
 add_action('init', 'wp_email_template_init');
+
+// Add extra link on left of Deactivate link on Plugin manager page
+add_action('plugin_action_links_'.WP_EMAIL_TEMPLATE_NAME, array('WP_Email_Template_Hook_Filter', 'settings_plugin_links') );
 
 // Add text on right of Visit the plugin on Plugin manager page
 add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_extra_links'), 10, 2 );
@@ -46,5 +49,5 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	// Include script admin plugin
 	add_action('admin_head', array('WP_Email_Template_Hook_Filter', 'admin_head_scripts') );
 
-	update_option('a3rev_wp_email_template_version', '1.0.2');
+	update_option('a3rev_wp_email_template_version', '1.0.2.1');
 ?>
