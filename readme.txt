@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.0.2
+Stable tag: 1.0.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -53,7 +53,8 @@ WP Email Template requires no set up or configuration. As soon as you install an
 If you do a translation for your site please send it to us and we'll include it in the plugins language folder and credit you here with the translation and a link to your site.
 
 * English (default) - always included.
-* Russian - (wp_email_template-ru_RU.po) Thanks to Viktor Demidov
+* German - DE Thanks to Marko Geisler
+* Russian - RU Thanks to Viktor Demidov
 *.po file (wp_email_template.po) in languages folder for translations.
 * [Go here](http://a3rev.com/contact/) to send your translation files to us.
 
@@ -61,7 +62,7 @@ If you do a translation for your site please send it to us and we'll include it 
 
 [PRO Version](http://a3rev.com/shop/wp-email-template/) |
 [Documentation](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) |
-[Support](http://a3rev.com/shop/wp-email-template/#tab-reviews)
+[Support](http://a3rev.com/shop/wp-email-template/#help_tab)
 
 
 == Installation ==
@@ -111,9 +112,18 @@ The manual installation method involves down loading our plugin and uploading it
  
 == Support ==
 
-Support and access to this plugin documents are available from the [HELP tab](http://a3rev.com/shop/wp-email-template/#tab-reviews) on the Pro Versions Home page.
+Support and access to this plugin documents are available from the [HELP tab](http://a3rev.com/shop/wp-email-template/#help_tab) on the Pro Versions Home page.
 
 == Changelog ==
+
+= 1.0.2.1 - 2013/02/16 =
+
+* Tweak: Added a Settings link to the plugins wp-admin plugins dashboard listing and updated the Support URL
+
+* Tweak: Updated Support URL on the wordpress.org description
+
+* Localization: German Translation by Marko Geisler added to langauge folder
+
 
 = 1.0.2 - 2013/01/11 =
 
