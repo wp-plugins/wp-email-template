@@ -117,7 +117,7 @@ The manual installation method involves down loading our plugin and uploading it
 == Changelog ==
 
 
-= 1.0.5 - 2013/03/05 =
+= 1.0.3 - 2013/03/05 =
 * Feature: Updated all plugin code to be 100% compatible with new WooCommerce V2.0 with backwards compatibility..
 * Feature: (PRO Version feature) - Added the ability to deactivate the Email Template background pattern. (much requested feature).
 
