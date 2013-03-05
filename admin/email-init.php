@@ -3,7 +3,7 @@
  * Call this function when plugin is activate
  */
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.2.1');
+	update_option('a3rev_wp_email_template_version', '1.0.3');
 	WP_Email_Template_Settings::set_settings_default(true);
 }
 
@@ -43,11 +43,11 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	add_action('woocommerce_email_footer', array('WP_Email_Template_Hook_Filter', 'woo_email_footer_marker_end'), 100 );
 		
 	// Apply the email template to wp_mail of wordpress
-	add_filter('wp_mail_content_type', create_function('', 'return "text/html";'), 20);
+	add_filter('wp_mail_content_type', array('WP_Email_Template_Hook_Filter', 'set_content_type'), 20);
 	add_filter('wp_mail', array('WP_Email_Template_Hook_Filter', 'change_wp_mail'), 20);
 	
 	// Include script admin plugin
 	add_action('admin_head', array('WP_Email_Template_Hook_Filter', 'admin_head_scripts') );
 
-	update_option('a3rev_wp_email_template_version', '1.0.2.1');
+	update_option('a3rev_wp_email_template_version', '1.0.3');
 ?>

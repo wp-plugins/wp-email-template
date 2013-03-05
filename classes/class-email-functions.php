@@ -1,6 +1,6 @@
 <?php
 /**
- * Wordpress Email Template Functions
+ * WP Email Template Functions
  *
  * Table Of Contents
  *

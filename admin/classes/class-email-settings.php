@@ -1,6 +1,6 @@
 <?php
 /**
- * Wordpress Email Template Settings
+ * WP Email Template Settings
  *
  * Table Of Contents
  *
@@ -153,13 +153,24 @@ class WP_Email_Template_Settings {
                 <tr valign="top">
                     <th class="titledesc" scope="rpw"><label for="background_colour"><?php _e('Background colour','wp_email_template'); ?></label></th>
                     <td class="forminp">
-                    	<input type="text" class="colorpick" name="wp_email_template_settings[background_colour]" id="background_colour" value="<?php if(isset($wp_email_template_settings['background_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['background_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('The template background pattern colour. Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['background_colour']; ?></code></span>
+                    	<input type="text" class="colorpick" name="wp_email_template_settings[background_colour]" id="background_colour" value="<?php if(isset($wp_email_template_settings['background_colour'])) esc_attr_e( stripslashes($wp_email_template_settings['background_colour']) );?>" style="width:80px;" /> <span class="description"><?php _e('Email template background colour. Default', 'wp_email_template');?> <code><?php echo $wp_email_template_default_settings['background_colour']; ?></code></span>
             			<div id="colorPickerDiv_background_colour" class="colorpickdiv" style="z-index: 100;background:#eee;border:1px solid #ccc;position:absolute;display:none;"></div>
                     </td>
                	</tr>
 			</tbody>
 		</table>
         <div id="email_template_upgrade_area"><?php echo WP_Email_Template_Settings::email_template_upgrade_notice(); ?><div id="email_template_upgrade_inner">
+        <table cellspacing="0" class="form-table">
+			<tbody>
+                <tr valign="top">
+                    <th class="titledesc" scope="rpw"><label for="deactivate_pattern_background"><?php _e('Deactivate background Pattern','wp_email_template'); ?></label></th>
+                    <td class="forminp">
+                    	<input disabled="disabled" type="checkbox" name="wp_email_template_settings[deactivate_pattern_background]" id="deactivate_pattern_background" value="yes" /> 
+                    <span class="description"><?php _e("Check to deactivate template background pattern", 'wp_email_template'); ?></span>
+                    </td>
+               	</tr>
+			</tbody>
+		</table>
         <h3 style=""><?php _e('Email Header', 'wp_email_template'); ?></h3>
 		<table cellspacing="0" class="form-table">
 			<tbody>

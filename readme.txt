@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.0.2.1
+Stable tag: 1.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,16 +33,23 @@ WP Email Template works with every plugin we have tested it on.
 * Gravity Forms - see the screen shots - looks sensational with the default Gravity style.
 * Contact Form 7 - see the screenshots
 * WP e-Commerce - applies the template to every store generated email to customers and admins
-* WooCommerce - by default the plugin ignores WooCommerce email output - but you can choose to apply your Wordpress Email Template to Woocomerce emails.
+* WooCommerce - Version 2.0 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistant branding across your entire site.
 * WP Mail SMPT - WP Email Template does not interfere with the way any WordPress or any plugin handles email output - it just applies the template to any output content.
-* BackupBuddy - I love it when even my admin emails are branded - see the screenshots 
+* BackupBuddy - I love it when even my admin emails are branded - see the screenshots
+* Wordfence - Branded security emails - nice. 
 
 Please let us know if you find a plugin that WP Email Template does not apply your template to that plugins email output. 
+
+= Support =
+
+If you have any problem with setting up the Free lite version please post your support request here on the WordPress support forum. PLEASE if you have a problem DO NOT just give the plugin a bad star rating and review without first requesting support. Giving the plugin a bagging without affording us the opportunity to help solve the issue is in our opinion just not nice.
+
+Once you have the plugin installed and activated please refer to the [plugins comprehensive Online Documentation](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) and guide to setting up the WP Email Template plugin on your WordPress install. If you have questions - again please post them to the support forum here.
 
 
 = Pro Version =
 
-There is a Pro Version of this plugin with advanced styling functionality. See the plugins dashboard for details.
+When you install WP Email Template you will see on the admin panel all of the added styling options that upgrading to the PRO Version will activate. The plugin is designed so that upgrading is completely seamless. Nothing changes except all advanced styling options that you see on the Lite version inside the yellow border are activated. Many thousands of users find the Free version has all the features that they need and never upgrade. If you find you want the added styling functionality that you see on the plugins dashboard you can upgrade at any time, completely risk free.
 
 = Documentation =
 
@@ -62,8 +69,7 @@ If you do a translation for your site please send it to us and we'll include it 
 
 [PRO Version](http://a3rev.com/shop/wp-email-template/) |
 [Documentation](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) |
-[Support](http://a3rev.com/shop/wp-email-template/#help_tab)
-
+ 
 
 == Installation ==
 
@@ -108,39 +114,31 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Frequently Asked Questions ==
 
- 
- 
-== Support ==
-
-Support and access to this plugin documents are available from the [HELP tab](http://a3rev.com/shop/wp-email-template/#help_tab) on the Pro Versions Home page.
-
 == Changelog ==
 
+
+= 1.0.5 - 2013/03/05 =
+* Feature: Updated all plugin code to be 100% compatible with new WooCommerce V2.0 with backwards compatibility..
+* Feature: (PRO Version feature) - Added the ability to deactivate the Email Template background pattern. (much requested feature).
+
+
 = 1.0.2.1 - 2013/02/16 =
-
 * Tweak: Added a Settings link to the plugins wp-admin plugins dashboard listing and updated the Support URL
-
 * Tweak: Updated Support URL on the wordpress.org description
-
 * Localization: German Translation by Marko Geisler added to langauge folder
 
 
 = 1.0.2 - 2013/01/11 =
-
 <bold>Important bug fix! Please update now.</bold>
 
 * Fixed: WP Email Template apply to WooCommerce Email template when user had selected do not apply for that option.
-
 Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping us to locate and fix these bugs.
 
 
 = 1.0.1 - 2013/01/09 =
-
 * Tweak: Updated Support and Pro Version link URL's on wordpress.org description, plugins and plugins dashboard. Links were returning 404 errors since the launch of the all new a3rev.com mobile responsive site as the base e-commerce permalinks is changed.
-
 * Fixed: When user server does not support  file_get_contents function changes made to the template were not applying to the WooCommerce Email template. We had added a get file from get_stylesheet_directory_uri constant as a work around but had missed the () at the end of the function so it wasn't working
 
 
 = 1.0.0 - 2012/09/03 =
-
 * First Release.

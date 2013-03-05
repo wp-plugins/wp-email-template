@@ -10,6 +10,7 @@
  * woo_email_footer_marker_start()
  * woo_email_footer_marker_end()
  * preview_wp_email_template()
+ * set_content_type()
  * change_wp_mail()
  * admin_head_scripts()
  * admin_plugin_scripts()
@@ -98,6 +99,15 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		echo WP_Email_Template_Functions::email_content($email_heading, $message);
 		
 		die();
+	}
+	
+	function set_content_type($content_type='') {
+		if ( stristr( $content_type, 'multipart') !== false ) {
+			$content_type = 'multipart/alternative';
+		} else {
+			$content_type = 'text/html';
+		}
+		return $content_type;
 	}
 	
 	function change_wp_mail($email_data=array()) {
