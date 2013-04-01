@@ -122,7 +122,6 @@ The manual installation method involves down loading our plugin and uploading it
 * Feature: Added option to set Text link colour in email body. Previously this was auto set to be the same as the header background colour - but caused problems with links not visible when header background and email body background both use the same colour. <strong>( PRO version only)</strong>
 * Fixed: Max wide layout issues with template display in iPhone 5.
 * Fixed: Bug for users who have https: (SSL) on their sites wp-admin but have http on sites front end. This was causing the email template preview to show a -1 instead of the Template because wp-admin with SSL applied only allows https:, but the url of admin-ajax.php?action=preview_wp_email_template is http: and it is denied hence was returning the ajax -1 error. Fixed by writing a filter to recognize when https is configured on wp-admin and parsing correctly. If you do not have this configuration nothing changes for you, if you do have https on your wp-admin (or install it in the future) and http on the front end then Email Template Preview action now automatically detects that and works as it should.
-* Fixed: Max wide layout issues with template display in iPhone 5.
 * Tweak: Update the plugins wiki docs to show new admin style, image upload feature and colour link text colour options.
 
 
