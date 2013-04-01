@@ -21,9 +21,6 @@ class WP_Email_Template_Hook_Filter{
 	
 	function add_menu() {
 		$email_template_page = add_submenu_page( 'options-general.php',  __( 'Email Template', 'wp_email_template' ), __( 'Email Template', 'wp_email_template' ), 'manage_options', 'email_template', array('WP_Email_Template_Settings', 'display') );
-		
-		// Include script admin plugin
-		add_action('admin_footer', array('WP_Email_Template_Hook_Filter', 'admin_plugin_scripts') );
 	}
 	
 	function woo_email_header_marker_start($email_heading='') {
@@ -123,9 +120,17 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('farbtastic');
 		wp_enqueue_style('farbtastic');
+		WP_Email_Template_Uploader::uploader_js();
 	}
 	
 	function admin_plugin_scripts() {
+		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
+		wp_enqueue_script('jquery');
+		
+		wp_enqueue_style( 'a3rev-chosen-style', WP_EMAIL_TEMPLATE_JS_URL . '/chosen/chosen.css' );
+		wp_enqueue_script( 'chosen', WP_EMAIL_TEMPLATE_JS_URL . '/chosen/chosen.jquery'.$suffix.'.js', array(), false, true );
+		wp_enqueue_script( 'a3rev-chosen-script-init', WP_EMAIL_TEMPLATE_JS_URL.'/init-chosen.js', array(), false, true );
+		
 		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
 	?>
     <script type="text/javascript">
@@ -140,6 +145,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 						else if ( $(this).attr('id') == "background_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['background_colour']; ?>');
 						else if ( $(this).attr('id') == "content_background_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['content_background_colour']; ?>');
 						else if ( $(this).attr('id') == "content_text_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['content_text_colour']; ?>');
+						else if ( $(this).attr('id') == "content_link_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['content_link_colour']; ?>');
 						else if ( $(this).val() == "" ) $(this).val('#ffffff');
 						$('.colorpickdiv', $(this).parent() ).show();
 					});	

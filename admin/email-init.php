@@ -3,7 +3,7 @@
  * Call this function when plugin is activate
  */
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.3');
+	update_option('a3rev_wp_email_template_version', '1.0.4');
 	WP_Email_Template_Settings::set_settings_default(true);
 }
 
@@ -47,7 +47,17 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	add_filter('wp_mail', array('WP_Email_Template_Hook_Filter', 'change_wp_mail'), 20);
 	
 	// Include script admin plugin
-	add_action('admin_head', array('WP_Email_Template_Hook_Filter', 'admin_head_scripts') );
+	if (in_array(basename($_SERVER['PHP_SELF']), array('options-general.php')) && isset($_REQUEST['page']) && in_array($_REQUEST['page'], array('email_template'))) {
+		add_action('admin_head', array('WP_Email_Template_Hook_Filter', 'admin_head_scripts') );
+		add_action('admin_footer', array('WP_Email_Template_Hook_Filter', 'admin_plugin_scripts') );
+	}
+	
+	if(version_compare(get_option('a3rev_wp_email_template_version'), '1.0.4') === -1){
+		$wp_email_template_settings = get_option('wp_email_template_settings');
+		if (isset($wp_email_template_settings['header_image']))
+			update_option('wp_email_template_header_image', $wp_email_template_settings['header_image']);
+		update_option('a3rev_wp_email_template_version', '1.0.4');
+	}
 
-	update_option('a3rev_wp_email_template_version', '1.0.3');
+	update_option('a3rev_wp_email_template_version', '1.0.4');
 ?>

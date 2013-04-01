@@ -8,7 +8,8 @@
 			/* Client-specific/Reset Styles */
 			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" button. */
 			body{
-				width:100% !important; /* Force Hotmail to display emails at full width */
+				width:100%; /* Force Hotmail to display emails at full width */
+				min-width:700px !important;
 				-webkit-text-size-adjust:none; /* Prevent Webkit platforms from changing default text sizes. */
 				margin:0; 
 				padding:0;
@@ -70,12 +71,13 @@
 			}
 
 			.headerContent{
+				color: /*header_text_colour*/;
 				padding:24px;
 				vertical-align:middle;
 			}
 
 			.headerContent a:link, .headerContent a:visited{
-				color: /*content_background_colour*/;
+				color: /*header_text_colour*/;
 				font-weight:normal;
 				text-decoration:underline;
 			}
@@ -96,7 +98,7 @@
 			}
 
 			.bodyContent div a:link, .bodyContent div a:visited{
-				color: /*base_colour*/;
+				color: /*content_link_colour*/;
 				font-weight:normal;
 				text-decoration:underline;
 			}
@@ -121,7 +123,7 @@
 			}
 
 			.footerContent div a:link, .footerContent div a:visited{
-				color: #1686e0;
+				color: /*content_link_colour*/;
 				font-weight:normal;
 				text-decoration:underline;
 			}
@@ -137,18 +139,6 @@
 				font-size:12px;
 				line-height:125%;
 				text-align:center;
-			}
-			
-			@media only screen and (max-device-width: 480px) {
-				body {
-					font-size:smaller;
-				}
-				body .header_image {
-					max-width:320px !important;	
-				}
-				table[class=contenttable] { 
-					width:320px !important;
-				}
 			}
 		</style>
 	</head>

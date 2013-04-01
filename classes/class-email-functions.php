@@ -53,6 +53,7 @@ class WP_Email_Template_Functions{
 			'content_background_colour'					=> stripslashes($wp_email_template_default_settings['content_background_colour']),
 			'content_text_colour'						=> stripslashes($wp_email_template_default_settings['content_text_colour']),
 			'content_text_colour_lighter'				=> WP_Email_Template_Functions::hex_lighter(stripslashes($wp_email_template_default_settings['content_text_colour']), 20),
+			'content_link_colour'						=> stripslashes($wp_email_template_default_settings['content_link_colour']),
 			'content_font'								=> stripslashes($wp_email_template_default_settings['content_font']),
 			'content_text_size'							=> $content_text_size,
 			'content_text_style'						=> $content_text_style
@@ -129,6 +130,7 @@ class WP_Email_Template_Functions{
 			'content_background_colour'					=> stripslashes($wp_email_template_default_settings['content_background_colour']),
 			'content_text_colour'						=> stripslashes($wp_email_template_default_settings['content_text_colour']),
 			'content_text_colour_lighter'				=> WP_Email_Template_Functions::hex_lighter(stripslashes($wp_email_template_default_settings['content_text_colour']), 20),
+			'content_link_colour'						=> stripslashes($wp_email_template_default_settings['content_link_colour']),
 			'content_font'								=> stripslashes($wp_email_template_default_settings['content_font']),
 			'content_text_size'							=> $content_text_size,
 			'content_text_style'						=> $content_text_style,
