@@ -139,7 +139,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 				// Color picker
 				$('.colorpick').each(function(){
 					$('.colorpickdiv', $(this).parent()).farbtastic(this);
-					$(this).live('click',function() {
+					$(this).click(function() {
 						if ( $(this).attr('id') == "base_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['base_colour']; ?>');
 						else if ( $(this).attr('id') == "header_text_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['header_text_colour']; ?>');
 						else if ( $(this).attr('id') == "background_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['background_colour']; ?>');
