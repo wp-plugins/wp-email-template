@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
 Tested up to: 3.5
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,6 +16,20 @@ WP Email Template does just 2 things - beautifully
 1. Applies a responsive, customizable, optimized html email template to every email sent from your WordPress site including plugin generated emails.
 
 2. Easy to use visual editor allows you to customize the style and header, footer content of your WP Email Template to match your site. 
+
+= Browser Optimization =
+
+WP Email Template is optimized to show your HTML email template design perfectly in the10 most popular email browers.
+
+* Apple iOS Devices
+* MS Outlook 	
+* Hotmail
+* Apple Mail 	
+* Yahoo! Mail 	
+* Google Gmail
+* Android Devices 	
+* Windows Live Desktop 	
+* Mozilla Thunderbird
 
 = Your Brand =
 
@@ -116,6 +130,12 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.0.5 - 2013/04/16 =
+* Feature: Added when install and activate plugin link redirects to WP Email Template admin panel instead of the wp-plugins dashboard
+* Fix: Yahoo Mail does not support p tag - space between paragraphs. Coded in line CSS fix to auto add space between paragraphs for Yahoo Mail.  
+* Fix: Yahoo Mail auto removes body tag and hence would not show the background colour. Coded in-line CSS fix to force Yahoo Mail to show background colour. 
+* Fix: Updated all JavaScript functions so that the plugin is compatible with jQuery Version1.9 and backwards to version 1.6. WordPress still uses jQuery version 1.8.3. In themes that use Google js Library instead of the WordPress jQuery then there was trouble because Google uses the latest jQuery version 1.9. There are a number of functions in jQuery Version 1.9 that have been depreciated and hence this was causing errors with the jQuery function in the plugin.
+
 = 1.0.4 - 2013/04/01 =
 * Feature: Upgraded plugins admin to use Chosen script for dropdowns and options.
 * Feature: Replaced add template header image via URL with image uploader.
@@ -124,29 +144,28 @@ The manual installation method involves down loading our plugin and uploading it
 * Fixed: Bug for users who have https: (SSL) on their sites wp-admin but have http on sites front end. This was causing the email template preview to show a -1 instead of the Template because wp-admin with SSL applied only allows https:, but the url of admin-ajax.php?action=preview_wp_email_template is http: and it is denied hence was returning the ajax -1 error. Fixed by writing a filter to recognize when https is configured on wp-admin and parsing correctly. If you do not have this configuration nothing changes for you, if you do have https on your wp-admin (or install it in the future) and http on the front end then Email Template Preview action now automatically detects that and works as it should.
 * Tweak: Update the plugins wiki docs to show new admin style, image upload feature and colour link text colour options.
 
-
 = 1.0.3 - 2013/03/05 =
 * Feature: Updated all plugin code to be 100% compatible with new WooCommerce V2.0 with backwards compatibility..
 * Feature: (PRO Version feature) - Added the ability to deactivate the Email Template background pattern. (much requested feature).
-
 
 = 1.0.2.1 - 2013/02/16 =
 * Tweak: Added a Settings link to the plugins wp-admin plugins dashboard listing and updated the Support URL
 * Tweak: Updated Support URL on the wordpress.org description
 * Localization: German Translation by Marko Geisler added to langauge folder
 
-
 = 1.0.2 - 2013/01/11 =
-<bold>Important bug fix! Please update now.</bold>
-
 * Fixed: WP Email Template apply to WooCommerce Email template when user had selected do not apply for that option.
 Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping us to locate and fix these bugs.
-
 
 = 1.0.1 - 2013/01/09 =
 * Tweak: Updated Support and Pro Version link URL's on wordpress.org description, plugins and plugins dashboard. Links were returning 404 errors since the launch of the all new a3rev.com mobile responsive site as the base e-commerce permalinks is changed.
 * Fixed: When user server does not support  file_get_contents function changes made to the template were not applying to the WooCommerce Email template. We had added a get file from get_stylesheet_directory_uri constant as a work around but had missed the () at the end of the function so it wasn't working
 
-
 = 1.0.0 - 2012/09/03 =
 * First Release.
+
+
+== Upgrade Notice ==
+
+= 1.0.5 =
+Fix for paragraph spacing and background colour display in Yahoo Mail.

@@ -3,8 +3,10 @@
  * Call this function when plugin is activate
  */
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.4');
+	update_option('a3rev_wp_email_template_version', '1.0.5');
 	WP_Email_Template_Settings::set_settings_default(true);
+	
+	update_option('a3rev_wp_email_just_installed', true);
 }
 
 update_option('a3rev_wp_email_template_plugin', 'wp_email_template');
@@ -13,6 +15,11 @@ update_option('a3rev_wp_email_template_plugin', 'wp_email_template');
  * Load languages file
  */
 function wp_email_template_init() {
+	if ( get_option('a3rev_wp_email_just_installed') ) {
+		delete_option('a3rev_wp_email_just_installed');
+		wp_redirect( ( ( is_ssl() || force_ssl_admin() || force_ssl_login() ) ? str_replace( 'http:', 'https:', admin_url( 'options-general.php?page=email_template' ) ) : str_replace( 'https:', 'http:', admin_url( 'options-general.php?page=email_template' ) ) ) );
+		exit;
+	}
 	load_plugin_textdomain( 'wp_email_template', false, WP_EMAIL_TEMPLATE_FOLDER.'/languages' );
 }
 // Add language
@@ -59,5 +66,5 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 		update_option('a3rev_wp_email_template_version', '1.0.4');
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.0.4');
+	update_option('a3rev_wp_email_template_version', '1.0.5');
 ?>
