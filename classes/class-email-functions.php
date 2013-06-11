@@ -26,8 +26,9 @@ class WP_Email_Template_Functions{
 		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
 		
 		$header_image_html = '';
-		if (isset($wp_email_template_settings['header_image']) && trim(esc_attr($wp_email_template_settings['header_image'])) != '')
-			$header_image_html = '<p style="margin:0px 0 20px 0;"><img class="header_image" style="max-width:600px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes($wp_email_template_settings['header_image']) ) ).'"></p>';
+		$header_image = get_option('wp_email_template_header_image');
+		if ($header_image !== FALSE && trim($header_image) != '')
+			$header_image_html = '<p style="margin:0px 0 20px 0;"><img class="header_image" style="max-width:600px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes( $header_image ) ) ).'"></p>';
 		
 		$header_text_size = 'font-size:'.$wp_email_template_default_settings['header_text_size'].' !important; line-height:'.(intval($wp_email_template_default_settings['header_text_size'])+6).'px !important; ';
 		

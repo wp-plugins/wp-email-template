@@ -140,7 +140,7 @@ class WP_Email_Template_Settings {
 	<?php echo $message; ?>
 	<form action="options-general.php?page=email_template" method="post" name="email_template_form" id="email_template_form">
 		<h3><?php _e('Live Preview', 'wp_email_template'); ?></h3>
-        <p><?php _e('For a live preview of changes save them and then', 'wp_email_template'); ?> <a href="<?php echo ( ( is_ssl() || force_ssl_admin() || force_ssl_login() ) ? str_replace( 'http:', 'https:', admin_url( 'admin-ajax.php' ) ) : str_replace( 'https:', 'http:', admin_url( 'admin-ajax.php' ) ) ); ?>?action=preview_wp_email_template&security=<?php echo $preview_wp_email_template; ?>" target="_blank"><?php _e('Click here to preview your email template.', 'wp_email_template'); ?></a></p>
+        <p><?php _e('For a live preview of changes save them and then', 'wp_email_template'); ?> <a href="<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>?action=preview_wp_email_template&security=<?php echo $preview_wp_email_template; ?>" target="_blank"><?php _e('Click here to preview your email template.', 'wp_email_template'); ?></a></p>
         <h3><?php _e('Template Header', 'wp_email_template'); ?></h3>
 		<table cellspacing="0" class="form-table">
 			<tbody>

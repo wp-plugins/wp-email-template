@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
-Tested up to: 3.5
-Stable tag: 1.0.5
+Tested up to: 3.5.1
+Stable tag: 1.0.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -130,6 +130,10 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.0.6 - 2013/06/11 =
+* Fixed: Email template header image not showing in outbound email template and preview. Header image was uploading and showing correctly in the admin panel under upload input but not showing in template applied to outbound emails and preview.
+* Tweak: Updated support URL to the plugins wordpress.org support forum
+
 = 1.0.5 - 2013/04/16 =
 * Feature: Added when install and activate plugin link redirects to WP Email Template admin panel instead of the wp-plugins dashboard
 * Fix: Yahoo Mail does not support p tag - space between paragraphs. Coded in line CSS fix to auto add space between paragraphs for Yahoo Mail.  
@@ -166,6 +170,9 @@ Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping 
 
 
 == Upgrade Notice ==
+
+= 1.0.6 =
+Major header image bug fix. Please update now.
 
 = 1.0.5 =
 Fix for paragraph spacing and background colour display in Yahoo Mail.

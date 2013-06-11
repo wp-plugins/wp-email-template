@@ -3,7 +3,7 @@
  * Call this function when plugin is activate
  */
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.5');
+	update_option('a3rev_wp_email_template_version', '1.0.6');
 	WP_Email_Template_Settings::set_settings_default(true);
 	
 	update_option('a3rev_wp_email_just_installed', true);
@@ -66,5 +66,5 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 		update_option('a3rev_wp_email_template_version', '1.0.4');
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.0.5');
+	update_option('a3rev_wp_email_template_version', '1.0.6');
 ?>
