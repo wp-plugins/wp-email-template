@@ -16,9 +16,10 @@
  * hex_lighter()
  * light_or_dark()
  */
-class WP_Email_Template_Functions{
+class WP_Email_Template_Functions
+{
 	
-	function replace_shortcode_header ($template_html='', $email_heading='') {
+	public static function replace_shortcode_header ($template_html='', $email_heading='') {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -68,7 +69,7 @@ class WP_Email_Template_Functions{
 		return $template_html;
 	}
 	
-	function replace_shortcode_footer ($template_html='') {
+	public static function replace_shortcode_footer ($template_html='') {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -146,7 +147,7 @@ class WP_Email_Template_Functions{
 		return $template_html;
 	}
 	
-	function email_header($email_heading='') {
+	public static function email_header($email_heading='') {
 		$file 	= 'email_header.html';
 		if (file_exists(STYLESHEETPATH . '/'. $file)) {
 			// $header_template_path = get_stylesheet_directory() . '/emails/'. $file; 
@@ -172,7 +173,7 @@ class WP_Email_Template_Functions{
 		return $template_html;
 	}
 	
-	function email_footer() {
+	public static function email_footer() {
 		$file 	= 'email_footer.html';
 		
 		if (file_exists(STYLESHEETPATH . '/'. $file)) {
@@ -198,7 +199,7 @@ class WP_Email_Template_Functions{
 		return $template_html;
 	}
 	
-	function email_content($email_heading='', $message='') {
+	public static function email_content($email_heading='', $message='') {
 		$html = '';
 		if (stristr($message, '<!--NO_USE_EMAIL_TEMPLATE-->') === false )
 			$html .= WP_Email_Template_Functions::email_header($email_heading);
@@ -211,7 +212,7 @@ class WP_Email_Template_Functions{
 		return $html;
 	}
 	
-	function apply_email_template_notice($message='') {
+	public static function apply_email_template_notice($message='') {
 		$message_html = '';	
 		if ( trim($message) != '') {
 			$message_html = '<div style="position:fixed; width: 79%; margin:0 10%; top: 10px; padding:5px 10px; border:1px solid #E6DB55; background:#FFFFE0; font-size:15px; line-height:20px;">'.$message.'</div>';	
@@ -220,7 +221,7 @@ class WP_Email_Template_Functions{
 		return $message_html;
 	}
 		
-	function send($to, $subject, $message, $headers = "Content-Type: text/html\r\n", $attachments = "") {
+	public static function send($to, $subject, $message, $headers = "Content-Type: text/html\r\n", $attachments = "") {
 		ob_start();
 			
 		wp_mail( $to, $subject, $message, $headers, $attachments );
@@ -231,7 +232,7 @@ class WP_Email_Template_Functions{
 	/**
 	 * Hex darker/lighter/contrast functions for colours
 	 **/
-	function rgb_from_hex( $color ) {
+	public static function rgb_from_hex( $color ) {
 		$color = str_replace( '#', '', $color );
 		// Convert shorthand colors to full format, e.g. "FFF" -> "FFFFFF"
 		$color = preg_replace( '~^(.)(.)(.)$~', '$1$1$2$2$3$3', $color );
@@ -242,7 +243,7 @@ class WP_Email_Template_Functions{
 		return $rgb;
 	}
 	
-	function hex_darker( $color, $factor = 30 ) {
+	public static function hex_darker( $color, $factor = 30 ) {
 		$base = WP_Email_Template_Functions::rgb_from_hex( $color );
 		$color = '#';
 
@@ -261,7 +262,7 @@ class WP_Email_Template_Functions{
 		return $color;        
 	}
 	
-	function hex_lighter( $color, $factor = 30 ) {
+	public static function hex_lighter( $color, $factor = 30 ) {
 		$base = WP_Email_Template_Functions::rgb_from_hex( $color );
 		$color = '#';
 
@@ -284,7 +285,7 @@ class WP_Email_Template_Functions{
 	/**
 	 * Detect if we should use a light or dark colour on a background colour
 	 **/
-	function light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) {
+	public static function light_or_dark( $color, $dark = '#000000', $light = '#FFFFFF' ) {
 	    //return ( hexdec( $color ) > 0xffffff / 2 ) ? $dark : $light;
 	    $hex = str_replace( '#', '', $color );
 

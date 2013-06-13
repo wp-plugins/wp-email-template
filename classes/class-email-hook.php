@@ -17,13 +17,14 @@
  * plugin_extra_links()
  * settings_plugin_links()
  */
-class WP_Email_Template_Hook_Filter{
+class WP_Email_Template_Hook_Filter
+{
 	
-	function add_menu() {
+	public static function add_menu() {
 		$email_template_page = add_submenu_page( 'options-general.php',  __( 'Email Template', 'wp_email_template' ), __( 'Email Template', 'wp_email_template' ), 'manage_options', 'email_template', array('WP_Email_Template_Settings', 'display') );
 	}
 	
-	function woo_email_header_marker_start($email_heading='') {
+	public static function woo_email_header_marker_start($email_heading='') {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -35,7 +36,7 @@ class WP_Email_Template_Hook_Filter{
 		}
 	}
 	
-	function woo_email_header_marker_end($email_heading='') {
+	public static function woo_email_header_marker_end($email_heading='') {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -56,7 +57,7 @@ class WP_Email_Template_Hook_Filter{
 		}
 	}
 	
-	function woo_email_footer_marker_start() {
+	public static function woo_email_footer_marker_start() {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -68,7 +69,7 @@ class WP_Email_Template_Hook_Filter{
 		}
 	}
 	
-	function woo_email_footer_marker_end() {
+	public static function woo_email_footer_marker_end() {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -82,7 +83,7 @@ class WP_Email_Template_Hook_Filter{
 		echo '<!--NO_USE_EMAIL_TEMPLATE-->';
 	}
 	
-	function preview_wp_email_template() {
+	public static function preview_wp_email_template() {
 		check_ajax_referer( 'preview_wp_email_template', 'security' );
 		
 		$email_heading = __('Email preview', 'wp_email_template');
@@ -98,7 +99,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		die();
 	}
 	
-	function set_content_type($content_type='') {
+	public static function set_content_type($content_type='') {
 		if ( stristr( $content_type, 'multipart') !== false ) {
 			$content_type = 'multipart/alternative';
 		} else {
@@ -107,7 +108,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		return $content_type;
 	}
 	
-	function change_wp_mail($email_data=array()) {
+	public static function change_wp_mail($email_data=array()) {
 		$email_heading = $email_data['subject'] ;
 		if (stristr($email_data['message'], '<!--NO_USE_EMAIL_TEMPLATE-->') === false ) {
 			$email_data['message'] = WP_Email_Template_Functions::email_content($email_heading, $email_data['message']);
@@ -116,14 +117,14 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		return $email_data;
 	}
 		
-	function admin_head_scripts() {
+	public static function admin_head_scripts() {
 		wp_enqueue_script('jquery');
 		wp_enqueue_script('farbtastic');
 		wp_enqueue_style('farbtastic');
 		WP_Email_Template_Uploader::uploader_js();
 	}
 	
-	function admin_plugin_scripts() {
+	public static function admin_plugin_scripts() {
 		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
 		wp_enqueue_script('jquery');
 		
@@ -159,7 +160,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
     <?php
 	}
 	
-	function plugin_extra_links($links, $plugin_name) {
+	public static function plugin_extra_links($links, $plugin_name) {
 		if ( $plugin_name != WP_EMAIL_TEMPLATE_NAME) {
 			return $links;
 		}
@@ -168,7 +169,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		return $links;
 	}
 	
-	function settings_plugin_links($actions) {
+	public static function settings_plugin_links($actions) {
 		$actions = array_merge( array( 'settings' => '<a href="options-general.php?page=email_template">' . __( 'Settings', 'wp_email_template' ) . '</a>' ), $actions );
 		
 		return $actions;

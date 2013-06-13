@@ -10,9 +10,10 @@
  * get_variation_name()
  * get_product_url()
  */
-class WP_Email_Template_Uploader {
+class WP_Email_Template_Uploader 
+{
 	
-	function uploader_init () {
+	public static function uploader_init () {
 		register_post_type( 'wp_email_images', array(
 			'labels' => array(
 				'name' => __( 'WP Email Template Internal Container', 'wp_email_template' ),
@@ -29,7 +30,7 @@ class WP_Email_Template_Uploader {
 		) );
 	}
 	
-	function get_silentpost ( $option_key='' ) {
+	public static function get_silentpost ( $option_key='' ) {
 		global $wpdb;
 		$post_id = 1;
 		if ( $option_key != '' ) {
@@ -55,7 +56,7 @@ class WP_Email_Template_Uploader {
 		return $post_id;
 	}
 	
-	function upload_input ( $option_key, $option_name='', $default_value='', $help_text='', $input_wide='300px',$post_id=0 ) {
+	public static function upload_input ( $option_key, $option_name='', $default_value='', $help_text='', $input_wide='300px',$post_id=0 ) {
 		$output = '';
 		$value = '';
 		
@@ -102,7 +103,7 @@ class WP_Email_Template_Uploader {
 		return $output;
 	}
 	
-	function change_button_text( $translation, $original ) {
+	public static function change_button_text( $translation, $original ) {
 	    if ( isset( $_REQUEST['type'] ) ) { return $translation; }
 	    
 	    if ( $original == 'Insert into Post' ) {
@@ -113,18 +114,18 @@ class WP_Email_Template_Uploader {
 	    return $translation;
 	}
 	
-	function modify_tabs ( $tabs ) {
+	public static function modify_tabs ( $tabs ) {
 		if ( isset( $tabs['gallery'] ) ) { $tabs['gallery'] = str_replace( 'Gallery', __( 'Previously Uploaded', 'wp_email_template' ), $tabs['gallery'] ); }
 		return $tabs;
 	}
 	
-	function inside_popup () {
+	public static function inside_popup () {
 		if ( isset( $_REQUEST['a3_uploader'] ) && $_REQUEST['a3_uploader'] == 'yes' ) {
 			add_filter( 'media_upload_tabs', array('WP_Email_Template_Uploader', 'modify_tabs') );
 		}
 	}
 	
-	function uploader_js () {
+	public static function uploader_js () {
 		wp_enqueue_style( 'thickbox' );
 		wp_enqueue_script( 'thickbox' );
 		wp_enqueue_style( 'a3-uploader-style', WP_EMAIL_TEMPLATE_URL . '/uploader/uploader.css' );

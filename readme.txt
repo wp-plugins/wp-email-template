@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
 Tested up to: 3.5.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -130,6 +130,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.0.7 - 2013/06/13 =
+* Tweak: Added PHP Public Static to functions in Class. Done so that Public Static warnings don't show in DE_BUG mode.
+
 = 1.0.6 - 2013/06/11 =
 * Fixed: Email template header image not showing in outbound email template and preview. Header image was uploading and showing correctly in the admin panel under upload input but not showing in template applied to outbound emails and preview.
 * Tweak: Updated support URL to the plugins wordpress.org support forum
@@ -170,6 +173,9 @@ Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping 
 
 
 == Upgrade Notice ==
+
+= 1.0.7 =
+Fix for PHP Public Static warnings in DE_BUG mode.
 
 = 1.0.6 =
 Major header image bug fix. Please update now.

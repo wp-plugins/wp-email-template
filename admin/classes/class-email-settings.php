@@ -8,7 +8,8 @@
  * set_settings_default()
  * display()
  */
-class WP_Email_Template_Settings {
+class WP_Email_Template_Settings
+{
 	
 	public static $fonts = array( 
 					'Arial, sans-serif' => 'Arial',
@@ -30,7 +31,7 @@ class WP_Email_Template_Settings {
 					'Century Gothic, sans-serif'		=> 'Century Gothic'
 					);
 	
-	function get_settings_default() {
+	public static function get_settings_default() {
 		$wp_email_template_default_settings = array(
 			'apply_for_woo_emails'		=> '',
 			'email_footer' 				=> get_bloginfo('name').' Email Template powered by <a style="color:#1686e0" href="http://www.a3rev.com/" target="_blank" title="A3 Revolution">A3 Revolution</a> software team.',
@@ -62,7 +63,7 @@ class WP_Email_Template_Settings {
 		return $wp_email_template_default_settings;
 	}
 	
-	function set_settings_default($reset=false) {
+	public static function set_settings_default($reset=false) {
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
@@ -78,7 +79,7 @@ class WP_Email_Template_Settings {
 				
 	}
 	
-	function display() {
+	public static function display() {
 		$message = '';
 		if (isset($_REQUEST['bt_save_settings'])) {
 			update_option('wp_email_template_header_image', $_REQUEST['wp_email_template_header_image']);
@@ -389,7 +390,7 @@ class WP_Email_Template_Settings {
 		<?php
 	}
 	
-	function email_template_upgrade_notice() {
+	public static function email_template_upgrade_notice() {
 		$html = '';
 		$html .= '<div id="email_template_upgrade_notice">';
 		$html .= '<a href="http://a3rev.com/shop/" target="_blank" style="float:right;margin-top:5px; margin-left:10px;" ><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/a3logo.png" /></a>';
