@@ -146,7 +146,7 @@ The manual installation method involves down loading our plugin and uploading it
 == Changelog ==
 
 = 1.0.8 - 2013/10/04 =
-* Features:
+* Features :
 	* Upgraded the plugin to the newly developed a3rev admin panel app interface.
 	* Admin Panel now has 3 tabs with setting broken up into - General, Style and Social Media.
 	* New admin UI features check boxes replaced by switches.
@@ -155,10 +155,10 @@ The manual installation method involves down loading our plugin and uploading it
 	* New Font Editor has instant preview feature. (Pro Version feature)
 	* Upload Custom Social Media icons feature added.(Pro Version feature)
 	* Added House keeping function. On deletion set if you want the plugin to 'Clean Up After Itself' leaving not trace it was ever installed.
-* Tweaks:
+* Tweaks :
 	* Compatibility with WordPress 3.6.0 done when released. Checked again with WP 3.6.1
 	* Ran full WP_DEBUG All Uncaught exceptions errors and warnings fixed.
-* Fixed:
+* Fixed :
 	* Plugins admin script and style not loading in Firefox with SSL on admin. Stripped http// and https// protocols so browser will use the protocol that the page was loaded with.
 
 = 1.0.7 - 2013/06/13 =
