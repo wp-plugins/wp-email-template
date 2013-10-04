@@ -4,7 +4,6 @@
  *
  * Table Of Contents
  *
- * add_menu()
  * woo_email_header_marker_start()
  * woo_email_header_marker_end()
  * woo_email_footer_marker_start()
@@ -12,37 +11,25 @@
  * preview_wp_email_template()
  * set_content_type()
  * change_wp_mail()
- * admin_head_scripts()
- * admin_plugin_scripts()
  * plugin_extra_links()
  * settings_plugin_links()
  */
 class WP_Email_Template_Hook_Filter
 {
-	
-	public static function add_menu() {
-		$email_template_page = add_submenu_page( 'options-general.php',  __( 'Email Template', 'wp_email_template' ), __( 'Email Template', 'wp_email_template' ), 'manage_options', 'email_template', array('WP_Email_Template_Settings', 'display') );
-	}
-	
-	public static function woo_email_header_marker_start($email_heading='') {
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
 		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
-		if (isset($wp_email_template_settings['apply_for_woo_emails']) && trim(esc_attr($wp_email_template_settings['apply_for_woo_emails'])) == 'yes') {
+	public static function woo_email_header_marker_start($email_heading='') {
+		global $wp_email_template_general;
+		
+		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
 			ob_start();
 			echo '<!--WOO_EMAIL_TEMPLATE_HEADER_START-->';
 		}
 	}
 	
 	public static function woo_email_header_marker_end($email_heading='') {
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
+		global $wp_email_template_general;
 		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
-		if (isset($wp_email_template_settings['apply_for_woo_emails']) && trim(esc_attr($wp_email_template_settings['apply_for_woo_emails'])) == 'yes') {
+		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
 			echo '<!--WOO_EMAIL_TEMPLATE_HEADER_END-->';
 			ob_get_clean();
 			$header = WP_Email_Template_Functions::email_header($email_heading);
@@ -58,24 +45,18 @@ class WP_Email_Template_Hook_Filter
 	}
 	
 	public static function woo_email_footer_marker_start() {
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
+		global $wp_email_template_general;
 		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
-		if (isset($wp_email_template_settings['apply_for_woo_emails']) && trim(esc_attr($wp_email_template_settings['apply_for_woo_emails'])) == 'yes') {
+		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
 			ob_start();
 			echo '<!--WOO_EMAIL_TEMPLATE_FOOTER_START-->';
 		}
 	}
 	
 	public static function woo_email_footer_marker_end() {
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
+		global $wp_email_template_general;
 		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
-		if (isset($wp_email_template_settings['apply_for_woo_emails']) && trim(esc_attr($wp_email_template_settings['apply_for_woo_emails'])) == 'yes') {
+		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
 			echo '<!--WOO_EMAIL_TEMPLATE_FOOTER_END-->';
 			ob_get_clean();
 			echo WP_Email_Template_Functions::email_footer();
@@ -116,50 +97,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		
 		return $email_data;
 	}
-		
-	public static function admin_head_scripts() {
-		wp_enqueue_script('jquery');
-		wp_enqueue_script('farbtastic');
-		wp_enqueue_style('farbtastic');
-		WP_Email_Template_Uploader::uploader_js();
-	}
-	
-	public static function admin_plugin_scripts() {
-		$suffix = defined('SCRIPT_DEBUG') && SCRIPT_DEBUG ? '' : '.min';
-		wp_enqueue_script('jquery');
-		
-		wp_enqueue_style( 'a3rev-chosen-style', WP_EMAIL_TEMPLATE_JS_URL . '/chosen/chosen.css' );
-		wp_enqueue_script( 'chosen', WP_EMAIL_TEMPLATE_JS_URL . '/chosen/chosen.jquery'.$suffix.'.js', array(), false, true );
-		wp_enqueue_script( 'a3rev-chosen-script-init', WP_EMAIL_TEMPLATE_JS_URL.'/init-chosen.js', array(), false, true );
-		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-	?>
-    <script type="text/javascript">
-		(function($){		
-			$(function(){	
-				// Color picker
-				$('.colorpick').each(function(){
-					$('.colorpickdiv', $(this).parent()).farbtastic(this);
-					$(this).click(function() {
-						if ( $(this).attr('id') == "base_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['base_colour']; ?>');
-						else if ( $(this).attr('id') == "header_text_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['header_text_colour']; ?>');
-						else if ( $(this).attr('id') == "background_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['background_colour']; ?>');
-						else if ( $(this).attr('id') == "content_background_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['content_background_colour']; ?>');
-						else if ( $(this).attr('id') == "content_text_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['content_text_colour']; ?>');
-						else if ( $(this).attr('id') == "content_link_colour" && $(this).val() == "" ) $(this).val('<?php echo $wp_email_template_default_settings['content_link_colour']; ?>');
-						else if ( $(this).val() == "" ) $(this).val('#ffffff');
-						$('.colorpickdiv', $(this).parent() ).show();
-					});	
-				});
-				$(document).mousedown(function(){
-					$('.colorpickdiv').hide();
-				});
-			});		  
-		})(jQuery);
-	</script>
-    <?php
-	}
-	
+				
 	public static function plugin_extra_links($links, $plugin_name) {
 		if ( $plugin_name != WP_EMAIL_TEMPLATE_NAME) {
 			return $links;
@@ -173,6 +111,51 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		$actions = array_merge( array( 'settings' => '<a href="options-general.php?page=email_template">' . __( 'Settings', 'wp_email_template' ) . '</a>' ), $actions );
 		
 		return $actions;
+	}
+	
+	public static function plugin_extension_start() {
+		global $wp_email_template_admin_init;
+		
+		$wp_email_template_admin_init->plugin_extension_start();
+	}
+	
+	public static function plugin_extension_end() {
+		global $wp_email_template_admin_init;
+		
+		$wp_email_template_admin_init->plugin_extension_end();
+	}
+	
+	public static function plugin_extension() {
+		$html = '';
+		$html .= '<a href="http://a3rev.com/shop/" target="_blank" style="float:right;margin-top:5px; margin-left:10px;" ><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/a3logo.png" /></a>';
+		$html .= '<h3>'.__('Upgrade to WP Email Template Pro', 'wp_email_template').'</h3>';
+		$html .= '<p>'.__("<strong>NOTE:</strong> All the functions inside the Yellow border on the plugins admin panel are extra functionality that is activated by upgrading to the Pro version", 'wp_email_template').':</p>';
+		$html .= '<p>';
+		$html .= '<h3 style="margin-bottom:5px;">'.__('WP Email Template Pro', 'wp_email_template').'</h3>';
+		$html .= '<div><strong>'.__('Features', 'wp_email_template').':</strong></div>';
+		$html .= '<p>';
+		$html .= '<ul style="padding-left:10px;">';
+		$html .= '<li>1. '.__("Create a fully customized responsive email template in not days but just minutes.", 'wp_email_template').'</li>';
+		$html .= '<li>2. '.__("Web Developers - wow your web clients with an email template that matches their site.", 'wp_email_template').'</li>';
+		$html .= '<li>3. '.__('Site owners (even complete novices) with the Pro Version it will take you just a few minutes to be wowing your users with your uniquely styled and branded emails that they get from your site.', 'wp_email_template').'</li>';
+		$html .= '<li>4. '.__('Once only small Lifetime Pro License Fee - no ongoing payments.', 'wp_email_template').'</li>';
+		$html .= '<li>5. '.__('Lifetime Pro License support not by support staff but by the developers themselves.', 'wp_email_template').'</li>';
+		$html .= '</ul>';
+		$html .= '</p>';
+		$html .= '<h3>'.__('Get your', 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__('Pro License Here', 'wp_email_template').'</a></h3>';
+		$html .= '<h3>'.__('View this plugins', 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_DOCS_URI.'" target="_blank">'.__('documentation', 'wp_email_template').'</a></h3>';
+		$html .= '<h3>'.__('Visit this plugins', 'wp_email_template').' <a href="http://wordpress.org/support/plugin/wp-email-template/" target="_blank">'.__('support forum', 'wp_email_template').'</a></h3>';
+		$html .= '<p>'.__("<strong>NOTE:</strong> The support link above is for Free Lite Version users. It goes to the WordPress Support forum. We do not watch that forum and posting there you will be relying on another user for support not an a3rev team member. Pro Version Licence holders have access to the a3rev support forum and Lifetime priority support.", 'wp_email_template').'</p>';
+		
+		$html .= '<h3>'.__('Other FREE a3rev WordPress Plugins', 'wp_email_template').'</h3>';
+		$html .= '<p>';
+		$html .= '<ul style="padding-left:10px;">';
+		$html .= '<li>* <a href="http://wordpress.org/plugins/contact-us-page-contact-people/" target="_blank">'.__('Contact Us page - Contact People', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/page-views-count/" target="_blank">'.__('Page View Count', 'wp_email_template').'</a></li>';
+		$html .= '</ul>';
+		$html .= '</p>';
+		$html .= '<p>'.__("View all", 'wp_email_template').' <a href="http://profiles.wordpress.org/a3rev/" target="_blank">'.__("16 a3rev plugins", 'wp_email_template').'</a> '.__('on the WordPress repository', 'wp_email_template').'</p>';
+		return $html;
 	}
 }
 ?>

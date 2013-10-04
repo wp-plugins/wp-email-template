@@ -13,6 +13,8 @@
 	background:url(delete.png) no-repeat center center #EEEEEE;
 	border: 1px solid #DDDDDD;
     border-radius: 2px 2px 2px 2px;
+	-webkit-border-radius: 2px 2px 2px 2px;
+	-moz-border-radius: 2px 2px 2px 2px;
     cursor: pointer;
     height: 10px;
     padding: 2px;
@@ -20,7 +22,7 @@
     right: -10px;
     top: -10px;
     width: 10px;
-	text-indent: -9999px;
+	text-decoration:none !important;
 }
 .a3_uploader_image {
 	border:none;
@@ -28,4 +30,5 @@
 	padding:0;
 	margin:0;
 	float:left;
+	max-width:225px;
 }

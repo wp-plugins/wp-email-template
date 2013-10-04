@@ -1,11 +1,11 @@
 <?php
-/**
- * Call this function when plugin is activate
- */
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.7');
-	WP_Email_Template_Settings::set_settings_default(true);
+	update_option('a3rev_wp_email_template_version', '1.0.8');
 	
+	// Set Settings Default from Admin Init
+	global $wp_email_template_admin_init;
+	$wp_email_template_admin_init->set_default_settings();
+		
 	update_option('a3rev_wp_email_just_installed', true);
 }
 
@@ -17,7 +17,7 @@ update_option('a3rev_wp_email_template_plugin', 'wp_email_template');
 function wp_email_template_init() {
 	if ( get_option('a3rev_wp_email_just_installed') ) {
 		delete_option('a3rev_wp_email_just_installed');
-		wp_redirect( ( ( is_ssl() || force_ssl_admin() || force_ssl_login() ) ? str_replace( 'http:', 'https:', admin_url( 'options-general.php?page=email_template' ) ) : str_replace( 'https:', 'http:', admin_url( 'options-general.php?page=email_template' ) ) ) );
+		wp_redirect( admin_url( 'options-general.php?page=email_template', 'relative' ) );
 		exit;
 	}
 	load_plugin_textdomain( 'wp_email_template', false, WP_EMAIL_TEMPLATE_FOLDER.'/languages' );
@@ -30,10 +30,23 @@ add_action('plugin_action_links_'.WP_EMAIL_TEMPLATE_NAME, array('WP_Email_Templa
 
 // Add text on right of Visit the plugin on Plugin manager page
 add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_extra_links'), 10, 2 );
-		
-	// Add Admin Menu
-	add_action('admin_menu', array('WP_Email_Template_Hook_Filter', 'add_menu' ), 11);
+
 	
+	// Need to call Admin Init to show Admin UI
+	global $wp_email_template_admin_init;
+	$wp_email_template_admin_init->init();
+	
+	// Add upgrade notice to Dashboard pages
+	add_filter( $wp_email_template_admin_init->plugin_name . '_plugin_extension', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension' ) );
+		
+	$admin_pages = $wp_email_template_admin_init->admin_pages();
+	if ( is_array( $admin_pages ) && count( $admin_pages ) > 0 ) {
+		foreach ( $admin_pages as $admin_page ) {
+			add_action( $wp_email_template_admin_init->plugin_name . '-' . $admin_page . '_tab_start', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension_start' ) );
+			add_action( $wp_email_template_admin_init->plugin_name . '-' . $admin_page . '_tab_end', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension_end' ) );
+		}
+	}
+				
 	add_action('wp_ajax_preview_wp_email_template', array('WP_Email_Template_Hook_Filter', 'preview_wp_email_template') );
 	add_action('wp_ajax_nopriv_preview_wp_email_template', array('WP_Email_Template_Hook_Filter', 'preview_wp_email_template') );
 		
@@ -53,18 +66,62 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	add_filter('wp_mail_content_type', array('WP_Email_Template_Hook_Filter', 'set_content_type'), 20);
 	add_filter('wp_mail', array('WP_Email_Template_Hook_Filter', 'change_wp_mail'), 20);
 	
-	// Include script admin plugin
-	if (in_array(basename($_SERVER['PHP_SELF']), array('options-general.php')) && isset($_REQUEST['page']) && in_array($_REQUEST['page'], array('email_template'))) {
-		add_action('admin_head', array('WP_Email_Template_Hook_Filter', 'admin_head_scripts') );
-		add_action('admin_footer', array('WP_Email_Template_Hook_Filter', 'admin_plugin_scripts') );
-	}
-	
 	if(version_compare(get_option('a3rev_wp_email_template_version'), '1.0.4') === -1){
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if (isset($wp_email_template_settings['header_image']))
 			update_option('wp_email_template_header_image', $wp_email_template_settings['header_image']);
 		update_option('a3rev_wp_email_template_version', '1.0.4');
 	}
+	
+	//Upgrade to version 1.0.8
+	if ( version_compare( get_option( 'a3rev_wp_email_template_version'), '1.0.8' ) === -1 ) {
+		$wp_email_template_settings = get_option( 'wp_email_template_settings' );
+		
+		$wp_email_template_general = array(
+			'header_image'					=> get_option('wp_email_template_header_image', '' ),
+			'background_colour'				=> $wp_email_template_settings['background_colour'],
+			'deactivate_pattern_background'	=> $wp_email_template_settings['deactivate_pattern_background'],
+			'apply_for_woo_emails'			=> $wp_email_template_settings['apply_for_woo_emails'],
+			'show_plugin_url'				=> $wp_email_template_settings['show_plugin_url'],
+		);
+		update_option( 'wp_email_template_general', $wp_email_template_general );
+		
+		$wp_email_template_style = array(
+			'base_colour'					=> $wp_email_template_settings['base_colour'],
+			'header_font'					=> array(
+					'size'		=> $wp_email_template_settings['header_text_size'],
+					'face'		=> $wp_email_template_settings['header_font'],
+					'style'		=> $wp_email_template_settings['header_text_style'],
+					'color'		=> $wp_email_template_settings['header_text_colour'],
+				),
+			'content_background_colour'		=> $wp_email_template_settings['content_background_colour'],
+			'content_font'					=> array(
+					'size'		=> $wp_email_template_settings['content_text_size'],
+					'face'		=> $wp_email_template_settings['content_font'],
+					'style'		=> $wp_email_template_settings['content_text_style'],
+					'color'		=> $wp_email_template_settings['content_text_colour'],
+				),
+			'content_link_colour'			=> $wp_email_template_settings['content_link_colour'],
+			'email_footer'					=> $wp_email_template_settings['email_footer'],
+		);
+		update_option( 'wp_email_template_style', $wp_email_template_style );
+		
+		$wp_email_template_social_media = array(
+			'email_facebook'				=> $wp_email_template_settings['email_facebook'],
+			'email_twitter'					=> $wp_email_template_settings['email_twitter'],
+			'email_linkedIn'				=> $wp_email_template_settings['email_linkedIn'],
+			'email_pinterest'				=> $wp_email_template_settings['email_pinterest'],
+			'email_googleplus'				=> $wp_email_template_settings['email_googleplus'],
+			'facebook_icon'					=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png',
+			'twitter_icon'					=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png',
+			'linkedIn_icon'					=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png',
+			'pinterest_icon'				=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png',
+			'googleplus_icon'				=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png',
+		);
+		update_option( 'wp_email_template_social_media', $wp_email_template_social_media );
+			
+		update_option( 'a3rev_wp_email_template_version', '1.0.8' );
+	}
 
-	update_option('a3rev_wp_email_template_version', '1.0.7');
+	update_option( 'a3rev_wp_email_template_version', '1.0.8' );
 ?>

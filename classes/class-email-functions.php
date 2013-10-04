@@ -20,43 +20,39 @@ class WP_Email_Template_Functions
 {
 	
 	public static function replace_shortcode_header ($template_html='', $email_heading='') {
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
-		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
+		global $wp_email_template_general;
 		
 		$header_image_html = '';
-		$header_image = get_option('wp_email_template_header_image');
+		$header_image = $wp_email_template_general['header_image'];
 		if ($header_image !== FALSE && trim($header_image) != '')
 			$header_image_html = '<p style="margin:0px 0 20px 0;"><img class="header_image" style="max-width:600px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes( $header_image ) ) ).'"></p>';
 		
-		$header_text_size = 'font-size:'.$wp_email_template_default_settings['header_text_size'].' !important; line-height:'.(intval($wp_email_template_default_settings['header_text_size'])+6).'px !important; ';
+		$header_text_size = 'font-size:28px !important; line-height:34px !important; ';
 		
-		$header_text_style = 'font-style:'.$wp_email_template_default_settings['header_text_style'].' !important; ';
+		$header_text_style = 'font-weight:normal !important; font-style:normal !important; ';
 		
-		$content_text_size = 'font-size:'.$wp_email_template_default_settings['content_text_size'].' !important; line-height:'.(intval($wp_email_template_default_settings['content_text_size'])+6).'px !important; ';
+		$content_text_size = 'font-size:13px !important; line-height:19px !important; ';
 		
-		$content_text_style = 'font-style:'.$wp_email_template_default_settings['content_text_style'].' !important; ';
+		$content_text_style = 'font-weight:normal !important; font-style:normal !important; ';
 			
 		$list_header_shortcode = array(
 			'blog_name' 								=> get_bloginfo('name'),
 			'header_image' 								=> $header_image_html,
 			'email_heading'								=> stripslashes($email_heading),
-			'base_colour'								=> stripslashes($wp_email_template_default_settings['base_colour']),
-			'base_colour_lighter'						=> WP_Email_Template_Functions::light_or_dark(stripslashes($wp_email_template_default_settings['base_colour']), 20),
-			'base_colour_light_or_dark'					=> WP_Email_Template_Functions::hex_lighter(stripslashes($wp_email_template_default_settings['base_colour']), '#202020', '#ffffff'),
-			'header_font'								=> stripslashes($wp_email_template_default_settings['header_font']),
+			'base_colour'								=> '#1686E0',
+			'base_colour_lighter'						=> WP_Email_Template_Functions::light_or_dark('#1686E0', 20),
+			'base_colour_light_or_dark'					=> WP_Email_Template_Functions::hex_lighter('#1686E0', '#202020', '#ffffff'),
+			'header_font'								=> 'Arial, sans-serif',
 			'header_text_size'							=> $header_text_size,
 			'header_text_style'							=> $header_text_style,
-			'header_text_colour'						=> stripslashes($wp_email_template_default_settings['header_text_colour']),
+			'header_text_colour'						=> '#FFFFFF',
 			
-			'background_colour'							=> stripslashes($wp_email_template_settings['background_colour']),
-			'content_background_colour'					=> stripslashes($wp_email_template_default_settings['content_background_colour']),
-			'content_text_colour'						=> stripslashes($wp_email_template_default_settings['content_text_colour']),
-			'content_text_colour_lighter'				=> WP_Email_Template_Functions::hex_lighter(stripslashes($wp_email_template_default_settings['content_text_colour']), 20),
-			'content_link_colour'						=> stripslashes($wp_email_template_default_settings['content_link_colour']),
-			'content_font'								=> stripslashes($wp_email_template_default_settings['content_font']),
+			'background_colour'							=> stripslashes($wp_email_template_general['background_colour']),
+			'content_background_colour'					=> '#FFFFFF',
+			'content_text_colour'						=> '#000000',
+			'content_text_colour_lighter'				=> WP_Email_Template_Functions::hex_lighter('#000000', 20),
+			'content_link_colour'						=> '#1155CC',
+			'content_font'								=> 'Arial, sans-serif',
 			'content_text_size'							=> $content_text_size,
 			'content_text_style'						=> $content_text_style
 		);
@@ -70,70 +66,65 @@ class WP_Email_Template_Functions
 	}
 	
 	public static function replace_shortcode_footer ($template_html='') {
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if ( !is_array($wp_email_template_settings) ) $wp_email_template_settings = array();
+		global $wp_email_template_general, $wp_email_template_style, $wp_email_template_social_media;
 		
-		$wp_email_template_default_settings = WP_Email_Template_Settings::get_settings_default();
-		$wp_email_template_settings = array_merge($wp_email_template_default_settings, $wp_email_template_settings);
+		$header_text_size = 'font-size:28px !important; line-height:34px !important; ';
 		
+		$header_text_style = 'font-weight:normal !important; font-style:normal !important; ';
 		
-		$header_text_size = 'font-size:'.$wp_email_template_default_settings['header_text_size'].' !important; line-height:'.(intval($wp_email_template_default_settings['header_text_size'])+6).'px !important; ';
+		$content_text_size = 'font-size:13px !important; line-height:19px !important; ';
 		
-		$header_text_style = 'font-style:'.$wp_email_template_default_settings['header_text_style'].' !important; ';
-		
-		$content_text_size = 'font-size:'.$wp_email_template_default_settings['content_text_size'].' !important; line-height:'.(intval($wp_email_template_default_settings['content_text_size'])+6).'px !important; ';
-		
-		$content_text_style = 'font-style:'.$wp_email_template_default_settings['content_text_style'].' !important; ';
+		$content_text_style = 'font-weight:normal !important; font-style:normal !important; ';
 		
 		$facebook_html = '';
-		if (isset($wp_email_template_settings['email_facebook']) && trim(esc_attr($wp_email_template_settings['email_facebook'])) != '')
-			$facebook_html = '<a style="padding:0 2px;" href="'.trim( esc_attr (stripslashes($wp_email_template_settings['email_facebook']) ) ).'" target="_blank" title="'.__('Facebook', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png" alt="'.__('Facebook', 'wp_email_template').'" /></a>';
+		if (isset($wp_email_template_social_media['email_facebook']) && trim(esc_attr($wp_email_template_social_media['email_facebook'])) != '')
+			$facebook_html = '<a style="padding:0 2px;" href="'.trim( esc_attr (stripslashes($wp_email_template_social_media['email_facebook']) ) ).'" target="_blank" title="'.__('Facebook', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png" alt="'.__('Facebook', 'wp_email_template').'" /></a>';
 			
 		$twitter_html = '';
-		if (isset($wp_email_template_settings['email_twitter']) && trim(esc_attr($wp_email_template_settings['email_twitter'])) != '')
-			$twitter_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_settings['email_twitter']) ) ).'" target="_blank" title="'.__('Twitter', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png" alt="'.__('Twitter', 'wp_email_template').'" /></a>';
+		if (isset($wp_email_template_social_media['email_twitter']) && trim(esc_attr($wp_email_template_social_media['email_twitter'])) != '')
+			$twitter_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_twitter']) ) ).'" target="_blank" title="'.__('Twitter', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png" alt="'.__('Twitter', 'wp_email_template').'" /></a>';
 			
 		$linkedIn_html = '';
-		if (isset($wp_email_template_settings['email_linkedIn']) && trim(esc_attr($wp_email_template_settings['email_linkedIn'])) != '')
-			$linkedIn_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_settings['email_linkedIn']) ) ).'" target="_blank" title="'.__('LinkedIn', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png" alt="'.__('LinkedIn', 'wp_email_template').'" /></a>';
+		if (isset($wp_email_template_social_media['email_linkedIn']) && trim(esc_attr($wp_email_template_social_media['email_linkedIn'])) != '')
+			$linkedIn_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_linkedIn']) ) ).'" target="_blank" title="'.__('LinkedIn', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png" alt="'.__('LinkedIn', 'wp_email_template').'" /></a>';
 			
 		$pinterest_html = '';
-		if (isset($wp_email_template_settings['email_pinterest']) && trim(esc_attr($wp_email_template_settings['email_pinterest'])) != '')
-			$pinterest_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_settings['email_pinterest']) ) ).'" target="_blank" title="'.__('Pinterest', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png" alt="'.__('Pinterest', 'wp_email_template').'" /></a>';
+		if (isset($wp_email_template_social_media['email_pinterest']) && trim(esc_attr($wp_email_template_social_media['email_pinterest'])) != '')
+			$pinterest_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_pinterest']) ) ).'" target="_blank" title="'.__('Pinterest', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png" alt="'.__('Pinterest', 'wp_email_template').'" /></a>';
 			
 		$googleplus_html = '';
-		if (isset($wp_email_template_settings['email_googleplus']) && trim(esc_attr($wp_email_template_settings['email_googleplus'])) != '')
-			$googleplus_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_settings['email_googleplus']) ) ).'" target="_blank" title="'.__('Google+', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png" alt="'.__('Google+', 'wp_email_template').'" /></a>';
+		if (isset($wp_email_template_social_media['email_googleplus']) && trim(esc_attr($wp_email_template_social_media['email_googleplus'])) != '')
+			$googleplus_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_googleplus']) ) ).'" target="_blank" title="'.__('Google+', 'wp_email_template').'"><img align="top" border="0" src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png" alt="'.__('Google+', 'wp_email_template').'" /></a>';
 			
 		$follow_text = '';
 		if (trim($facebook_html) != '' || trim($twitter_html) != '' || trim($linkedIn_html) != '' || trim($pinterest_html) != '' || trim($googleplus_html) != '')
 			$follow_text = __('Follow us on', 'wp_email_template');
 			
-		$wordpress_email_template_url = '<div style="clear:both"></div><div style="float:right;"><a href="'.$wp_email_template_default_settings['plugin_url'].'" target="_blank">'.__('WP Email Template', 'wp_email_template').'</a></div>';
-		if (isset($wp_email_template_settings['show_plugin_url']) && trim(esc_attr($wp_email_template_settings['show_plugin_url'])) == 'no') $wordpress_email_template_url = '';
+		$wordpress_email_template_url = '<div style="clear:both"></div><div style="float:right;"><a href="http://a3rev.com/shop/wp-email-template/" target="_blank">'.__('WP Email Template', 'wp_email_template').'</a></div>';
+		if (isset($wp_email_template_general['show_plugin_url']) && trim(esc_attr($wp_email_template_general['show_plugin_url'])) == 'no') $wordpress_email_template_url = '';
 					
 		$list_footer_shortcode = array(
-			'email_footer' 								=> wpautop(wptexturize(stripslashes(strip_tags($wp_email_template_settings['email_footer'], '<p><strong><i><u>')))),
+			'email_footer' 								=> wpautop(wptexturize(stripslashes(strip_tags($wp_email_template_style['email_footer'], '<p><strong><i><u>')))),
 			'follow_text' 								=> $follow_text,
 			'email_facebook' 							=> $facebook_html,
 			'email_twitter' 							=> $twitter_html,
 			'email_linkedIn' 							=> $linkedIn_html,
 			'email_pinterest' 							=> $pinterest_html,
 			'email_googleplus' 							=> $googleplus_html,
-			'base_colour'								=> stripslashes($wp_email_template_default_settings['base_colour']),
-			'base_colour_lighter'						=> WP_Email_Template_Functions::light_or_dark(stripslashes($wp_email_template_default_settings['base_colour']), 20),
-			'base_colour_light_or_dark'					=> WP_Email_Template_Functions::hex_lighter(stripslashes($wp_email_template_default_settings['base_colour']), '#202020', '#ffffff'),
-			'header_font'								=> stripslashes($wp_email_template_default_settings['header_font']),
+			'base_colour'								=> '#1686E0',
+			'base_colour_lighter'						=> WP_Email_Template_Functions::light_or_dark('#1686E0', 20),
+			'base_colour_light_or_dark'					=> WP_Email_Template_Functions::hex_lighter('#1686E0', '#202020', '#ffffff'),
+			'header_font'								=> 'Arial, sans-serif',
 			'header_text_size'							=> $header_text_size,
 			'header_text_style'							=> $header_text_style,
-			'header_text_colour'						=> stripslashes($wp_email_template_default_settings['header_text_colour']),
+			'header_text_colour'						=> '#FFFFFF',
 			
-			'background_colour'							=> stripslashes($wp_email_template_settings['background_colour']),
-			'content_background_colour'					=> stripslashes($wp_email_template_default_settings['content_background_colour']),
-			'content_text_colour'						=> stripslashes($wp_email_template_default_settings['content_text_colour']),
-			'content_text_colour_lighter'				=> WP_Email_Template_Functions::hex_lighter(stripslashes($wp_email_template_default_settings['content_text_colour']), 20),
-			'content_link_colour'						=> stripslashes($wp_email_template_default_settings['content_link_colour']),
-			'content_font'								=> stripslashes($wp_email_template_default_settings['content_font']),
+			'background_colour'							=> stripslashes($wp_email_template_general['background_colour']),
+			'content_background_colour'					=> '#FFFFFF',
+			'content_text_colour'						=> '#000000',
+			'content_text_colour_lighter'				=> WP_Email_Template_Functions::hex_lighter('#000000', 20),
+			'content_link_colour'						=> '#1155CC',
+			'content_font'								=> 'Arial, sans-serif',
 			'content_text_size'							=> $content_text_size,
 			'content_text_style'						=> $content_text_style,
 			'wordpress_email_template_url'				=> $wordpress_email_template_url

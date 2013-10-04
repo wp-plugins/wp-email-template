@@ -2,7 +2,7 @@
 
 a3Uploader = {
 	removeFile: function () {
-		$( '.a3_uploader_remove').live( 'click', function(event) { 
+		$(document).on( 'click', '.a3_uploader_remove', function(event) { 
 			$(this).hide();
 			$(this).parents().parents().children( '.a3_upload').attr( 'value', '' );
 			$(this).parents( '.a3_screenshot').slideUp();
@@ -16,8 +16,8 @@ a3Uploader = {
 		
 		var formfield, formID, upload_title, btnContent = true;
 	
-		$( 'input.a3_upload_button').live( "click", function () {
-			formfield = $(this).prev( 'input').attr( 'name' );
+		$(document).on( 'click', 'input.a3_upload_button', function () {
+			formfield = $(this).prev( 'input').attr( 'id' );
 			formID = $(this).attr( 'rel' );
 			upload_title =  $(this).prev( 'input').attr( 'rel' );
 								   
@@ -43,10 +43,10 @@ a3Uploader = {
 				var video = /(^.*\.mp4|m4v|mov|wmv|avi|mpg|ogv|3gp|3g2*)/gi;
 			  
 				if (itemurl.match(image)) {
-					btnContent = '<img class="a3_uploader_image" src="'+itemurl+'" alt="" /><a href="#" class="a3_uploader_remove">Remove Image</a>';
+					btnContent = '<img class="a3_uploader_image" src="'+itemurl+'" alt="" /><a href="#" class="a3_uploader_remove">&nbsp;</a>';
 				} else {
 					html = '<a href="'+itemurl+'" target="_blank" rel="a3_external">View File</a>';
-					btnContent = '<div class="a3_no_image"><span class="a3_file_link">'+html+'</span><a href="#" class="a3_uploader_remove">Remove</a></div>';
+					btnContent = '<div class="a3_no_image"><span class="a3_file_link">'+html+'</span><a href="#" class="a3_uploader_remove">&nbsp;</a></div>';
 				}
 				$( '#' + formfield).val(itemurl);
 				$( '#' + formfield).siblings( '.a3_screenshot').slideDown().html(btnContent);

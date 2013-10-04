@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.3
-Tested up to: 3.5.1
-Stable tag: 1.0.7
+Tested up to: 3.6.1
+Stable tag: 1.0.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -54,16 +54,31 @@ WP Email Template works with every plugin we have tested it on.
 
 Please let us know if you find a plugin that WP Email Template does not apply your template to that plugins email output. 
 
-= Support =
+= Lite Version Support =
 
-If you have any problem with setting up the Free lite version please post your support request here on the WordPress support forum. PLEASE if you have a problem DO NOT just give the plugin a bad star rating and review without first requesting support. Giving the plugin a bagging without affording us the opportunity to help solve the issue is in our opinion just not nice.
-
-Once you have the plugin installed and activated please refer to the [plugins comprehensive Online Documentation](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) and guide to setting up the WP Email Template plugin on your WordPress install. If you have questions - again please post them to the support forum here.
+As a Lite Version user please post all support requests to the plugins WordPress Support forum. We do not watch that forum and posting there you will be relying on another user for support not an a3rev team member. Pro Version Licence holders have 'write' access to the a3rev support forum and Lifetime priority support, not from support staff but from the developers.
 
 
-= Pro Version =
+= The Pro Version Upgrade =
 
-When you install WP Email Template you will see on the admin panel all of the added styling options that upgrading to the PRO Version will activate. The plugin is designed so that upgrading is completely seamless. Nothing changes except all advanced styling options that you see on the Lite version inside the yellow border are activated. Many thousands of users find the Free version has all the features that they need and never upgrade. If you find you want the added styling functionality that you see on the plugins dashboard you can upgrade at any time, completely risk free.
+Web Developers:
+
+* Wow your web clients with an email template that perfectly matches the site design.
+* We use it on every site we do and it just blows the client away. Best thing of all it takes just minutes to do.
+* Our clients love tweaking the design with the point and click settings.
+* Once only Lifetime multi-site Pro License Fee - no ongoing payments.
+* Lifetime Pro License support, updates and feature upgrades.
+
+Do-it-Yourself Site Creators.
+
+* Wow clients, customers and users with your uniquely styled and branded emails.
+* Point and Click style settings means you can create and tweak a super professional email template in just minutes - even complete WordPress novices.
+* Once only small Lifetime Pro License Fee - no ongoing payments.
+* Lifetime Pro License support not by support staff but by the developers themselves. 
+* Lifetime software updates and feature upgrades. 
+
+See the Lite Versions plugin admin panel for more Pro Version details.
+
 
 = Documentation =
 
@@ -77,7 +92,7 @@ If you do a translation for your site please send it to us and we'll include it 
 * German - DE Thanks to Marko Geisler
 * Russian - RU Thanks to Viktor Demidov
 *.po file (wp_email_template.po) in languages folder for translations.
-* [Go here](http://a3rev.com/contact/) to send your translation files to us.
+* [Go here](http://a3rev.com/contact-us-page/) to send your translation files to us.
 
 = Plugin Resources =
 
@@ -130,6 +145,22 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.0.8 - 2013/10/04 =
+* Features:
+	* Upgraded the plugin to the newly developed a3rev admin panel app interface.
+	* Admin Panel now has 3 tabs with setting broken up into - General, Style and Social Media.
+	* New admin UI features check boxes replaced by switches.
+	* Replaced colour picker with new WordPress 3.6.0 colour picker.
+	* Added choice of 350 Google fonts to the existing 17 websafe fonts in all new single row font editor. (Pro Version feature)
+	* New Font Editor has instant preview feature. (Pro Version feature)
+	* Upload Custom Social Media icons feature added.(Pro Version feature)
+	* Added House keeping function. On deletion set if you want the plugin to 'Clean Up After Itself' leaving not trace it was ever installed.
+* Tweaks:
+	* Compatibility with WordPress 3.6.0 done when released. Checked again with WP 3.6.1
+	* Ran full WP_DEBUG All Uncaught exceptions errors and warnings fixed.
+* Fixed:
+	* Plugins admin script and style not loading in Firefox with SSL on admin. Stripped http// and https// protocols so browser will use the protocol that the page was loaded with.
+
 = 1.0.7 - 2013/06/13 =
 * Tweak: Added PHP Public Static to functions in Class. Done so that Public Static warnings don't show in DE_BUG mode.
 
@@ -173,6 +204,9 @@ Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping 
 
 
 == Upgrade Notice ==
+
+= 1.0.8 =
+Upgrade you plugin now for the all new a3rev admin panel app type interface and the loads of new features the new interface allows us to implement.
 
 = 1.0.7 =
 Fix for PHP Public Static warnings in DE_BUG mode.
