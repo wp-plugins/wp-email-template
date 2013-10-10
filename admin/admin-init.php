@@ -237,9 +237,11 @@ class WP_Email_Template_Admin_Init extends WP_Email_Tempate_Admin_UI
 					} else {
 						do_action( $this->plugin_name . '-' . $current_page . '_settings_tabs_' . $current_tab );
 					}
+			?>
+			</div>
+			<?php
 				}
             ?>
-            </div>
             <div style="clear:both; margin-bottom:20px;"></div>
         </div>
 		<?php

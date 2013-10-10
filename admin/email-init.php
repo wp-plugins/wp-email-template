@@ -1,6 +1,6 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.8');
+	update_option('a3rev_wp_email_template_version', '1.0.9');
 	
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -123,5 +123,5 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 		update_option( 'a3rev_wp_email_template_version', '1.0.8' );
 	}
 
-	update_option( 'a3rev_wp_email_template_version', '1.0.8' );
+	update_option( 'a3rev_wp_email_template_version', '1.0.9' );
 ?>
