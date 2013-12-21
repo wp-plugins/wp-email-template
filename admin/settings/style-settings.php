@@ -253,8 +253,9 @@ class WP_Email_Template_Style_Settings extends WP_Email_Tempate_Admin_UI
 			array(  
 				'name' 		=> __( 'Email footer text', 'wp_email_template' ),
 				'desc' 		=> __( "The text to appear in the footer of the email template.", 'wp_email_template' ),
-				'id' 		=> 'email_footer',
+				'id' 		=> 'wp_email_template_email_footer',
 				'type' 		=> 'wp_editor',
+				'separate_option'	=> true,
 				'textarea_rows'	=> 15,
 				'default'	=> get_bloginfo('name') . ' Email Template powered by <a style="color:#1686e0" href="http://www.a3rev.com/" target="_blank" title="A3 Revolution">A3 Revolution</a> software team.',
 				'free_version'		=> true,

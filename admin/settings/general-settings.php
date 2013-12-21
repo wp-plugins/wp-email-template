@@ -118,7 +118,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	/* Process when clean on deletion option is un selected */
 	/*-----------------------------------------------------------------------------------*/
 	public function clean_on_deletion() {
-		if ( get_option( 'wp_email_template_clean_on_deletion' ) == 0  )  {
+		if ( ( isset( $_POST['bt_save_settings'] ) || isset( $_POST['bt_reset_settings'] ) ) && get_option( 'wp_email_template_lite_clean_on_deletion' ) == 0  )  {
 			$uninstallable_plugins = (array) get_option('uninstall_plugins');
 			unset($uninstallable_plugins[WP_EMAIL_TEMPLATE_NAME]);
 			update_option('uninstall_plugins', $uninstallable_plugins);
@@ -293,11 +293,13 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 			array(  
 				'name' 		=> __( 'Clean up on Deletion', 'wp_email_template' ),
 				'desc' 		=> __( "Check this box and if you ever delete this plugin it will completely remove all tables and data it created, leaving no trace it was ever here.", 'wp_email_template' ),
-				'id' 		=> 'wp_email_template_clean_on_deletion',
+				'id' 		=> 'wp_email_template_lite_clean_on_deletion',
 				'type' 		=> 'onoff_checkbox',
 				'default'	=> '1',
 				'free_version'		=> true,
 				'separate_option'	=> true,
+				'checked_value'		=> '1',
+				'unchecked_value'	=> '0',
 				'checked_label'		=> __( 'ON', 'wp_email_template' ),
 				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
 			),

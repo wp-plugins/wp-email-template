@@ -1,9 +1,9 @@
 === WP Email Template  ===
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
-Requires at least: 3.3
-Tested up to: 3.6.1
-Stable tag: 1.0.9
+Requires at least: 3.5
+Tested up to: 3.8.0
+Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -52,12 +52,22 @@ WP Email Template works with every plugin we have tested it on.
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
 * Wordfence - Branded security emails - nice. 
 
-Please let us know if you find a plugin that WP Email Template does not apply your template to that plugins email output. 
+= Mobile Responsive App style admin interface =
+
+Like WordPress we believe that a3rev plugin users should be able to configure and tweak our plugins settings while on the go, right from their mobile or tablet. This plugins features an app style admin interface with Switches, Sliders and a smart interface that hides associated settings when a feature is not turned ON.
+
+* 100% compatible with WordPress v3.8.0 admin interface.
+* Backward compatibility to WordPress v3.5.0
+* App style admin interface.
+* Admin app interface is fully mobile and tablet responsive.
+
+= Lite & Pro Version Admin Interface =
+
+All a3rev Lite Version plugins have exactly the same admin interface as the Pro Version. Pro Version features and settings are easy to spot on the admin dashboard as they are inside of a Yellow border. The Pro Version settings are all active on the admin panels so they can be used to get a great idea of how they work and what is available BUT the settings do not save when changes are saved and hence are not applied to the front end. Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Yellow side bar and borders.
 
 = Lite Version Support =
 
-As a Lite Version user please post all support requests to the plugins WordPress Support forum. We do not watch that forum and posting there you will be relying on another user for support not an a3rev team member. Pro Version Licence holders have 'write' access to the a3rev support forum and Lifetime priority support, not from support staff but from the developers.
-
+As a Lite Version user please post all support requests to the plugins WordPress Support forum. We do not watch that forum and posting there you will be relying on another user for support, not an a3rev team member. Upgrading to a Pro Version Licence gives 'write' access to the a3rev support forum and hence Lifetime priority support as part of the License.
 
 = The Pro Version Upgrade =
 
@@ -104,7 +114,7 @@ If you do a translation for your site please send it to us and we'll include it 
 
 = Minimum Requirements =
 
-* WordPress 3.4.1
+* WordPress 3.5.0
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
  
@@ -145,74 +155,80 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.1.0 - 2013/12/21 =
+* Feature - a3rev Plugin Framework admin interface upgraded to 100% Compatibility with WordPress v3.8.0 with backward compatibility.
+* Feature - a3rev framework 100% mobile and tablet responsive, portrait and landscape viewing.
+* Tweak - Upgraded dashboard switches and sliders to Vector based display that shows when WordPress version 3.8.0 is activated.
+* Tweak - Upgraded all plugin .jpg icons and images to Vector based display for full compatibility with new WordPress version.
+* Tweak - Yellow sidebar on Pro Version Menus does not show in Mobile screens to optimize admin panel screen space.
+* Tweak - Tested 100% compatible with WP 3.8.0
+* Fix - Upgraded array_textareas type for Padding, Margin settings on the a3rev plugin framework
+
 = 1.0.9 - 2013/10/10 =
-* Feature: 
-	* Admin panel intuitive app interface feature. Show slider to set corner radius when select Round, hide when select Square on Border Corner Style Switch. (Pro Version Feature)
-* Tweaks:
-	* a3rev logo image now resizes to the size of the yellow sidebar in tablets and mobiles.
-* Fixes:
-	* Intuitive Radio Switch settings not saving. Input with disabled attribute could not parse when form is submitted, replace disabled with custom attribute: checkbox-disabled
-	* App interface Radio switches not working properly on Android platform, replace removeProp() with removeAttr() function script
+* Feature - Admin panel intuitive app interface feature. Show slider to set corner radius when select Round, hide when select Square on Border Corner Style Switch. (Pro Version Feature)
+* Tweak - a3rev logo image now resizes to the size of the yellow sidebar in tablets and mobiles.
+* Fix - Intuitive Radio Switch settings not saving. Input with disabled attribute could not parse when form is submitted, replace disabled with custom attribute: checkbox-disabled
+* Fix - App interface Radio switches not working properly on Android platform, replace removeProp() with removeAttr() function script
 
 = 1.0.8 - 2013/10/04 =
-* Features :
-	* Upgraded the plugin to the newly developed a3rev admin panel app interface.
-	* Admin Panel now has 3 tabs with setting broken up into - General, Style and Social Media.
-	* New admin UI features check boxes replaced by switches.
-	* Replaced colour picker with new WordPress 3.6.0 colour picker.
-	* Added choice of 350 Google fonts to the existing 17 websafe fonts in all new single row font editor. (Pro Version feature)
-	* New Font Editor has instant preview feature. (Pro Version feature)
-	* Upload Custom Social Media icons feature added.(Pro Version feature)
-	* Added House keeping function. On deletion set if you want the plugin to 'Clean Up After Itself' leaving not trace it was ever installed.
-* Tweaks :
-	* Compatibility with WordPress 3.6.0 done when released. Checked again with WP 3.6.1
-	* Ran full WP_DEBUG All Uncaught exceptions errors and warnings fixed.
-* Fixed :
-	* Plugins admin script and style not loading in Firefox with SSL on admin. Stripped http// and https// protocols so browser will use the protocol that the page was loaded with.
+* Feature - Upgraded the plugin to the newly developed a3rev admin panel app interface.
+* Feature - New admin UI features check boxes replaced by switches.
+* Feature - Replaced colour picker with new WordPress 3.6.0 colour picker.
+* Feature - Added choice of 350 Google fonts to the existing 17 websafe fonts in all new single row font editor. (Pro Version feature)
+* Feature - New Font Editor has instant preview feature. (Pro Version feature)
+* Feature - Upload Custom Social Media icons feature added.(Pro Version feature)
+* Feature - Added House keeping function. On deletion set if you want the plugin to 'Clean Up After Itself' leaving not trace it was ever installed.
+* Tweak - Admin Panel now has 3 tabs with setting broken up into - General, Style and Social Media.
+* Tweak - Compatibility with WordPress 3.6.0 done when released. Checked again with WP 3.6.1
+* Tweak - Ran full WP_DEBUG All Uncaught exceptions errors and warnings fixed.
+* Fix - Plugins admin script and style not loading in Firefox with SSL on admin. Stripped http// and https// protocols so browser will use the protocol that the page was loaded with.
 
 = 1.0.7 - 2013/06/13 =
-* Tweak: Added PHP Public Static to functions in Class. Done so that Public Static warnings don't show in DE_BUG mode.
+* Tweak - Added PHP Public Static to functions in Class. Done so that Public Static warnings don't show in DE_BUG mode.
 
 = 1.0.6 - 2013/06/11 =
-* Fixed: Email template header image not showing in outbound email template and preview. Header image was uploading and showing correctly in the admin panel under upload input but not showing in template applied to outbound emails and preview.
-* Tweak: Updated support URL to the plugins wordpress.org support forum
+* Tweak - Updated support URL to the plugins wordpress.org support forum
+* Fix - Email template header image not showing in outbound email template and preview. Header image was uploading and showing correctly in the admin panel under upload input but not showing in template applied to outbound emails and preview.
 
 = 1.0.5 - 2013/04/16 =
-* Feature: Added when install and activate plugin link redirects to WP Email Template admin panel instead of the wp-plugins dashboard
-* Fix: Yahoo Mail does not support p tag - space between paragraphs. Coded in line CSS fix to auto add space between paragraphs for Yahoo Mail.  
-* Fix: Yahoo Mail auto removes body tag and hence would not show the background colour. Coded in-line CSS fix to force Yahoo Mail to show background colour. 
-* Fix: Updated all JavaScript functions so that the plugin is compatible with jQuery Version1.9 and backwards to version 1.6. WordPress still uses jQuery version 1.8.3. In themes that use Google js Library instead of the WordPress jQuery then there was trouble because Google uses the latest jQuery version 1.9. There are a number of functions in jQuery Version 1.9 that have been depreciated and hence this was causing errors with the jQuery function in the plugin.
+* Feature - Added when install and activate plugin link redirects to WP Email Template admin panel instead of the wp-plugins dashboard
+* Fix - Yahoo Mail does not support p tag - space between paragraphs. Coded in line CSS fix to auto add space between paragraphs for Yahoo Mail.  
+* Fix - Yahoo Mail auto removes body tag and hence would not show the background colour. Coded in-line CSS fix to force Yahoo Mail to show background colour. 
+* Fix - Updated all JavaScript functions so that the plugin is compatible with jQuery Version1.9 and backwards to version 1.6. WordPress still uses jQuery version 1.8.3. In themes that use Google js Library instead of the WordPress jQuery then there was trouble because Google uses the latest jQuery version 1.9. There are a number of functions in jQuery Version 1.9 that have been depreciated and hence this was causing errors with the jQuery function in the plugin.
 
 = 1.0.4 - 2013/04/01 =
-* Feature: Upgraded plugins admin to use Chosen script for dropdowns and options.
-* Feature: Replaced add template header image via URL with image uploader.
-* Feature: Added option to set Text link colour in email body. Previously this was auto set to be the same as the header background colour - but caused problems with links not visible when header background and email body background both use the same colour. <strong>( PRO version only)</strong>
-* Fixed: Max wide layout issues with template display in iPhone 5.
-* Fixed: Bug for users who have https: (SSL) on their sites wp-admin but have http on sites front end. This was causing the email template preview to show a -1 instead of the Template because wp-admin with SSL applied only allows https:, but the url of admin-ajax.php?action=preview_wp_email_template is http: and it is denied hence was returning the ajax -1 error. Fixed by writing a filter to recognize when https is configured on wp-admin and parsing correctly. If you do not have this configuration nothing changes for you, if you do have https on your wp-admin (or install it in the future) and http on the front end then Email Template Preview action now automatically detects that and works as it should.
-* Tweak: Update the plugins wiki docs to show new admin style, image upload feature and colour link text colour options.
+* Feature - Upgraded plugins admin to use Chosen script for dropdowns and options.
+* Tweak - Replaced add template header image via URL with image uploader.
+* Tweak - Added option to set Text link colour in email body. Previously this was auto set to be the same as the header background colour - but caused problems with links not visible when header background and email body background both use the same colour. ( PRO version only)
+* Tweak - Update the plugins wiki docs to show new admin style, image upload feature and colour link text colour options.
+* Fix - Max wide layout issues with template display in iPhone 5.
+* Fix - Bug for users who have https: (SSL) on their sites wp-admin but have http on sites front end. This was causing the email template preview to show a -1 instead of the Template because wp-admin with SSL applied only allows https:, but the url of admin-ajax.php?action=preview_wp_email_template is http: and it is denied hence was returning the ajax -1 error. Fixed by writing a filter to recognize when https is configured on wp-admin and parsing correctly. If you do not have this configuration nothing changes for you, if you do have https on your wp-admin (or install it in the future) and http on the front end then Email Template Preview action now automatically detects that and works as it should.
 
 = 1.0.3 - 2013/03/05 =
-* Feature: Updated all plugin code to be 100% compatible with new WooCommerce V2.0 with backwards compatibility..
-* Feature: (PRO Version feature) - Added the ability to deactivate the Email Template background pattern. (much requested feature).
+* Feature - (PRO Version feature) - Added the ability to deactivate the Email Template background pattern. (much requested feature).
+* Tweak - Updated all plugin code to be 100% compatible with new WooCommerce V2.0 with backwards compatibility.
 
 = 1.0.2.1 - 2013/02/16 =
-* Tweak: Added a Settings link to the plugins wp-admin plugins dashboard listing and updated the Support URL
-* Tweak: Updated Support URL on the wordpress.org description
-* Localization: German Translation by Marko Geisler added to langauge folder
+* Tweak - Added a Settings link to the plugins wp-admin plugins dashboard listing and updated the Support URL
+* Tweak - Updated Support URL on the wordpress.org description
+* Localization - German Translation by Marko Geisler added to langauge folder
 
 = 1.0.2 - 2013/01/11 =
-* Fixed: WP Email Template apply to WooCommerce Email template when user had selected do not apply for that option.
-Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping us to locate and fix these bugs.
+* Fix - WP Email Template apply to WooCommerce Email template when user had selected do not apply for that option.
+* Credit - Thank you to [Roger Amstell](http://rapsystems.co.uk) for reporting and helping us to locate and fix these bugs.
 
 = 1.0.1 - 2013/01/09 =
-* Tweak: Updated Support and Pro Version link URL's on wordpress.org description, plugins and plugins dashboard. Links were returning 404 errors since the launch of the all new a3rev.com mobile responsive site as the base e-commerce permalinks is changed.
-* Fixed: When user server does not support  file_get_contents function changes made to the template were not applying to the WooCommerce Email template. We had added a get file from get_stylesheet_directory_uri constant as a work around but had missed the () at the end of the function so it wasn't working
+* Tweak - Updated Support and Pro Version link URL's on wordpress.org description, plugins and plugins dashboard. Links were returning 404 errors since the launch of the all new a3rev.com mobile responsive site as the base e-commerce permalinks is changed.
+* Fix - When user server does not support  file_get_contents function changes made to the template were not applying to the WooCommerce Email template. We had added a get file from get_stylesheet_directory_uri constant as a work around but had missed the () at the end of the function so it wasn't working
 
 = 1.0.0 - 2012/09/03 =
 * First Release.
 
 
 == Upgrade Notice ==
+
+= 1.1.0 =
+Upgrade now for full a3rev Plugin Framework compatibility with WordPress version 3.8.0 and backwards. New admin interface full mobile and tablet responsive display.
 
 = 1.0.9 =
 Upgrade now for another admin panel intuitive app interface feature plus a Radio switch bug fix and Android platform bug fix

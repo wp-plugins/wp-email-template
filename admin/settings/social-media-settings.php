@@ -82,6 +82,8 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
 				'error_message'		=> __( 'Error: Social Media Settings can not save.', 'wp_email_template' ),
 				'reset_message'		=> __( 'Social Media Settings successfully reseted.', 'wp_email_template' ),
 			);
+		
+		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_end', array( $this, 'include_script' ) );
 			
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 		
@@ -197,41 +199,6 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
            	),
-			array(
-            	'name' 		=> __( 'Social Media Icons', 'wp_email_template' ),
-				'class'		=> 'pro_feature_fields',
-                'type' 		=> 'heading',
-           	),
-			array(  
-				'name' 		=> __( 'Facebook Icon', 'wp_email_template' ),
-				'id' 		=> 'facebook_icon',
-				'type' 		=> 'upload',
-				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png',
-			),
-			array(  
-				'name' 		=> __( 'Twitter Icon', 'wp_email_template' ),
-				'id' 		=> 'twitter_icon',
-				'type' 		=> 'upload',
-				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png',
-			),
-			array(  
-				'name' 		=> __( 'LinkedIn Icon', 'wp_email_template' ),
-				'id' 		=> 'linkedIn_icon',
-				'type' 		=> 'upload',
-				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png',
-			),
-			array(  
-				'name' 		=> __( 'Pinterest Icon', 'wp_email_template' ),
-				'id' 		=> 'pinterest_icon',
-				'type' 		=> 'upload',
-				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png',
-			),
-			array(  
-				'name' 		=> __( 'Google+1 Icon', 'wp_email_template' ),
-				'id' 		=> 'googleplus_icon',
-				'type' 		=> 'upload',
-				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png',
-			),
 			
 			array(
             	'name' 		=> __( 'Follow Us On', 'wp_email_template' ),
@@ -278,7 +245,54 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
 				'free_version'		=> true,
 			),
 			
+			array(
+            	'name' 		=> __( 'Social Media Icons', 'wp_email_template' ),
+				'class'		=> 'pro_feature_fields',
+                'type' 		=> 'heading',
+           	),
+			array(  
+				'name' 		=> __( 'Facebook Icon', 'wp_email_template' ),
+				'id' 		=> 'facebook_icon',
+				'type' 		=> 'upload',
+				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png',
+			),
+			array(  
+				'name' 		=> __( 'Twitter Icon', 'wp_email_template' ),
+				'id' 		=> 'twitter_icon',
+				'type' 		=> 'upload',
+				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png',
+			),
+			array(  
+				'name' 		=> __( 'LinkedIn Icon', 'wp_email_template' ),
+				'id' 		=> 'linkedIn_icon',
+				'type' 		=> 'upload',
+				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png',
+			),
+			array(  
+				'name' 		=> __( 'Pinterest Icon', 'wp_email_template' ),
+				'id' 		=> 'pinterest_icon',
+				'type' 		=> 'upload',
+				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png',
+			),
+			array(  
+				'name' 		=> __( 'Google+1 Icon', 'wp_email_template' ),
+				'id' 		=> 'googleplus_icon',
+				'type' 		=> 'upload',
+				'default'	=> WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png',
+			),
+			
         ));
+	}
+	
+	public function include_script() {
+	?>
+<style>
+#a3_plugin_panel_extensions {
+	position:absolute;
+	bottom:50px;	
+}
+</style>
+	<?php
 	}
 }
 

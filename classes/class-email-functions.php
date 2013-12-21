@@ -66,7 +66,7 @@ class WP_Email_Template_Functions
 	}
 	
 	public static function replace_shortcode_footer ($template_html='') {
-		global $wp_email_template_general, $wp_email_template_style, $wp_email_template_social_media;
+		global $wp_email_template_general, $wp_email_template_style, $wp_email_template_social_media, $wp_email_template_email_footer;
 		
 		$header_text_size = 'font-size:28px !important; line-height:34px !important; ';
 		
@@ -104,7 +104,7 @@ class WP_Email_Template_Functions
 		if (isset($wp_email_template_general['show_plugin_url']) && trim(esc_attr($wp_email_template_general['show_plugin_url'])) == 'no') $wordpress_email_template_url = '';
 					
 		$list_footer_shortcode = array(
-			'email_footer' 								=> wpautop(wptexturize(stripslashes(strip_tags($wp_email_template_style['email_footer'], '<p><strong><i><u>')))),
+			'email_footer' 								=> wpautop(wptexturize(stripslashes($wp_email_template_email_footer))),
 			'follow_text' 								=> $follow_text,
 			'email_facebook' 							=> $facebook_html,
 			'email_twitter' 							=> $twitter_html,

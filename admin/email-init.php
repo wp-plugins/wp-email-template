@@ -1,6 +1,7 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.0.9');
+	update_option('a3rev_wp_email_template_version', '1.1.1');
+	update_option('a3rev_wp_email_template_lite_version', '1.1.0');
 	
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -24,6 +25,9 @@ function wp_email_template_init() {
 }
 // Add language
 add_action('init', 'wp_email_template_init');
+
+// Add custom style to dashboard
+add_action( 'admin_enqueue_scripts', array( 'WP_Email_Template_Hook_Filter', 'a3_wp_admin' ) );
 
 // Add extra link on left of Deactivate link on Plugin manager page
 add_action('plugin_action_links_'.WP_EMAIL_TEMPLATE_NAME, array('WP_Email_Template_Hook_Filter', 'settings_plugin_links') );
@@ -65,7 +69,11 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	// Apply the email template to wp_mail of wordpress
 	add_filter('wp_mail_content_type', array('WP_Email_Template_Hook_Filter', 'set_content_type'), 20);
 	add_filter('wp_mail', array('WP_Email_Template_Hook_Filter', 'change_wp_mail'), 20);
-	
+
+// Check upgrade functions
+add_action('plugins_loaded', 'a3rev_wp_email_template_lite_upgrade_plugin');
+function a3rev_wp_email_template_lite_upgrade_plugin () {
+		
 	if(version_compare(get_option('a3rev_wp_email_template_version'), '1.0.4') === -1){
 		$wp_email_template_settings = get_option('wp_email_template_settings');
 		if (isset($wp_email_template_settings['header_image']))
@@ -122,6 +130,17 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 			
 		update_option( 'a3rev_wp_email_template_version', '1.0.8' );
 	}
+	
+	//Upgrade to version 1.1.0
+	if ( version_compare( get_option( 'a3rev_wp_email_template_lite_version'), '1.1.0' ) === -1 ) {
+		update_option( 'a3rev_wp_email_template_lite_version', '1.1.0' );
+		
+		$wp_email_template_style = get_option( 'wp_email_template_style' );
+		if ( isset( $wp_email_template_style['email_footer'] ) )
+			update_option( 'wp_email_template_email_footer', $wp_email_template_style['email_footer'] );
+	}
 
-	update_option( 'a3rev_wp_email_template_version', '1.0.9' );
+	update_option('a3rev_wp_email_template_version', '1.1.1');
+	update_option('a3rev_wp_email_template_lite_version', '1.1.0');
+}
 ?>
