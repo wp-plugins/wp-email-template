@@ -240,8 +240,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
                 'type' 		=> 'heading',
            	),
 			array(  
-				'name' 		=> __( 'Deactivate background Pattern', 'wp_email_template' ),
-				'desc' 		=> __( 'Check to deactivate template background pattern', 'wp_email_template' ),
+				'name' 		=> __( 'Background Pattern', 'wp_email_template' ),
 				'id' 		=> 'deactivate_pattern_background',
 				'type' 		=> 'onoff_checkbox',
 				'default' 	=> 'no',
