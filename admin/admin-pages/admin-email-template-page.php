@@ -88,11 +88,21 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 		return $admin_menu;
 	}
 	
+	// fix conflict with mandrill plugin
+	public function remove_mandrill_notice() {
+		remove_action( 'admin_notices', array( 'wpMandrill', 'adminNotices' ) );
+	}
+	
 	/*-----------------------------------------------------------------------------------*/
 	/* tabs_include() */
 	/* Include all tabs into this page
 	/*-----------------------------------------------------------------------------------*/
 	public function tabs_include() {
+		
+		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('options-general.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'email_template' ) {
+			require_once( ABSPATH . 'wp-includes/pluggable.php' );
+			add_action('init' , array( $this, 'remove_mandrill_notice' ) );
+		}
 		
 		include_once( $this->admin_plugin_dir() . '/tabs/admin-general-tab.php' );
 		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-tab.php' );

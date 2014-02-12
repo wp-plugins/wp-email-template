@@ -187,9 +187,10 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
 	/* Init all fields of this form */
 	/*-----------------------------------------------------------------------------------*/
 	public function init_form_fields() {
-		require_once( ABSPATH . 'wp-includes/pluggable.php' );
-		
-		$preview_wp_email_template = wp_create_nonce("preview_wp_email_template");
+		$preview_wp_email_template = '';
+		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('options-general.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'email_template' ) {
+			$preview_wp_email_template = wp_create_nonce("preview_wp_email_template");
+		}
 		
   		// Define settings			
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
