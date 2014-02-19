@@ -26,7 +26,7 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 	/**
 	 * @var string
 	 */
-	private $menu_slug = 'email_template';
+	private $menu_slug = 'wp_email_template';
 	
 	/**
 	 * @var array
@@ -58,17 +58,33 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 	public function page_data() {
 		
 		$page_data = array(
-			'type'				=> 'submenu',
-			'parent_slug'		=> 'options-general.php',
-			'page_title'		=> __( 'Email Template', 'wp_email_template' ),
-			'menu_title'		=> __( 'Email Template', 'wp_email_template' ),
-			'capability'		=> 'manage_options',
-			'menu_slug'			=> $this->menu_slug,
-			'function'			=> 'wp_email_template_admin_page_show',
-			'admin_url'			=> 'options-general.php',
-			'callback_function' => '',
-			'script_function' 	=> '',
-			'view_doc'			=> '',
+			array(
+				'type'				=> 'menu',
+				'page_title'		=> __( 'WP Email', 'wp_email_template' ),
+				'menu_title'		=> __( 'WP Email', 'wp_email_template' ),
+				'capability'		=> 'manage_options',
+				'menu_slug'			=> $this->menu_slug,
+				'function'			=> 'wp_email_template_admin_page_show',
+				'icon_url'			=> '',
+				'position'			=> '50.2456',
+				'admin_url'			=> 'admin.php',
+				'callback_function' => '',
+				'script_function' 	=> '',
+				'view_doc'			=> '',
+			),
+			array(
+				'type'				=> 'submenu',
+				'parent_slug'		=> $this->menu_slug,
+				'page_title'		=> __( 'Template', 'wp_email_template' ),
+				'menu_title'		=> __( 'Template', 'wp_email_template' ),
+				'capability'		=> 'manage_options',
+				'menu_slug'			=> $this->menu_slug,
+				'function'			=> 'wp_email_template_admin_page_show',
+				'admin_url'			=> 'admin.php',
+				'callback_function' => '',
+				'script_function' 	=> '',
+				'view_doc'			=> '',
+			)
 		);
 		
 		if ( $this->page_data ) return $this->page_data;
@@ -82,8 +98,10 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function add_admin_menu( $admin_menu ) {
 		
+		//if ( ! is_array( $admin_menu ) ) $admin_menu = array();
+		//$admin_menu[] = $this->page_data();
 		if ( ! is_array( $admin_menu ) ) $admin_menu = array();
-		$admin_menu[] = $this->page_data();
+		$admin_menu = array_merge( $this->page_data(), $admin_menu );
 		
 		return $admin_menu;
 	}
@@ -91,6 +109,8 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 	// fix conflict with mandrill plugin
 	public function remove_mandrill_notice() {
 		remove_action( 'admin_notices', array( 'wpMandrill', 'adminNotices' ) );
+		global $wp_et_send_wp_emails;
+		remove_action( 'admin_notices', array( $wp_et_send_wp_emails, 'wp_mail_declared' ) );
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
@@ -99,7 +119,7 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function tabs_include() {
 		
-		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('options-general.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'email_template' ) {
+		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('admin.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'wp_email_template' ) {
 			require_once( ABSPATH . 'wp-includes/pluggable.php' );
 			add_action('init' , array( $this, 'remove_mandrill_notice' ) );
 		}
@@ -116,8 +136,10 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function admin_settings_page() {
 		global $wp_email_template_admin_init;
+		$my_page_data = $this->page_data();
+		$my_page_data = array_values( $my_page_data );
 		
-		$wp_email_template_admin_init->admin_settings_page( $this->page_data() );
+		$wp_email_template_admin_init->admin_settings_page( $my_page_data[1] );
 	}
 	
 }

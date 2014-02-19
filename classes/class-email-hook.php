@@ -12,12 +12,13 @@
  * set_content_type()
  * change_wp_mail()
  * a3_wp_admin()
+ * admin_sidebar_menu_css()
  * plugin_extra_links()
  * settings_plugin_links()
  */
 class WP_Email_Template_Hook_Filter
 {
-		
+	
 	public static function woo_email_header_marker_start($email_heading='') {
 		global $wp_email_template_general;
 		
@@ -69,6 +70,13 @@ class WP_Email_Template_Hook_Filter
 		check_ajax_referer( 'preview_wp_email_template', 'security' );
 		
 		$email_heading = __('Email preview', 'wp_email_template');
+
+		echo WP_Email_Template_Hook_Filter::preview_wp_email_content( $email_heading );
+		
+		die();
+	}
+	
+	public static function preview_wp_email_content( $email_heading ) {
 		
 		$message = '<h2>'.__('WordPress Email sit amet', 'wp_email_template').'</h2>';
 		
@@ -76,9 +84,8 @@ class WP_Email_Template_Hook_Filter
 
 Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam aliquip litterarum. Lius videntur nisl facilisis claritatem nunc. Praesent in iusto me tincidunt iusto. Dolore lectores sed putamus exerci est. ', 'wp_email_template') );
 
-		echo WP_Email_Template_Functions::email_content($email_heading, $message);
+		return WP_Email_Template_Functions::email_content($email_heading, $message);
 		
-		die();
 	}
 	
 	public static function set_content_type($content_type='') {
@@ -92,8 +99,10 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 	
 	public static function change_wp_mail($email_data=array()) {
 		$email_heading = $email_data['subject'] ;
-		if (stristr($email_data['message'], '<!--NO_USE_EMAIL_TEMPLATE-->') === false ) {
+		if ( isset( $email_data['message'] ) && stristr( $email_data['message'], '<!--NO_USE_EMAIL_TEMPLATE-->' ) === false ) {
 			$email_data['message'] = WP_Email_Template_Functions::email_content($email_heading, $email_data['message']);
+		} elseif ( isset( $email_data['html'] ) && stristr( $email_data['html'], '<!--NO_USE_EMAIL_TEMPLATE-->' ) === false ) {
+			$email_data['html'] = WP_Email_Template_Functions::email_content($email_heading, $email_data['html']);
 		}
 		
 		return $email_data;
@@ -101,6 +110,10 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 	
 	public static function a3_wp_admin() {
 		wp_enqueue_style( 'a3rev-wp-admin-style', WP_EMAIL_TEMPLATE_CSS_URL . '/a3_wp_admin.css' );
+	}
+	
+	public static function admin_sidebar_menu_css() {
+		wp_enqueue_style( 'a3rev-wp-et-admin-sidebar-menu-style', WP_EMAIL_TEMPLATE_CSS_URL . '/admin_sidebar_menu.css' );
 	}
 				
 	public static function plugin_extra_links($links, $plugin_name) {
@@ -113,7 +126,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 	}
 	
 	public static function settings_plugin_links($actions) {
-		$actions = array_merge( array( 'settings' => '<a href="options-general.php?page=email_template">' . __( 'Settings', 'wp_email_template' ) . '</a>' ), $actions );
+		$actions = array_merge( array( 'settings' => '<a href="admin.php?page=wp_email_template">' . __( 'Settings', 'wp_email_template' ) . '</a>' ), $actions );
 		
 		return $actions;
 	}

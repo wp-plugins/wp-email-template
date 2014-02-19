@@ -3,7 +3,7 @@
 Plugin Name: WP Email Template LITE
 Plugin URI: http://a3rev.com/shop/wp-email-template/
 Description: This plugin automatically adds a professional, responsive, customizable, email browser optimized HTML template for all WordPress and WordPress plugin generated emails that are sent from your site to customers and admins. Works with any WordPress plugin including the e-commerce plugins WooCommerce and WP e-Commerce.
-Version: 1.1.1.1
+Version: 1.1.2
 Author: A3 Revolution
 Author URI: http://www.a3rev.com/
 License: This software is under commercial license and copyright to A3 Revolution Software Development team
@@ -37,9 +37,11 @@ include('admin/admin-ui.php');
 include('admin/admin-interface.php');
 
 include('admin/admin-pages/admin-email-template-page.php');
+include('admin/admin-pages/send-wp-emails-page.php');
 
 include('admin/admin-init.php');
 
+include('classes/class-send-wp-email-functions.php');
 include('classes/class-email-functions.php');
 include('classes/class-email-hook.php');
 include('admin/email-init.php');
@@ -56,6 +58,12 @@ function wp_email_template_lite_uninstall(){
 		delete_option( 'wp_email_template_style' );
 		delete_option( 'wp_email_template_social_media' );
 		delete_option( 'wp_email_template_email_footer' );
+		
+		delete_option( 'wp_et_send_wp_emails_general' );
+		delete_option( 'wp_et_smtp_provider_configuration' );
+		delete_option( 'wp_et_gmail_smtp_provider_configuration' );
+		delete_option( 'wp_et_mandrill_provider_configuration' );
+		delete_option( 'wp_email_template_test_send_email' );
 		
 		delete_option( 'wp_email_template_lite_clean_on_deletion' );
 	}
