@@ -11,7 +11,7 @@ Add a beautiful HTML Template to all WordPress and plugin generated emails. Send
   
 == Description ==
 
-WP Email Template 2 things - beautifullya
+WP Email Template 2 things - beautifully
 
 1. Applies a responsive, customizable, optimized HTML email template to every email sent from your WordPress site including plugin generated emails.
 
@@ -44,7 +44,7 @@ Every different Email Provider requires another plugin to configure. For example
 
 * Send Email via SMTP - [WP SMTP Mail](http://http://wordpress.org/plugins/wp-mail-smtp/), [WP SMPT](http://wordpress.org/plugins/wp-smtp/), [Easy WP SMTP](http://wordpress.org/plugins/easy-wp-smtp/)
 * Send Email via Gmail SMTP - [SendPress Lite](http://wordpress.org/plugins/sendpress/) and any SMTP plugin if you know what you are doing.
-* Send Email via Mandrill - [wpMadrill](http://wordpress.org/plugins/wpmandrill/)
+* Send Email via Mandrill - [wpMandrill](http://wordpress.org/plugins/wpmandrill/)
 * Send via WordPress default 'local mail server' if using GoDaddy Hosting - Auto Config WordPress default Email Sending - [SendPress Lite](http://wordpress.org/plugins/sendpress/)
 
 At a3rev we want users to be able to
@@ -182,7 +182,7 @@ The manual installation method involves down loading our plugin and uploading it
 * Feature - Added auto config for GoDaddy Hosting when using default via web host as the Email Sending Options 
 * Feature - Added activate and configure send mail via SMTP option.
 * Feature - Added activate and auto configure send mail by Gmail option.
-* Feature - Added activate and configure send mail by Mandrill option. Connect via Madrill API Key or SMTP.
+* Feature - Added activate and configure send mail by Mandrill option. Connect via Mandrill API Key or SMTP.
 * Feature - Added Send Test Email function.
 * Feature - Added detailed Connection Error DEBUGGING.
 * Tweak - Moved plugin dashboard from the WordPress Settings menu to its own WP Email sidebar menu.
