@@ -1,9 +1,9 @@
 === WP Email Template  ===
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
-Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: 1.1.2
+Requires at least: 3.7
+Tested up to: 3.9.1
+Stable tag: 1.1.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,41 +75,33 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 
 = Mobile Responsive App style admin interface =
 
-Like WordPress we believe that a3rev plugin users should be able to configure and tweak our plugins settings while on the go, right from their mobile or tablet. This plugins features an app style admin interface with Switches, Sliders and a smart interface that hides associated settings when a feature is not turned ON.
-
-* 100% compatible with WordPress v3.8.0 admin interface.
+* 100% compatible with WordPress v3.8.0 and later admin interface.
 * Backward compatibility to WordPress v3.5.0
 * App style admin interface.
 * Admin app interface is fully mobile and tablet responsive.
 
-= Lite & Pro Version Admin Interface =
+= a3rev Plugins Lite & Pro Version Admin Interface =
 
-All a3rev Lite Version plugins have exactly the same admin interface as the Pro Version. Pro Version features and settings are easy to spot on the admin dashboard as they are inside of a Yellow border. The Pro Version settings are all active on the admin panels so they can be used to get a great idea of how they work and what is available BUT the settings do not save when changes are saved and hence are not applied to the front end. Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Yellow side bar and borders.
+* All a3rev Lite Version plugins have exactly the same admin interface as the Pro Version.
+* Pro Version features and settings are inside of a Yellow border.
+* The Pro Version settings are all active on the admin panels But do not save and are not applied to the front end.
+* Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Yellow side bar and borders.
 
 = Lite Version Support =
 
-As a Lite Version user please post all support requests to the plugins WordPress Support forum. We do not watch that forum and posting there you will be relying on another user for support, not an a3rev team member. Upgrading to a Pro Version Licence gives 'write' access to the a3rev support forum and hence Lifetime priority support as part of the License.
+* As a Lite Version user please post all support requests to the plugins WordPress Support forum.
+* We do not watch that forum and posting there you will be relying on another user for support, not an a3rev team member.
+* Upgrading to a Pro Version Trail Licence gives 'write' access to the a3rev support forum.
 
 = The Pro Version Upgrade =
 
-Web Developers:
-
-* Wow your web clients with an email template that perfectly matches the site design.
+* Industry leading - Full Pro Version [Free Evaluation Trail](http://a3rev.com/shop/wp-email-template/). No Credit Card Required.
+* Immediate access to support from developers on the plugins [a3rev support forum](http://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/).
+* Wow your web clients and customers with an email template that perfectly matches the site design.
 * We use it on every site we do and it just blows the client away. Best thing of all it takes just minutes to do.
 * Our clients love tweaking the design with the point and click settings.
-* Once only Lifetime single and multi-sites Pro License Fee - no ongoing payments.
-* Lifetime Pro License support, updates and feature upgrades.
-
-Do-it-Yourself Site Creators.
-
-* Wow clients, customers and users with your uniquely styled and branded emails.
-* Point and Click style settings means you can create and tweak a super professional email template in just minutes - even complete WordPress novices.
-* Once only small Lifetime Pro License Fee - no ongoing payments.
-* Lifetime Pro License support not by support staff but by the developers themselves. 
-* Lifetime software updates and feature upgrades. 
-
+ 
 See the Lite Versions plugin admin panel for more Pro Version details.
-
 
 = Documentation =
 
@@ -135,7 +127,7 @@ If you do a translation for your site please send it to us and we'll include it 
 
 = Minimum Requirements =
 
-* WordPress 3.5.0
+* WordPress 3.7.0
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
  
@@ -176,6 +168,15 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.1.2.1 - 2014/05/25 =
+* Tweak - Changed add_filter( 'gettext', array( $this, 'change_button_text' ), null, 2 ); to add_filter( 'gettext', array( $this, 'change_button_text' ), null, 3 );
+* Tweak - Update change_button_text() function from ( $original == 'Insert into Post' ) to ( is_admin() && $original === 'Insert into Post' )
+* Tweak - Checked and updated for full compatibility with WordPress version 3.9.1
+* Tweak - Checked and updated for full compatibility with WooCommerce version 2.1.9
+* Tweak - Checked and updated for full compatibility with WP e-Commerce version 3.8.14.1
+* Tweak - Converted the plugin to the new a3rev Free Evaluation Trail License feature.
+* Fix - Code tweaks to fix a3 Plugins Framework conflict with WP e-Commerce tax rates.
 
 = 1.1.2 - 2014-02-19 =
 * Feature - Added WordPress Email sending settings and configurations.
@@ -273,6 +274,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.1.2.1 =
+Update now full compatibility with WordPress version 3.9.1, WooCommerce version 2.1.9 and WP e-Commerce version 3.8.14.1
 
 = 1.1.2 =
 Major plugin upgrade - Easily configure and manage your WordPress email sending provider with the Send WP Emails features. 7 New features and 2 Tweaks.

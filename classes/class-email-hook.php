@@ -149,6 +149,14 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		$html .= '<h3>'.__('Upgrade to WP Email Template Pro', 'wp_email_template').'</h3>';
 		$html .= '<p>'.__("<strong>NOTE:</strong> All the functions inside the Yellow border on the plugins admin panel are extra functionality that is activated by upgrading to the Pro version", 'wp_email_template').':</p>';
 		$html .= '<p>';
+		$html .= '<h3 style="margin-bottom:5px;">* <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__('WP Email Template Pro', 'wp_email_template').'</a></h3>';
+		$html .= '<p>';
+		$html .= '* '. sprintf( __('Trial the <a href="%s" target="_blank">Pro Version for Free</a>', 'wp_email_template'), WP_EMAIL_TEMPLATE_AUTHOR_URI ).'<br />';
+		$html .= '* '. __('No credit card required.', 'wp_email_template').'<br />';
+		$html .= '* '. sprintf( __('Immediate access to <a href="%s" target="_blank">developer support</a>.', 'wp_email_template'), 'http://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/' );
+		$html .= '</p>';
+		
+		$html .= '<p>';
 		$html .= '<h3 style="margin-bottom:5px;">'.__('WP Email Template Pro', 'wp_email_template').'</h3>';
 		$html .= '<div><strong>'.__('Features', 'wp_email_template').':</strong></div>';
 		$html .= '<p>';
@@ -160,19 +168,18 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		$html .= '<li>5. '.__('Lifetime Pro License support not by support staff but by the developers themselves.', 'wp_email_template').'</li>';
 		$html .= '</ul>';
 		$html .= '</p>';
-		$html .= '<h3>'.__('Get your', 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__('Pro License Here', 'wp_email_template').'</a></h3>';
 		$html .= '<h3>'.__('View this plugins', 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_DOCS_URI.'" target="_blank">'.__('documentation', 'wp_email_template').'</a></h3>';
-		$html .= '<h3>'.__('Visit this plugins', 'wp_email_template').' <a href="http://wordpress.org/support/plugin/wp-email-template/" target="_blank">'.__('support forum', 'wp_email_template').'</a></h3>';
-		$html .= '<p>'.__("<strong>NOTE:</strong> The support link above is for Free Lite Version users. It goes to the WordPress Support forum. We do not watch that forum and posting there you will be relying on another user for support not an a3rev team member. Pro Version Licence holders have access to the a3rev support forum and Lifetime priority support.", 'wp_email_template').'</p>';
+		$html .= '<h3>'.__('Lite Version plugins', 'wp_email_template').' <a href="http://wordpress.org/support/plugin/wp-email-template/" target="_blank">'.__('support forum', 'wp_email_template').'</a></h3>';
 		
-		$html .= '<h3>'.__('Other FREE a3rev WordPress Plugins', 'wp_email_template').'</h3>';
+		$html .= '<h3>'.__('More a3rev Quality WordPress Plugins', 'wp_email_template').'</h3>';
 		$html .= '<p>';
 		$html .= '<ul style="padding-left:10px;">';
+		$html .= '<li>* <a href="http://wordpress.org/plugins/a3-responsive-slider/" target="_blank">'.__('a3 Responsive Slider (Just released)', 'wp_email_template').'</a></li>';
 		$html .= '<li>* <a href="http://wordpress.org/plugins/contact-us-page-contact-people/" target="_blank">'.__('Contact Us page - Contact People', 'wp_email_template').'</a></li>';
 		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/page-views-count/" target="_blank">'.__('Page View Count', 'wp_email_template').'</a></li>';
 		$html .= '</ul>';
 		$html .= '</p>';
-		$html .= '<p>'.__("View all", 'wp_email_template').' <a href="http://profiles.wordpress.org/a3rev/" target="_blank">'.__("16 a3rev plugins", 'wp_email_template').'</a> '.__('on the WordPress repository', 'wp_email_template').'</p>';
+		$html .= '<p>'.__("View all", 'wp_email_template').' <a href="http://profiles.wordpress.org/a3rev/" target="_blank">'.__("17 a3rev plugins", 'wp_email_template').'</a> '.__('on the WordPress repository', 'wp_email_template').'</p>';
 		return $html;
 	}
 }
