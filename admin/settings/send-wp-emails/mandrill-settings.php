@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 <?php
 /*-----------------------------------------------------------------------------------
-WP Email Teplate General Settings
+WP Email Teplate Send WP Emails Mandrill Provider Settings
 
 TABLE OF CONTENTS
 
@@ -28,13 +28,13 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
+class WP_ET_Mandrill_Provider_Settings extends WP_Email_Tempate_Admin_UI
 {
 	
 	/**
 	 * @var string
 	 */
-	private $parent_tab = 'general';
+	private $parent_tab = 'mandrill';
 	
 	/**
 	 * @var array
@@ -45,13 +45,13 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	 * @var string
 	 * You must change to correct option name that you are working
 	 */
-	public $option_name = 'wp_email_template_general';
+	public $option_name = 'wp_et_mandrill_provider_configuration';
 	
 	/**
 	 * @var string
 	 * You must change to correct form key that you are working
 	 */
-	public $form_key = 'wp_email_template_general';
+	public $form_key = 'wp_et_mandrill_provider_configuration';
 	
 	/**
 	 * @var string
@@ -78,19 +78,18 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 		//$this->subtab_init();
 		
 		$this->form_messages = array(
-				'success_message'	=> __( 'General Settings successfully saved.', 'wp_email_template' ),
-				'error_message'		=> __( 'Error: General Settings can not save.', 'wp_email_template' ),
-				'reset_message'		=> __( 'General Settings successfully reseted.', 'wp_email_template' ),
+				'success_message'	=> __( 'Mandrill Configuration successfully saved.', 'wp_email_template' ),
+				'error_message'		=> __( 'Error: Mandrill Configuration can not save.', 'wp_email_template' ),
+				'reset_message'		=> __( 'Mandrill Configuration successfully reseted.', 'wp_email_template' ),
 			);
+		
+		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_end', array( $this, 'include_script' ) );
 			
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 		
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'clean_on_deletion' ) );
-		
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
-		
+		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'after_save_settings' ) );
+						
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
-		
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
@@ -114,25 +113,33 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
-	/* clean_on_deletion()
+	/* after_save_settings()
 	/* Process when clean on deletion option is un selected */
 	/*-----------------------------------------------------------------------------------*/
-	public function clean_on_deletion() {
-		if ( ( isset( $_POST['bt_save_settings'] ) || isset( $_POST['bt_reset_settings'] ) ) && get_option( 'wp_email_template_lite_clean_on_deletion' ) == 0  )  {
-			$uninstallable_plugins = (array) get_option('uninstall_plugins');
-			unset($uninstallable_plugins[WP_EMAIL_TEMPLATE_NAME]);
-			update_option('uninstall_plugins', $uninstallable_plugins);
+	public function after_save_settings() {
+		if ( isset( $_POST['bt_save_settings'] ) ) {
+			$settings_array = get_option( $this->option_name, array() );
+			if ( isset( $settings_array['mandrill_connect_type'] ) ) {
+				global $wp_et_send_wp_emails;
+				if ( $settings_array['mandrill_connect_type'] == 'api' ) {
+					// check api key
+					$api_key_valid = $wp_et_send_wp_emails->check_mandrill_api_key( trim( $settings_array['api_key'] ) );
+					if ( $api_key_valid ) {
+						update_option( 'wp_et_mandrill_api_key_valid', 1 );
+					} else {
+						delete_option( 'wp_et_mandrill_api_key_valid');
+					}
+				} else {
+					// check api key
+					$api_key_valid = $wp_et_send_wp_emails->check_mandrill_api_key( trim( $settings_array['smtp_password'] ) );
+					if ( $api_key_valid ) {
+						update_option( 'wp_et_mandrill_api_key_valid', 1 );
+					} else {
+						delete_option( 'wp_et_mandrill_api_key_valid');
+					}
+				}
+			}
 		}
-	}
-	
-	/*-----------------------------------------------------------------------------------*/
-	/* reset_default_settings()
-	/* Reset default settings with function called from Admin Interface */
-	/*-----------------------------------------------------------------------------------*/
-	public function reset_default_settings() {
-		global $wp_email_template_admin_interface;
-		
-		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, true, true );
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
@@ -159,9 +166,9 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	public function subtab_data() {
 		
 		$subtab_data = array( 
-			'name'				=> 'general',
-			'label'				=> __( 'General', 'wp_email_template' ),
-			'callback_function'	=> 'wp_email_template_general_settings_form',
+			'name'				=> 'mandrill',
+			'label'				=> __( 'Mandrill', 'wp_email_template' ),
+			'callback_function'	=> 'wp_et_mandrill_provider_settings_form',
 		);
 		
 		if ( $this->subtab_data ) return $this->subtab_data;
@@ -191,6 +198,9 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 		$output = '';
 		$output .= $wp_email_template_admin_interface->admin_forms( $this->form_fields, $this->form_key, $this->option_name, $this->form_messages );
 		
+		if ( get_option( 'wp_et_mandrill_api_key_valid' , 0 ) != 1 )
+			echo $wp_email_template_admin_interface->get_error_message(  __( "Your API key is invalid", 'wp_email_template' ) );
+		
 		return $output;
 	}
 	
@@ -199,124 +209,135 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	/* Init all fields of this form */
 	/*-----------------------------------------------------------------------------------*/
 	public function init_form_fields() {
-		$preview_wp_email_template = '';
-		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('admin.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'wp_email_template' ) {
-			$preview_wp_email_template = wp_create_nonce("preview_wp_email_template");
-		}
 		
   		// Define settings			
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 		
 			array(
-				'name' 		=> __( 'Live Preview', 'wp_email_template' ),
-				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
-				'type' 		=> 'heading',
-			),
-			array(
-            	'name' 		=> __( 'Template Header', 'wp_email_template' ),
+            	'name' 		=> __( 'Madrill Credentials', 'wp_email_template' ),
+				'desc'		=> sprintf( __( 'Send up to 12,000 emails a month for free <a href="%s" target="_blank">with Mandrill</a>. Register an account and generate the API Key or SMTP creds and enter those here.', 'wp_email_template' ), 'http://mandrill.com/' ),
                 'type' 		=> 'heading',
            	),
 			array(  
-				'name' 		=> __( 'Header image', 'wp_email_template' ),
-				'desc' 		=> __( "The image you want to show in the email's header", 'wp_email_template' ),
-				'id' 		=> 'header_image',
-				'type' 		=> 'upload',
-				'free_version'		=> true,
-			),
-			array(
-            	'name' 		=> __( 'Template Background', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(  
-				'name' 		=> __( 'Background colour', 'wp_email_template' ),
-				'desc' 		=> __( "Email template background colour. Default", 'wp_email_template' ) . ' [default_value]',
-				'id' 		=> 'background_colour',
-				'type' 		=> 'color',
-				'default'	=> '#D7D8B0',
-				'free_version'		=> true,
-			),
-			array(
-            	'name' 		=> '',
-				'class'		=> 'pro_feature_fields',
-                'type' 		=> 'heading',
-           	),
-			array(  
-				'name' 		=> __( 'Background Pattern', 'wp_email_template' ),
-				'id' 		=> 'deactivate_pattern_background',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'no',
-				'checked_value'		=> 'no',
-				'unchecked_value'	=> 'yes',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
-			),
-			
-			
-			array(
-            	'name' 		=> __( 'WooCommerce Configuration', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(  
-				'name' 		=> __( 'Apply to WooCommerce emails', 'wp_email_template' ),
-				'desc' 		=> __( 'If WooCommerce is installed, select YES to apply this template to all WooCommerce emails.', 'wp_email_template' ),
-				'id' 		=> 'apply_for_woo_emails',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> '',
-				'free_version'		=> true,
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> '',
-				'checked_label'		=> __( 'YES', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'NO', 'wp_email_template' ),
+				'name' 		=> __( 'Connect Type', 'wp_email_template' ),
+				'class'		=> 'mandrill_connect_type',
+				'id' 		=> 'mandrill_connect_type',
+				'type' 		=> 'switcher_checkbox',
+				'default'	=> 'api',
+				'checked_value'		=> 'api',
+				'unchecked_value'	=> 'smtp',
+				'checked_label'		=> __( 'API', 'wp_email_template' ),
+				'unchecked_label' 	=> __( 'SMTP', 'wp_email_template' ),
 			),
 			
 			array(
-            	'name' 		=> __( 'Help Promote This Plugin', 'wp_email_template' ),
+				'class'		=> 'mandrill_api_connect_container',
                 'type' 		=> 'heading',
            	),
 			array(  
-				'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
-				'desc' 		=> __( 'Help spread the word by showing this at the bottom of your emails. The text is linked to the plugins WordPress.org page.', 'wp_email_template' ),
-				'id' 		=> 'show_plugin_url',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'yes',
-				'free_version'		=> true,
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+				'name' 		=> '',
+				'id' 		=> 'api_key',
+				'type' 		=> 'text',
+				'default'	=> '',
+				'placeholder'	=> __( 'enter API key', 'wp_email_template' ),
 			),
-			
-			array(
-            	'name' 		=> __( 'House Keeping :', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
 			array(  
-				'name' 		=> __( 'Clean up on Deletion', 'wp_email_template' ),
-				'desc' 		=> __( "Check this box and if you ever delete this plugin it will completely remove all tables and data it created, leaving no trace it was ever here.", 'wp_email_template' ),
-				'id' 		=> 'wp_email_template_lite_clean_on_deletion',
+				'name' 		=> __( 'Track Opens', 'wp_email_template' ),
+				'id' 		=> 'enable_track_opens',
 				'type' 		=> 'onoff_checkbox',
-				'default'	=> '1',
-				'free_version'		=> true,
-				'separate_option'	=> true,
+				'default' 	=> '1',
 				'checked_value'		=> '1',
 				'unchecked_value'	=> '0',
 				'checked_label'		=> __( 'ON', 'wp_email_template' ),
 				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
 			),
+			array(  
+				'name' 		=> __( 'Track Clicks', 'wp_email_template' ),
+				'id' 		=> 'enable_track_clicks',
+				'type' 		=> 'onoff_checkbox',
+				'default' 	=> '1',
+				'checked_value'		=> '1',
+				'unchecked_value'	=> '0',
+				'checked_label'		=> __( 'ON', 'wp_email_template' ),
+				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+			),
+			
+			array(
+				'class'		=> 'mandrill_smtp_connect_container',
+                'type' 		=> 'heading',
+           	),
+			array(  
+				'name' 		=> __( 'Host', 'wp_email_template' ),
+				'id' 		=> 'smtp_host',
+				'type' 		=> 'text',
+				'default'	=> 'smtp.mandrillapp.com',
+				'placeholder'	=> 'smtp.mandrillapp.com',
+			),
+			array(  
+				'name' 		=> __( 'Port', 'wp_email_template' ),
+				'id' 		=> 'smtp_port',
+				'style'		=> 'width:100px;',	
+				'type' 		=> 'text',
+				'default'	=> '587',
+				'placeholder'	=> '587',
+			),
+			array(  
+				'name' 		=> __( 'SMTP Username', 'wp_email_template' ),
+				'id' 		=> 'smtp_username',
+				'type' 		=> 'text',
+				'default'	=> ''
+			),
+			array(  
+				'name' 		=> __( 'SMTP Password', 'wp_email_template' ),
+				'id' 		=> 'smtp_password',
+				'type' 		=> 'password',
+				'default'	=> '',
+				'placeholder'	=> __( 'any valid API key', 'wp_email_template' ),
+			),
         ));
+	}
+	
+	public function include_script() {
+	?>
+<script>
+(function($) {
+$(document).ready(function() {
+	if ( $("input.mandrill_connect_type:checked").val() == 'api') {
+		$(".mandrill_api_connect_container").css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+		$(".mandrill_smtp_connect_container").css( {'visibility': 'hidden', 'height' : '0px', 'overflow' : 'hidden'} );
+	} else {
+		$(".mandrill_api_connect_container").css( {'visibility': 'hidden', 'height' : '0px', 'overflow' : 'hidden'} );
+		$(".mandrill_smtp_connect_container").css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+	}
+	
+	$(document).on( "a3rev-ui-onoff_checkbox-switch", '.mandrill_connect_type', function( event, value, status ) {
+		$(".mandrill_api_connect_container").hide().css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+		$(".mandrill_smtp_connect_container").hide().css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+		if ( status == 'true' ) {
+			$(".mandrill_api_connect_container").slideDown();
+			$(".mandrill_smtp_connect_container").slideUp();
+		} else {
+			$(".mandrill_api_connect_container").slideUp();
+			$(".mandrill_smtp_connect_container").slideDown();
+		}
+	});
+});
+})(jQuery);
+</script>
+    <?php	
 	}
 }
 
-global $wp_email_template_general_settings;
-$wp_email_template_general_settings = new WP_Email_Template_General_Settings();
+global $wp_et_mandrill_provider_settings;
+$wp_et_mandrill_provider_settings = new WP_ET_Mandrill_Provider_Settings();
 
 /** 
- * wp_email_template_general_settings_form()
+ * wp_et_mandrill_provider_settings_form()
  * Define the callback function to show subtab content
  */
-function wp_email_template_general_settings_form() {
-	global $wp_email_template_general_settings;
-	$wp_email_template_general_settings->settings_form();
+function wp_et_mandrill_provider_settings_form() {
+	global $wp_et_mandrill_provider_settings;
+	$wp_et_mandrill_provider_settings->settings_form();
 }
 
 ?>

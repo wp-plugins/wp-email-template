@@ -3,23 +3,23 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-WP Email Template - responsive, customizable, email browser optimized template for all WordPress and plugin generated emails e.g. WP e-Commerce, Gravity Forms. 
+Add a beautiful HTML Template to all WordPress and plugin generated emails. Send email options - SMTP, Gmail, Mandrill, GoDaddy Hosting supported.
   
 == Description ==
 
-WP Email Template does just 2 things - beautifully
+WP Email Template 2 things - beautifully
 
-1. Applies a responsive, customizable, optimized html email template to every email sent from your WordPress site including plugin generated emails.
+1. Applies a responsive, customizable, optimized HTML email template to every email sent from your WordPress site including plugin generated emails.
 
-2. Easy to use visual editor allows you to customize the style and header, footer content of your WP Email Template to match your site. 
+2. Gets your beautiful / professional emails delivered. Easily Configure advanced email sending providers with SMTP, Gmail SMTP or Mandrill (API or SMTP) 
 
-= Browser Optimization =
+= Email Template =
 
-WP Email Template is optimized to show your HTML email template design perfectly in the10 most popular email browers.
+The plugin applies a HTML template to email sent from your WordPress site. The Template is optimized to show your HTML emails perfectly in the10 most popular email browsers.
 
 * Apple iOS Devices
 * MS Outlook 	
@@ -31,23 +31,44 @@ WP Email Template is optimized to show your HTML email template design perfectly
 * Windows Live Desktop 	
 * Mozilla Thunderbird
 
-= Your Brand =
+= Email Sending Options =
 
-It does not matter if you are running a start-up 1 person blog or an e-commerce site with 1,000's of products you are trying to build a brand - your brand. WP Email Template ensures that when people interact with you via a comment on a blog post, an email inquiry, a purchase transaction, in fact any email communication between your site and them carries your branding. 
+Introduced in Version 1.1.2, almost 2 years after the initial launched WP Email Template. During that 2 years we noticed that the biggest issue users have are: 
 
-= Why we built it =
+* Email Spammers make successful email delivery a very complicated and specialized function. 
+* WordPress by default uses your web hosts local mail server to send all WordPress and plugin generated emails. 
+* Emails sent from a web host local mail server have poor delivery rates because they have very little or no reputation.
+* Configuring any type of email delivery provider will improve email delivery rates. 
 
-We built this plugin because we believe it is important that every contact we have with our clients carries our brand. We just hated those boring unbranded plain text emails WordPress generates and the unbranded html styling some plugins apply to our contact with our customers. So we built the WP Email Template to make sure that every contact our online customers have with us carries our brand. 
-We have used it for a while now and just love it. Our inspiration for the WP Email Template came from the inspired work by the [Mike](http://profiles.wordpress.org/mikejolley/), [James](http://profiles.wordpress.org/jameskoster/) and [Coen](http://profiles.wordpress.org/CoenJacobs/) at [WooCommerce](http://wordpress.org/extend/plugins/woocommerce/)
+Every different Email Provider requires another plugin to configure. For example here are just a few of the available choices.
 
-= Plugins =
+* Send Email via SMTP - [WP SMTP Mail](http://http://wordpress.org/plugins/wp-mail-smtp/), [WP SMPT](http://wordpress.org/plugins/wp-smtp/), [Easy WP SMTP](http://wordpress.org/plugins/easy-wp-smtp/)
+* Send Email via Gmail SMTP - [SendPress Lite](http://wordpress.org/plugins/sendpress/) and any SMTP plugin if you know what you are doing.
+* Send Email via Mandrill - [wpMandrill](http://wordpress.org/plugins/wpmandrill/)
+* Send via WordPress default 'local mail server' if using GoDaddy Hosting - Auto Config WordPress default Email Sending - [SendPress Lite](http://wordpress.org/plugins/sendpress/)
 
-WP Email Template works with every plugin we have tested it on.
+At a3rev we want users to be able to
+
+1. Create a Beautiful / Professional HTML Email template.
+2. Auto apply that template to all emails sent from WordPress and installed plugins.
+3. Easily configure a sending provider to get those emails delivered.
+4. Do it all with one plugin, quickly and easily.
+
+That is why we have added the Email Sending Provider Configuration Options so you can do all of that with just one plugin - WP Email Template.
+
+= Email from WordPress Plugins =
+
+WP Email Template will not work with any plugin that:
+
+1. Applies it's own HTML Email Template (WP Email Template is still applied but the 2 together will look bad).
+2. Send it's emails via the php() function. WP Email Template is applied to all mail that goes through wp_mail()
+
+Some of the better known plugins of the 1,000's of plugins that WP Email Template works beautifully with.
 
 * Gravity Forms - see the screen shots - looks sensational with the default Gravity style.
 * Contact Form 7 - see the screenshots
 * WP e-Commerce - applies the template to every store generated email to customers and admins
-* WooCommerce - Version 2.0 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistant branding across your entire site.
+* WooCommerce - Version 2.0 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
 * WP Mail SMPT - WP Email Template does not interfere with the way any WordPress or any plugin handles email output - it just applies the template to any output content.
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
 * Wordfence - Branded security emails - nice. 
@@ -76,7 +97,7 @@ Web Developers:
 * Wow your web clients with an email template that perfectly matches the site design.
 * We use it on every site we do and it just blows the client away. Best thing of all it takes just minutes to do.
 * Our clients love tweaking the design with the point and click settings.
-* Once only Lifetime multi-site Pro License Fee - no ongoing payments.
+* Once only Lifetime single and multi-sites Pro License Fee - no ongoing payments.
 * Lifetime Pro License support, updates and feature upgrades.
 
 Do-it-Yourself Site Creators.
@@ -145,15 +166,27 @@ The manual installation method involves down loading our plugin and uploading it
 
 1. Install and activate the plugin
 
-2. Go to Settings > Email Template
+2. Go to WP Email menu on your wp-admin dashboard.
 
-3. Add your styling
+3. Go to the Template sub menu and add your template styling
+
+4. Go to the Send WP Mail sub menu and configure your preferred email sending provider.
  
-4. Have fun.
+5. Enjoy.
 
-== Frequently Asked Questions ==
 
 == Changelog ==
+
+= 1.1.2 - 2014-02-19 =
+* Feature - Added WordPress Email sending settings and configurations.
+* Feature - Added auto config for GoDaddy Hosting when using default via web host as the Email Sending Options 
+* Feature - Added activate and configure send mail via SMTP option.
+* Feature - Added activate and auto configure send mail by Gmail option.
+* Feature - Added activate and configure send mail by Mandrill option. Connect via Mandrill API Key or SMTP.
+* Feature - Added Send Test Email function.
+* Feature - Added detailed Connection Error DEBUGGING.
+* Tweak - Moved plugin dashboard from the WordPress Settings menu to its own WP Email sidebar menu.
+* Tweak - Added 2 sub menus. Template | Send WP Emails, each with admin settings broken up into tabs.
 
 = 1.1.1.1 - 2014/02/12 =
 * Tweak - Added remove_all_filters('mce_external_plugins'); before call to wp_editor to remove extension scripts from other plugins.
@@ -240,6 +273,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+Major plugin upgrade - Easily configure and manage your WordPress email sending provider with the Send WP Emails features. 7 New features and 2 Tweaks.
 
 = 1.1.1.1=
 Upgrade now for wpMandrill conflict bug fix plus 2 Framework Tweaks.

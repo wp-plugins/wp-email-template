@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 <?php
 /*-----------------------------------------------------------------------------------
-WP Email Template Social Media Tab
+WP Email Template Send WP Emails via Gmail SMTP Provider Tab
 
 TABLE OF CONTENTS
 
@@ -22,12 +22,12 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WP_Email_Template_Social_Media_Tab extends WP_Email_Tempate_Admin_UI
+class WP_ET_Gmail_SMTP_Provider_Tab extends WP_Email_Tempate_Admin_UI
 {	
 	/**
 	 * @var string
 	 */
-	private $parent_page = 'wp_email_template';
+	private $parent_page = 'send_wp_emails';
 	
 	/**
 	 * @var string
@@ -74,9 +74,9 @@ class WP_Email_Template_Social_Media_Tab extends WP_Email_Tempate_Admin_UI
 	public function tab_data() {
 		
 		$tab_data = array( 
-			'name'				=> 'social-media',
-			'label'				=> __( 'Social Media', 'wp_email_template' ),
-			'callback_function'	=> 'wp_email_template_social_media_tab_manager',
+			'name'				=> 'gmail-smtp',
+			'label'				=> __( 'Gmail', 'wp_email_template' ),
+			'callback_function'	=> 'wp_et_gmail_smtp_provider_tab_manager',
 		);
 		
 		if ( $this->tab_data ) return $this->tab_data;
@@ -103,34 +103,32 @@ class WP_Email_Template_Social_Media_Tab extends WP_Email_Tempate_Admin_UI
 	public function settings_include() {
 		
 		// Includes Settings file
-		include_once( $this->admin_plugin_dir() . '/settings/social-media-settings.php' );
+		include_once( $this->admin_plugin_dir() . '/settings/send-wp-emails/gmail-settings.php' );
 		
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
-	/* panels_include */
-	/* Include form settings panels 
+	/* tab_manager() */
+	/* Call tab layout from Admin Init 
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
-		global $wp_email_template_social_media_settings;
+		global $wp_et_gmail_smtp_provider_settings;
 		
-		$this->plugin_extension_start();
-		$wp_email_template_social_media_settings->settings_form();
-		$this->plugin_extension_end();
+		$wp_et_gmail_smtp_provider_settings->settings_form();
 		
 	}
 }
 
-global $wp_email_template_social_media_tab;
-$wp_email_template_social_media_tab = new WP_Email_Template_Social_Media_Tab();
+global $wp_et_gmail_smtp_provider_tab;
+$wp_et_gmail_smtp_provider_tab = new WP_ET_Gmail_SMTP_Provider_Tab();
 
 /** 
- * wp_email_template_social_media_tab_manager()
+ * wp_et_gmail_smtp_provider_tab_manager()
  * Define the callback function to show tab content
  */
-function wp_email_template_social_media_tab_manager() {
-	global $wp_email_template_social_media_tab;
-	$wp_email_template_social_media_tab->tab_manager();
+function wp_et_gmail_smtp_provider_tab_manager() {
+	global $wp_et_gmail_smtp_provider_tab;
+	$wp_et_gmail_smtp_provider_tab->tab_manager();
 }
 
 ?>
