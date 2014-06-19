@@ -1,7 +1,7 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.1.2.1');
-	update_option('a3rev_wp_email_template_lite_version', '1.1.1.1');
+	update_option('a3rev_wp_email_template_version', '1.1.3.2');
+	update_option('a3rev_wp_email_template_lite_version', '1.1.2.1');
 	
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -18,7 +18,7 @@ update_option('a3rev_wp_email_template_plugin', 'wp_email_template');
 function wp_email_template_init() {
 	if ( get_option('a3rev_wp_email_just_installed') ) {
 		delete_option('a3rev_wp_email_just_installed');
-		wp_redirect( admin_url( 'options-general.php?page=email_template', 'relative' ) );
+		wp_redirect( admin_url( 'admin.php?page=wp_email_template', 'relative' ) );
 		exit;
 	}
 	load_plugin_textdomain( 'wp_email_template', false, WP_EMAIL_TEMPLATE_FOLDER.'/languages' );
@@ -31,6 +31,9 @@ add_action( 'admin_enqueue_scripts', array( 'WP_Email_Template_Hook_Filter', 'a3
 
 // Add extra link on left of Deactivate link on Plugin manager page
 add_action('plugin_action_links_'.WP_EMAIL_TEMPLATE_NAME, array('WP_Email_Template_Hook_Filter', 'settings_plugin_links') );
+
+// Add admin sidebar menu css
+add_action( 'admin_enqueue_scripts', array( 'WP_Email_Template_Hook_Filter', 'admin_sidebar_menu_css' ) );
 
 // Add text on right of Visit the plugin on Plugin manager page
 add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_extra_links'), 10, 2 );
@@ -140,7 +143,7 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 			update_option( 'wp_email_template_email_footer', $wp_email_template_style['email_footer'] );
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.1.2.1');
-	update_option('a3rev_wp_email_template_lite_version', '1.1.1.1');
+	update_option('a3rev_wp_email_template_version', '1.1.3.2');
+	update_option('a3rev_wp_email_template_lite_version', '1.1.2.1');
 }
 ?>

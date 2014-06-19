@@ -818,7 +818,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 	 * separate_option		=> true | false
 	 * custom_attributes	=> array
 	 * view_doc				=> allowed html code : apply for heading only
-	 * placeholder			=> text : apply for select, multiselect and single_select_page
+	 * placeholder			=> text : apply for input, email, number, password, textarea, select, multiselect and single_select_page
 	 * hide_if_checked		=> true | false : apply for checkbox only
 	 * show_if_checked		=> true | false : apply for checkbox only
 	 * checkboxgroup		=> start | end : apply for checkbox only
@@ -922,6 +922,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 			if ( ! isset( $value['default'] ) ) $value['default'] = '';
 			if ( ! isset( $value['desc'] ) ) $value['desc'] = '';
 			if ( ! isset( $value['desc_tip'] ) ) $value['desc_tip'] = false;
+			if ( ! isset( $value['placeholder'] ) ) $value['placeholder'] = '';
 			
 			// For way it has an option name
 			if ( ! isset( $value['separate_option'] ) ) $value['separate_option'] = false;
@@ -1111,7 +1112,9 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 					if ( ! empty( $value['id'] ) ) do_action( $this->plugin_name . '_settings_' . sanitize_title( $value['id'] ) . '_before' );
 					
 					echo '<div id="'. esc_attr( $value['id'] ) . '" class="a3rev_panel_inner '. esc_attr( $value['class'] ) .'" style="'. esc_attr( $value['css'] ) .'">' . "\n\n";
-					if ( stristr( $value['class'], 'pro_feature_fields' ) !== false ) $this->upgrade_top_message( true );
+					if ( stristr( $value['class'], 'pro_feature_fields' ) !== false && ! empty( $value['id'] ) ) $this->upgrade_top_message( true, sanitize_title( $value['id'] ) );
+					elseif ( stristr( $value['class'], 'pro_feature_fields' ) !== false ) $this->upgrade_top_message( true );
+					
 					echo ( ! empty( $value['name'] ) ) ? '<h3>'. esc_html( $value['name'] ) .' '. $view_doc .'</h3>' : '';
 					if ( ! empty( $value['desc'] ) ) echo wpautop( wptexturize( wp_kses_post( $value['desc'] ) ) );
 					echo '<table class="form-table">' . "\n\n";
@@ -1140,6 +1143,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								value="<?php echo esc_attr( $option_value ); ?>"
 								class="a3rev-ui-<?php echo sanitize_title( $value['type'] ) ?> <?php echo esc_attr( $value['class'] ); ?>"
+                                placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								/> <?php echo $description; ?>
 						</td>
@@ -1187,6 +1191,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 								id="<?php echo $id_attribute; ?>"
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								class="a3rev-ui-<?php echo sanitize_title( $value['type'] ) ?> <?php echo esc_attr( $value['class'] ); ?>"
+                                placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo implode( ' ', $custom_attributes ); ?>
 								><?php echo esc_textarea( $option_value );  ?></textarea>
 						</td>
@@ -1198,7 +1203,6 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				case 'multiselect' :
 				
 					if ( trim( $value['class'] ) == '' ) $value['class'] = 'chzn-select';
-					if ( ! isset( $value['placeholder'] ) ) $value['placeholder'] = '';
 					if ( ! isset( $value['options'] ) ) $value['options'] = array();
 		
 					?><tr valign="top">
@@ -1468,7 +1472,6 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				case 'single_select_page' :
 	
 					if ( trim( $value['class'] ) == '' ) $value['class'] = 'chzn-select-deselect';
-					if ( ! isset( $value['placeholder'] ) ) $value['placeholder'] = '';
 					
 					$args = array( 'name'				=> $name_attribute,
 								   'id'					=> $id_attribute,

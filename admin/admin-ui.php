@@ -122,15 +122,14 @@ class WP_Email_Tempate_Admin_UI
 	/* upgrade_top_message() */
 	/* Show upgrade top message for pro fields
 	/*-----------------------------------------------------------------------------------*/
-	public function upgrade_top_message( $echo = false ) {
+	public function upgrade_top_message( $echo = false, $setting_id = '' ) {
 		$upgrade_top_message = sprintf( '<div class="pro_feature_top_message">' 
-			. __( 'Settings inside this yellow border are %s Features.', 'wp_email_template' ) 
+			. __( 'Advanced settings inside this yellow border are not activated on the Lite Version.', 'wp_email_template' ) 
 			. '<br />' 
-			. __( 'Upgrade to the <a href="%s" target="_blank">%s</a> to activate these settings.', 'wp_email_template' ) 
+			. __( 'The fully featured %s in availble for <a href="%s" target="_blank">Free Evaluation Trail Here</a>. No credit card required.', 'wp_email_template' ) 
 			. '</div>'
-			, apply_filters( $this->plugin_name . '_pro_version_name', __( 'Pro Version', 'wp_email_template' ) )
-			, apply_filters( $this->plugin_name . '_pro_plugin_page_url', $this->pro_plugin_page_url )
-			, apply_filters( $this->plugin_name . '_pro_version_name', __( 'Pro Version', 'wp_email_template' ) ) 
+			, apply_filters( $this->plugin_name . '_' . $setting_id . '_pro_version_name', apply_filters( $this->plugin_name . '_pro_version_name', __( 'Pro Version', 'wp_email_template' ) ) )
+			, apply_filters( $this->plugin_name . '_' . $setting_id . '_pro_plugin_page_url', apply_filters( $this->plugin_name . '_pro_plugin_page_url', $this->pro_plugin_page_url ) )
 		);
 		
 		$upgrade_top_message = apply_filters( $this->plugin_name . '_upgrade_top_message', $upgrade_top_message );
