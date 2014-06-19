@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 3.9.1
-Stable tag: 1.1.2.1
+Stable tag: 1.1.2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -33,7 +33,7 @@ The plugin applies a HTML template to email sent from your WordPress site. The T
 
 = Email Sending Options =
 
-Introduced in Version 1.1.2, almost 2 years after the initial launched WP Email Template. During that 2 years we noticed that the biggest issue users have are: 
+The biggest issue users have are: 
 
 * Email Spammers make successful email delivery a very complicated and specialized function. 
 * WordPress by default uses your web hosts local mail server to send all WordPress and plugin generated emails. 
@@ -68,7 +68,7 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 * Gravity Forms - see the screen shots - looks sensational with the default Gravity style.
 * Contact Form 7 - see the screenshots
 * WP e-Commerce - applies the template to every store generated email to customers and admins
-* WooCommerce - Version 2.0 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
+* WooCommerce - Version 2.1 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
 * WP Mail SMPT - WP Email Template does not interfere with the way any WordPress or any plugin handles email output - it just applies the template to any output content.
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
 * Wordfence - Branded security emails - nice. 
@@ -87,25 +87,20 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 * The Pro Version settings are all active on the admin panels But do not save and are not applied to the front end.
 * Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Yellow side bar and borders.
 
-= Lite Version Support =
+>= Premium Support = 
 
-* As a Lite Version user please post all support requests to the plugins WordPress Support forum.
-* We do not watch that forum and posting there you will be relying on another user for support, not an a3rev team member.
-* Upgrading to a Pro Version Trail Licence gives 'write' access to the a3rev support forum.
+>The a3rev team does not provide support for the WP Email Template plugin on the WordPress.org forums. One on one developer support is available via the plugins a3rev [support forum](https://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/) to people who have purchased a [WP Email Template Pro](http://a3rev.com/shop/wp-email-template/) plugin Lifetime License. 
+
+>The Pro Version has lots of extra features that coupled with developer support might be well worth your investment!
 
 = The Pro Version Upgrade =
 
-* Industry leading - Full Pro Version [Free Evaluation Trail](http://a3rev.com/shop/wp-email-template/). No Credit Card Required.
-* Immediate access to support from developers on the plugins [a3rev support forum](http://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/).
 * Wow your web clients and customers with an email template that perfectly matches the site design.
-* We use it on every site we do and it just blows the client away. Best thing of all it takes just minutes to do.
+* We use it on every site we do and it just blows the client away. 
+* Best thing of all it takes just minutes to do.
 * Our clients love tweaking the design with the point and click settings.
  
 See the Lite Versions plugin admin panel for more Pro Version details.
-
-= Documentation =
-
-WP Email Template requires no set up or configuration. As soon as you install and activate the plugin, it applies the default template to all of your emails. If you wish to add your own custom style then visit the plugins admin page and use the simple visual editor. For the absolute WordPress beginner we do have full pictorial documentation on how to find and use the visual editor features. See the [plugins documents](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) on line at the a3rev wiki.
 
 = Localization =
 
@@ -114,7 +109,7 @@ If you do a translation for your site please send it to us and we'll include it 
 * English (default) - always included.
 * German - DE Thanks to Marko Geisler
 * Russian - RU Thanks to Viktor Demidov
-*.po file (wp_email_template.po) in languages folder for translations.
+* .po file (wp_email_template.po) in languages folder for translations.
 * [Go here](http://a3rev.com/contact-us-page/) to send your translation files to us.
 
 = Plugin Resources =
@@ -168,6 +163,11 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.1.2.2 - 2014/06/19 =
+* Tweak - Updated chosen js script to latest version 1.0.1 on the a3rev Plugin Framework
+* Tweak - Added support for placeholder feature for input, email , password , text area types
+* Tweak - Checked and updated for full compatibility with WooCommerce version 2.1.11
 
 = 1.1.2.1 - 2014/05/25 =
 * Tweak - Changed add_filter( 'gettext', array( $this, 'change_button_text' ), null, 2 ); to add_filter( 'gettext', array( $this, 'change_button_text' ), null, 3 );
@@ -274,6 +274,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.1.2.2 =
+Update now for 2 important framework code tweaks to keep you plugin in tip top running order.
 
 = 1.1.2.1 =
 Update now full compatibility with WordPress version 3.9.1, WooCommerce version 2.1.9 and WP e-Commerce version 3.8.14.1

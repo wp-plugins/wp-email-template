@@ -150,22 +150,15 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		$html .= '<p>'.__("<strong>NOTE:</strong> All the functions inside the Yellow border on the plugins admin panel are extra functionality that is activated by upgrading to the Pro version", 'wp_email_template').':</p>';
 		$html .= '<p>';
 		$html .= '<h3 style="margin-bottom:5px;">* <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__('WP Email Template Pro', 'wp_email_template').'</a></h3>';
-		$html .= '<p>';
-		$html .= '* '. sprintf( __('Trial the <a href="%s" target="_blank">Pro Version for Free</a>', 'wp_email_template'), WP_EMAIL_TEMPLATE_AUTHOR_URI ).'<br />';
-		$html .= '* '. __('No credit card required.', 'wp_email_template').'<br />';
-		$html .= '* '. sprintf( __('Immediate access to <a href="%s" target="_blank">developer support</a>.', 'wp_email_template'), 'http://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/' );
-		$html .= '</p>';
 		
-		$html .= '<p>';
-		$html .= '<h3 style="margin-bottom:5px;">'.__('WP Email Template Pro', 'wp_email_template').'</h3>';
 		$html .= '<div><strong>'.__('Features', 'wp_email_template').':</strong></div>';
 		$html .= '<p>';
 		$html .= '<ul style="padding-left:10px;">';
 		$html .= '<li>1. '.__("Create a fully customized responsive email template in not days but just minutes.", 'wp_email_template').'</li>';
 		$html .= '<li>2. '.__("Web Developers - wow your web clients with an email template that matches their site.", 'wp_email_template').'</li>';
 		$html .= '<li>3. '.__('Site owners (even complete novices) with the Pro Version it will take you just a few minutes to be wowing your users with your uniquely styled and branded emails that they get from your site.', 'wp_email_template').'</li>';
-		$html .= '<li>4. '.__('Once only small Lifetime Pro License Fee - no ongoing payments.', 'wp_email_template').'</li>';
-		$html .= '<li>5. '.__('Lifetime Pro License support not by support staff but by the developers themselves.', 'wp_email_template').'</li>';
+		$html .= '<li>4. '.__('Lifetime License Fee - no ongoing payments.', 'wp_email_template').'</li>';
+		$html .= '<li>5. '.__('Lifetime Pro License support from developers.', 'wp_email_template').'</li>';
 		$html .= '</ul>';
 		$html .= '</p>';
 		$html .= '<h3>'.__('View this plugins', 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_DOCS_URI.'" target="_blank">'.__('documentation', 'wp_email_template').'</a></h3>';
@@ -174,7 +167,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		$html .= '<h3>'.__('More a3rev Quality WordPress Plugins', 'wp_email_template').'</h3>';
 		$html .= '<p>';
 		$html .= '<ul style="padding-left:10px;">';
-		$html .= '<li>* <a href="http://wordpress.org/plugins/a3-responsive-slider/" target="_blank">'.__('a3 Responsive Slider (Just released)', 'wp_email_template').'</a></li>';
+		$html .= '<li>* <a href="http://wordpress.org/plugins/a3-responsive-slider/" target="_blank">'.__('a3 Responsive Slider', 'wp_email_template').'</a>&nbsp;&nbsp;&nbsp; ('.__( 'Just released', 'wp_email_template' ).')</li>';
 		$html .= '<li>* <a href="http://wordpress.org/plugins/contact-us-page-contact-people/" target="_blank">'.__('Contact Us page - Contact People', 'wp_email_template').'</a></li>';
 		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/page-views-count/" target="_blank">'.__('Page View Count', 'wp_email_template').'</a></li>';
 		$html .= '</ul>';

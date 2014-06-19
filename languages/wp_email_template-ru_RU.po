@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Email Template LITE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-24 13:24+0700\n"
-"PO-Revision-Date: 2014-05-24 13:24+0700\n"
+"POT-Creation-Date: 2014-06-19 15:50+0700\n"
+"PO-Revision-Date: 2014-06-19 15:50+0700\n"
 "Last-Translator: Nguyen Cong Tuan <mr.nguyencongtuan@gmail.com>\n"
 "Language-Team: a3rev <hidemka@gmail.com>\n"
 "Language: ru_RU\n"
@@ -15,79 +15,79 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/admin-interface.php:127
+#: admin/admin-interface.php:129
 #, fuzzy
 msgid "Settings successfully saved."
 msgstr "Настройки шаблона Email успешно сохранены."
 
-#: admin/admin-interface.php:135
+#: admin/admin-interface.php:137
 msgid "Error: Settings can not save."
 msgstr ""
 
-#: admin/admin-interface.php:143
+#: admin/admin-interface.php:145
 #, fuzzy
 msgid "Settings successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/admin-interface.php:164
+#: admin/admin-interface.php:166
 msgid "Thin"
 msgstr ""
 
-#: admin/admin-interface.php:165
+#: admin/admin-interface.php:167
 #, fuzzy
 msgid "Thin/Italic"
 msgstr "Наклонный"
 
-#: admin/admin-interface.php:166
+#: admin/admin-interface.php:168
 msgid "Normal"
 msgstr "Нормальный"
 
-#: admin/admin-interface.php:167
+#: admin/admin-interface.php:169
 msgid "Italic"
 msgstr "Наклонный"
 
-#: admin/admin-interface.php:168
+#: admin/admin-interface.php:170
 msgid "Bold"
 msgstr "Жирный"
 
-#: admin/admin-interface.php:169
+#: admin/admin-interface.php:171
 msgid "Bold/Italic"
 msgstr "Жирный/Наклонный"
 
-#: admin/admin-interface.php:179
+#: admin/admin-interface.php:181
 msgid "Solid"
 msgstr ""
 
-#: admin/admin-interface.php:180
+#: admin/admin-interface.php:182
 msgid "Double"
 msgstr ""
 
-#: admin/admin-interface.php:181
+#: admin/admin-interface.php:183
 msgid "Dashed"
 msgstr ""
 
-#: admin/admin-interface.php:182
+#: admin/admin-interface.php:184
 msgid "Dotted"
 msgstr ""
 
-#: admin/admin-interface.php:183
+#: admin/admin-interface.php:185
 msgid "Groove"
 msgstr ""
 
-#: admin/admin-interface.php:184
+#: admin/admin-interface.php:186
 msgid "Ridge"
 msgstr ""
 
-#: admin/admin-interface.php:185
+#: admin/admin-interface.php:187
 msgid "Inset"
 msgstr ""
 
-#: admin/admin-interface.php:186
+#: admin/admin-interface.php:188
 msgid "Outset"
 msgstr ""
 
-#: admin/admin-interface.php:1300 admin/admin-interface.php:1390
-#: admin/admin-interface.php:1419 admin/settings/general-settings.php:250
+#: admin/admin-interface.php:1354 admin/admin-interface.php:1444
+#: admin/admin-interface.php:1473 admin/settings/general-settings.php:250
 #: admin/settings/general-settings.php:285
 #: admin/settings/general-settings.php:303
 #: admin/settings/send-wp-emails/general-settings.php:250
@@ -106,8 +106,8 @@ msgstr ""
 msgid "ON"
 msgstr ""
 
-#: admin/admin-interface.php:1301 admin/admin-interface.php:1391
-#: admin/admin-interface.php:1420 admin/settings/general-settings.php:251
+#: admin/admin-interface.php:1355 admin/admin-interface.php:1445
+#: admin/admin-interface.php:1474 admin/settings/general-settings.php:251
 #: admin/settings/general-settings.php:286
 #: admin/settings/general-settings.php:304
 #: admin/settings/send-wp-emails/general-settings.php:251
@@ -126,104 +126,104 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
-#: admin/admin-interface.php:1461
+#: admin/admin-interface.php:1515
 msgid "Width"
 msgstr ""
 
-#: admin/admin-interface.php:1463
+#: admin/admin-interface.php:1517
 msgid "Height"
 msgstr ""
 
-#: admin/admin-interface.php:1465
+#: admin/admin-interface.php:1519
 msgid "Hard Crop"
 msgstr ""
 
-#: admin/admin-interface.php:1542
+#: admin/admin-interface.php:1596
 msgid "-- Default Fonts --"
 msgstr ""
 
-#: admin/admin-interface.php:1553
+#: admin/admin-interface.php:1607
 msgid "-- Google Fonts --"
 msgstr ""
 
-#: admin/admin-interface.php:1594
+#: admin/admin-interface.php:1648
 msgid "Preview your customized typography settings"
 msgstr ""
 
-#: admin/admin-interface.php:1728 admin/admin-interface.php:1987
+#: admin/admin-interface.php:1782 admin/admin-interface.php:2041
 msgid "Preview your customized border settings"
 msgstr ""
 
-#: admin/admin-interface.php:1737 admin/admin-interface.php:1978
+#: admin/admin-interface.php:1791 admin/admin-interface.php:2032
 msgid "Rounded"
 msgstr ""
 
-#: admin/admin-interface.php:1738 admin/admin-interface.php:1979
+#: admin/admin-interface.php:1792 admin/admin-interface.php:2033
 msgid "Square"
 msgstr ""
 
-#: admin/admin-interface.php:1748 admin/admin-interface.php:1992
+#: admin/admin-interface.php:1802 admin/admin-interface.php:2046
 msgid "Top Left Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1768 admin/admin-interface.php:2012
+#: admin/admin-interface.php:1822 admin/admin-interface.php:2066
 msgid "Top Right Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1788 admin/admin-interface.php:2032
+#: admin/admin-interface.php:1842 admin/admin-interface.php:2086
 msgid "Bottom Right Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1808 admin/admin-interface.php:2052
+#: admin/admin-interface.php:1862 admin/admin-interface.php:2106
 msgid "Bottom Left Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1901
+#: admin/admin-interface.php:1955
 msgid "Preview your customized border styles settings"
 msgstr ""
 
-#: admin/admin-interface.php:2113 admin/settings/general-settings.php:268
+#: admin/admin-interface.php:2167 admin/settings/general-settings.php:268
 msgid "YES"
 msgstr ""
 
-#: admin/admin-interface.php:2114 admin/settings/general-settings.php:269
+#: admin/admin-interface.php:2168 admin/settings/general-settings.php:269
 msgid "NO"
 msgstr ""
 
-#: admin/admin-interface.php:2128
+#: admin/admin-interface.php:2182
 msgid "Horizontal Shadow"
 msgstr ""
 
-#: admin/admin-interface.php:2146
+#: admin/admin-interface.php:2200
 msgid "Vertical Shadow"
 msgstr ""
 
-#: admin/admin-interface.php:2164
+#: admin/admin-interface.php:2218
 msgid "Blur Distance"
 msgstr ""
 
-#: admin/admin-interface.php:2182
+#: admin/admin-interface.php:2236
 msgid "Spread Size"
 msgstr ""
 
-#: admin/admin-interface.php:2200
+#: admin/admin-interface.php:2254
 msgid "INNER"
 msgstr ""
 
-#: admin/admin-interface.php:2201
+#: admin/admin-interface.php:2255
 msgid "OUTER"
 msgstr ""
 
-#: admin/admin-interface.php:2219
+#: admin/admin-interface.php:2273
 msgid "Preview your customized box shadow settings"
 msgstr ""
 
-#: admin/admin-interface.php:2408
+#: admin/admin-interface.php:2509
 #, fuzzy
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
-#: admin/admin-interface.php:2409
+#: admin/admin-interface.php:2510
 msgid "Reset Settings"
 msgstr "Сбросить настройки"
 
@@ -244,20 +244,20 @@ msgstr "Email Шаблон"
 msgid "Send WP Emails"
 msgstr ""
 
-#: admin/admin-ui.php:127
+#: admin/admin-ui.php:135
 msgid ""
 "Advanced settings inside this yellow border are not activated on the Lite "
 "Version."
 msgstr ""
 
-#: admin/admin-ui.php:129
+#: admin/admin-ui.php:137
 #, php-format
 msgid ""
-"The fully featured %s in availble for <a href=\"%s\" target=\"_blank\">Free "
-"Evaluation Trail Here</a>. No credit card required."
+"Upgrade to the <a href=\"%s\" target=\"_blank\">%s</a> to activate these "
+"settings."
 msgstr ""
 
-#: admin/admin-ui.php:131
+#: admin/admin-ui.php:140
 #, fuzzy
 msgid "Pro Version"
 msgstr "Показать версию"
@@ -901,7 +901,7 @@ msgstr ""
 "WooCommerce Email шаблон."
 
 #: classes/class-email-hook.php:72
-#: classes/class-send-wp-email-functions.php:370
+#: classes/class-send-wp-email-functions.php:363
 msgid "Email preview"
 msgstr "Просмотр Email"
 
@@ -946,113 +946,100 @@ msgid ""
 "to the Pro version"
 msgstr ""
 
-#: classes/class-email-hook.php:152 classes/class-email-hook.php:160
+#: classes/class-email-hook.php:152
 #, fuzzy
 msgid "WP Email Template Pro"
 msgstr "WP Email шаблон"
 
 #: classes/class-email-hook.php:154
-#, php-format
-msgid "Trial the <a href=\"%s\" target=\"_blank\">Pro Version for Free</a>"
-msgstr ""
-
-#: classes/class-email-hook.php:155
-msgid "No credit card required."
-msgstr ""
-
-#: classes/class-email-hook.php:156
-#, php-format
-msgid ""
-"Immediate access to <a href=\"%s\" target=\"_blank\">developer support</a>."
-msgstr ""
-
-#: classes/class-email-hook.php:161
 msgid "Features"
 msgstr ""
 
-#: classes/class-email-hook.php:164
+#: classes/class-email-hook.php:157
 msgid ""
 "Create a fully customized responsive email template in not days but just "
 "minutes."
 msgstr ""
 
-#: classes/class-email-hook.php:165
+#: classes/class-email-hook.php:158
 msgid ""
 "Web Developers - wow your web clients with an email template that matches "
 "their site."
 msgstr ""
 
-#: classes/class-email-hook.php:166
+#: classes/class-email-hook.php:159
 msgid ""
 "Site owners (even complete novices) with the Pro Version it will take you "
 "just a few minutes to be wowing your users with your uniquely styled and "
 "branded emails that they get from your site."
 msgstr ""
 
-#: classes/class-email-hook.php:167
-msgid "Once only small Lifetime Pro License Fee - no ongoing payments."
+#: classes/class-email-hook.php:160
+msgid "Lifetime License Fee - no ongoing payments."
 msgstr ""
 
-#: classes/class-email-hook.php:168
-msgid ""
-"Lifetime Pro License support not by support staff but by the developers "
-"themselves."
+#: classes/class-email-hook.php:161
+msgid "Lifetime Pro License support from developers."
 msgstr ""
 
-#: classes/class-email-hook.php:171
+#: classes/class-email-hook.php:164
 msgid "View this plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:171
+#: classes/class-email-hook.php:164
 #, fuzzy
 msgid "documentation"
 msgstr "Документация"
 
-#: classes/class-email-hook.php:172
+#: classes/class-email-hook.php:165
 msgid "Lite Version plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:172
+#: classes/class-email-hook.php:165
 #, fuzzy
 msgid "support forum"
 msgstr "Поддержка"
 
-#: classes/class-email-hook.php:174
+#: classes/class-email-hook.php:167
 msgid "More a3rev Quality WordPress Plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:177
-msgid "a3 Responsive Slider (Just released)"
+#: classes/class-email-hook.php:170
+msgid "a3 Responsive Slider"
 msgstr ""
 
-#: classes/class-email-hook.php:178
+#: classes/class-email-hook.php:170
+msgid "Just released"
+msgstr ""
+
+#: classes/class-email-hook.php:171
 msgid "Contact Us page - Contact People"
 msgstr ""
 
-#: classes/class-email-hook.php:179
+#: classes/class-email-hook.php:172
 msgid "Page View Count"
 msgstr ""
 
-#: classes/class-email-hook.php:182
+#: classes/class-email-hook.php:175
 msgid "View all"
 msgstr ""
 
-#: classes/class-email-hook.php:182
+#: classes/class-email-hook.php:175
 msgid "17 a3rev plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:182
+#: classes/class-email-hook.php:175
 msgid "on the WordPress repository"
 msgstr ""
 
-#: classes/class-send-wp-email-functions.php:133
+#: classes/class-send-wp-email-functions.php:126
 msgid ""
 "WP Email Template: wp_mail has been declared by another process or plugin, "
 "so you won't be able to use another Email Deliver Provider until the problem "
 "is solved."
 msgstr ""
 
-#: classes/class-send-wp-email-functions.php:140
+#: classes/class-send-wp-email-functions.php:133
 msgid "WP Email Template: You are using Invalid API key for Mandrill"
 msgstr ""
 

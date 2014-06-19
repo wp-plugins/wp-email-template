@@ -12,9 +12,7 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 	public $get_email_delivery_provider = 'smtp'; 
 	
 	public function __construct() {
-		global $wp_et_send_wp_emails_general_settings;
-		$wp_et_send_wp_emails_general_settings->get_settings();
-		global $wp_et_send_wp_emails_general;
+		$wp_et_send_wp_emails_general = get_option( 'wp_et_send_wp_emails_general', array() );
 		
 		$get_email_delivery_provider = $wp_et_send_wp_emails_general['email_delivery_provider'];
 		
@@ -58,9 +56,7 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 	public function smtp_init() {
 		global $wp_et_smtp_class;
 		
-		global $wp_et_smtp_provider_settings;
-		$wp_et_smtp_provider_settings->get_settings();
-		global $wp_et_smtp_provider_configuration;
+		$wp_et_smtp_provider_configuration = get_option( 'wp_et_smtp_provider_configuration', array() );
 		
 		require_once WP_EMAIL_TEMPLATE_DIR . '/includes/smtp.php';
 		
@@ -77,9 +73,7 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 	public function gmail_smtp_init() {
 		global $wp_et_smtp_class;
 		
-		global $wp_et_gmail_smtp_provider_settings;
-		$wp_et_gmail_smtp_provider_settings->get_settings();
-		global $wp_et_gmail_smtp_provider_configuration;
+		$wp_et_gmail_smtp_provider_configuration = get_option( 'wp_et_gmail_smtp_provider_configuration', array() );
 		
 		require_once WP_EMAIL_TEMPLATE_DIR . '/includes/smtp.php';
 		
@@ -96,9 +90,8 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 	public function mandrill_init() {
 		global $wp_et_smtp_class;
 		
-		global $wp_et_mandrill_provider_settings;
-		$wp_et_mandrill_provider_settings->get_settings();
-		global $wp_et_mandrill_provider_configuration;
+		$wp_et_mandrill_provider_configuration = get_option( 'wp_et_mandrill_provider_configuration', array() );
+		
 		if ( $wp_et_mandrill_provider_configuration['mandrill_connect_type'] == 'smtp' ) {
 			add_action( 'admin_notices', array( $this, 'mandrill_api_key_invalid' ) );
 			require_once WP_EMAIL_TEMPLATE_DIR . '/includes/smtp.php';
