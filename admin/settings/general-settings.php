@@ -200,7 +200,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function init_form_fields() {
 		$preview_wp_email_template = '';
-		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('options-general.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'email_template' ) {
+		if ( is_admin() && in_array (basename($_SERVER['PHP_SELF']), array('admin.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'wp_email_template' ) {
 			$preview_wp_email_template = wp_create_nonce("preview_wp_email_template");
 		}
 		
@@ -208,10 +208,10 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 		
 			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+				'name' 		=> __( 'Live Preview', 'wp_email_template' ),
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
-                'type' 		=> 'heading',
-           	),
+				'type' 		=> 'heading',
+			),
 			array(
             	'name' 		=> __( 'Template Header', 'wp_email_template' ),
                 'type' 		=> 'heading',
@@ -245,8 +245,8 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'id' 		=> 'deactivate_pattern_background',
 				'type' 		=> 'onoff_checkbox',
 				'default' 	=> 'no',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
+				'checked_value'		=> 'no',
+				'unchecked_value'	=> 'yes',
 				'checked_label'		=> __( 'ON', 'wp_email_template' ),
 				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
 			),

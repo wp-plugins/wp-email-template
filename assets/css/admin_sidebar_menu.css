@@ -3,7 +3,7 @@
 /*-------------------------------------------------------------------------------------------*/
 @charset "UTF-8";
 
-#toplevel_page_email-inquiry-ultimate .wp-menu-image:before {
+#toplevel_page_wp_email_template .wp-menu-image:before {
   font-family: "a3-sidebar-menu" !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -23,13 +23,13 @@
   
   content: "\a3" !important;
 }
-#toplevel_page_email-inquiry-ultimate .wp-menu-image {
+#toplevel_page_wp_email_template .wp-menu-image {
 	text-align:center;
 	background:none;	
 }
 
 @media screen and ( max-width: 782px ) {
-	.auto-fold #adminmenu #toplevel_page_email-inquiry-ultimate a.menu-top {
+	.auto-fold #adminmenu #toplevel_page_wp_email_template a.menu-top {
 		height:auto;	
 	}
 }
