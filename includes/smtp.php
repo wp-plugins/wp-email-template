@@ -40,7 +40,7 @@ class WP_Email_Template_SMTP_Class
 			$phpmailer->SMTPAuth = TRUE;
 			$phpmailer->Username = $this->smtp_username;
 			$phpmailer->Password = $this->smtp_password;
-			$phpmailer->From     = $this->smtp_username;
+			//$phpmailer->From     = $this->smtp_username;
 		}
 		
 		// Support for other plugin can filter $phpmailer again

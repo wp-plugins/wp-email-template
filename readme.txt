@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 3.9.1
-Stable tag: 1.1.2.2
+Stable tag: 1.1.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -164,6 +164,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.1.2.3 - 2014/06/27 = 
+* Tweak - Add filter for the 'From' Email address meta that is set in SMTP or Gmail SMTP sender. This allows 3 party plugins to change the default 'From' Email address to another email, example noreply@domain.com 
+
 = 1.1.2.2 - 2014/06/19 =
 * Tweak - Updated chosen js script to latest version 1.0.1 on the a3rev Plugin Framework
 * Tweak - Added support for placeholder feature for input, email , password , text area types
@@ -274,6 +277,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.1.2.3 =
+Upgrade now for a code tweak for Send method SMTP and Gmail SMTP
 
 = 1.1.2.2 =
 Update now for 2 important framework code tweaks to keep you plugin in tip top running order.
