@@ -188,6 +188,11 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 						) {
 		global $wp_et_mandrill_provider_configuration;
 		
+		$to = str_replace( '<', '', $to );
+		$to = str_replace( '>', '', $to );
+		$bcc_list = array();
+		$cc_list = array();
+		
 		try {
 			require_once WP_EMAIL_TEMPLATE_DIR. '/includes/mandrill/Mandrill.php';
 			$mandrill = new Mandrill( $wp_et_mandrill_provider_configuration['api_key'] );
@@ -261,8 +266,14 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 							case 'bcc':
 								// TODO: Mandrill's API only accept one BCC address. Other addresses will be silently discarded
 								$bcc = array_merge( (array) $bcc, explode( ',', $content ) );
-					                
-								$mandrill_message['bcc_address'] = $bcc[0];
+					            
+								$bcc_list = $bcc;    
+								break;
+							
+							case 'cc':
+								$cc = array_merge( (array) $cc, explode( ',', $content ) );
+					            
+								$cc_list = $cc;    
 								break;
 						            
 							case 'reply-to':
@@ -299,6 +310,23 @@ class WP_Email_Template_Send_Wp_Emails_Functions
                 	$processed_to[] = array( 'email' => $email );
 				}
 			}
+			
+			if ( is_array( $bcc_list ) && count( $bcc_list ) > 0 ) {
+				foreach ( $bcc_list as $bcc_email ) {
+					$bcc_email = str_replace( '<', '', $bcc_email );
+					$bcc_email = str_replace( '>', '', $bcc_email );
+					$processed_to[] = array( 'email' => $bcc_email, 'type' => 'bcc' );
+				}
+			}
+			
+			if ( is_array( $cc_list ) && count( $cc_list ) > 0 ) {
+				foreach ( $cc_list as $cc_email ) {
+					$cc_email = str_replace( '<', '', $cc_email );
+					$cc_email = str_replace( '>', '', $cc_email );
+					$processed_to[] = array( 'email' => $cc_email, 'type' => 'cc' );
+				}
+			}
+			
 			$mandrill_message['to'] = $processed_to;
 	        
 	        // Checking From: field
@@ -363,7 +391,7 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 		$email_heading = __('Email preview', 'wp_email_template');
 				
 		$message = WP_Email_Template_Hook_Filter::preview_wp_email_content( $email_heading );
-
+		
 		$result = wp_mail( $to_email, $email_heading, $message );
 		
 		echo $this->mandrill_send_email_error_notice();
