@@ -197,8 +197,10 @@ class WP_Email_Template_Functions
 		
 		$html .= wpautop( make_clickable( $message) );
 		
-		if (stristr($message, '<!--NO_USE_EMAIL_TEMPLATE-->') === false )
+		if (stristr($message, '<!--NO_USE_EMAIL_TEMPLATE-->') === false ) {
 			$html .= WP_Email_Template_Functions::email_footer();
+			$html .= '<!--NO_USE_EMAIL_TEMPLATE-->';
+		}
 				
 		return $html;
 	}
