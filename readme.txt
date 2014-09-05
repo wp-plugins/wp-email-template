@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
-Tested up to: 3.9.1
-Stable tag: 1.1.2.4
+Tested up to: 4.0
+Stable tag: 1.1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -164,6 +164,12 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.1.3 - 2014/09/05 =
+* Feature - Convert all back end CSS to Sass.
+* Tweak - Updated google font face in plugin framework.
+* Tweak - Tested 100% compatible with WooCommerce Version 2.2
+* Tweak - Tested 100% compatible with WordPress Version 4.0
+
 = 1.1.2.4 - 2014/06/30 = 
 * Feature - Mandrill API -Convert email list from BCC field to email TO field to allow multiple recipients because Mandrill API only supports send to a single email address in BCC field. Important! On Mandrill Sending Options uncheck 'Expose the list of recipients when sending to multiple addresses' and BCC recipients cannot see or reply to the other emails in the TO field of the email. 
 * Fix - Mandrill API - Auto Convert email CC field to Email TO field so that CC address can receive email. Mandrill API only supports 1 CC email address.
@@ -282,6 +288,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.1.3 =
+Upgrade now for full compatibility with WordPress 4.0 and WooCommerce 2.2
 
 = 1.1.2.4 = 
 Upgrade you plugin now for 1 new Mandrill API BCC sender feature (send to multiple BCC addresses) and 2 bug fixes.
