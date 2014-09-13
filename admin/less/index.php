@@ -4,11 +4,11 @@
 <?php 
 function sass_compile_less_mincss(){
 	
-	include( __DIR__ . '/compile_less_sass_class.php' );
+	include( dirname( __FILE__ ) . '/compile_less_sass_class.php' );
 	
-	$less_file      = __DIR__ . '/assets/css/style.less';
-	$css_file       = __DIR__ . '/assets/css/style.css';
-	$css_min_file       = __DIR__ . '/assets/css/style.min.css';
+	$less_file      = dirname( __FILE__ ) . '/assets/css/style.less';
+	$css_file       = dirname( __FILE__ ) . '/assets/css/style.css';
+	$css_min_file       = dirname( __FILE__ ) . '/assets/css/style.min.css';
 	
 	$compile = new Compile_Less_Sass;
 	

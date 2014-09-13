@@ -86,7 +86,7 @@ class WP_Email_Template_Less
             if (is_writable($less_file)) {
                 
                 if (!class_exists('Compile_Less_Sass'))
-                    include(__DIR__ . '/compile_less_sass_class.php');
+                    include( dirname( __FILE__ ) . '/compile_less_sass_class.php');
                 file_put_contents($less_file, $sass_data);
                 $css_file     = $_upload_dir['basedir'] . '/sass/' . $filename . '.css';
                 $css_min_file = $_upload_dir['basedir'] . '/sass/' . $filename . '.min.css';

@@ -10,11 +10,11 @@ class Compile_Less_Sass {
 	public function compileLessFile( $less_file = '', $css_file = '', $css_min_file = '' ){
 	
 		if( empty( $less_file ) )
-			$less_file      = __DIR__ . '/assets/css/style.less';
+			$less_file      = dirname( __FILE__ ) . '/assets/css/style.less';
 		if( empty( $css_file ) )
-			$css_file       = __DIR__ . '/assets/css/style.css';
+			$css_file       = dirname( __FILE__ ) . '/assets/css/style.css';
 		if( empty( $css_min_file ) )
-			$css_min_file       = __DIR__ . '/assets/css/style.min.css';
+			$css_min_file       = dirname( __FILE__ ) . '/assets/css/style.min.css';
 			
 		//@chmod( $css_file, 0777 );
 		//@chmod( $css_min_file, 0777 );
@@ -23,10 +23,10 @@ class Compile_Less_Sass {
     	if ( is_writable( $css_file ) && is_writable( $css_min_file ) ) {
 			
 			if ( ! class_exists( 'lessc' ) ){
-				include( __DIR__ . '/lib/lessc.inc.php' );
+				include( dirname( __FILE__ ) . '/lib/lessc.inc.php' );
 			}
 			if ( ! class_exists( 'cssmin' ) ){
-				include( __DIR__ . '/lib/cssmin.inc.php' );
+				include( dirname( __FILE__ ) . '/lib/cssmin.inc.php' );
 			}
 		
 			try {

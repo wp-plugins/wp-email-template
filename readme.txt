@@ -3,42 +3,42 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Add a beautiful HTML Template to all WordPress and plugin generated emails. Send email options - SMTP, Gmail, Mandrill, GoDaddy Hosting supported.
-  
+
 == Description ==
 
 WP Email Template 2 things - beautifully
 
 1. Applies a responsive, customizable, optimized HTML email template to every email sent from your WordPress site including plugin generated emails.
 
-2. Gets your beautiful / professional emails delivered. Easily Configure advanced email sending providers with SMTP, Gmail SMTP or Mandrill (API or SMTP) 
+2. Gets your beautiful / professional emails delivered. Easily Configure advanced email sending providers with SMTP, Gmail SMTP or Mandrill (API or SMTP)
 
 = Email Template =
 
 The plugin applies a HTML template to email sent from your WordPress site. The Template is optimized to show your HTML emails perfectly in the10 most popular email browsers.
 
 * Apple iOS Devices
-* MS Outlook 	
+* MS Outlook
 * Hotmail
-* Apple Mail 	
-* Yahoo! Mail 	
+* Apple Mail
+* Yahoo! Mail
 * Google Gmail
-* Android Devices 	
-* Windows Live Desktop 	
+* Android Devices
+* Windows Live Desktop
 * Mozilla Thunderbird
 
 = Email Sending Options =
 
-The biggest issue users have are: 
+The biggest issue users have are:
 
-* Email Spammers make successful email delivery a very complicated and specialized function. 
-* WordPress by default uses your web hosts local mail server to send all WordPress and plugin generated emails. 
+* Email Spammers make successful email delivery a very complicated and specialized function.
+* WordPress by default uses your web hosts local mail server to send all WordPress and plugin generated emails.
 * Emails sent from a web host local mail server have poor delivery rates because they have very little or no reputation.
-* Configuring any type of email delivery provider will improve email delivery rates. 
+* Configuring any type of email delivery provider will improve email delivery rates.
 
 Every different Email Provider requires another plugin to configure. For example here are just a few of the available choices.
 
@@ -71,7 +71,7 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 * WooCommerce - Version 2.1 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
 * WP Mail SMPT - WP Email Template does not interfere with the way any WordPress or any plugin handles email output - it just applies the template to any output content.
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
-* Wordfence - Branded security emails - nice. 
+* Wordfence - Branded security emails - nice.
 
 = Mobile Responsive App style admin interface =
 
@@ -87,19 +87,19 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 * The Pro Version settings are all active on the admin panels But do not save and are not applied to the front end.
 * Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Yellow side bar and borders.
 
->= Premium Support = 
+>= Premium Support =
 
->The a3rev team does not provide support for the WP Email Template plugin on the WordPress.org forums. One on one developer support is available via the plugins a3rev [support forum](https://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/) to people who have purchased a [WP Email Template Pro](http://a3rev.com/shop/wp-email-template/) plugin Lifetime License. 
+>The a3rev team does not provide support for the WP Email Template plugin on the WordPress.org forums. One on one developer support is available via the plugins a3rev [support forum](https://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/) to people who have purchased a [WP Email Template Pro](http://a3rev.com/shop/wp-email-template/) plugin Lifetime License.
 
 >The Pro Version has lots of extra features that coupled with developer support might be well worth your investment!
 
 = The Pro Version Upgrade =
 
 * Wow your web clients and customers with an email template that perfectly matches the site design.
-* We use it on every site we do and it just blows the client away. 
+* We use it on every site we do and it just blows the client away.
 * Best thing of all it takes just minutes to do.
 * Our clients love tweaking the design with the point and click settings.
- 
+
 See the Lite Versions plugin admin panel for more Pro Version details.
 
 = Localization =
@@ -116,7 +116,7 @@ If you do a translation for your site please send it to us and we'll include it 
 
 [PRO Version](http://a3rev.com/shop/wp-email-template/) |
 [Documentation](http://docs.a3rev.com/user-guides/wordpress/wp-email-template/) |
- 
+
 
 == Installation ==
 
@@ -125,12 +125,12 @@ If you do a translation for your site please send it to us and we'll include it 
 * WordPress 3.7.0
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
- 
+
 = Automatic installation =
 
-Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't even need to leave your web browser. To do an automatic install of WP Email Template, log in to your WordPress admin panel, navigate to the Plugins menu and click Add New. 
+Automatic installation is the easiest option as WordPress handles the file transfers itself and you don't even need to leave your web browser. To do an automatic install of WP Email Template, log in to your WordPress admin panel, navigate to the Plugins menu and click Add New.
 
-In the search field type "WP Email Template" and click Search Plugins. Once you have found our plugin you can install it by simply clicking Install Now. After clicking that link you will be asked if you are sure you want to install the plugin. Click yes and WordPress will automatically complete the installation. 
+In the search field type "WP Email Template" and click Search Plugins. Once you have found our plugin you can install it by simply clicking Install Now. After clicking that link you will be asked if you are sure you want to install the plugin. Click yes and WordPress will automatically complete the installation.
 
 = Manual installation =
 
@@ -148,7 +148,7 @@ The manual installation method involves down loading our plugin and uploading it
 3. Contact Form 7 email output with the WP Email Template
 4. WP e-Commerce Purchase Report with WP Email Template
 5. WP Email Template applies to all email notifications generated from installed plugins to customers and admins e.g. BackupBuddy
- 
+
 == Usage ==
 
 1. Install and activate the plugin
@@ -158,11 +158,15 @@ The manual installation method involves down loading our plugin and uploading it
 3. Go to the Template sub menu and add your template styling
 
 4. Go to the Send WP Mail sub menu and configure your preferred email sending provider.
- 
+
 5. Enjoy.
 
 
 == Changelog ==
+
+= 1.1.4 - 2014/09/13 =
+* Tweak - Tested 100% compatible with WooCommerce 2.2.2
+* Fix - Changed <code>__DIR__</code> to <code>dirname( __FILE__ )</code> for Sass script so that on some server <code>__DIR__</code> is not defined
 
 = 1.1.3 - 2014/09/05 =
 * Feature - Convert all back end CSS to Sass.
@@ -170,13 +174,13 @@ The manual installation method involves down loading our plugin and uploading it
 * Tweak - Tested 100% compatible with WooCommerce Version 2.2
 * Tweak - Tested 100% compatible with WordPress Version 4.0
 
-= 1.1.2.4 - 2014/06/30 = 
-* Feature - Mandrill API -Convert email list from BCC field to email TO field to allow multiple recipients because Mandrill API only supports send to a single email address in BCC field. Important! On Mandrill Sending Options uncheck 'Expose the list of recipients when sending to multiple addresses' and BCC recipients cannot see or reply to the other emails in the TO field of the email. 
+= 1.1.2.4 - 2014/06/30 =
+* Feature - Mandrill API -Convert email list from BCC field to email TO field to allow multiple recipients because Mandrill API only supports send to a single email address in BCC field. Important! On Mandrill Sending Options uncheck 'Expose the list of recipients when sending to multiple addresses' and BCC recipients cannot see or reply to the other emails in the TO field of the email.
 * Fix - Mandrill API - Auto Convert email CC field to Email TO field so that CC address can receive email. Mandrill API only supports 1 CC email address.
 * Fix - Mandrill API - Detect and remove 2 special characters "<" and ">" used for Email TO field for example detect and convert <name@domain.com> to name@domain.com
 
-= 1.1.2.3 - 2014/06/27 = 
-* Tweak - Add filter for the 'From' Email address meta that is set in SMTP or Gmail SMTP sender. This allows 3 party plugins to change the default 'From' Email address to another email, example noreply@domain.com 
+= 1.1.2.3 - 2014/06/27 =
+* Tweak - Add filter for the 'From' Email address meta that is set in SMTP or Gmail SMTP sender. This allows 3 party plugins to change the default 'From' Email address to another email, example noreply@domain.com
 
 = 1.1.2.2 - 2014/06/19 =
 * Tweak - Updated chosen js script to latest version 1.0.1 on the a3rev Plugin Framework
@@ -194,7 +198,7 @@ The manual installation method involves down loading our plugin and uploading it
 
 = 1.1.2 - 2014-02-19 =
 * Feature - Added WordPress Email sending settings and configurations.
-* Feature - Added auto config for GoDaddy Hosting when using default via web host as the Email Sending Options 
+* Feature - Added auto config for GoDaddy Hosting when using default via web host as the Email Sending Options
 * Feature - Added activate and configure send mail via SMTP option.
 * Feature - Added activate and auto configure send mail by Gmail option.
 * Feature - Added activate and configure send mail by Mandrill option. Connect via Mandrill API Key or SMTP.
@@ -207,7 +211,7 @@ The manual installation method involves down loading our plugin and uploading it
 * Tweak - Added remove_all_filters('mce_external_plugins'); before call to wp_editor to remove extension scripts from other plugins.
 * Tweak - Updated Framework help text font for consistency.
 * Fix - Conflict with wpMandrill plugin. Rewrote emplate preview URL security require_once( ABSPATH . 'wp-includes/pluggable.php' ); with sanitiser that does not call wp_mail.
-* Credit - Thanks to Jeremy Summers [Tangy Tangerine CA.](http://www.tangytangerine.ca/) for alerting us about the wpMandrill conflict and access to find and fix. 
+* Credit - Thanks to Jeremy Summers [Tangy Tangerine CA.](http://www.tangytangerine.ca/) for alerting us about the wpMandrill conflict and access to find and fix.
 
 = 1.1.1 - 2014/01/27 =
 * Tweak - Upgraded for 100% compatibility with soon to be released WooCommerce Version 2.1 with backward compatibility to Version 2.0
@@ -254,8 +258,8 @@ The manual installation method involves down loading our plugin and uploading it
 
 = 1.0.5 - 2013/04/16 =
 * Feature - Added when install and activate plugin link redirects to WP Email Template admin panel instead of the wp-plugins dashboard
-* Fix - Yahoo Mail does not support p tag - space between paragraphs. Coded in line CSS fix to auto add space between paragraphs for Yahoo Mail.  
-* Fix - Yahoo Mail auto removes body tag and hence would not show the background colour. Coded in-line CSS fix to force Yahoo Mail to show background colour. 
+* Fix - Yahoo Mail does not support p tag - space between paragraphs. Coded in line CSS fix to auto add space between paragraphs for Yahoo Mail.
+* Fix - Yahoo Mail auto removes body tag and hence would not show the background colour. Coded in-line CSS fix to force Yahoo Mail to show background colour.
 * Fix - Updated all JavaScript functions so that the plugin is compatible with jQuery Version1.9 and backwards to version 1.6. WordPress still uses jQuery version 1.8.3. In themes that use Google js Library instead of the WordPress jQuery then there was trouble because Google uses the latest jQuery version 1.9. There are a number of functions in jQuery Version 1.9 that have been depreciated and hence this was causing errors with the jQuery function in the plugin.
 
 = 1.0.4 - 2013/04/01 =
@@ -289,10 +293,13 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Upgrade Notice ==
 
+= 1.1.4 =
+Upgrade now for 1 Sass bug fix and full compatibility with WooCommerce v2.2.2
+
 = 1.1.3 =
 Upgrade now for full compatibility with WordPress 4.0 and WooCommerce 2.2
 
-= 1.1.2.4 = 
+= 1.1.2.4 =
 Upgrade you plugin now for 1 new Mandrill API BCC sender feature (send to multiple BCC addresses) and 2 bug fixes.
 
 = 1.1.2.3 =
