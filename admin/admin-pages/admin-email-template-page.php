@@ -125,7 +125,11 @@ class WP_Email_Template_Admin_Page extends WP_Email_Tempate_Admin_UI
 		}
 		
 		include_once( $this->admin_plugin_dir() . '/tabs/admin-general-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-tab.php' );
+		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-header-image-tab.php' );
+		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-header-tab.php' );
+		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-body-tab.php' );
+		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-footer-tab.php' );
+		include_once( $this->admin_plugin_dir() . '/tabs/admin-style-fonts-tab.php' );
 		include_once( $this->admin_plugin_dir() . '/tabs/admin-social-media-tab.php' );
 		
 	}

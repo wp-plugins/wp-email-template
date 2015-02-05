@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 <?php
 /*-----------------------------------------------------------------------------------
-WP Email Teplate General Settings
+WP Email Template Style Settings
 
 TABLE OF CONTENTS
 
@@ -28,13 +28,13 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
+class WP_Email_Template_Style_Fonts_Settings extends WP_Email_Tempate_Admin_UI
 {
 
 	/**
 	 * @var string
 	 */
-	private $parent_tab = 'general';
+	private $parent_tab = 'style-fonts';
 
 	/**
 	 * @var array
@@ -45,13 +45,13 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	 * @var string
 	 * You must change to correct option name that you are working
 	 */
-	public $option_name = 'wp_email_template_general';
+	public $option_name = 'wp_email_template_style_fonts';
 
 	/**
 	 * @var string
 	 * You must change to correct form key that you are working
 	 */
-	public $form_key = 'wp_email_template_general';
+	public $form_key = 'wp_email_template_style_fonts';
 
 	/**
 	 * @var string
@@ -78,20 +78,23 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 		//$this->subtab_init();
 
 		$this->form_messages = array(
-				'success_message'	=> __( 'General Settings successfully saved.', 'wp_email_template' ),
-				'error_message'		=> __( 'Error: General Settings can not save.', 'wp_email_template' ),
-				'reset_message'		=> __( 'General Settings successfully reseted.', 'wp_email_template' ),
+				'success_message'	=> __( 'WP Email Template Style successfully saved.', 'wp_email_template' ),
+				'error_message'		=> __( 'Error: WP Email Template Style  can not save.', 'wp_email_template' ),
+				'reset_message'		=> __( 'WP Email Template Style  successfully reseted.', 'wp_email_template' ),
 			);
 
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'clean_on_deletion' ) );
+		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
 
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
+
+		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_start', array( $this, 'pro_fields_before' ) );
+		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_end', array( $this, 'pro_fields_after' ) );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
-	/* subtab_init() */
+	/* subtab_init()
 	/* Sub Tab Init */
 	/*-----------------------------------------------------------------------------------*/
 	public function subtab_init() {
@@ -111,15 +114,13 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	}
 
 	/*-----------------------------------------------------------------------------------*/
-	/* clean_on_deletion()
-	/* Process when clean on deletion option is un selected */
+	/* reset_default_settings()
+	/* Reset default settings with function called from Admin Interface */
 	/*-----------------------------------------------------------------------------------*/
-	public function clean_on_deletion() {
-		if ( ( isset( $_POST['bt_save_settings'] ) || isset( $_POST['bt_reset_settings'] ) ) && get_option( 'wp_email_template_clean_on_deletion' ) == 0  )  {
-			$uninstallable_plugins = (array) get_option('uninstall_plugins');
-			unset($uninstallable_plugins[WP_EMAIL_TEMPLATE_NAME]);
-			update_option('uninstall_plugins', $uninstallable_plugins);
-		}
+	public function reset_default_settings() {
+		global $wp_email_template_admin_interface;
+
+		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, true, true );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -146,9 +147,9 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	public function subtab_data() {
 
 		$subtab_data = array(
-			'name'				=> 'general',
-			'label'				=> __( 'General', 'wp_email_template' ),
-			'callback_function'	=> 'wp_email_template_general_settings_form',
+			'name'				=> 'style-fonts',
+			'label'				=> __( 'Fonts', 'wp_email_template' ),
+			'callback_function'	=> 'wp_email_template_style_fonts_settings_form',
 		);
 
 		if ( $this->subtab_data ) return $this->subtab_data;
@@ -200,106 +201,68 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
                 'type' 		=> 'heading',
            	),
 
-			array(
-            	'name' 		=> __( 'Template Background', 'wp_email_template' ),
+           	array(
+            	'name' 		=> __( 'Email Fonts', 'wp_email_template' ),
+				'desc'		=> __( "<strong>Important!</strong> The a3rev dynamic font editors give you the choice of 16 Default or Web safe fonts plus 364 Google fonts. The 16 Web safe fonts work in all email clients but be aware that Google fonts don't. Google fonts are fetched by &lt;link&gt; from Google. Gmail and Microsoft Outlook remove all &lt;link&gt; tags and hence default to one of the Web safe fonts. Interestingly iOS, Android Gmail and Windows mobile don't and Google fonts show beautifully. Go figure the weird and wonderful world of HTM email template design.", 'wp_email_template' ),
+                'type' 		=> 'heading',
+           	),
+
+           	array(
+            	'name' 		=> __( 'Title Fonts Style', 'wp_email_template' ),
+				'desc'		=> __( 'The styles below will be applied to all Title fonts (H tag) in the email content.  Note some plugins that generate emails may have a H tag style that will override the template Title styles you set here.', 'wp_email_template' ),
                 'type' 		=> 'heading',
            	),
 			array(
-				'name' 		=> __( 'Background colour', 'wp_email_template' ),
-				'desc' 		=> __( "Email template background colour. Default", 'wp_email_template' ) . ' [default_value]',
-				'id' 		=> 'background_colour',
-				'type' 		=> 'color',
-				'default'	=> '#D7D8B0',
+				'name' 		=> __( 'H1 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h1_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '26px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' )
 			),
 			array(
-				'name' 		=> __( 'Background Pattern', 'wp_email_template' ),
-				'id' 		=> 'deactivate_pattern_background',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'no',
-				'checked_value'		=> 'no',
-				'unchecked_value'	=> 'yes',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+				'name' 		=> __( 'H2 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h2_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '20px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' )
+			),
+			array(
+				'name' 		=> __( 'H3 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h3_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '18px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' )
+			),
+			array(
+				'name' 		=> __( 'H4 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h4_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '16px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' )
+			),
+			array(
+				'name' 		=> __( 'H5 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h5_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '14px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' )
+			),
+			array(
+				'name' 		=> __( 'H6 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h6_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '12px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' )
 			),
 
-			array(
-            	'name' 		=> __( 'Outlook 2007 / 2010 / 2013 Box Border', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(
-				'name' 		=> __( 'Box Border', 'wp_email_template' ),
-				'desc' 		=> __( 'ON will show a white box border around email Template in Outlook. Outlook does not support border colour, size or type. Any Border style created with the dynamic settings will not show in Outlook.', 'wp_email_template' ),
-				'id' 		=> 'outlook_apply_border',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'yes',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
-			),
-
-			array(
-            	'name' 		=> __( 'WooCommerce Configuration', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(
-				'name' 		=> __( 'Apply to WooCommerce emails', 'wp_email_template' ),
-				'desc' 		=> __( 'If WooCommerce is installed, select YES to apply this template to all WooCommerce emails.', 'wp_email_template' ),
-				'id' 		=> 'apply_for_woo_emails',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> '',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> '',
-				'checked_label'		=> __( 'YES', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'NO', 'wp_email_template' ),
-			),
-
-			array(
-            	'name' 		=> __( 'Help Promote This Plugin', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(
-				'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
-				'desc' 		=> __( 'Help spread the word by showing this at the bottom of your emails. The text is linked to the plugins WordPress.org page.', 'wp_email_template' ),
-				'id' 		=> 'show_plugin_url',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'yes',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
-			),
-
-			array(
-            	'name' 		=> __( 'House Keeping :', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(
-				'name' 		=> __( 'Clean up on Deletion', 'wp_email_template' ),
-				'desc' 		=> __( "Check this box and if you ever delete this plugin it will completely remove all tables and data it created, leaving no trace it was ever here.", 'wp_email_template' ),
-				'id' 		=> 'wp_email_template_clean_on_deletion',
-				'type' 		=> 'onoff_checkbox',
-				'default'	=> '1',
-				'separate_option'	=> true,
-				'checked_value'		=> '1',
-				'unchecked_value'	=> '0',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
-			),
         ));
 	}
 }
 
-global $wp_email_template_general_settings;
-$wp_email_template_general_settings = new WP_Email_Template_General_Settings();
+global $wp_email_template_style_fonts_settings;
+$wp_email_template_style_fonts_settings = new WP_Email_Template_Style_Fonts_Settings();
 
 /**
- * wp_email_template_general_settings_form()
+ * wp_email_template_style_fonts_settings_form()
  * Define the callback function to show subtab content
  */
-function wp_email_template_general_settings_form() {
-	global $wp_email_template_general_settings;
-	$wp_email_template_general_settings->settings_form();
+function wp_email_template_style_fonts_settings_form() {
+	global $wp_email_template_style_fonts_settings;
+	$wp_email_template_style_fonts_settings->settings_form();
 }
 
 ?>

@@ -28,13 +28,13 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
+class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Admin_UI
 {
 
 	/**
 	 * @var string
 	 */
-	private $parent_tab = 'general';
+	private $parent_tab = 'style-header-image';
 
 	/**
 	 * @var array
@@ -45,13 +45,13 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	 * @var string
 	 * You must change to correct option name that you are working
 	 */
-	public $option_name = 'wp_email_template_general';
+	public $option_name = 'wp_email_template_style_header_image';
 
 	/**
 	 * @var string
 	 * You must change to correct form key that you are working
 	 */
-	public $form_key = 'wp_email_template_general';
+	public $form_key = 'wp_email_template_style_header_image';
 
 	/**
 	 * @var string
@@ -78,9 +78,9 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 		//$this->subtab_init();
 
 		$this->form_messages = array(
-				'success_message'	=> __( 'General Settings successfully saved.', 'wp_email_template' ),
+				'success_message'	=> __( 'Settings successfully saved.', 'wp_email_template' ),
 				'error_message'		=> __( 'Error: General Settings can not save.', 'wp_email_template' ),
-				'reset_message'		=> __( 'General Settings successfully reseted.', 'wp_email_template' ),
+				'reset_message'		=> __( 'Settings successfully reseted.', 'wp_email_template' ),
 			);
 
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
@@ -146,9 +146,9 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	public function subtab_data() {
 
 		$subtab_data = array(
-			'name'				=> 'general',
-			'label'				=> __( 'General', 'wp_email_template' ),
-			'callback_function'	=> 'wp_email_template_general_settings_form',
+			'name'				=> 'header-image',
+			'label'				=> __( 'Header Image', 'wp_email_template' ),
+			'callback_function'	=> 'wp_email_template_style_header_image_settings_form',
 		);
 
 		if ( $this->subtab_data ) return $this->subtab_data;
@@ -199,107 +199,149 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
            	),
-
 			array(
-            	'name' 		=> __( 'Template Background', 'wp_email_template' ),
+            	'name' 		=> __( 'Header Image Container', 'wp_email_template' ),
                 'type' 		=> 'heading',
            	),
 			array(
-				'name' 		=> __( 'Background colour', 'wp_email_template' ),
-				'desc' 		=> __( "Email template background colour. Default", 'wp_email_template' ) . ' [default_value]',
-				'id' 		=> 'background_colour',
+				'name' 		=> __( 'Header Image', 'wp_email_template' ),
+				'desc' 		=> __( "Maximum image width supported is 600px", 'wp_email_template' ),
+				'id' 		=> 'header_image',
+				'type' 		=> 'upload',
+			),
+			array(
+				'name' 		=> __( 'Header Image Alignment', 'wp_email_template' ),
+				'id' 		=> 'header_image_alignment',
+				'type' 		=> 'select',
+				'default'	=> 'left',
+				'options'	=> array(
+					'none'		=> __( 'None', 'wp_email_template' ),
+					'left'	=> __( 'Left', 'wp_email_template' ),
+					'right'		=> __( 'Right', 'wp_email_template' ),
+					'center'	=> __( 'Center', 'wp_email_template' ),
+				),
+				'css' 		=> 'width:160px;',
+			),
+
+			array(
+            	'name' 		=> __( 'Header Image Container', 'wp_email_template' ),
+                'type' 		=> 'heading',
+           	),
+			array(
+				'name' 		=> __( 'Container Border Margin', 'wp_email_template' ),
+				'desc'		=> __( 'Margin or space outside of the Image container border in px.', 'wp_email_template' ),
+				'id' 		=> 'header_image_margin',
+				'type' 		=> 'array_textfields',
+				'ids'		=> array(
+	 								array(
+											'id' 		=> 'header_image_margin_top',
+	 										'name' 		=> __( 'Top', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+	 								array(  'id' 		=> 'header_image_margin_bottom',
+	 										'name' 		=> __( 'Bottom', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 20 ),
+									array(
+											'id' 		=> 'header_image_margin_left',
+	 										'name' 		=> __( 'Left', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+									array(
+											'id' 		=> 'header_image_margin_right',
+	 										'name' 		=> __( 'Right', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+	 							)
+			),
+			array(
+				'name' 		=> __( 'Container Border Padding', 'wp_email_template' ),
+				'desc'		=> __( 'Padding or space between the border and the image.', 'wp_email_template' ),
+				'id' 		=> 'header_image_padding',
+				'type' 		=> 'array_textfields',
+				'ids'		=> array(
+	 								array(
+											'id' 		=> 'header_image_padding_top',
+	 										'name' 		=> __( 'Top', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+	 								array(  'id' 		=> 'header_image_padding_bottom',
+	 										'name' 		=> __( 'Bottom', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+									array(
+											'id' 		=> 'header_image_padding_left',
+	 										'name' 		=> __( 'Left', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+									array(
+											'id' 		=> 'header_image_padding_right',
+	 										'name' 		=> __( 'Right', 'wp_email_template' ),
+	 										'css'		=> 'width:40px;',
+	 										'default'	=> 0 ),
+	 							)
+			),
+			array(
+				'name' 		=> __( 'Container Background Colour', 'wp_email_template' ),
+				'desc' 		=> __( "Header background colour. Default", 'wp_email_template' ) . ' [default_value]',
+				'id' 		=> 'header_image_background_color',
 				'type' 		=> 'color',
-				'default'	=> '#D7D8B0',
-			),
-			array(
-				'name' 		=> __( 'Background Pattern', 'wp_email_template' ),
-				'id' 		=> 'deactivate_pattern_background',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'no',
-				'checked_value'		=> 'no',
-				'unchecked_value'	=> 'yes',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+				'default'	=> '#ffffff',
 			),
 
 			array(
-            	'name' 		=> __( 'Outlook 2007 / 2010 / 2013 Box Border', 'wp_email_template' ),
+            	'name' 		=> __( 'Image Container Borders', 'wp_email_template' ),
+				'desc'		=> __( 'Please note all versions of Microsoft Outlook do not support borders. Most other Email Clients and all mobile email including Windows phone do.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
            	),
 			array(
-				'name' 		=> __( 'Box Border', 'wp_email_template' ),
-				'desc' 		=> __( 'ON will show a white box border around email Template in Outlook. Outlook does not support border colour, size or type. Any Border style created with the dynamic settings will not show in Outlook.', 'wp_email_template' ),
-				'id' 		=> 'outlook_apply_border',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'yes',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+				'name' 		=> __( 'Border Top', 'wp_email_template' ),
+				'id' 		=> 'header_image_border_top',
+				'type' 		=> 'border_styles',
+				'default'	=> array( 'width' => '0px', 'style' => 'solid', 'color' => '#ffffff' )
 			),
 
 			array(
-            	'name' 		=> __( 'WooCommerce Configuration', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(
-				'name' 		=> __( 'Apply to WooCommerce emails', 'wp_email_template' ),
-				'desc' 		=> __( 'If WooCommerce is installed, select YES to apply this template to all WooCommerce emails.', 'wp_email_template' ),
-				'id' 		=> 'apply_for_woo_emails',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> '',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> '',
-				'checked_label'		=> __( 'YES', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'NO', 'wp_email_template' ),
+				'name' 		=> __( 'Border Bottom', 'wp_email_template' ),
+				'id' 		=> 'header_image_border_bottom',
+				'type' 		=> 'border_styles',
+				'default'	=> array( 'width' => '0px', 'style' => 'solid', 'color' => '#ffffff' )
 			),
 
 			array(
-            	'name' 		=> __( 'Help Promote This Plugin', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
-			array(
-				'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
-				'desc' 		=> __( 'Help spread the word by showing this at the bottom of your emails. The text is linked to the plugins WordPress.org page.', 'wp_email_template' ),
-				'id' 		=> 'show_plugin_url',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'yes',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+				'name' 		=> __( 'Border Left', 'wp_email_template' ),
+				'id' 		=> 'header_image_border_left',
+				'type' 		=> 'border_styles',
+				'default'	=> array( 'width' => '0px', 'style' => 'solid', 'color' => '#ffffff' )
 			),
 
 			array(
-            	'name' 		=> __( 'House Keeping :', 'wp_email_template' ),
-                'type' 		=> 'heading',
-           	),
+				'name' 		=> __( 'Border Right', 'wp_email_template' ),
+				'id' 		=> 'header_image_border_right',
+				'type' 		=> 'border_styles',
+				'default'	=> array( 'width' => '0px', 'style' => 'solid', 'color' => '#ffffff' )
+			),
+
 			array(
-				'name' 		=> __( 'Clean up on Deletion', 'wp_email_template' ),
-				'desc' 		=> __( "Check this box and if you ever delete this plugin it will completely remove all tables and data it created, leaving no trace it was ever here.", 'wp_email_template' ),
-				'id' 		=> 'wp_email_template_clean_on_deletion',
-				'type' 		=> 'onoff_checkbox',
-				'default'	=> '1',
-				'separate_option'	=> true,
-				'checked_value'		=> '1',
-				'unchecked_value'	=> '0',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+				'name' 		=> __( 'Border Corners', 'wp_email_template' ),
+				'id' 		=> 'header_image_border_corner',
+				'type' 		=> 'border_corner',
+				'default'	=> array( 'rounded_value' => 0 )
 			),
         ));
 	}
 }
 
-global $wp_email_template_general_settings;
-$wp_email_template_general_settings = new WP_Email_Template_General_Settings();
+global $wp_email_template_style_header_image_settings;
+$wp_email_template_style_header_image_settings = new WP_Email_Template_Style_Header_Image_Settings();
 
 /**
- * wp_email_template_general_settings_form()
+ * wp_email_template_style_header_image_settings_form()
  * Define the callback function to show subtab content
  */
-function wp_email_template_general_settings_form() {
-	global $wp_email_template_general_settings;
-	$wp_email_template_general_settings->settings_form();
+function wp_email_template_style_header_image_settings_form() {
+	global $wp_email_template_style_header_image_settings;
+	$wp_email_template_style_header_image_settings->settings_form();
 }
 
 ?>

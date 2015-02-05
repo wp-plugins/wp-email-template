@@ -598,6 +598,11 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 							}
 						}
 					}
+
+					// Just for Color type
+					if ( 'color' == $value['type'] && '' == trim( $option_value ) ) {
+						$option_value = 'transparent';
+					}
 	
 				break;
 	
@@ -1214,7 +1219,8 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 					
 					if ( trim( $value['default'] ) == '' ) $value['default'] = '#515151';
 					$default_color = ' data-default-color="' . esc_attr( $value['default'] ) . '"';
-					
+					if ( '' == trim( $option_value ) ) $option_value = 'transparent';
+
 					?><tr valign="top">
 						<th scope="row" class="titledesc">
                         	<?php echo $tip; ?>

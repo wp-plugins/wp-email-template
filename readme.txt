@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
-Tested up to: 4.0
-Stable tag: 1.1.4
+Tested up to: 4.1
+Stable tag: 1.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -164,6 +164,24 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.2.0 - 2015/02/05 =
+* Feature - Massive upgrade the dynamic Email Template creator and Email Client render - 60+ hours dev work.
+* Feature - Setting broken up on admin panel to clearly define the 4 container structure of the template.
+* Feature - Old [Style] tab is gone replaced by 5 new tabs [Header Image] [Email Title] [Body] [Footer] [Fonts]
+* Feature - [Header Image] added image vertical alignment in Header image container.
+* Feature - [Header Image] added Header image container border external margin dynamic settings
+* Feature - [Header Image] added Header image container border internal padding dynamic settings
+* Feature - [Header Image] added Header image container Border style dynamic settings
+* Feature - [Header Image] added Header image container Border corner settings
+* Feature - Added ON | OFF setting for template background pattern
+* Feature - Added Outlook Boxed Border ON | OFF setting
+* Tweak - Audit, test and tweak for 100% compatibility with WordPress Version 4.1
+* Tweak - Default template style on first install - all 4 Containers have white background.
+* Tweak - Default template style on first install - Email Title font changed to Arial #999999 Bold and 26px.
+* Tweak - Default template style on first install - Email Content font changed to Arial #999999 Normal and 14px.
+* Tweak - Added links to new a3 Lazy Load and a3 Portfolio plugins on wordpress.org to the Yellow sidebar
+* Fix - Padding on social share icons in Outlook.
+
 = 1.1.4 - 2014/09/13 =
 * Tweak - Tested 100% compatible with WooCommerce 2.2.2
 * Fix - Changed <code>__DIR__</code> to <code>dirname( __FILE__ )</code> for Sass script so that on some server <code>__DIR__</code> is not defined
@@ -292,6 +310,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.2.0 =
+Massive upgrade - 60+ hours dev work. Includes 8 new dynamic style settings, 3 default style tweaks, 1 bug fix and full compatibility with WordPress 4.1.0
 
 = 1.1.4 =
 Upgrade now for 1 Sass bug fix and full compatibility with WooCommerce v2.2.2

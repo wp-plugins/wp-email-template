@@ -22,7 +22,7 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
+class WP_Email_Template_Style_Header_Tab extends WP_Email_Tempate_Admin_UI
 {	
 	/**
 	 * @var string
@@ -74,9 +74,9 @@ class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
 	public function tab_data() {
 		
 		$tab_data = array( 
-			'name'				=> 'style',
-			'label'				=> __( 'Style', 'wp_email_template' ),
-			'callback_function'	=> 'wp_email_template_style_tab_manager',
+			'name'				=> 'style-header',
+			'label'				=> __( 'Email Title', 'wp_email_template' ),
+			'callback_function'	=> 'wp_email_template_style_header_tab_manager',
 		);
 		
 		if ( $this->tab_data ) return $this->tab_data;
@@ -103,7 +103,7 @@ class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
 	public function settings_include() {
 		
 		// Includes Settings file
-		include_once( $this->admin_plugin_dir() . '/settings/style-settings.php' );
+		include_once( $this->admin_plugin_dir() . '/settings/style-header-settings.php' );
 		
 	}
 	
@@ -112,25 +112,25 @@ class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
 	/* Call tab layout from Admin Init 
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
-		global $wp_email_template_style_settings;
+		global $wp_email_template_style_header_settings;
 		
 		$this->plugin_extension_start();
-		$wp_email_template_style_settings->settings_form();
+		$wp_email_template_style_header_settings->settings_form();
 		$this->plugin_extension_end();
 		
 	}
 }
 
-global $wp_email_template_style_tab;
-$wp_email_template_style_tab = new WP_Email_Template_Style_Tab();
+global $wp_email_template_style_header_tab;
+$wp_email_template_style_header_tab = new WP_Email_Template_Style_Header_Tab();
 
 /** 
- * wp_email_template_style_tab_manager()
+ * wp_email_template_style_header_tab_manager()
  * Define the callback function to show tab content
  */
-function wp_email_template_style_tab_manager() {
-	global $wp_email_template_style_tab;
-	$wp_email_template_style_tab->tab_manager();
+function wp_email_template_style_header_tab_manager() {
+	global $wp_email_template_style_header_tab;
+	$wp_email_template_style_header_tab->tab_manager();
 }
 
 ?>
