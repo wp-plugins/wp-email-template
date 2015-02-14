@@ -186,23 +186,23 @@ class WP_Email_Template_Functions
 
 		$facebook_html = '';
 		if (isset($wp_email_template_social_media['email_facebook']) && trim(esc_attr($wp_email_template_social_media['email_facebook'])) != '')
-			$facebook_html = '<span style="padding:0 2px; display: inline-block;"><a href="'.trim( esc_attr (stripslashes($wp_email_template_social_media['email_facebook']) ) ).'" target="_blank" title="'.__('Facebook', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png' . '" alt="'.__('Facebook', 'wp_email_template').'" /></a></span>&nbsp;';
+			$facebook_html = '<a style="padding:0 2px;" href="'.trim( esc_attr (stripslashes($wp_email_template_social_media['email_facebook']) ) ).'" target="_blank" title="'.__('Facebook', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_facebook.png' . '" alt="'.__('Facebook', 'wp_email_template').'" /></a>&nbsp;';
 
 		$twitter_html = '';
 		if (isset($wp_email_template_social_media['email_twitter']) && trim(esc_attr($wp_email_template_social_media['email_twitter'])) != '')
-			$twitter_html = '<span style="padding:0 2px; display: inline-block;"><a href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_twitter']) ) ).'" target="_blank" title="'.__('Twitter', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png' . '" alt="'.__('Twitter', 'wp_email_template').'" /></a></span> ';
+			$twitter_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_twitter']) ) ).'" target="_blank" title="'.__('Twitter', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_twitter.png' . '" alt="'.__('Twitter', 'wp_email_template').'" /></a>&nbsp;';
 
 		$linkedIn_html = '';
 		if (isset($wp_email_template_social_media['email_linkedIn']) && trim(esc_attr($wp_email_template_social_media['email_linkedIn'])) != '')
-			$linkedIn_html = '<span style="padding:0 2px; display: inline-block;"><a href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_linkedIn']) ) ).'" target="_blank" title="'.__('LinkedIn', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png' . '" alt="'.__('LinkedIn', 'wp_email_template').'" /></a></span>&nbsp;';
+			$linkedIn_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_linkedIn']) ) ).'" target="_blank" title="'.__('LinkedIn', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_linkedin.png' . '" alt="'.__('LinkedIn', 'wp_email_template').'" /></a>&nbsp;';
 
 		$pinterest_html = '';
 		if (isset($wp_email_template_social_media['email_pinterest']) && trim(esc_attr($wp_email_template_social_media['email_pinterest'])) != '')
-			$pinterest_html = '<span style="padding:0 2px; display: inline-block;"><a href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_pinterest']) ) ).'" target="_blank" title="'.__('Pinterest', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png' . '" alt="'.__('Pinterest', 'wp_email_template').'" /></a></span>&nbsp;';
+			$pinterest_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_pinterest']) ) ).'" target="_blank" title="'.__('Pinterest', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_pinterest.png' . '" alt="'.__('Pinterest', 'wp_email_template').'" /></a>&nbsp;';
 
 		$googleplus_html = '';
 		if (isset($wp_email_template_social_media['email_googleplus']) && trim(esc_attr($wp_email_template_social_media['email_googleplus'])) != '')
-			$googleplus_html = '<span style="padding:0 2px; display: inline-block;"><a href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_googleplus']) ) ).'" target="_blank" title="'.__('Google+', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png' . '" alt="'.__('Google+', 'wp_email_template').'" /></a></span>&nbsp;';
+			$googleplus_html = '<a style="padding:0 2px;" href="'.trim( esc_attr( stripslashes($wp_email_template_social_media['email_googleplus']) ) ).'" target="_blank" title="'.__('Google+', 'wp_email_template').'"><img align="top" border="0" src="' . WP_EMAIL_TEMPLATE_IMAGES_URL.'/icon_googleplus.png' . '" alt="'.__('Google+', 'wp_email_template').'" /></a>&nbsp;';
 
 		$follow_text = '';
 		if (trim($facebook_html) != '' || trim($twitter_html) != '' || trim($linkedIn_html) != '' || trim($pinterest_html) != '' || trim($googleplus_html) != '')

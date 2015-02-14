@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 4.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -164,6 +164,12 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.2.1 - 2015/02/14 =
+* Tweak - Changed WP_CONTENT_DIR to WP_PLUGIN_DIR. When an admin sets a custom WordPress file structure then it can get the correct path of plugin
+* Fix - Internal container padding not being applied in Outlook 2013 / 2010 / 2007
+* Fix - Social share icon alignment in Safari Browser and iOS Safari.
+* Credit - Thanks to Christopher for bringing the Outlook padding issue to our attention on the a3rev support forum
+
 = 1.2.0 - 2015/02/05 =
 * Feature - Massive upgrade the dynamic Email Template creator and Email Client render - 60+ hours dev work.
 * Feature - Setting broken up on admin panel to clearly define the 4 container structure of the template.
@@ -310,6 +316,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Upgrade now for 1 Outlook internal padding display bug fix and a social share icon alignment in safari bug fix
 
 = 1.2.0 =
 Massive upgrade - 60+ hours dev work. Includes 8 new dynamic style settings, 3 default style tweaks, 1 bug fix and full compatibility with WordPress 4.1.0
