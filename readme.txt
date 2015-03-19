@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
-Tested up to: 4.1
-Stable tag: 1.2.1
+Tested up to: 4.1.1
+Stable tag: 1.2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -164,6 +164,10 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.2.2 - 2015/03/19 =
+* Tweak - Tested and Tweaked for full compatibility with WooCommerce Version 2.3.7
+* Tweak - Tested and Tweaked for full compatibility with WordPress Version 4.1.1
+
 = 1.2.1 - 2015/02/14 =
 * Tweak - Changed WP_CONTENT_DIR to WP_PLUGIN_DIR. When an admin sets a custom WordPress file structure then it can get the correct path of plugin
 * Fix - Internal container padding not being applied in Outlook 2013 / 2010 / 2007
@@ -316,6 +320,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.2.2 =
+Upgrade now for full compatibility with WooCommerce Version 2.3.7 and WordPress version 4.1.1
 
 = 1.2.1 =
 Upgrade now for 1 Outlook internal padding display bug fix and a social share icon alignment in safari bug fix
