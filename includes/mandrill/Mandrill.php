@@ -322,7 +322,7 @@ class Mandrill {
 		
 		// Finding tags based on WP Backtrace 
 		$trace  = debug_backtrace();
-		$level  = 4;        
+		$level  = count( $trace ) - 1;        
 		$function = $trace[$level]['function'];
 
         $wtags = array();

@@ -136,7 +136,7 @@ class WP_Email_Template_Hook_Filter
 
 Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam aliquip litterarum. Lius videntur nisl facilisis claritatem nunc. Praesent in iusto me tincidunt iusto. Dolore lectores sed putamus exerci est. ', 'wp_email_template') );
 
-		return WP_Email_Template_Functions::email_content($email_heading, $message);
+		return WP_Email_Template_Functions::email_content($email_heading, $message, true );
 
 	}
 

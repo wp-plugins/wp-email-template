@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Email Template LITE v1.0.2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 18:00+0700\n"
-"PO-Revision-Date: 2015-02-05 18:00+0700\n"
+"POT-Creation-Date: 2015-03-25 17:33+0700\n"
+"PO-Revision-Date: 2015-03-25 17:33+0700\n"
 "Last-Translator: Nguyen Cong Tuan <mr.nguyencongtuan@gmail.com>\n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -100,10 +100,11 @@ msgid "Outset"
 msgstr ""
 
 #: admin/admin-interface.php:1365 admin/admin-interface.php:1455
-#: admin/admin-interface.php:1484 admin/settings/general-settings.php:221
-#: admin/settings/general-settings.php:237
-#: admin/settings/general-settings.php:269
-#: admin/settings/general-settings.php:286
+#: admin/admin-interface.php:1484 admin/settings/general-settings.php:231
+#: admin/settings/general-settings.php:270
+#: admin/settings/general-settings.php:288
+#: admin/settings/general-settings.php:338
+#: admin/settings/general-settings.php:356
 #: admin/settings/send-wp-emails/general-settings.php:250
 #: admin/settings/send-wp-emails/general-settings.php:268
 #: admin/settings/send-wp-emails/general-settings.php:287
@@ -121,10 +122,11 @@ msgid "ON"
 msgstr ""
 
 #: admin/admin-interface.php:1366 admin/admin-interface.php:1456
-#: admin/admin-interface.php:1485 admin/settings/general-settings.php:222
-#: admin/settings/general-settings.php:238
-#: admin/settings/general-settings.php:270
-#: admin/settings/general-settings.php:287
+#: admin/admin-interface.php:1485 admin/settings/general-settings.php:232
+#: admin/settings/general-settings.php:271
+#: admin/settings/general-settings.php:289
+#: admin/settings/general-settings.php:339
+#: admin/settings/general-settings.php:357
 #: admin/settings/send-wp-emails/general-settings.php:251
 #: admin/settings/send-wp-emails/general-settings.php:269
 #: admin/settings/send-wp-emails/general-settings.php:288
@@ -141,7 +143,7 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
-#: admin/admin-interface.php:1526
+#: admin/admin-interface.php:1526 admin/settings/general-settings.php:241
 msgid "Width"
 msgstr ""
 
@@ -197,11 +199,11 @@ msgstr ""
 msgid "Preview your customized border styles settings"
 msgstr ""
 
-#: admin/admin-interface.php:2178 admin/settings/general-settings.php:253
+#: admin/admin-interface.php:2178 admin/settings/general-settings.php:306
 msgid "YES"
 msgstr ""
 
-#: admin/admin-interface.php:2179 admin/settings/general-settings.php:254
+#: admin/admin-interface.php:2179 admin/settings/general-settings.php:307
 msgid "NO"
 msgstr ""
 
@@ -315,77 +317,104 @@ msgstr ""
 msgid "General Settings successfully reseted."
 msgstr "Impostazioni Email Template resettate con successo."
 
-#: admin/settings/general-settings.php:150 admin/tabs/admin-general-tab.php:78
+#: admin/settings/general-settings.php:164 admin/tabs/admin-general-tab.php:78
 msgid "General"
 msgstr ""
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:198
+#: admin/settings/general-settings.php:212
 #: admin/settings/social-media-settings.php:199
 #: admin/settings/style-body-settings.php:199
 #: admin/settings/style-fonts-settings.php:199
 #: admin/settings/style-footer-settings.php:202
 #: admin/settings/style-header-image-settings.php:198
 #: admin/settings/style-header-settings.php:199
-#: admin/settings/style-settings.php:201
 msgid "Live Preview"
 msgstr "Anteprima messaggio"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:199
+#: admin/settings/general-settings.php:213
 #: admin/settings/social-media-settings.php:200
 #: admin/settings/style-body-settings.php:200
 #: admin/settings/style-fonts-settings.php:200
 #: admin/settings/style-footer-settings.php:203
 #: admin/settings/style-header-image-settings.php:199
 #: admin/settings/style-header-settings.php:200
-#: admin/settings/style-settings.php:202
 msgid "For a live preview of changes save them and then"
 msgstr "Per vedere una anteprima delle modifiche salvare e poi"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:199
+#: admin/settings/general-settings.php:213
 #: admin/settings/social-media-settings.php:200
 #: admin/settings/style-body-settings.php:200
 #: admin/settings/style-fonts-settings.php:200
 #: admin/settings/style-footer-settings.php:203
 #: admin/settings/style-header-image-settings.php:199
 #: admin/settings/style-header-settings.php:200
-#: admin/settings/style-settings.php:202
 msgid "Click here to preview your email template."
 msgstr "Fai clic qui per vedere in anteprima il tuo modello."
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:204
+#: admin/settings/general-settings.php:218
+#: admin/settings/general-settings.php:330
+#: classes/class-email-functions.php:218
+msgid "WP Email Template"
+msgstr ""
+
+# @ wp_email_template
+#: admin/settings/general-settings.php:222
+#, fuzzy
+msgid "Apply Template"
+msgstr "Testata del modello"
+
+#: admin/settings/general-settings.php:223
+msgid ""
+"ON will apply templates to all emails are sent via wp_mail() function of "
+"WordPress."
+msgstr ""
+
+# @ wp_email_template
+#: admin/settings/general-settings.php:236
+#, fuzzy
+msgid "Template Width"
+msgstr "Testata del modello"
+
+#: admin/settings/general-settings.php:242
+msgid ""
+"The industry default and recommended width for email templates is 600px."
+msgstr ""
+
+# @ wp_email_template
+#: admin/settings/general-settings.php:250
 msgid "Template Background"
 msgstr "Sfondo del modello"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:208
+#: admin/settings/general-settings.php:255
 msgid "Background colour"
 msgstr "Colore di sfondo"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:209
+#: admin/settings/general-settings.php:256
 #, fuzzy
 msgid "Email template background colour. Default"
 msgstr "Colore del pattern dello sfondo del modello. Default"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:215
+#: admin/settings/general-settings.php:263
 #, fuzzy
 msgid "Background Pattern"
 msgstr "Colore del pattern dello sfondo del modello. Default"
 
-#: admin/settings/general-settings.php:226
+#: admin/settings/general-settings.php:275
 msgid "Outlook 2007 / 2010 / 2013 Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:230
+#: admin/settings/general-settings.php:280
 msgid "Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:231
+#: admin/settings/general-settings.php:281
 msgid ""
 "ON will show a white box border around email Template in Outlook. Outlook "
 "does not support border colour, size or type. Any Border style created with "
@@ -393,17 +422,17 @@ msgid ""
 msgstr ""
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:242
+#: admin/settings/general-settings.php:293
 msgid "WooCommerce Configuration"
 msgstr "Configurazione WooCommerce"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:246
+#: admin/settings/general-settings.php:298
 msgid "Apply to WooCommerce emails"
 msgstr "Applica alle email WooCommerce"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:247
+#: admin/settings/general-settings.php:299
 msgid ""
 "If WooCommerce is installed, select YES to apply this template to all "
 "WooCommerce emails."
@@ -411,19 +440,36 @@ msgstr ""
 "Se &egrave; installato WooCommerce, seleziona SI per applicare questo "
 "modello a tutte le email di WooCommerce."
 
+#: admin/settings/general-settings.php:311
+msgid "Don't Apply Template to Some Emails."
+msgstr ""
+
+#: admin/settings/general-settings.php:312
+msgid ""
+"To send any email without your WP Email Template applied to it copy and "
+"paste this shortcode [not_apply_email_template] into the message section. "
+"For example when creating a form with Contact Form 7 add the shortcode to "
+"the message box and the Template won't be applied."
+msgstr ""
+
+#: admin/settings/general-settings.php:317
+msgid "Shortcode Creator"
+msgstr ""
+
+#: admin/settings/general-settings.php:318
+msgid ""
+"For security reason please change the Default shortcode in the box to your "
+"own unique shortcode. Just create new using the shortcode format [name_name] "
+"and Save Changes."
+msgstr ""
+
 # @ wp_email_template
-#: admin/settings/general-settings.php:258
+#: admin/settings/general-settings.php:325
 msgid "Help Promote This Plugin"
 msgstr "Aiuta a Promuovere Questo Plugin"
 
 # @ wp_email_template
-#: admin/settings/general-settings.php:262
-#: classes/class-email-functions.php:211
-msgid "WP Email Template"
-msgstr ""
-
-# @ wp_email_template
-#: admin/settings/general-settings.php:263
+#: admin/settings/general-settings.php:331
 msgid ""
 "Help spread the word by showing this at the bottom of your emails. The text "
 "is linked to the plugins WordPress.org page."
@@ -431,15 +477,15 @@ msgstr ""
 "Aiuta a spargere la notizia mostrando questo link in fondo alle tue email. "
 "Il testo &egrave; connesso con la pagina dei plugin di WordPress.org."
 
-#: admin/settings/general-settings.php:274
+#: admin/settings/general-settings.php:343
 msgid "House Keeping :"
 msgstr ""
 
-#: admin/settings/general-settings.php:278
+#: admin/settings/general-settings.php:347
 msgid "Clean up on Deletion"
 msgstr ""
 
-#: admin/settings/general-settings.php:279
+#: admin/settings/general-settings.php:348
 msgid ""
 "Check this box and if you ever delete this plugin it will completely remove "
 "all tables and data it created, leaving no trace it was ever here."
@@ -878,7 +924,6 @@ msgstr ""
 #: admin/settings/style-fonts-settings.php:81
 #: admin/settings/style-footer-settings.php:81
 #: admin/settings/style-header-settings.php:81
-#: admin/settings/style-settings.php:81
 #, fuzzy
 msgid "WP Email Template Style successfully saved."
 msgstr "Impostazioni Email Template salvate con successo."
@@ -888,7 +933,6 @@ msgstr "Impostazioni Email Template salvate con successo."
 #: admin/settings/style-fonts-settings.php:82
 #: admin/settings/style-footer-settings.php:82
 #: admin/settings/style-header-settings.php:82
-#: admin/settings/style-settings.php:82
 #, fuzzy
 msgid "Error: WP Email Template Style  can not save."
 msgstr "Impostazioni Email Template"
@@ -898,7 +942,6 @@ msgstr "Impostazioni Email Template"
 #: admin/settings/style-fonts-settings.php:83
 #: admin/settings/style-footer-settings.php:83
 #: admin/settings/style-header-settings.php:83
-#: admin/settings/style-settings.php:83
 #, fuzzy
 msgid "WP Email Template Style  successfully reseted."
 msgstr "Impostazioni Email Template resettate con successo."
@@ -930,7 +973,7 @@ msgid "Content Alignment"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:223
-#: admin/settings/style-header-image-settings.php:218
+#: admin/settings/style-header-image-settings.php:217
 #: admin/settings/style-header-settings.php:222
 msgid "None"
 msgstr ""
@@ -940,9 +983,9 @@ msgstr ""
 #: admin/settings/style-body-settings.php:280
 #: admin/settings/style-footer-settings.php:256
 #: admin/settings/style-footer-settings.php:284
-#: admin/settings/style-header-image-settings.php:219
-#: admin/settings/style-header-image-settings.php:247
-#: admin/settings/style-header-image-settings.php:274
+#: admin/settings/style-header-image-settings.php:218
+#: admin/settings/style-header-image-settings.php:246
+#: admin/settings/style-header-image-settings.php:273
 #: admin/settings/style-header-settings.php:223
 #: admin/settings/style-header-settings.php:251
 #: admin/settings/style-header-settings.php:278
@@ -954,9 +997,9 @@ msgstr ""
 #: admin/settings/style-body-settings.php:285
 #: admin/settings/style-footer-settings.php:261
 #: admin/settings/style-footer-settings.php:289
-#: admin/settings/style-header-image-settings.php:220
-#: admin/settings/style-header-image-settings.php:252
-#: admin/settings/style-header-image-settings.php:279
+#: admin/settings/style-header-image-settings.php:219
+#: admin/settings/style-header-image-settings.php:251
+#: admin/settings/style-header-image-settings.php:278
 #: admin/settings/style-header-settings.php:224
 #: admin/settings/style-header-settings.php:256
 #: admin/settings/style-header-settings.php:283
@@ -964,7 +1007,7 @@ msgid "Right"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:226
-#: admin/settings/style-header-image-settings.php:221
+#: admin/settings/style-header-image-settings.php:220
 #: admin/settings/style-header-settings.php:225
 msgid "Center"
 msgstr ""
@@ -988,8 +1031,8 @@ msgstr ""
 #: admin/settings/style-body-settings.php:271
 #: admin/settings/style-footer-settings.php:247
 #: admin/settings/style-footer-settings.php:275
-#: admin/settings/style-header-image-settings.php:238
-#: admin/settings/style-header-image-settings.php:265
+#: admin/settings/style-header-image-settings.php:237
+#: admin/settings/style-header-image-settings.php:264
 #: admin/settings/style-header-settings.php:242
 #: admin/settings/style-header-settings.php:269
 msgid "Top"
@@ -999,8 +1042,8 @@ msgstr ""
 #: admin/settings/style-body-settings.php:275
 #: admin/settings/style-footer-settings.php:251
 #: admin/settings/style-footer-settings.php:279
-#: admin/settings/style-header-image-settings.php:242
-#: admin/settings/style-header-image-settings.php:269
+#: admin/settings/style-header-image-settings.php:241
+#: admin/settings/style-header-image-settings.php:268
 #: admin/settings/style-header-settings.php:246
 #: admin/settings/style-header-settings.php:273
 msgid "Bottom"
@@ -1019,7 +1062,7 @@ msgstr ""
 # @ wp_email_template
 #: admin/settings/style-body-settings.php:292
 #: admin/settings/style-footer-settings.php:296
-#: admin/settings/style-header-image-settings.php:285
+#: admin/settings/style-header-image-settings.php:284
 #: admin/settings/style-header-settings.php:289
 #, fuzzy
 msgid "Container Background Colour"
@@ -1028,7 +1071,6 @@ msgstr "Colore di sfondo della testata"
 # @ wp_email_template
 #: admin/settings/style-body-settings.php:293
 #: admin/settings/style-footer-settings.php:297
-#: admin/settings/style-settings.php:231
 msgid "The main body background colour. Default"
 msgstr "Il colore di sfondo del copro principale dell'Email. Default"
 
@@ -1038,7 +1080,7 @@ msgstr ""
 
 #: admin/settings/style-body-settings.php:301
 #: admin/settings/style-footer-settings.php:305
-#: admin/settings/style-header-image-settings.php:294
+#: admin/settings/style-header-image-settings.php:293
 #: admin/settings/style-header-settings.php:298
 msgid ""
 "Please note all versions of Microsoft Outlook do not support borders. Most "
@@ -1047,35 +1089,35 @@ msgstr ""
 
 #: admin/settings/style-body-settings.php:305
 #: admin/settings/style-footer-settings.php:310
-#: admin/settings/style-header-image-settings.php:298
+#: admin/settings/style-header-image-settings.php:297
 #: admin/settings/style-header-settings.php:302
 msgid "Border Top"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:312
 #: admin/settings/style-footer-settings.php:317
-#: admin/settings/style-header-image-settings.php:305
+#: admin/settings/style-header-image-settings.php:304
 #: admin/settings/style-header-settings.php:309
 msgid "Border Bottom"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:319
 #: admin/settings/style-footer-settings.php:324
-#: admin/settings/style-header-image-settings.php:312
+#: admin/settings/style-header-image-settings.php:311
 #: admin/settings/style-header-settings.php:316
 msgid "Border Left"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:326
 #: admin/settings/style-footer-settings.php:331
-#: admin/settings/style-header-image-settings.php:319
+#: admin/settings/style-header-image-settings.php:318
 #: admin/settings/style-header-settings.php:323
 msgid "Border Right"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:333
 #: admin/settings/style-footer-settings.php:338
-#: admin/settings/style-header-image-settings.php:326
+#: admin/settings/style-header-image-settings.php:325
 #: admin/settings/style-header-settings.php:330
 msgid "Border Corners"
 msgstr ""
@@ -1089,7 +1131,6 @@ msgstr "Colore del testo del copro Email"
 # @ wp_email_template
 #: admin/settings/style-body-settings.php:341
 #: admin/settings/style-header-settings.php:290
-#: admin/settings/style-settings.php:212 admin/settings/style-settings.php:244
 msgid "Default"
 msgstr "Default"
 
@@ -1174,7 +1215,6 @@ msgstr ""
 
 # @ wp_email_template
 #: admin/settings/style-footer-settings.php:208
-#: admin/settings/style-settings.php:251
 msgid "Email Footer Content"
 msgstr "Contenuto del Footer dell'Email"
 
@@ -1226,52 +1266,47 @@ msgstr "Immagine Testata"
 
 # @ wp_email_template
 #: admin/settings/style-header-image-settings.php:203
-#: admin/settings/style-header-image-settings.php:227
+#: admin/settings/style-header-image-settings.php:226
 #, fuzzy
 msgid "Header Image Container"
 msgstr "Immagine Testata"
 
-#: admin/settings/style-header-image-settings.php:208
-msgid "Maximum image width supported is 600px"
-msgstr ""
-
 # @ wp_email_template
-#: admin/settings/style-header-image-settings.php:213
+#: admin/settings/style-header-image-settings.php:212
 #, fuzzy
 msgid "Header Image Alignment"
 msgstr "Immagine Testata"
 
-#: admin/settings/style-header-image-settings.php:231
+#: admin/settings/style-header-image-settings.php:230
 #: admin/settings/style-header-settings.php:235
 msgid "Container Border Margin"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:232
+#: admin/settings/style-header-image-settings.php:231
 msgid "Margin or space outside of the Image container border in px."
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:258
+#: admin/settings/style-header-image-settings.php:257
 #: admin/settings/style-header-settings.php:262
 msgid "Container Border Padding"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:259
+#: admin/settings/style-header-image-settings.php:258
 msgid "Padding or space between the border and the image."
 msgstr ""
 
 # @ wp_email_template
-#: admin/settings/style-header-image-settings.php:286
+#: admin/settings/style-header-image-settings.php:285
 #, fuzzy
 msgid "Header background colour. Default"
 msgstr "Colore di sfondo della testata"
 
-#: admin/settings/style-header-image-settings.php:293
+#: admin/settings/style-header-image-settings.php:292
 msgid "Image Container Borders"
 msgstr ""
 
 # @ wp_email_template
 #: admin/settings/style-header-settings.php:151
-#: admin/settings/style-settings.php:206
 msgid "Email Header"
 msgstr "Testata Email"
 
@@ -1310,86 +1345,37 @@ msgstr ""
 msgid "Title Container Borders"
 msgstr ""
 
-#: admin/settings/style-settings.php:153 admin/tabs/admin-style-tab.php:78
-msgid "Style"
-msgstr ""
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:211
-msgid "Header background colour"
-msgstr "Colore di sfondo della testata"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:218
-msgid "Header title font"
-msgstr "Font del titolo nella testata"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:225
-msgid "Email Body"
-msgstr "Corpo dell'Email"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:230
-msgid "Email body background colour"
-msgstr "Colore di sfondo del corpo Email"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:237
-#, fuzzy
-msgid "Email body font"
-msgstr "Corpo dell'Email"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:243
-#, fuzzy
-msgid "Email body link text colour"
-msgstr "Colore del testo del copro Email"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:255
-msgid "Email footer text"
-msgstr "Testo del footer dell'Email"
-
-# @ wp_email_template
-#: admin/settings/style-settings.php:256
-#, fuzzy
-msgid "The text to appear in the footer of the email template."
-msgstr ""
-"Il testo che appare nel fotter del modello. Accetta i tag HTML  <p> <strong> "
-"<i> <u>"
-
 #: admin/tabs/admin-style-body-tab.php:78
 msgid "Content"
 msgstr ""
 
 # @ wp_email_template
-#: classes/class-email-functions.php:189
+#: classes/class-email-functions.php:196
 msgid "Facebook"
 msgstr ""
 
 # @ wp_email_template
-#: classes/class-email-functions.php:193
+#: classes/class-email-functions.php:200
 msgid "Twitter"
 msgstr ""
 
 # @ wp_email_template
-#: classes/class-email-functions.php:197
+#: classes/class-email-functions.php:204
 msgid "LinkedIn"
 msgstr ""
 
 # @ wp_email_template
-#: classes/class-email-functions.php:201
+#: classes/class-email-functions.php:208
 msgid "Pinterest"
 msgstr ""
 
 # @ wp_email_template
-#: classes/class-email-functions.php:205
+#: classes/class-email-functions.php:212
 msgid "Google+"
 msgstr ""
 
 # @ wp_email_template
-#: classes/class-email-functions.php:209
+#: classes/class-email-functions.php:216
 msgid "Follow us on"
 msgstr "Seguici su"
 
@@ -1567,6 +1553,43 @@ msgstr ""
 #: classes/class-send-wp-email-functions.php:133
 msgid "WP Email Template: You are using Invalid API key for Mandrill"
 msgstr ""
+
+# @ wp_email_template
+#~ msgid "Header background colour"
+#~ msgstr "Colore di sfondo della testata"
+
+# @ wp_email_template
+#~ msgid "Header title font"
+#~ msgstr "Font del titolo nella testata"
+
+# @ wp_email_template
+#~ msgid "Email Body"
+#~ msgstr "Corpo dell'Email"
+
+# @ wp_email_template
+#~ msgid "Email body background colour"
+#~ msgstr "Colore di sfondo del corpo Email"
+
+# @ wp_email_template
+#, fuzzy
+#~ msgid "Email body font"
+#~ msgstr "Corpo dell'Email"
+
+# @ wp_email_template
+#, fuzzy
+#~ msgid "Email body link text colour"
+#~ msgstr "Colore del testo del copro Email"
+
+# @ wp_email_template
+#~ msgid "Email footer text"
+#~ msgstr "Testo del footer dell'Email"
+
+# @ wp_email_template
+#, fuzzy
+#~ msgid "The text to appear in the footer of the email template."
+#~ msgstr ""
+#~ "Il testo che appare nel fotter del modello. Accetta i tag HTML  <p> "
+#~ "<strong> <i> <u>"
 
 # @ wp_email_template
 #~ msgid "Template Header"

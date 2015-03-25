@@ -205,7 +205,6 @@ class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Adm
            	),
 			array(
 				'name' 		=> __( 'Header Image', 'wp_email_template' ),
-				'desc' 		=> __( "Maximum image width supported is 600px", 'wp_email_template' ),
 				'id' 		=> 'header_image',
 				'type' 		=> 'upload',
 			),

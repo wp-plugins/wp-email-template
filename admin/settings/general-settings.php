@@ -83,7 +83,11 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'reset_message'		=> __( 'General Settings successfully reseted.', 'wp_email_template' ),
 			);
 
+		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_end', array( $this, 'include_script' ) );
+
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
+
+		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
 
 		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'clean_on_deletion' ) );
 
@@ -108,6 +112,16 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 		global $wp_email_template_admin_interface;
 
 		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, false );
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/* reset_default_settings()
+	/* Reset default settings with function called from Admin Interface */
+	/*-----------------------------------------------------------------------------------*/
+	public function reset_default_settings() {
+		global $wp_email_template_admin_interface;
+		
+		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, true, true );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -200,9 +214,42 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
                 'type' 		=> 'heading',
            	),
 
+           	array(
+            	'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
+                'type' 		=> 'heading',
+           	),
+			array(
+				'name' 		=> __( 'Apply Template', 'wp_email_template' ),
+				'desc' 		=> __( 'ON will apply templates to all emails are sent via wp_mail() function of WordPress.', 'wp_email_template' ),
+				'id' 		=> 'apply_template_all_emails',
+				'class'		=> 'apply_template_all_emails',
+				'type' 		=> 'onoff_checkbox',
+				'default' 	=> 'yes',
+				'free_version'		=> true,
+				'checked_value'		=> 'yes',
+				'unchecked_value'	=> 'no',
+				'checked_label'		=> __( 'ON', 'wp_email_template' ),
+				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+			),
+
+			array(
+            	'name' 		=> __( 'Template Width', 'wp_email_template' ),
+                'type' 		=> 'heading',
+                'class'		=> 'show_template_container',
+           	),
+			array(
+				'name' 		=> __( 'Width', 'wp_email_template' ),
+				'desc' 		=> 'px.' . __( 'The industry default and recommended width for email templates is 600px.', 'wp_email_template' ),
+				'id' 		=> 'email_container_width',
+				'type' 		=> 'text',
+				'css'		=> 'width: 60px;',
+				'default'	=> '600',
+				'free_version'		=> true
+			),
 			array(
             	'name' 		=> __( 'Template Background', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'show_template_container',
            	),
 			array(
 				'name' 		=> __( 'Background colour', 'wp_email_template' ),
@@ -210,12 +257,14 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'id' 		=> 'background_colour',
 				'type' 		=> 'color',
 				'default'	=> '#D7D8B0',
+				'free_version'		=> true
 			),
 			array(
 				'name' 		=> __( 'Background Pattern', 'wp_email_template' ),
 				'id' 		=> 'deactivate_pattern_background',
 				'type' 		=> 'onoff_checkbox',
 				'default' 	=> 'no',
+				'free_version'		=> true,
 				'checked_value'		=> 'no',
 				'unchecked_value'	=> 'yes',
 				'checked_label'		=> __( 'ON', 'wp_email_template' ),
@@ -225,6 +274,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 			array(
             	'name' 		=> __( 'Outlook 2007 / 2010 / 2013 Box Border', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'show_template_container',
            	),
 			array(
 				'name' 		=> __( 'Box Border', 'wp_email_template' ),
@@ -232,6 +282,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'id' 		=> 'outlook_apply_border',
 				'type' 		=> 'onoff_checkbox',
 				'default' 	=> 'yes',
+				'free_version'		=> true,
 				'checked_value'		=> 'yes',
 				'unchecked_value'	=> 'no',
 				'checked_label'		=> __( 'ON', 'wp_email_template' ),
@@ -241,6 +292,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 			array(
             	'name' 		=> __( 'WooCommerce Configuration', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'show_template_container',
            	),
 			array(
 				'name' 		=> __( 'Apply to WooCommerce emails', 'wp_email_template' ),
@@ -248,6 +300,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'id' 		=> 'apply_for_woo_emails',
 				'type' 		=> 'onoff_checkbox',
 				'default' 	=> '',
+				'free_version'		=> true,
 				'checked_value'		=> 'yes',
 				'unchecked_value'	=> '',
 				'checked_label'		=> __( 'YES', 'wp_email_template' ),
@@ -255,8 +308,23 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 			),
 
 			array(
+            	'name' 		=> __( "Don't Apply Template to Some Emails.", 'wp_email_template' ),
+            	'desc'		=> __( "To send any email without your WP Email Template applied to it copy and paste this shortcode [not_apply_email_template] into the message section. For example when creating a form with Contact Form 7 add the shortcode to the message box and the Template won't be applied.", 'wp_email_template' ),
+                'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields show_template_container',
+           	),
+			array(
+				'name' 		=> __( 'Shortcode Creator', 'wp_email_template' ),
+				'desc' 		=> '<p>'.__("For security reason please change the Default shortcode in the box to your own unique shortcode. Just create new using the shortcode format [name_name] and Save Changes.", 'wp_email_template' ).'</p>',
+				'id' 		=> 'exclude_shortcode',
+				'type' 		=> 'text',
+				'default'	=> '[not_apply_email_template]'
+			),
+
+			array(
             	'name' 		=> __( 'Help Promote This Plugin', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'show_template_container',
            	),
 			array(
 				'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
@@ -264,6 +332,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'id' 		=> 'show_plugin_url',
 				'type' 		=> 'onoff_checkbox',
 				'default' 	=> 'yes',
+				'free_version'		=> true,
 				'checked_value'		=> 'yes',
 				'unchecked_value'	=> 'no',
 				'checked_label'		=> __( 'ON', 'wp_email_template' ),
@@ -280,6 +349,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'id' 		=> 'wp_email_template_clean_on_deletion',
 				'type' 		=> 'onoff_checkbox',
 				'default'	=> '1',
+				'free_version'		=> true,
 				'separate_option'	=> true,
 				'checked_value'		=> '1',
 				'unchecked_value'	=> '0',
@@ -287,6 +357,33 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
 			),
         ));
+	}
+
+	public function include_script() {
+	?>
+<script>
+(function($) {
+$(document).ready(function() {
+
+	if ( $("input.apply_template_all_emails:checked").val() == 'yes') {
+		$(".show_template_container").css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+	} else {
+		$(".show_template_container").css( {'visibility': 'hidden', 'height' : '0px', 'overflow' : 'hidden'} );
+	}
+
+	$(document).on( "a3rev-ui-onoff_checkbox-switch", '.apply_template_all_emails', function( event, value, status ) {
+		$(".show_template_container").hide().css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+		if ( status == 'true' ) {
+			$(".show_template_container").slideDown();
+		} else {
+			$(".show_template_container").slideUp();
+		}
+	});
+
+});
+})(jQuery);
+</script>
+    <?php
 	}
 }
 

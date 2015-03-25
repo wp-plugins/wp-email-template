@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Email Template LITE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-05 18:00+0700\n"
-"PO-Revision-Date: 2015-02-05 18:00+0700\n"
+"POT-Creation-Date: 2015-03-25 17:33+0700\n"
+"PO-Revision-Date: 2015-03-25 17:33+0700\n"
 "Last-Translator: Nguyen Cong Tuan <mr.nguyencongtuan@gmail.com>\n"
 "Language-Team: a3rev\n"
 "Language: en\n"
@@ -87,10 +87,11 @@ msgid "Outset"
 msgstr ""
 
 #: admin/admin-interface.php:1365 admin/admin-interface.php:1455
-#: admin/admin-interface.php:1484 admin/settings/general-settings.php:221
-#: admin/settings/general-settings.php:237
-#: admin/settings/general-settings.php:269
-#: admin/settings/general-settings.php:286
+#: admin/admin-interface.php:1484 admin/settings/general-settings.php:231
+#: admin/settings/general-settings.php:270
+#: admin/settings/general-settings.php:288
+#: admin/settings/general-settings.php:338
+#: admin/settings/general-settings.php:356
 #: admin/settings/send-wp-emails/general-settings.php:250
 #: admin/settings/send-wp-emails/general-settings.php:268
 #: admin/settings/send-wp-emails/general-settings.php:287
@@ -108,10 +109,11 @@ msgid "ON"
 msgstr ""
 
 #: admin/admin-interface.php:1366 admin/admin-interface.php:1456
-#: admin/admin-interface.php:1485 admin/settings/general-settings.php:222
-#: admin/settings/general-settings.php:238
-#: admin/settings/general-settings.php:270
-#: admin/settings/general-settings.php:287
+#: admin/admin-interface.php:1485 admin/settings/general-settings.php:232
+#: admin/settings/general-settings.php:271
+#: admin/settings/general-settings.php:289
+#: admin/settings/general-settings.php:339
+#: admin/settings/general-settings.php:357
 #: admin/settings/send-wp-emails/general-settings.php:251
 #: admin/settings/send-wp-emails/general-settings.php:269
 #: admin/settings/send-wp-emails/general-settings.php:288
@@ -128,7 +130,7 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
-#: admin/admin-interface.php:1526
+#: admin/admin-interface.php:1526 admin/settings/general-settings.php:241
 msgid "Width"
 msgstr ""
 
@@ -184,11 +186,11 @@ msgstr ""
 msgid "Preview your customized border styles settings"
 msgstr ""
 
-#: admin/admin-interface.php:2178 admin/settings/general-settings.php:253
+#: admin/admin-interface.php:2178 admin/settings/general-settings.php:306
 msgid "YES"
 msgstr ""
 
-#: admin/admin-interface.php:2179 admin/settings/general-settings.php:254
+#: admin/admin-interface.php:2179 admin/settings/general-settings.php:307
 msgid "NO"
 msgstr ""
 
@@ -293,112 +295,152 @@ msgstr ""
 msgid "General Settings successfully reseted."
 msgstr ""
 
-#: admin/settings/general-settings.php:150 admin/tabs/admin-general-tab.php:78
+#: admin/settings/general-settings.php:164 admin/tabs/admin-general-tab.php:78
 msgid "General"
 msgstr ""
 
-#: admin/settings/general-settings.php:198
+#: admin/settings/general-settings.php:212
 #: admin/settings/social-media-settings.php:199
 #: admin/settings/style-body-settings.php:199
 #: admin/settings/style-fonts-settings.php:199
 #: admin/settings/style-footer-settings.php:202
 #: admin/settings/style-header-image-settings.php:198
 #: admin/settings/style-header-settings.php:199
-#: admin/settings/style-settings.php:201
 msgid "Live Preview"
 msgstr ""
 
-#: admin/settings/general-settings.php:199
+#: admin/settings/general-settings.php:213
 #: admin/settings/social-media-settings.php:200
 #: admin/settings/style-body-settings.php:200
 #: admin/settings/style-fonts-settings.php:200
 #: admin/settings/style-footer-settings.php:203
 #: admin/settings/style-header-image-settings.php:199
 #: admin/settings/style-header-settings.php:200
-#: admin/settings/style-settings.php:202
 msgid "For a live preview of changes save them and then"
 msgstr ""
 
-#: admin/settings/general-settings.php:199
+#: admin/settings/general-settings.php:213
 #: admin/settings/social-media-settings.php:200
 #: admin/settings/style-body-settings.php:200
 #: admin/settings/style-fonts-settings.php:200
 #: admin/settings/style-footer-settings.php:203
 #: admin/settings/style-header-image-settings.php:199
 #: admin/settings/style-header-settings.php:200
-#: admin/settings/style-settings.php:202
 msgid "Click here to preview your email template."
 msgstr ""
 
-#: admin/settings/general-settings.php:204
+#: admin/settings/general-settings.php:218
+#: admin/settings/general-settings.php:330
+#: classes/class-email-functions.php:218
+msgid "WP Email Template"
+msgstr ""
+
+#: admin/settings/general-settings.php:222
+msgid "Apply Template"
+msgstr ""
+
+#: admin/settings/general-settings.php:223
+msgid ""
+"ON will apply templates to all emails are sent via wp_mail() function of "
+"WordPress."
+msgstr ""
+
+#: admin/settings/general-settings.php:236
+msgid "Template Width"
+msgstr ""
+
+#: admin/settings/general-settings.php:242
+msgid ""
+"The industry default and recommended width for email templates is 600px."
+msgstr ""
+
+#: admin/settings/general-settings.php:250
 msgid "Template Background"
 msgstr ""
 
-#: admin/settings/general-settings.php:208
+#: admin/settings/general-settings.php:255
 msgid "Background colour"
 msgstr ""
 
-#: admin/settings/general-settings.php:209
+#: admin/settings/general-settings.php:256
 msgid "Email template background colour. Default"
 msgstr ""
 
-#: admin/settings/general-settings.php:215
+#: admin/settings/general-settings.php:263
 msgid "Background Pattern"
 msgstr ""
 
-#: admin/settings/general-settings.php:226
+#: admin/settings/general-settings.php:275
 msgid "Outlook 2007 / 2010 / 2013 Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:230
+#: admin/settings/general-settings.php:280
 msgid "Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:231
+#: admin/settings/general-settings.php:281
 msgid ""
 "ON will show a white box border around email Template in Outlook. Outlook "
 "does not support border colour, size or type. Any Border style created with "
 "the dynamic settings will not show in Outlook."
 msgstr ""
 
-#: admin/settings/general-settings.php:242
+#: admin/settings/general-settings.php:293
 msgid "WooCommerce Configuration"
 msgstr ""
 
-#: admin/settings/general-settings.php:246
+#: admin/settings/general-settings.php:298
 msgid "Apply to WooCommerce emails"
 msgstr ""
 
-#: admin/settings/general-settings.php:247
+#: admin/settings/general-settings.php:299
 msgid ""
 "If WooCommerce is installed, select YES to apply this template to all "
 "WooCommerce emails."
 msgstr ""
 
-#: admin/settings/general-settings.php:258
+#: admin/settings/general-settings.php:311
+msgid "Don't Apply Template to Some Emails."
+msgstr ""
+
+#: admin/settings/general-settings.php:312
+msgid ""
+"To send any email without your WP Email Template applied to it copy and "
+"paste this shortcode [not_apply_email_template] into the message section. "
+"For example when creating a form with Contact Form 7 add the shortcode to "
+"the message box and the Template won't be applied."
+msgstr ""
+
+#: admin/settings/general-settings.php:317
+msgid "Shortcode Creator"
+msgstr ""
+
+#: admin/settings/general-settings.php:318
+msgid ""
+"For security reason please change the Default shortcode in the box to your "
+"own unique shortcode. Just create new using the shortcode format [name_name] "
+"and Save Changes."
+msgstr ""
+
+#: admin/settings/general-settings.php:325
 msgid "Help Promote This Plugin"
 msgstr ""
 
-#: admin/settings/general-settings.php:262
-#: classes/class-email-functions.php:211
-msgid "WP Email Template"
-msgstr ""
-
-#: admin/settings/general-settings.php:263
+#: admin/settings/general-settings.php:331
 msgid ""
 "Help spread the word by showing this at the bottom of your emails. The text "
 "is linked to the plugins WordPress.org page."
 msgstr ""
 
-#: admin/settings/general-settings.php:274
+#: admin/settings/general-settings.php:343
 msgid "House Keeping :"
 msgstr ""
 
-#: admin/settings/general-settings.php:278
+#: admin/settings/general-settings.php:347
 msgid "Clean up on Deletion"
 msgstr ""
 
-#: admin/settings/general-settings.php:279
+#: admin/settings/general-settings.php:348
 msgid ""
 "Check this box and if you ever delete this plugin it will completely remove "
 "all tables and data it created, leaving no trace it was ever here."
@@ -784,7 +826,6 @@ msgstr ""
 #: admin/settings/style-fonts-settings.php:81
 #: admin/settings/style-footer-settings.php:81
 #: admin/settings/style-header-settings.php:81
-#: admin/settings/style-settings.php:81
 msgid "WP Email Template Style successfully saved."
 msgstr ""
 
@@ -792,7 +833,6 @@ msgstr ""
 #: admin/settings/style-fonts-settings.php:82
 #: admin/settings/style-footer-settings.php:82
 #: admin/settings/style-header-settings.php:82
-#: admin/settings/style-settings.php:82
 msgid "Error: WP Email Template Style  can not save."
 msgstr ""
 
@@ -800,7 +840,6 @@ msgstr ""
 #: admin/settings/style-fonts-settings.php:83
 #: admin/settings/style-footer-settings.php:83
 #: admin/settings/style-header-settings.php:83
-#: admin/settings/style-settings.php:83
 msgid "WP Email Template Style  successfully reseted."
 msgstr ""
 
@@ -829,7 +868,7 @@ msgid "Content Alignment"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:223
-#: admin/settings/style-header-image-settings.php:218
+#: admin/settings/style-header-image-settings.php:217
 #: admin/settings/style-header-settings.php:222
 msgid "None"
 msgstr ""
@@ -839,9 +878,9 @@ msgstr ""
 #: admin/settings/style-body-settings.php:280
 #: admin/settings/style-footer-settings.php:256
 #: admin/settings/style-footer-settings.php:284
-#: admin/settings/style-header-image-settings.php:219
-#: admin/settings/style-header-image-settings.php:247
-#: admin/settings/style-header-image-settings.php:274
+#: admin/settings/style-header-image-settings.php:218
+#: admin/settings/style-header-image-settings.php:246
+#: admin/settings/style-header-image-settings.php:273
 #: admin/settings/style-header-settings.php:223
 #: admin/settings/style-header-settings.php:251
 #: admin/settings/style-header-settings.php:278
@@ -853,9 +892,9 @@ msgstr ""
 #: admin/settings/style-body-settings.php:285
 #: admin/settings/style-footer-settings.php:261
 #: admin/settings/style-footer-settings.php:289
-#: admin/settings/style-header-image-settings.php:220
-#: admin/settings/style-header-image-settings.php:252
-#: admin/settings/style-header-image-settings.php:279
+#: admin/settings/style-header-image-settings.php:219
+#: admin/settings/style-header-image-settings.php:251
+#: admin/settings/style-header-image-settings.php:278
 #: admin/settings/style-header-settings.php:224
 #: admin/settings/style-header-settings.php:256
 #: admin/settings/style-header-settings.php:283
@@ -863,7 +902,7 @@ msgid "Right"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:226
-#: admin/settings/style-header-image-settings.php:221
+#: admin/settings/style-header-image-settings.php:220
 #: admin/settings/style-header-settings.php:225
 msgid "Center"
 msgstr ""
@@ -885,8 +924,8 @@ msgstr ""
 #: admin/settings/style-body-settings.php:271
 #: admin/settings/style-footer-settings.php:247
 #: admin/settings/style-footer-settings.php:275
-#: admin/settings/style-header-image-settings.php:238
-#: admin/settings/style-header-image-settings.php:265
+#: admin/settings/style-header-image-settings.php:237
+#: admin/settings/style-header-image-settings.php:264
 #: admin/settings/style-header-settings.php:242
 #: admin/settings/style-header-settings.php:269
 msgid "Top"
@@ -896,8 +935,8 @@ msgstr ""
 #: admin/settings/style-body-settings.php:275
 #: admin/settings/style-footer-settings.php:251
 #: admin/settings/style-footer-settings.php:279
-#: admin/settings/style-header-image-settings.php:242
-#: admin/settings/style-header-image-settings.php:269
+#: admin/settings/style-header-image-settings.php:241
+#: admin/settings/style-header-image-settings.php:268
 #: admin/settings/style-header-settings.php:246
 #: admin/settings/style-header-settings.php:273
 msgid "Bottom"
@@ -915,14 +954,13 @@ msgstr ""
 
 #: admin/settings/style-body-settings.php:292
 #: admin/settings/style-footer-settings.php:296
-#: admin/settings/style-header-image-settings.php:285
+#: admin/settings/style-header-image-settings.php:284
 #: admin/settings/style-header-settings.php:289
 msgid "Container Background Colour"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:293
 #: admin/settings/style-footer-settings.php:297
-#: admin/settings/style-settings.php:231
 msgid "The main body background colour. Default"
 msgstr ""
 
@@ -932,7 +970,7 @@ msgstr ""
 
 #: admin/settings/style-body-settings.php:301
 #: admin/settings/style-footer-settings.php:305
-#: admin/settings/style-header-image-settings.php:294
+#: admin/settings/style-header-image-settings.php:293
 #: admin/settings/style-header-settings.php:298
 msgid ""
 "Please note all versions of Microsoft Outlook do not support borders. Most "
@@ -941,35 +979,35 @@ msgstr ""
 
 #: admin/settings/style-body-settings.php:305
 #: admin/settings/style-footer-settings.php:310
-#: admin/settings/style-header-image-settings.php:298
+#: admin/settings/style-header-image-settings.php:297
 #: admin/settings/style-header-settings.php:302
 msgid "Border Top"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:312
 #: admin/settings/style-footer-settings.php:317
-#: admin/settings/style-header-image-settings.php:305
+#: admin/settings/style-header-image-settings.php:304
 #: admin/settings/style-header-settings.php:309
 msgid "Border Bottom"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:319
 #: admin/settings/style-footer-settings.php:324
-#: admin/settings/style-header-image-settings.php:312
+#: admin/settings/style-header-image-settings.php:311
 #: admin/settings/style-header-settings.php:316
 msgid "Border Left"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:326
 #: admin/settings/style-footer-settings.php:331
-#: admin/settings/style-header-image-settings.php:319
+#: admin/settings/style-header-image-settings.php:318
 #: admin/settings/style-header-settings.php:323
 msgid "Border Right"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:333
 #: admin/settings/style-footer-settings.php:338
-#: admin/settings/style-header-image-settings.php:326
+#: admin/settings/style-header-image-settings.php:325
 #: admin/settings/style-header-settings.php:330
 msgid "Border Corners"
 msgstr ""
@@ -980,7 +1018,6 @@ msgstr ""
 
 #: admin/settings/style-body-settings.php:341
 #: admin/settings/style-header-settings.php:290
-#: admin/settings/style-settings.php:212 admin/settings/style-settings.php:244
 msgid "Default"
 msgstr ""
 
@@ -1046,7 +1083,6 @@ msgid "Footer"
 msgstr ""
 
 #: admin/settings/style-footer-settings.php:208
-#: admin/settings/style-settings.php:251
 msgid "Email Footer Content"
 msgstr ""
 
@@ -1089,46 +1125,41 @@ msgid "Header Image"
 msgstr ""
 
 #: admin/settings/style-header-image-settings.php:203
-#: admin/settings/style-header-image-settings.php:227
+#: admin/settings/style-header-image-settings.php:226
 msgid "Header Image Container"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:208
-msgid "Maximum image width supported is 600px"
-msgstr ""
-
-#: admin/settings/style-header-image-settings.php:213
+#: admin/settings/style-header-image-settings.php:212
 msgid "Header Image Alignment"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:231
+#: admin/settings/style-header-image-settings.php:230
 #: admin/settings/style-header-settings.php:235
 msgid "Container Border Margin"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:232
+#: admin/settings/style-header-image-settings.php:231
 msgid "Margin or space outside of the Image container border in px."
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:258
+#: admin/settings/style-header-image-settings.php:257
 #: admin/settings/style-header-settings.php:262
 msgid "Container Border Padding"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:259
+#: admin/settings/style-header-image-settings.php:258
 msgid "Padding or space between the border and the image."
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:286
+#: admin/settings/style-header-image-settings.php:285
 msgid "Header background colour. Default"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:293
+#: admin/settings/style-header-image-settings.php:292
 msgid "Image Container Borders"
 msgstr ""
 
 #: admin/settings/style-header-settings.php:151
-#: admin/settings/style-settings.php:206
 msgid "Email Header"
 msgstr ""
 
@@ -1161,67 +1192,31 @@ msgstr ""
 msgid "Title Container Borders"
 msgstr ""
 
-#: admin/settings/style-settings.php:153 admin/tabs/admin-style-tab.php:78
-msgid "Style"
-msgstr ""
-
-#: admin/settings/style-settings.php:211
-msgid "Header background colour"
-msgstr ""
-
-#: admin/settings/style-settings.php:218
-msgid "Header title font"
-msgstr ""
-
-#: admin/settings/style-settings.php:225
-msgid "Email Body"
-msgstr ""
-
-#: admin/settings/style-settings.php:230
-msgid "Email body background colour"
-msgstr ""
-
-#: admin/settings/style-settings.php:237
-msgid "Email body font"
-msgstr ""
-
-#: admin/settings/style-settings.php:243
-msgid "Email body link text colour"
-msgstr ""
-
-#: admin/settings/style-settings.php:255
-msgid "Email footer text"
-msgstr ""
-
-#: admin/settings/style-settings.php:256
-msgid "The text to appear in the footer of the email template."
-msgstr ""
-
 #: admin/tabs/admin-style-body-tab.php:78
 msgid "Content"
 msgstr ""
 
-#: classes/class-email-functions.php:189
+#: classes/class-email-functions.php:196
 msgid "Facebook"
 msgstr ""
 
-#: classes/class-email-functions.php:193
+#: classes/class-email-functions.php:200
 msgid "Twitter"
 msgstr ""
 
-#: classes/class-email-functions.php:197
+#: classes/class-email-functions.php:204
 msgid "LinkedIn"
 msgstr ""
 
-#: classes/class-email-functions.php:201
+#: classes/class-email-functions.php:208
 msgid "Pinterest"
 msgstr ""
 
-#: classes/class-email-functions.php:205
+#: classes/class-email-functions.php:212
 msgid "Google+"
 msgstr ""
 
-#: classes/class-email-functions.php:209
+#: classes/class-email-functions.php:216
 msgid "Follow us on"
 msgstr ""
 

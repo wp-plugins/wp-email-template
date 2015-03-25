@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 4.1.1
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -30,6 +30,19 @@ The plugin applies a HTML template to email sent from your WordPress site. The T
 * Android Devices
 * Windows Live Desktop
 * Mozilla Thunderbird
+
+= Template Edit Options =
+
+* Option to Turn the Template ON | OFF. OFF to just use the plugin use to set up wp email sender without using the template (see below).
+* Dynamic Template Width - admin can edit the 600px default width of the Template.
+* Template Background colour selector
+* Background Pattern ON | OFF setting.
+* Upload and position Email Template Header image
+* Header Image container background, border, and padding settings.
+* Footer - add email template custom footer content via the WordPress editor.
+* Follow us on - add links to social media site where users can follow you.
+* Many more dynamic style options available in the Pro version.
+
 
 = Email Sending Options =
 
@@ -68,7 +81,7 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 * Gravity Forms - see the screen shots - looks sensational with the default Gravity style.
 * Contact Form 7 - see the screenshots
 * WP e-Commerce - applies the template to every store generated email to customers and admins
-* WooCommerce - Version 2.1 and backward compatible. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
+* WooCommerce - Version 2.3.7 and backward compatible to version 2.1.0. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
 * WP Mail SMPT - WP Email Template does not interfere with the way any WordPress or any plugin handles email output - it just applies the template to any output content.
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
 * Wordfence - Branded security emails - nice.
@@ -96,6 +109,7 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 = The Pro Version Upgrade =
 
 * Wow your web clients and customers with an email template that perfectly matches the site design.
+* Ability to only apply to emails that you want the template to apply to instead of all.
 * We use it on every site we do and it just blows the client away.
 * Best thing of all it takes just minutes to do.
 * Our clients love tweaking the design with the point and click settings.
@@ -163,6 +177,11 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.3.0 - 2015/03/25 =
+* Feature - Added Option to turn the Template ON | OFF. Can now just use the plugin use to set up wp email sender without using the template.
+* Feature - Added Dynamic Template Width - admin can edit the 600px default width of the Template.
+* Fix - Bug that email was not being sent when user did a Password recover when Mandrill API is set as the email sender.
 
 = 1.2.2 - 2015/03/19 =
 * Tweak - Tested and Tweaked for full compatibility with WooCommerce Version 2.3.7
@@ -320,6 +339,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.3.0 =
+Major new features release. Upgrade now for 2 new Features plus 1 Bug fix.
 
 = 1.2.2 =
 Upgrade now for full compatibility with WooCommerce Version 2.3.7 and WordPress version 4.1.1

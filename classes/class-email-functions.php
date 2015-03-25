@@ -21,13 +21,19 @@ class WP_Email_Template_Functions
 
 	public static function replace_shortcode_header ($template_html='', $email_heading='') {
 		global $wp_email_template_general, $wp_email_template_style_header_image, $wp_email_template_social_media;
+		global $wp_email_template_style_fonts;
 		$background_pattern_image = 'url('.WP_EMAIL_TEMPLATE_IMAGES_URL.'/pattern.png)';
+
+		$email_container_width = trim( $wp_email_template_general['email_container_width'] );
+		if ( $email_container_width < 200 || $email_container_width > 1280 ) {
+			$email_container_width = 600;
+		}
 
 		$header_image_html = '';
 		$apply_style_header_image = false;
 		$header_image = $wp_email_template_style_header_image['header_image'];
 		if ($header_image !== FALSE && trim($header_image) != ''){
-			$header_image_html = '<p style="margin:0px 0 0px 0;"><img class="header_image" style="max-width:600px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes( $header_image ) ) ).'"></p>';
+			$header_image_html = '<p style="margin:0px 0 0px 0;"><img class="header_image" style="max-width:<!--email_container_width-->px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes( $header_image ) ) ).'"></p>';
 			$apply_style_header_image = true;
 		}
 
@@ -102,6 +108,7 @@ class WP_Email_Template_Functions
 			'blog_name'                     => get_bloginfo('name'),
 			'external_link'                 => $external_link,
 			'outlook_container_border'      => $outlook_container_border,
+			'email_container_width'			=> $email_container_width,
 
 			'header_image'                  => $header_image_html,
 			'header_image_margin_bottom'    => $header_image_margin_bottom,
@@ -327,9 +334,19 @@ class WP_Email_Template_Functions
 		return $template_html;
 	}
 
-	public static function email_content($email_heading='', $message='') {
+	public static function email_content($email_heading='', $message='', $preview_mode=false) {
 		global $wp_email_template_fonts_face;
+		global $wp_email_template_general;
 		$html = '';
+
+		// Don't remove email template when it's preview mode
+		if ( ! $preview_mode ) {
+			// Don't apply WP Email Template if disable this feature
+			if ( $wp_email_template_general['apply_template_all_emails'] != 'yes' ) {
+				return $message;
+			}
+		}
+
 		if (stristr($message, '<!--NO_USE_EMAIL_TEMPLATE-->') === false )
 			$html .= WP_Email_Template_Functions::email_header($email_heading);
 
