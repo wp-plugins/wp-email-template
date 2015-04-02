@@ -33,7 +33,7 @@ class WP_Email_Template_Functions
 		$apply_style_header_image = false;
 		$header_image = $wp_email_template_style_header_image['header_image'];
 		if ($header_image !== FALSE && trim($header_image) != ''){
-			$header_image_html = '<p style="margin:0px 0 0px 0;"><img class="header_image" style="max-width:<!--email_container_width-->px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes( $header_image ) ) ).'"></p>';
+			$header_image_html = '<p style="margin:0px 0 0px 0;"><img class="header_image" style="max-width:'.$email_container_width.'px;" alt="'.get_bloginfo('name').'" src="'.trim(esc_attr( stripslashes( $header_image ) ) ).'"></p>';
 			$apply_style_header_image = true;
 		}
 

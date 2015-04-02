@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 4.1.1
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -178,6 +178,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.3.1 - 2015/04/02 =
+* Fix - Removed '<!--email_container_width-->' on header image. Was causing code to show instead of the image on some email clients
+
 = 1.3.0 - 2015/03/25 =
 * Feature - Added Option to turn the Template ON | OFF. Can now just use the plugin use to set up wp email sender without using the template.
 * Feature - Added Dynamic Template Width - admin can edit the 600px default width of the Template.
@@ -339,6 +342,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Maintenance update - important header image display Bug fix.
 
 = 1.3.0 =
 Major new features release. Upgrade now for 2 new Features plus 1 Bug fix.
