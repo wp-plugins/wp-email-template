@@ -179,7 +179,7 @@ The manual installation method involves down loading our plugin and uploading it
 == Changelog ==
 
 = 1.3.1 - 2015/04/02 =
-* Fix - Removed '<!--email_container_width-->' on header image. Was causing code to show instead of the image on some email clients
+* Fix - Removed <code><!--email_container_width--></code> on header image. Was causing code to show instead of the image on some email clients
 
 = 1.3.0 - 2015/03/25 =
 * Feature - Added Option to turn the Template ON | OFF. Can now just use the plugin use to set up wp email sender without using the template.
