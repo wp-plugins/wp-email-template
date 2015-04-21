@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
-Tested up to: 4.1.1
-Stable tag: 1.3.1
+Tested up to: 4.2.0
+Stable tag: 1.3.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -178,6 +178,11 @@ The manual installation method involves down loading our plugin and uploading it
 
 == Changelog ==
 
+= 1.3.2 - 2015/04/21 =
+* Tweak - Tested and Tweaked for full compatibility with WordPress Version 4.2.0
+* Tweak - Tested and Tweaked for full compatibility with WooCommerce Version 2.3.8
+* Tweak - Update style of plugin framework. Removed the [data-icon] selector to prevent conflict with other plugins that have font awesome icons
+
 = 1.3.1 - 2015/04/02 =
 * Fix - Removed <code><!--email_container_width--></code> on header image. Was causing code to show instead of the image on some email clients
 
@@ -342,6 +347,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.3.2 =
+Maintenance upgrade. Code tweaks for full compatibility with WordPress 4.2.0 and WooCommerce 2.3.8
 
 = 1.3.1 =
 Maintenance update - important header image display Bug fix.
