@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 ?>
 <?php
 /*-----------------------------------------------------------------------------------
-WP Email Template Style Tab
+WP Email Template Send WP Emails SMTP Tab
 
 TABLE OF CONTENTS
 
@@ -22,12 +22,12 @@ TABLE OF CONTENTS
 
 -----------------------------------------------------------------------------------*/
 
-class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
+class WP_ET_SMTP_Provider_Tab extends WP_Email_Tempate_Admin_UI
 {	
 	/**
 	 * @var string
 	 */
-	private $parent_page = 'email_template';
+	private $parent_page = 'send_wp_emails';
 	
 	/**
 	 * @var string
@@ -74,9 +74,9 @@ class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
 	public function tab_data() {
 		
 		$tab_data = array( 
-			'name'				=> 'style',
-			'label'				=> __( 'Style', 'wp_email_template' ),
-			'callback_function'	=> 'wp_email_template_style_tab_manager',
+			'name'				=> 'smtp',
+			'label'				=> __( 'SMTP', 'wp_email_template' ),
+			'callback_function'	=> 'wp_et_smtp_provider_tab_manager',
 		);
 		
 		if ( $this->tab_data ) return $this->tab_data;
@@ -103,7 +103,7 @@ class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
 	public function settings_include() {
 		
 		// Includes Settings file
-		include_once( $this->admin_plugin_dir() . '/settings/style-settings.php' );
+		include_once( $this->admin_plugin_dir() . '/settings/send-wp-emails/smtp-settings.php' );
 		
 	}
 	
@@ -112,25 +112,23 @@ class WP_Email_Template_Style_Tab extends WP_Email_Tempate_Admin_UI
 	/* Call tab layout from Admin Init 
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
-		global $wp_email_template_style_settings;
+		global $wp_et_smtp_provider_settings;
 		
-		$this->plugin_extension_start();
-		$wp_email_template_style_settings->settings_form();
-		$this->plugin_extension_end();
+		$wp_et_smtp_provider_settings->settings_form();
 		
 	}
 }
 
-global $wp_email_template_style_tab;
-$wp_email_template_style_tab = new WP_Email_Template_Style_Tab();
+global $wp_et_smtp_provider_tab;
+$wp_et_smtp_provider_tab = new WP_ET_SMTP_Provider_Tab();
 
 /** 
- * wp_email_template_style_tab_manager()
+ * wp_et_smtp_provider_tab_manager()
  * Define the callback function to show tab content
  */
-function wp_email_template_style_tab_manager() {
-	global $wp_email_template_style_tab;
-	$wp_email_template_style_tab->tab_manager();
+function wp_et_smtp_provider_tab_manager() {
+	global $wp_et_smtp_provider_tab;
+	$wp_et_smtp_provider_tab->tab_manager();
 }
 
 ?>
