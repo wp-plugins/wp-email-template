@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Email Template LITE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-25 17:33+0700\n"
-"PO-Revision-Date: 2015-03-25 17:33+0700\n"
+"POT-Creation-Date: 2015-05-14 10:46+0700\n"
+"PO-Revision-Date: 2015-05-14 10:47+0700\n"
 "Last-Translator: Nguyen Cong Tuan <mr.nguyencongtuan@gmail.com>\n"
 "Language-Team: a3rev <hidemka@gmail.com>\n"
 "Language: ru_RU\n"
@@ -89,11 +89,11 @@ msgid "Outset"
 msgstr ""
 
 #: admin/admin-interface.php:1365 admin/admin-interface.php:1455
-#: admin/admin-interface.php:1484 admin/settings/general-settings.php:231
-#: admin/settings/general-settings.php:270
-#: admin/settings/general-settings.php:288
-#: admin/settings/general-settings.php:338
-#: admin/settings/general-settings.php:356
+#: admin/admin-interface.php:1484 admin/settings/general-settings.php:219
+#: admin/settings/general-settings.php:258
+#: admin/settings/general-settings.php:276
+#: admin/settings/general-settings.php:312
+#: admin/settings/general-settings.php:330
 #: admin/settings/send-wp-emails/general-settings.php:250
 #: admin/settings/send-wp-emails/general-settings.php:268
 #: admin/settings/send-wp-emails/general-settings.php:287
@@ -111,11 +111,11 @@ msgid "ON"
 msgstr ""
 
 #: admin/admin-interface.php:1366 admin/admin-interface.php:1456
-#: admin/admin-interface.php:1485 admin/settings/general-settings.php:232
-#: admin/settings/general-settings.php:271
-#: admin/settings/general-settings.php:289
-#: admin/settings/general-settings.php:339
-#: admin/settings/general-settings.php:357
+#: admin/admin-interface.php:1485 admin/settings/general-settings.php:220
+#: admin/settings/general-settings.php:259
+#: admin/settings/general-settings.php:277
+#: admin/settings/general-settings.php:313
+#: admin/settings/general-settings.php:331
 #: admin/settings/send-wp-emails/general-settings.php:251
 #: admin/settings/send-wp-emails/general-settings.php:269
 #: admin/settings/send-wp-emails/general-settings.php:288
@@ -132,7 +132,7 @@ msgstr ""
 msgid "OFF"
 msgstr ""
 
-#: admin/admin-interface.php:1526 admin/settings/general-settings.php:241
+#: admin/admin-interface.php:1526 admin/settings/general-settings.php:229
 msgid "Width"
 msgstr ""
 
@@ -188,11 +188,11 @@ msgstr ""
 msgid "Preview your customized border styles settings"
 msgstr ""
 
-#: admin/admin-interface.php:2178 admin/settings/general-settings.php:306
+#: admin/admin-interface.php:2178 admin/settings/general-settings.php:294
 msgid "YES"
 msgstr ""
 
-#: admin/admin-interface.php:2179 admin/settings/general-settings.php:307
+#: admin/admin-interface.php:2179 admin/settings/general-settings.php:295
 msgid "NO"
 msgstr ""
 
@@ -288,6 +288,160 @@ msgstr ""
 msgid "Previously Uploaded"
 msgstr ""
 
+#: admin/settings/exclude-emails-settings.php:81
+#, fuzzy
+msgid "Exclude Emails Settings successfully saved."
+msgstr "Настройки шаблона Email успешно сохранены."
+
+#: admin/settings/exclude-emails-settings.php:82
+#, fuzzy
+msgid "Error: Exclude Emails Settings can not save."
+msgstr "Настройки шаблона Email"
+
+#: admin/settings/exclude-emails-settings.php:83
+#, fuzzy
+msgid "Exclude Emails Settings successfully reseted."
+msgstr "Настройки шаблона Email успешно восстановлены."
+
+#: admin/settings/exclude-emails-settings.php:182
+#: admin/tabs/admin-exclude-emails-tab.php:78
+msgid "Exclude Emails"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:234
+msgid "Help Notes"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:241
+msgid "SHOW"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:242
+msgid "HIDE"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:253
+msgid "Exclude by Shortcode"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:254
+msgid ""
+"For security reason please change the Default shortcode in the box to your "
+"own unique shortcode. Just create new using the shortcode format [name_name] "
+"and Save Changes."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:259
+msgid "Shortcode Creator"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:280
+#: admin/settings/exclude-emails-settings.php:346
+msgid "Exclude by Subject Title"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:280
+msgid "Add New"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:280
+msgid "Remove All"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:307
+#, fuzzy
+msgid "Email Sent by"
+msgstr "Содержание Email"
+
+#: admin/settings/exclude-emails-settings.php:308
+#, fuzzy
+msgid "Email Subject Title"
+msgstr "Просмотр Email"
+
+#: admin/settings/exclude-emails-settings.php:334
+msgid "Exclude by Shortode"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:336
+msgid ""
+"Use the template exclusion shortcode for plugin created email submission "
+"forms"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:338
+msgid "Use the Shortcode creator to create a unique exclusion shortcode."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:339
+msgid "Copy the email template exclusion shortcode."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:340
+msgid ""
+"Create or edit the Form and paste the exclusion shortcode into the forms "
+"message field."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:341
+msgid ""
+"Save Changes. Note the shortcode is not visible to the user on the front end."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:342
+msgid ""
+"The email template will not be applied to email submissions from the form."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:348
+msgid "For System (WordPress) or plugin generated email notifications"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:350
+msgid "Click the blue [ Add New ] button."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:351
+msgid ""
+"Email Sent by field. This is only for your reference, example WordPress or "
+"plugin name."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:352
+msgid ""
+"Email Subject Title field. Enter the email subject title. Example 'Password "
+"Recovery'."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:353
+msgid ""
+"For Dynamic Email Subject Titles enter the constant section of the title "
+"only."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:357
+msgid "Example"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:357
+msgid ""
+"The Wordfence plugin sends an activity summary email to admins that has a "
+"dynamic subject title in this format 'Wordfence activity for May 18, 2015 on "
+"xxxxxxxxxx.com.au'. The constant part of the title is 'Wordfence activity "
+"for'. Enter that and the template will not be applied to any Wordfence "
+"activity summary emails."
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:360
+#, fuzzy
+msgid "WooCommerce"
+msgstr "Конфигурация WooCommerce"
+
+#: admin/settings/exclude-emails-settings.php:361
+msgid ""
+"Exclude by Subject Title does not work with WooCommerce Emails due to the "
+"way WooCommerce templates are applied."
+msgstr ""
+
 #: admin/settings/general-settings.php:81
 #, fuzzy
 msgid "General Settings successfully saved."
@@ -303,11 +457,11 @@ msgstr ""
 msgid "General Settings successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/settings/general-settings.php:164 admin/tabs/admin-general-tab.php:78
+#: admin/settings/general-settings.php:152 admin/tabs/admin-general-tab.php:78
 msgid "General"
 msgstr ""
 
-#: admin/settings/general-settings.php:212
+#: admin/settings/general-settings.php:200
 #: admin/settings/social-media-settings.php:199
 #: admin/settings/style-body-settings.php:199
 #: admin/settings/style-fonts-settings.php:199
@@ -317,7 +471,7 @@ msgstr ""
 msgid "Live Preview"
 msgstr "Предварительный просмотр"
 
-#: admin/settings/general-settings.php:213
+#: admin/settings/general-settings.php:201
 #: admin/settings/social-media-settings.php:200
 #: admin/settings/style-body-settings.php:200
 #: admin/settings/style-fonts-settings.php:200
@@ -327,7 +481,7 @@ msgstr "Предварительный просмотр"
 msgid "For a live preview of changes save them and then"
 msgstr "Для предварительного просмотра сохраните изменения и затем"
 
-#: admin/settings/general-settings.php:213
+#: admin/settings/general-settings.php:201
 #: admin/settings/social-media-settings.php:200
 #: admin/settings/style-body-settings.php:200
 #: admin/settings/style-fonts-settings.php:200
@@ -337,75 +491,75 @@ msgstr "Для предварительного просмотра сохран�
 msgid "Click here to preview your email template."
 msgstr "Щелкните здесь, чтобы просмотреть шаблон email."
 
-#: admin/settings/general-settings.php:218
-#: admin/settings/general-settings.php:330
+#: admin/settings/general-settings.php:206
+#: admin/settings/general-settings.php:304
 #: classes/class-email-functions.php:218
 msgid "WP Email Template"
 msgstr "WP Email шаблон"
 
-#: admin/settings/general-settings.php:222
+#: admin/settings/general-settings.php:210
 #, fuzzy
 msgid "Apply Template"
 msgstr "Email Шаблон"
 
-#: admin/settings/general-settings.php:223
+#: admin/settings/general-settings.php:211
 msgid ""
 "ON will apply templates to all emails are sent via wp_mail() function of "
 "WordPress."
 msgstr ""
 
-#: admin/settings/general-settings.php:236
+#: admin/settings/general-settings.php:224
 #, fuzzy
 msgid "Template Width"
 msgstr "Email Шаблон"
 
-#: admin/settings/general-settings.php:242
+#: admin/settings/general-settings.php:230
 msgid ""
 "The industry default and recommended width for email templates is 600px."
 msgstr ""
 
-#: admin/settings/general-settings.php:250
+#: admin/settings/general-settings.php:238
 msgid "Template Background"
 msgstr "Фон шаблона"
 
-#: admin/settings/general-settings.php:255
+#: admin/settings/general-settings.php:243
 msgid "Background colour"
 msgstr "Цвет фона"
 
-#: admin/settings/general-settings.php:256
+#: admin/settings/general-settings.php:244
 #, fuzzy
 msgid "Email template background colour. Default"
 msgstr "Образец цвета фона шаблона. По умолчанию"
 
-#: admin/settings/general-settings.php:263
+#: admin/settings/general-settings.php:251
 #, fuzzy
 msgid "Background Pattern"
 msgstr "Образец цвета фона шаблона. По умолчанию"
 
-#: admin/settings/general-settings.php:275
+#: admin/settings/general-settings.php:263
 msgid "Outlook 2007 / 2010 / 2013 Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:280
+#: admin/settings/general-settings.php:268
 msgid "Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:281
+#: admin/settings/general-settings.php:269
 msgid ""
 "ON will show a white box border around email Template in Outlook. Outlook "
 "does not support border colour, size or type. Any Border style created with "
 "the dynamic settings will not show in Outlook."
 msgstr ""
 
-#: admin/settings/general-settings.php:293
+#: admin/settings/general-settings.php:281
 msgid "WooCommerce Configuration"
 msgstr "Конфигурация WooCommerce"
 
-#: admin/settings/general-settings.php:298
+#: admin/settings/general-settings.php:286
 msgid "Apply to WooCommerce emails"
 msgstr "Применить к электронным письмам WooCommerce"
 
-#: admin/settings/general-settings.php:299
+#: admin/settings/general-settings.php:287
 msgid ""
 "If WooCommerce is installed, select YES to apply this template to all "
 "WooCommerce emails."
@@ -413,34 +567,11 @@ msgstr ""
 "Если WooCommerce установлена, выберите Да, чтобы применить этот шаблон для "
 "всех электронной почты WooCommerce."
 
-#: admin/settings/general-settings.php:311
-msgid "Don't Apply Template to Some Emails."
-msgstr ""
-
-#: admin/settings/general-settings.php:312
-msgid ""
-"To send any email without your WP Email Template applied to it copy and "
-"paste this shortcode [not_apply_email_template] into the message section. "
-"For example when creating a form with Contact Form 7 add the shortcode to "
-"the message box and the Template won't be applied."
-msgstr ""
-
-#: admin/settings/general-settings.php:317
-msgid "Shortcode Creator"
-msgstr ""
-
-#: admin/settings/general-settings.php:318
-msgid ""
-"For security reason please change the Default shortcode in the box to your "
-"own unique shortcode. Just create new using the shortcode format [name_name] "
-"and Save Changes."
-msgstr ""
-
-#: admin/settings/general-settings.php:325
+#: admin/settings/general-settings.php:299
 msgid "Help Promote This Plugin"
 msgstr "Реклама этого плагина"
 
-#: admin/settings/general-settings.php:331
+#: admin/settings/general-settings.php:305
 msgid ""
 "Help spread the word by showing this at the bottom of your emails. The text "
 "is linked to the plugins WordPress.org page."
@@ -448,15 +579,15 @@ msgstr ""
 "Помогите распространять информацию, показывая это в нижней части вашего "
 "письма. Текст связано со страницей плагинов WordPress.org."
 
-#: admin/settings/general-settings.php:343
+#: admin/settings/general-settings.php:317
 msgid "House Keeping :"
 msgstr ""
 
-#: admin/settings/general-settings.php:347
+#: admin/settings/general-settings.php:321
 msgid "Clean up on Deletion"
 msgstr ""
 
-#: admin/settings/general-settings.php:348
+#: admin/settings/general-settings.php:322
 msgid ""
 "Check this box and if you ever delete this plugin it will completely remove "
 "all tables and data it created, leaving no trace it was ever here."
@@ -1282,7 +1413,7 @@ msgstr ""
 msgid "Follow us on"
 msgstr "Читать нас на"
 
-#: classes/class-email-hook.php:40
+#: classes/class-email-hook.php:54
 msgid ""
 "Attention! You have selected to apply your WP Email Template to all "
 "WooCommerce Emails. Go to Settings in your WordPress admin sidebar > Email "
@@ -1294,16 +1425,16 @@ msgstr ""
 "администратора > Email Шаблон для настройки этого шаблона или активировать "
 "WooCommerce Email шаблон."
 
-#: classes/class-email-hook.php:124
+#: classes/class-email-hook.php:138
 #: classes/class-send-wp-email-functions.php:391
 msgid "Email preview"
 msgstr "Просмотр Email"
 
-#: classes/class-email-hook.php:133
+#: classes/class-email-hook.php:147
 msgid "WordPress Email sit amet"
 msgstr ""
 
-#: classes/class-email-hook.php:135
+#: classes/class-email-hook.php:149
 msgid ""
 "Ut ut est qui euismod parum. Dolor veniam tation nihil assum mazim. Possim "
 "fiant habent decima et claritatem. Erat me usus gothica laoreet consequat. "
@@ -1315,126 +1446,126 @@ msgid ""
 "est. "
 msgstr ""
 
-#: classes/class-email-hook.php:175
+#: classes/class-email-hook.php:189
 msgid "Documentation"
 msgstr "Документация"
 
-#: classes/class-email-hook.php:176
+#: classes/class-email-hook.php:190
 msgid "Support"
 msgstr "Поддержка"
 
-#: classes/class-email-hook.php:181
+#: classes/class-email-hook.php:195
 #, fuzzy
 msgid "Settings"
 msgstr "Сбросить настройки"
 
-#: classes/class-email-hook.php:201
+#: classes/class-email-hook.php:215
 #, fuzzy
 msgid "Upgrade to WP Email Template Pro"
 msgstr "WP Email шаблон"
 
-#: classes/class-email-hook.php:202
+#: classes/class-email-hook.php:216
 msgid ""
 "<strong>NOTE:</strong> All the functions inside the Yellow border on the "
 "plugins admin panel are extra functionality that is activated by upgrading "
 "to the Pro version"
 msgstr ""
 
-#: classes/class-email-hook.php:204
+#: classes/class-email-hook.php:218
 #, fuzzy
 msgid "WP Email Template Pro"
 msgstr "WP Email шаблон"
 
-#: classes/class-email-hook.php:206
+#: classes/class-email-hook.php:220
 msgid "Features"
 msgstr ""
 
-#: classes/class-email-hook.php:209
+#: classes/class-email-hook.php:223
 msgid ""
 "Create a fully customized responsive email template in not days but just "
 "minutes."
 msgstr ""
 
-#: classes/class-email-hook.php:210
+#: classes/class-email-hook.php:224
 msgid ""
 "Web Developers - wow your web clients with an email template that matches "
 "their site."
 msgstr ""
 
-#: classes/class-email-hook.php:211
+#: classes/class-email-hook.php:225
 msgid ""
 "Site owners (even complete novices) with the Pro Version it will take you "
 "just a few minutes to be wowing your users with your uniquely styled and "
 "branded emails that they get from your site."
 msgstr ""
 
-#: classes/class-email-hook.php:212
+#: classes/class-email-hook.php:226
 msgid "Lifetime License Fee - no ongoing payments."
 msgstr ""
 
-#: classes/class-email-hook.php:213
+#: classes/class-email-hook.php:227
 msgid "Lifetime Pro License support from developers."
 msgstr ""
 
-#: classes/class-email-hook.php:216
+#: classes/class-email-hook.php:230
 msgid "View this plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:216
+#: classes/class-email-hook.php:230
 #, fuzzy
 msgid "documentation"
 msgstr "Документация"
 
-#: classes/class-email-hook.php:217
+#: classes/class-email-hook.php:231
 msgid "Lite Version plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:217
+#: classes/class-email-hook.php:231
 #, fuzzy
 msgid "support forum"
 msgstr "Поддержка"
 
-#: classes/class-email-hook.php:219
+#: classes/class-email-hook.php:233
 msgid "More a3rev Quality WordPress Plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:222
+#: classes/class-email-hook.php:236
 msgid "a3 Lazy Load"
 msgstr ""
 
-#: classes/class-email-hook.php:222 classes/class-email-hook.php:223
+#: classes/class-email-hook.php:236 classes/class-email-hook.php:237
 msgid "New Plugin"
 msgstr ""
 
-#: classes/class-email-hook.php:223
+#: classes/class-email-hook.php:237
 msgid "a3 Portfolio"
 msgstr ""
 
-#: classes/class-email-hook.php:224
+#: classes/class-email-hook.php:238
 msgid "a3 Responsive Slider"
 msgstr ""
 
-#: classes/class-email-hook.php:224
+#: classes/class-email-hook.php:238
 msgid "Just released"
 msgstr ""
 
-#: classes/class-email-hook.php:225
+#: classes/class-email-hook.php:239
 msgid "Contact Us page - Contact People"
 msgstr ""
 
-#: classes/class-email-hook.php:226
+#: classes/class-email-hook.php:240
 msgid "Page View Count"
 msgstr ""
 
-#: classes/class-email-hook.php:229
+#: classes/class-email-hook.php:243
 msgid "View all"
 msgstr ""
 
-#: classes/class-email-hook.php:229
+#: classes/class-email-hook.php:243
 msgid "19 a3rev plugins"
 msgstr ""
 
-#: classes/class-email-hook.php:229
+#: classes/class-email-hook.php:243
 msgid "on the WordPress repository"
 msgstr ""
 
@@ -1510,10 +1641,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Plugin Documentation"
 #~ msgstr "Документация"
-
-#, fuzzy
-#~ msgid "WooCommerce Plugins"
-#~ msgstr "Конфигурация WooCommerce"
 
 #, fuzzy
 #~ msgid "WooCommerce Compare Products"

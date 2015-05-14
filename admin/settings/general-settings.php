@@ -87,8 +87,6 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
-
 		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'clean_on_deletion' ) );
 
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
@@ -112,16 +110,6 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 		global $wp_email_template_admin_interface;
 
 		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, false );
-	}
-
-	/*-----------------------------------------------------------------------------------*/
-	/* reset_default_settings()
-	/* Reset default settings with function called from Admin Interface */
-	/*-----------------------------------------------------------------------------------*/
-	public function reset_default_settings() {
-		global $wp_email_template_admin_interface;
-		
-		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, true, true );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -305,20 +293,6 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 				'unchecked_value'	=> '',
 				'checked_label'		=> __( 'YES', 'wp_email_template' ),
 				'unchecked_label' 	=> __( 'NO', 'wp_email_template' ),
-			),
-
-			array(
-            	'name' 		=> __( "Don't Apply Template to Some Emails.", 'wp_email_template' ),
-            	'desc'		=> __( "To send any email without your WP Email Template applied to it copy and paste this shortcode [not_apply_email_template] into the message section. For example when creating a form with Contact Form 7 add the shortcode to the message box and the Template won't be applied.", 'wp_email_template' ),
-                'type' 		=> 'heading',
-                'class'		=> 'pro_feature_fields show_template_container',
-           	),
-			array(
-				'name' 		=> __( 'Shortcode Creator', 'wp_email_template' ),
-				'desc' 		=> '<p>'.__("For security reason please change the Default shortcode in the box to your own unique shortcode. Just create new using the shortcode format [name_name] and Save Changes.", 'wp_email_template' ).'</p>',
-				'id' 		=> 'exclude_shortcode',
-				'type' 		=> 'text',
-				'default'	=> '[not_apply_email_template]'
 			),
 
 			array(

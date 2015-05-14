@@ -1,11 +1,14 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.3.2');
-	update_option('a3rev_wp_email_template_lite_version', '1.3.2');
+	update_option('a3rev_wp_email_template_version', '1.4.0');
+	update_option('a3rev_wp_email_template_lite_version', '1.3.3');
 
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
 	$wp_email_template_admin_init->set_default_settings();
+
+	global $wp_email_template_exclude_subject_data;
+	$wp_email_template_exclude_subject_data->install_database();
 
 	update_option('a3rev_wp_email_just_installed', true);
 }
@@ -151,7 +154,15 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 		$wp_email_template_admin_init->set_default_settings();
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.3.2');
-	update_option('a3rev_wp_email_template_lite_version', '1.3.2');
+	if ( version_compare( get_option( 'a3rev_wp_email_template_version'), '1.3.3' ) === -1 ) {
+		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.3.3.php' );
+		update_option( 'a3rev_wp_email_template_version', '1.3.3' );
+
+		global $wp_email_template_admin_init;
+		$wp_email_template_admin_init->set_default_settings();
+	}
+
+	update_option('a3rev_wp_email_template_version', '1.4.0');
+	update_option('a3rev_wp_email_template_lite_version', '1.3.3');
 }
 ?>

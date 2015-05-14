@@ -19,19 +19,33 @@
 class WP_Email_Template_Hook_Filter
 {
 
-	public static function woo_email_header_marker_start($email_heading='') {
+	public static function check_apply_template_for_woocommerce_emails() {
 		global $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( $wp_email_template_general['apply_template_all_emails'] != 'yes' ) {
+			return false;
+		}
+
+		if ( isset( $wp_email_template_general['apply_for_woo_emails'] ) && $wp_email_template_general['apply_for_woo_emails'] == 'yes' ) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public static function woo_email_header_marker_start( $email_heading='' ) {
+		global $wp_email_template_general;
+
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 			ob_start();
 			echo '<!--WOO_EMAIL_TEMPLATE_HEADER_START-->';
 		}
 	}
 
-	public static function woo_email_header_marker_end($email_heading='') {
+	public static function woo_email_header_marker_end( $email_heading='' ) {
 		global $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 			echo '<!--WOO_EMAIL_TEMPLATE_HEADER_END-->';
 			ob_get_clean();
 			$header = WP_Email_Template_Functions::email_header($email_heading);
@@ -49,7 +63,7 @@ class WP_Email_Template_Hook_Filter
 	public static function woo_email_footer_marker_start() {
 		global $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 			ob_start();
 			echo '<!--WOO_EMAIL_TEMPLATE_FOOTER_START-->';
 		}
@@ -58,7 +72,7 @@ class WP_Email_Template_Hook_Filter
 	public static function woo_email_footer_marker_end() {
 		global $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 			echo '<!--WOO_EMAIL_TEMPLATE_FOOTER_END-->';
 			ob_get_clean();
 			echo WP_Email_Template_Functions::email_footer();
@@ -69,7 +83,7 @@ class WP_Email_Template_Hook_Filter
 	public static function style_inline_h1_tag( $styles ) {
 		global $wp_email_template_fonts_face, $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 
 			$styles = array();
 			$h1_font     = 'font:italic 26px Century Gothic, sans-serif !important; color: #000000 !important;';
@@ -83,7 +97,7 @@ class WP_Email_Template_Hook_Filter
 	public static function style_inline_h2_tag( $styles ) {
 		global $wp_email_template_fonts_face, $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 
 			$styles = array();
 			$h2_font     = 'font:italic 20px Century Gothic, sans-serif !important; color: #000000 !important;';
@@ -97,7 +111,7 @@ class WP_Email_Template_Hook_Filter
 	public static function style_inline_h3_tag( $styles ) {
 		global $wp_email_template_fonts_face, $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 
 			$styles = array();
 			$h3_font     = 'font:italic 18px Century Gothic, sans-serif !important; color: #000000 !important;';
@@ -111,7 +125,7 @@ class WP_Email_Template_Hook_Filter
 	public static function remove_style_inline_woocommerce_tag( $styles ) {
 		global $wp_email_template_general;
 
-		if (isset($wp_email_template_general['apply_for_woo_emails']) && $wp_email_template_general['apply_for_woo_emails'] == 'yes') {
+		if ( self::check_apply_template_for_woocommerce_emails() ) {
 			$styles = array();
 		}
 
@@ -140,7 +154,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 
 	}
 
-	public static function set_content_type($content_type='') {
+	public static function set_content_type( $content_type='' ) {
 		if ( stristr( $content_type, 'multipart') !== false ) {
 			$content_type = 'multipart/alternative';
 		} else {
@@ -149,7 +163,7 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		return $content_type;
 	}
 
-	public static function change_wp_mail($email_data=array()) {
+	public static function change_wp_mail( $email_data=array() ) {
 		$email_heading = $email_data['subject'] ;
 		if ( isset( $email_data['message'] ) && stristr( $email_data['message'], '<!--NO_USE_EMAIL_TEMPLATE-->' ) === false ) {
 			$email_data['message'] = WP_Email_Template_Functions::email_content($email_heading, $email_data['message']);
