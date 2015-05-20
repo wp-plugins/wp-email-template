@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 4.2.2
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -177,6 +177,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.3.4 - 2015/05/20 =
+* Fix - Don't change email content type if the Apply Template setting is switched to OFF
 
 = 1.3.3 - 2015/05/14 =
 * Tweak - Created new admin panel Tab [ Exclude Emails ] with new Pro Version feature exclude template by subject title settings
@@ -355,6 +358,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.3.4 =
+Maintenance Upgrade. 1 new bug fix for when Apply Template setting is switched OFF
 
 = 1.3.3 =
 Maintenance Upgrade. Various Tweaks on the plugins admin panel for new Pro version Template features and Tweaked for full compatibility with WordPress 4.2.2 includin 1 bug fix

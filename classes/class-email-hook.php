@@ -155,6 +155,12 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 	}
 
 	public static function set_content_type( $content_type='' ) {
+		global $wp_email_template_general;
+
+		if ( $wp_email_template_general['apply_template_all_emails'] != 'yes' ) {
+			return $content_type;
+		}
+
 		if ( stristr( $content_type, 'multipart') !== false ) {
 			$content_type = 'multipart/alternative';
 		} else {
