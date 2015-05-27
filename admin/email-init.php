@@ -1,7 +1,7 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.4.1');
-	update_option('a3rev_wp_email_template_lite_version', '1.3.4');
+	update_option('a3rev_wp_email_template_version', '1.4.2');
+	update_option('a3rev_wp_email_template_lite_version', '1.3.5');
 
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -59,6 +59,9 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 
 	add_action('wp_ajax_preview_wp_email_template', array('WP_Email_Template_Hook_Filter', 'preview_wp_email_template') );
 	add_action('wp_ajax_nopriv_preview_wp_email_template', array('WP_Email_Template_Hook_Filter', 'preview_wp_email_template') );
+
+	// Compatibility with Formidable plugin with disable the encoding subject title
+	add_filter( 'frm_encode_subject', array( 'WP_Email_Template_Hook_Filter', 'disable_formidable_encode_subject_title' ), 10, 2 );
 
 	// Add marker at start of email template header from woocommerce
 	add_action('woocommerce_email_header', array('WP_Email_Template_Hook_Filter', 'woo_email_header_marker_start'), 1 );
@@ -162,7 +165,7 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 		$wp_email_template_admin_init->set_default_settings();
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.4.1');
-	update_option('a3rev_wp_email_template_lite_version', '1.3.4');
+	update_option('a3rev_wp_email_template_version', '1.4.2');
+	update_option('a3rev_wp_email_template_lite_version', '1.3.5');
 }
 ?>

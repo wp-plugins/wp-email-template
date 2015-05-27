@@ -180,6 +180,12 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		return $email_data;
 	}
 
+	public static function disable_formidable_encode_subject_title( $enable_encode = 1, $subject = '' ) {
+		$enable_encode = 0;
+
+		return $enable_encode;
+	}
+
 	public static function a3_wp_admin() {
 		wp_enqueue_style( 'a3rev-wp-admin-style', WP_EMAIL_TEMPLATE_CSS_URL . '/a3_wp_admin.css' );
 	}

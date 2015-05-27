@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 3.7
 Tested up to: 4.2.2
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -80,16 +80,17 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 
 * Gravity Forms - see the screen shots - looks sensational with the default Gravity style.
 * Contact Form 7 - see the screenshots
+* Formidable Forms - both Lite and Pro Versions of that plugin
+* WooCommerce - Version 2.3.9 and backward compatible to version 2.1.0. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
 * WP e-Commerce - applies the template to every store generated email to customers and admins
-* WooCommerce - Version 2.3.7 and backward compatible to version 2.1.0. By default the plugin ignores WooCommerce email output - but you can choose to apply your WordPress Email Template to all Woocomerce emails to give you consistent branding across your entire site.
 * WP Mail SMPT - WP Email Template does not interfere with the way any WordPress or any plugin handles email output - it just applies the template to any output content.
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
 * Wordfence - Branded security emails - nice.
 
 = Mobile Responsive App style admin interface =
 
-* 100% compatible with WordPress v3.8.0 and later admin interface.
-* Backward compatibility to WordPress v3.5.0
+* 100% compatible with WordPress v4.2.2 admin interface.
+* Backward compatibility to WordPress v3.9.0
 * App style admin interface.
 * Admin app interface is fully mobile and tablet responsive.
 
@@ -136,7 +137,7 @@ If you do a translation for your site please send it to us and we'll include it 
 
 = Minimum Requirements =
 
-* WordPress 3.7.0
+* WordPress 3.9.0
 * PHP version 5.2.4 or greater
 * MySQL version 5.0 or greater
 
@@ -177,6 +178,11 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.3.5 - 2015/05/27 =
+* Tweak - called <code>add_filter( 'frm_encode_subject')</code> to disable encoding subject title from Formidable Forms plugin
+* Fix - correct the path of custom template for email_header.html and email_footer.html when checking to get custom template
+* Credit - Thanks to Brian Childers for reporting the Formidable Forms conflict and the access to his site to find and fix the issue.
 
 = 1.3.4 - 2015/05/20 =
 * Fix - Don't change email content type if the Apply Template setting is switched to OFF
@@ -358,6 +364,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.3.5 =
+Maintenance Upgrade. Tweak for full compatibility with Formidable Forms plugin plus 1 custom template bug fix.
 
 = 1.3.4 =
 Maintenance Upgrade. 1 new bug fix for when Apply Template setting is switched OFF

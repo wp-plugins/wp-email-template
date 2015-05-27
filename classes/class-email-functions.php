@@ -262,7 +262,7 @@ class WP_Email_Template_Functions
 
 	public static function email_header($email_heading='') {
 		$file 	= 'email_header.html';
-		if (file_exists(STYLESHEETPATH . '/'. $file)) {
+		if (file_exists(STYLESHEETPATH . '/emails/'. $file)) {
 			// $header_template_path = get_stylesheet_directory() . '/emails/'. $file;
 			$header_template_path = STYLESHEETPATH . '/emails/'. $file;
 			$header_template_url = get_stylesheet_directory_uri() . '/emails/'. $file;
@@ -290,7 +290,7 @@ class WP_Email_Template_Functions
 		global $wp_email_template_fonts_face;
 		$file 	= 'email_footer.html';
 
-		if (file_exists(STYLESHEETPATH . '/'. $file)) {
+		if (file_exists(STYLESHEETPATH . '/emails/'. $file)) {
 			// $footer_template_path = get_stylesheet_directory() . '/emails/'. $file;
 			$footer_template_path = STYLESHEETPATH . '/emails/'. $file;
 			$footer_template_url = get_stylesheet_directory_uri() . '/emails/'. $file;
