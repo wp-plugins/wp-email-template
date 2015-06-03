@@ -27,7 +27,7 @@ class WP_Email_Template_Generate_Tab extends WP_Email_Tempate_Admin_UI
 	/**
 	 * @var string
 	 */
-	private $parent_page = 'email_template';
+	private $parent_page = 'wp_email_template';
 	
 	/**
 	 * @var string
