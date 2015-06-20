@@ -1,4 +1,4 @@
- <?php
+<?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
