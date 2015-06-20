@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Email Template LITE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:46+0700\n"
-"PO-Revision-Date: 2015-05-14 10:47+0700\n"
+"POT-Creation-Date: 2015-06-20 12:34+0700\n"
+"PO-Revision-Date: 2015-06-20 12:34+0700\n"
 "Last-Translator: Nguyen Cong Tuan <mr.nguyencongtuan@gmail.com>\n"
 "Language-Team: a3rev <hidemka@gmail.com>\n"
 "Language: ru_RU\n"
@@ -15,221 +15,258 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/admin-interface.php:129
+#: admin/admin-interface.php:195
 #: admin/settings/style-header-image-settings.php:81
 #, fuzzy
 msgid "Settings successfully saved."
 msgstr "Настройки шаблона Email успешно сохранены."
 
-#: admin/admin-interface.php:137
+#: admin/admin-interface.php:203
 msgid "Error: Settings can not save."
 msgstr ""
 
-#: admin/admin-interface.php:145
+#: admin/admin-interface.php:211
 #: admin/settings/style-header-image-settings.php:83
 #, fuzzy
 msgid "Settings successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/admin-interface.php:166
+#: admin/admin-interface.php:232
 msgid "Thin"
 msgstr ""
 
-#: admin/admin-interface.php:167
+#: admin/admin-interface.php:233
 #, fuzzy
 msgid "Thin/Italic"
 msgstr "Наклонный"
 
-#: admin/admin-interface.php:168
+#: admin/admin-interface.php:234
 msgid "Normal"
 msgstr "Нормальный"
 
-#: admin/admin-interface.php:169
+#: admin/admin-interface.php:235
 msgid "Italic"
 msgstr "Наклонный"
 
-#: admin/admin-interface.php:170
+#: admin/admin-interface.php:236
 msgid "Bold"
 msgstr "Жирный"
 
-#: admin/admin-interface.php:171
+#: admin/admin-interface.php:237
 msgid "Bold/Italic"
 msgstr "Жирный/Наклонный"
 
-#: admin/admin-interface.php:181
+#: admin/admin-interface.php:247
 msgid "Solid"
 msgstr ""
 
-#: admin/admin-interface.php:182
+#: admin/admin-interface.php:248
 msgid "Double"
 msgstr ""
 
-#: admin/admin-interface.php:183
+#: admin/admin-interface.php:249
 msgid "Dashed"
 msgstr ""
 
-#: admin/admin-interface.php:184
+#: admin/admin-interface.php:250
 msgid "Dotted"
 msgstr ""
 
-#: admin/admin-interface.php:185
+#: admin/admin-interface.php:251
 msgid "Groove"
 msgstr ""
 
-#: admin/admin-interface.php:186
+#: admin/admin-interface.php:252
 msgid "Ridge"
 msgstr ""
 
-#: admin/admin-interface.php:187
+#: admin/admin-interface.php:253
 msgid "Inset"
 msgstr ""
 
-#: admin/admin-interface.php:188
+#: admin/admin-interface.php:254
 msgid "Outset"
 msgstr ""
 
-#: admin/admin-interface.php:1365 admin/admin-interface.php:1455
-#: admin/admin-interface.php:1484 admin/settings/general-settings.php:219
-#: admin/settings/general-settings.php:258
-#: admin/settings/general-settings.php:276
-#: admin/settings/general-settings.php:312
-#: admin/settings/general-settings.php:330
-#: admin/settings/send-wp-emails/general-settings.php:250
-#: admin/settings/send-wp-emails/general-settings.php:268
-#: admin/settings/send-wp-emails/general-settings.php:287
-#: admin/settings/send-wp-emails/general-settings.php:305
-#: admin/settings/send-wp-emails/general-settings.php:327
-#: admin/settings/send-wp-emails/general-settings.php:342
-#: admin/settings/send-wp-emails/general-settings.php:357
-#: admin/settings/send-wp-emails/mandrill-settings.php:251
-#: admin/settings/send-wp-emails/mandrill-settings.php:261
-#: admin/settings/send-wp-emails/smtp-settings.php:207
-#: admin/settings/send-wp-emails/smtp-settings.php:213
-#: admin/settings/send-wp-emails/smtp-settings.php:219
-#: admin/settings/send-wp-emails/smtp-settings.php:232
+#: admin/admin-interface.php:1394 admin/admin-interface.php:1449
+#: admin/admin-interface.php:1652 admin/admin-interface.php:1742
+#: admin/admin-interface.php:1771 admin/settings/general-settings.php:243
+#: admin/settings/general-settings.php:289
+#: admin/settings/general-settings.php:332
+#: admin/settings/general-settings.php:352
+#: admin/settings/send-wp-emails/general-settings.php:272
+#: admin/settings/send-wp-emails/general-settings.php:291
+#: admin/settings/send-wp-emails/general-settings.php:308
+#: admin/settings/send-wp-emails/general-settings.php:333
+#: admin/settings/send-wp-emails/general-settings.php:368
+#: admin/settings/send-wp-emails/general-settings.php:374
+#: admin/settings/send-wp-emails/general-settings.php:380
+#: admin/settings/send-wp-emails/general-settings.php:393
+#: admin/settings/send-wp-emails/general-settings.php:436
+#: admin/settings/send-wp-emails/general-settings.php:482
+#: admin/settings/send-wp-emails/general-settings.php:526
+#: admin/settings/send-wp-emails/general-settings.php:537
 msgid "ON"
 msgstr ""
 
-#: admin/admin-interface.php:1366 admin/admin-interface.php:1456
-#: admin/admin-interface.php:1485 admin/settings/general-settings.php:220
-#: admin/settings/general-settings.php:259
-#: admin/settings/general-settings.php:277
-#: admin/settings/general-settings.php:313
-#: admin/settings/general-settings.php:331
-#: admin/settings/send-wp-emails/general-settings.php:251
-#: admin/settings/send-wp-emails/general-settings.php:269
-#: admin/settings/send-wp-emails/general-settings.php:288
-#: admin/settings/send-wp-emails/general-settings.php:306
-#: admin/settings/send-wp-emails/general-settings.php:328
-#: admin/settings/send-wp-emails/general-settings.php:343
-#: admin/settings/send-wp-emails/general-settings.php:358
-#: admin/settings/send-wp-emails/mandrill-settings.php:252
-#: admin/settings/send-wp-emails/mandrill-settings.php:262
-#: admin/settings/send-wp-emails/smtp-settings.php:208
-#: admin/settings/send-wp-emails/smtp-settings.php:214
-#: admin/settings/send-wp-emails/smtp-settings.php:220
-#: admin/settings/send-wp-emails/smtp-settings.php:233
+#: admin/admin-interface.php:1395 admin/admin-interface.php:1450
+#: admin/admin-interface.php:1653 admin/admin-interface.php:1743
+#: admin/admin-interface.php:1772 admin/settings/general-settings.php:244
+#: admin/settings/general-settings.php:290
+#: admin/settings/general-settings.php:333
+#: admin/settings/general-settings.php:353
+#: admin/settings/send-wp-emails/general-settings.php:273
+#: admin/settings/send-wp-emails/general-settings.php:292
+#: admin/settings/send-wp-emails/general-settings.php:309
+#: admin/settings/send-wp-emails/general-settings.php:334
+#: admin/settings/send-wp-emails/general-settings.php:369
+#: admin/settings/send-wp-emails/general-settings.php:375
+#: admin/settings/send-wp-emails/general-settings.php:381
+#: admin/settings/send-wp-emails/general-settings.php:394
+#: admin/settings/send-wp-emails/general-settings.php:437
+#: admin/settings/send-wp-emails/general-settings.php:483
+#: admin/settings/send-wp-emails/general-settings.php:527
+#: admin/settings/send-wp-emails/general-settings.php:538
 msgid "OFF"
 msgstr ""
 
-#: admin/admin-interface.php:1526 admin/settings/general-settings.php:229
+#: admin/admin-interface.php:1400
+msgid "Google Fonts API"
+msgstr ""
+
+#: admin/admin-interface.php:1412
+msgid ""
+"ON to connect to Google Fonts API and have auto font updates direct from "
+"Google."
+msgstr ""
+
+#: admin/admin-interface.php:1416
+#, php-format
+msgid ""
+"Enter your existing Google Fonts API Key below. Don't have a key? Visit <a "
+"href='%s' target='_blank'>Google Developer API</a> to create a key"
+msgstr ""
+
+#: admin/admin-interface.php:1433
+msgid "Google Fonts API Key"
+msgstr ""
+
+#: admin/admin-interface.php:1436
+msgid "Your Google API Key is valid and automatic font updates are enabled."
+msgstr ""
+
+#: admin/admin-interface.php:1437
+msgid "Please enter a valid Google API Key."
+msgstr ""
+
+#: admin/admin-interface.php:1455
+msgid "Open Box Display"
+msgstr ""
+
+#: admin/admin-interface.php:1468
+msgid ""
+"ON and each admin panel setting box OPEN | CLOSED position are saved each "
+"time changes are SAVED."
+msgstr ""
+
+#: admin/admin-interface.php:1813 admin/settings/general-settings.php:301
 msgid "Width"
 msgstr ""
 
-#: admin/admin-interface.php:1528
+#: admin/admin-interface.php:1815
 msgid "Height"
 msgstr ""
 
-#: admin/admin-interface.php:1530
+#: admin/admin-interface.php:1817
 msgid "Hard Crop"
 msgstr ""
 
-#: admin/admin-interface.php:1607
+#: admin/admin-interface.php:1897
 msgid "-- Default Fonts --"
 msgstr ""
 
-#: admin/admin-interface.php:1618
+#: admin/admin-interface.php:1908
 msgid "-- Google Fonts --"
 msgstr ""
 
-#: admin/admin-interface.php:1659
+#: admin/admin-interface.php:1949
 msgid "Preview your customized typography settings"
 msgstr ""
 
-#: admin/admin-interface.php:1793 admin/admin-interface.php:2052
+#: admin/admin-interface.php:2083 admin/admin-interface.php:2342
 msgid "Preview your customized border settings"
 msgstr ""
 
-#: admin/admin-interface.php:1802 admin/admin-interface.php:2043
+#: admin/admin-interface.php:2092 admin/admin-interface.php:2333
 msgid "Rounded"
 msgstr ""
 
-#: admin/admin-interface.php:1803 admin/admin-interface.php:2044
+#: admin/admin-interface.php:2093 admin/admin-interface.php:2334
 msgid "Square"
 msgstr ""
 
-#: admin/admin-interface.php:1813 admin/admin-interface.php:2057
+#: admin/admin-interface.php:2103 admin/admin-interface.php:2347
 msgid "Top Left Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1833 admin/admin-interface.php:2077
+#: admin/admin-interface.php:2123 admin/admin-interface.php:2367
 msgid "Top Right Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1853 admin/admin-interface.php:2097
+#: admin/admin-interface.php:2143 admin/admin-interface.php:2387
 msgid "Bottom Right Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1873 admin/admin-interface.php:2117
+#: admin/admin-interface.php:2163 admin/admin-interface.php:2407
 msgid "Bottom Left Corner"
 msgstr ""
 
-#: admin/admin-interface.php:1966
+#: admin/admin-interface.php:2256
 msgid "Preview your customized border styles settings"
 msgstr ""
 
-#: admin/admin-interface.php:2178 admin/settings/general-settings.php:294
+#: admin/admin-interface.php:2468 admin/settings/general-settings.php:372
 msgid "YES"
 msgstr ""
 
-#: admin/admin-interface.php:2179 admin/settings/general-settings.php:295
+#: admin/admin-interface.php:2469 admin/settings/general-settings.php:373
 msgid "NO"
 msgstr ""
 
-#: admin/admin-interface.php:2193
+#: admin/admin-interface.php:2483
 msgid "Horizontal Shadow"
 msgstr ""
 
-#: admin/admin-interface.php:2211
+#: admin/admin-interface.php:2501
 msgid "Vertical Shadow"
 msgstr ""
 
-#: admin/admin-interface.php:2229
+#: admin/admin-interface.php:2519
 msgid "Blur Distance"
 msgstr ""
 
-#: admin/admin-interface.php:2247
+#: admin/admin-interface.php:2537
 msgid "Spread Size"
 msgstr ""
 
-#: admin/admin-interface.php:2265
+#: admin/admin-interface.php:2555
 msgid "INNER"
 msgstr ""
 
-#: admin/admin-interface.php:2266
+#: admin/admin-interface.php:2556
 msgid "OUTER"
 msgstr ""
 
-#: admin/admin-interface.php:2284
+#: admin/admin-interface.php:2574
 msgid "Preview your customized box shadow settings"
 msgstr ""
 
-#: admin/admin-interface.php:2520
+#: admin/admin-interface.php:2830
 #, fuzzy
 msgid "Save changes"
 msgstr "Сохранить изменения"
 
-#: admin/admin-interface.php:2521
+#: admin/admin-interface.php:2831
 msgid "Reset Settings"
 msgstr "Сбросить настройки"
 
@@ -250,41 +287,35 @@ msgstr "Email Шаблон"
 msgid "Send WP Emails"
 msgstr ""
 
-#: admin/admin-ui.php:135
-msgid ""
-"Advanced settings inside this yellow border are not activated on the Lite "
-"Version."
-msgstr ""
-
-#: admin/admin-ui.php:137
+#: admin/admin-ui.php:172
 #, php-format
 msgid ""
-"Upgrade to the <a href=\"%s\" target=\"_blank\">%s</a> to activate these "
-"settings."
+"Advanced Settings - Upgrade to the <a href=\"%s\" target=\"_blank\">%s "
+"License</a> to activate these settings."
 msgstr ""
 
-#: admin/admin-ui.php:140
+#: admin/admin-ui.php:175
 #, fuzzy
 msgid "Pro Version"
 msgstr "Показать версию"
 
-#: admin/includes/uploader/class-uploader.php:149
+#: admin/includes/uploader/class-uploader.php:152
 msgid "Upload"
 msgstr ""
 
-#: admin/includes/uploader/class-uploader.php:169
+#: admin/includes/uploader/class-uploader.php:172
 msgid "View File"
 msgstr ""
 
-#: admin/includes/uploader/class-uploader.php:188
+#: admin/includes/uploader/class-uploader.php:191
 msgid "Use this Image"
 msgstr ""
 
-#: admin/includes/uploader/class-uploader.php:189
+#: admin/includes/uploader/class-uploader.php:192
 msgid "Use as"
 msgstr ""
 
-#: admin/includes/uploader/class-uploader.php:199
+#: admin/includes/uploader/class-uploader.php:202
 msgid "Previously Uploaded"
 msgstr ""
 
@@ -303,126 +334,124 @@ msgstr "Настройки шаблона Email"
 msgid "Exclude Emails Settings successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/settings/exclude-emails-settings.php:182
+#: admin/settings/exclude-emails-settings.php:179
 #: admin/tabs/admin-exclude-emails-tab.php:78
 msgid "Exclude Emails"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:234
-msgid "Help Notes"
+#: admin/settings/exclude-emails-settings.php:227
+msgid "Exclude Emails by Shortcode"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:241
-msgid "SHOW"
-msgstr ""
-
-#: admin/settings/exclude-emails-settings.php:242
-msgid "HIDE"
-msgstr ""
-
-#: admin/settings/exclude-emails-settings.php:253
-msgid "Exclude by Shortcode"
-msgstr ""
-
-#: admin/settings/exclude-emails-settings.php:254
+#: admin/settings/exclude-emails-settings.php:228
 msgid ""
 "For security reason please change the Default shortcode in the box to your "
 "own unique shortcode. Just create new using the shortcode format [name_name] "
 "and Save Changes."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:259
+#: admin/settings/exclude-emails-settings.php:235
 msgid "Shortcode Creator"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:280
-#: admin/settings/exclude-emails-settings.php:346
+#: admin/settings/exclude-emails-settings.php:242
+#, fuzzy
+msgid "Exclude Emails by Subject Title"
+msgstr "Просмотр Email"
+
+#: admin/settings/exclude-emails-settings.php:250
+#: admin/settings/general-settings.php:377
+msgid "Help Notes"
+msgstr ""
+
+#: admin/settings/exclude-emails-settings.php:265
+#: admin/settings/exclude-emails-settings.php:332
 msgid "Exclude by Subject Title"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:280
+#: admin/settings/exclude-emails-settings.php:265
 msgid "Add New"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:280
+#: admin/settings/exclude-emails-settings.php:265
 msgid "Remove All"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:307
+#: admin/settings/exclude-emails-settings.php:292
 #, fuzzy
 msgid "Email Sent by"
 msgstr "Содержание Email"
 
-#: admin/settings/exclude-emails-settings.php:308
+#: admin/settings/exclude-emails-settings.php:293
 #, fuzzy
 msgid "Email Subject Title"
 msgstr "Просмотр Email"
 
-#: admin/settings/exclude-emails-settings.php:334
+#: admin/settings/exclude-emails-settings.php:320
 msgid "Exclude by Shortode"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:336
+#: admin/settings/exclude-emails-settings.php:322
 msgid ""
 "Use the template exclusion shortcode for plugin created email submission "
 "forms"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:338
+#: admin/settings/exclude-emails-settings.php:324
 msgid "Use the Shortcode creator to create a unique exclusion shortcode."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:339
+#: admin/settings/exclude-emails-settings.php:325
 msgid "Copy the email template exclusion shortcode."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:340
+#: admin/settings/exclude-emails-settings.php:326
 msgid ""
 "Create or edit the Form and paste the exclusion shortcode into the forms "
 "message field."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:341
+#: admin/settings/exclude-emails-settings.php:327
 msgid ""
 "Save Changes. Note the shortcode is not visible to the user on the front end."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:342
+#: admin/settings/exclude-emails-settings.php:328
 msgid ""
 "The email template will not be applied to email submissions from the form."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:348
+#: admin/settings/exclude-emails-settings.php:334
 msgid "For System (WordPress) or plugin generated email notifications"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:350
+#: admin/settings/exclude-emails-settings.php:336
 msgid "Click the blue [ Add New ] button."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:351
+#: admin/settings/exclude-emails-settings.php:337
 msgid ""
 "Email Sent by field. This is only for your reference, example WordPress or "
 "plugin name."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:352
+#: admin/settings/exclude-emails-settings.php:338
 msgid ""
 "Email Subject Title field. Enter the email subject title. Example 'Password "
 "Recovery'."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:353
+#: admin/settings/exclude-emails-settings.php:339
 msgid ""
 "For Dynamic Email Subject Titles enter the constant section of the title "
 "only."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:357
+#: admin/settings/exclude-emails-settings.php:343
 msgid "Example"
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:357
+#: admin/settings/exclude-emails-settings.php:343
 msgid ""
 "The Wordfence plugin sends an activity summary email to admins that has a "
 "dynamic subject title in this format 'Wordfence activity for May 18, 2015 on "
@@ -431,12 +460,12 @@ msgid ""
 "activity summary emails."
 msgstr ""
 
-#: admin/settings/exclude-emails-settings.php:360
+#: admin/settings/exclude-emails-settings.php:346
 #, fuzzy
 msgid "WooCommerce"
 msgstr "Конфигурация WooCommerce"
 
-#: admin/settings/exclude-emails-settings.php:361
+#: admin/settings/exclude-emails-settings.php:347
 msgid ""
 "Exclude by Subject Title does not work with WooCommerce Emails due to the "
 "way WooCommerce templates are applied."
@@ -461,105 +490,179 @@ msgstr "Настройки шаблона Email успешно восстано�
 msgid "General"
 msgstr ""
 
-#: admin/settings/general-settings.php:200
-#: admin/settings/social-media-settings.php:199
-#: admin/settings/style-body-settings.php:199
-#: admin/settings/style-fonts-settings.php:199
-#: admin/settings/style-footer-settings.php:202
-#: admin/settings/style-header-image-settings.php:198
-#: admin/settings/style-header-settings.php:199
-msgid "Live Preview"
-msgstr "Предварительный просмотр"
-
 #: admin/settings/general-settings.php:201
-#: admin/settings/social-media-settings.php:200
-#: admin/settings/style-body-settings.php:200
-#: admin/settings/style-fonts-settings.php:200
-#: admin/settings/style-footer-settings.php:203
-#: admin/settings/style-header-image-settings.php:199
-#: admin/settings/style-header-settings.php:200
+#: admin/settings/social-media-settings.php:197
+#: admin/settings/style-body-settings.php:197
+#: admin/settings/style-footer-settings.php:197
+#: admin/settings/style-header-image-settings.php:185
+#: admin/settings/style-header-settings.php:197
 msgid "For a live preview of changes save them and then"
 msgstr "Для предварительного просмотра сохраните изменения и затем"
 
 #: admin/settings/general-settings.php:201
-#: admin/settings/social-media-settings.php:200
-#: admin/settings/style-body-settings.php:200
-#: admin/settings/style-fonts-settings.php:200
-#: admin/settings/style-footer-settings.php:203
-#: admin/settings/style-header-image-settings.php:199
-#: admin/settings/style-header-settings.php:200
+#: admin/settings/social-media-settings.php:197
+#: admin/settings/style-body-settings.php:197
+#: admin/settings/style-footer-settings.php:197
+#: admin/settings/style-header-image-settings.php:185
+#: admin/settings/style-header-settings.php:197
 msgid "Click here to preview your email template."
 msgstr "Щелкните здесь, чтобы просмотреть шаблон email."
 
-#: admin/settings/general-settings.php:206
-#: admin/settings/general-settings.php:304
-#: classes/class-email-functions.php:218
-msgid "WP Email Template"
+#: admin/settings/general-settings.php:207
+msgid "Plugin Framework Global Settings"
+msgstr ""
+
+#: admin/settings/general-settings.php:214
+msgid "Customize Admin Setting Box Display"
+msgstr ""
+
+#: admin/settings/general-settings.php:215
+msgid ""
+"By default each admin panel will open with all Setting Boxes in the CLOSED "
+"position."
+msgstr ""
+
+#: admin/settings/general-settings.php:222
+#, fuzzy
+msgid "Google Fonts"
+msgstr "Подвал Email"
+
+#: admin/settings/general-settings.php:223
+msgid ""
+"By Default Google Fonts are pulled from a static JSON file in this plugin. "
+"This file is updated but does not have the latest font releases from Google."
+msgstr ""
+
+#: admin/settings/general-settings.php:230
+msgid "House Keeping"
+msgstr ""
+
+#: admin/settings/general-settings.php:234
+msgid "Clean up on Deletion"
+msgstr ""
+
+#: admin/settings/general-settings.php:235
+msgid ""
+"On deletion (not deactivate) the plugin will completely remove all tables "
+"and data it created, leaving no trace it was ever here."
+msgstr ""
+
+#: admin/settings/general-settings.php:247
+msgid "Advanced Features Setting Boxes"
+msgstr ""
+
+#: admin/settings/general-settings.php:251
+msgid "Explanation"
+msgstr ""
+
+#: admin/settings/general-settings.php:254
+msgid "This plugin has Pro Version upgrade with advanced features."
+msgstr ""
+
+#: admin/settings/general-settings.php:255
+msgid ""
+"All Pro Version advanced features settings show here on the Lite Version "
+"admin panel."
+msgstr ""
+
+#: admin/settings/general-settings.php:256
+msgid ""
+"The Pro Version settings work on this admin panel but changes are NOT saved "
+"and NOT applied to the front end."
+msgstr ""
+
+#: admin/settings/general-settings.php:257
+msgid ""
+"Upgrading to a Lifetime License Pro Version of this plugin activates all "
+"settings."
+msgstr ""
+
+#: admin/settings/general-settings.php:258
+msgid "The Pro Version Lifetime License Fee is a once only payment."
+msgstr ""
+
+#: admin/settings/general-settings.php:259
+msgid ""
+"No data lost in upgrade. Deactivate the Lite version, install and activate "
+"the Pro Version. All data is preserved."
+msgstr ""
+
+#: admin/settings/general-settings.php:269
+msgid "SHOW"
+msgstr ""
+
+#: admin/settings/general-settings.php:270
+msgid "HIDE"
+msgstr ""
+
+#: admin/settings/general-settings.php:274
+#, fuzzy
+msgid "WP Email Template Activation"
 msgstr "WP Email шаблон"
 
-#: admin/settings/general-settings.php:210
+#: admin/settings/general-settings.php:280
 #, fuzzy
 msgid "Apply Template"
 msgstr "Email Шаблон"
 
-#: admin/settings/general-settings.php:211
+#: admin/settings/general-settings.php:281
 msgid ""
 "ON will apply templates to all emails are sent via wp_mail() function of "
 "WordPress."
 msgstr ""
 
-#: admin/settings/general-settings.php:224
+#: admin/settings/general-settings.php:294
 #, fuzzy
 msgid "Template Width"
 msgstr "Email Шаблон"
 
-#: admin/settings/general-settings.php:230
+#: admin/settings/general-settings.php:302
 msgid ""
 "The industry default and recommended width for email templates is 600px."
 msgstr ""
 
-#: admin/settings/general-settings.php:238
+#: admin/settings/general-settings.php:310
 msgid "Template Background"
 msgstr "Фон шаблона"
 
-#: admin/settings/general-settings.php:243
+#: admin/settings/general-settings.php:317
 msgid "Background colour"
 msgstr "Цвет фона"
 
-#: admin/settings/general-settings.php:244
+#: admin/settings/general-settings.php:318
 #, fuzzy
 msgid "Email template background colour. Default"
 msgstr "Образец цвета фона шаблона. По умолчанию"
 
-#: admin/settings/general-settings.php:251
+#: admin/settings/general-settings.php:325
 #, fuzzy
 msgid "Background Pattern"
 msgstr "Образец цвета фона шаблона. По умолчанию"
 
-#: admin/settings/general-settings.php:263
+#: admin/settings/general-settings.php:337
 msgid "Outlook 2007 / 2010 / 2013 Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:268
+#: admin/settings/general-settings.php:344
 msgid "Box Border"
 msgstr ""
 
-#: admin/settings/general-settings.php:269
+#: admin/settings/general-settings.php:345
 msgid ""
 "ON will show a white box border around email Template in Outlook. Outlook "
 "does not support border colour, size or type. Any Border style created with "
 "the dynamic settings will not show in Outlook."
 msgstr ""
 
-#: admin/settings/general-settings.php:281
+#: admin/settings/general-settings.php:357
 msgid "WooCommerce Configuration"
 msgstr "Конфигурация WooCommerce"
 
-#: admin/settings/general-settings.php:286
+#: admin/settings/general-settings.php:364
 msgid "Apply to WooCommerce emails"
 msgstr "Применить к электронным письмам WooCommerce"
 
-#: admin/settings/general-settings.php:287
+#: admin/settings/general-settings.php:365
 msgid ""
 "If WooCommerce is installed, select YES to apply this template to all "
 "WooCommerce emails."
@@ -567,30 +670,21 @@ msgstr ""
 "Если WooCommerce установлена, выберите Да, чтобы применить этот шаблон для "
 "всех электронной почты WooCommerce."
 
-#: admin/settings/general-settings.php:299
-msgid "Help Promote This Plugin"
-msgstr "Реклама этого плагина"
+#: admin/settings/general-settings.php:384
+#, fuzzy
+msgid "Email Font Render"
+msgstr "Содержание Email"
 
-#: admin/settings/general-settings.php:305
+#: admin/settings/general-settings.php:385
 msgid ""
-"Help spread the word by showing this at the bottom of your emails. The text "
-"is linked to the plugins WordPress.org page."
-msgstr ""
-"Помогите распространять информацию, показывая это в нижней части вашего "
-"письма. Текст связано со страницей плагинов WordPress.org."
-
-#: admin/settings/general-settings.php:317
-msgid "House Keeping :"
-msgstr ""
-
-#: admin/settings/general-settings.php:321
-msgid "Clean up on Deletion"
-msgstr ""
-
-#: admin/settings/general-settings.php:322
-msgid ""
-"Check this box and if you ever delete this plugin it will completely remove "
-"all tables and data it created, leaving no trace it was ever here."
+"<strong>Important!</strong> The a3rev dynamic font editors give you the "
+"choice of 16 Default or Web safe fonts plus 364 Google fonts. The 16 Web "
+"safe fonts work in all email clients but be aware that Google fonts don't. "
+"Google fonts are fetched by &lt;link&gt; from Google. Gmail and Microsoft "
+"Outlook remove all &lt;link&gt; tags and hence default to one of the Web "
+"safe fonts. Interestingly iOS, Android Gmail and Windows mobile don't and "
+"Google fonts show beautifully. Go figure the weird and wonderful world of "
+"HTM email template design."
 msgstr ""
 
 #: admin/settings/send-wp-emails/general-settings.php:81
@@ -622,32 +716,37 @@ msgstr "Настройки шаблона Email"
 msgid "View Detailed Debug"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:153
-#: admin/settings/send-wp-emails/general-settings.php:158
-#: admin/settings/send-wp-emails/general-settings.php:163
+#: admin/settings/send-wp-emails/general-settings.php:154
+#: admin/settings/send-wp-emails/general-settings.php:177
+#: admin/settings/send-wp-emails/general-settings.php:182
 msgid "Error: Port"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:153
-#: admin/settings/send-wp-emails/general-settings.php:158
-#: admin/settings/send-wp-emails/general-settings.php:163
+#: admin/settings/send-wp-emails/general-settings.php:154
+#: admin/settings/send-wp-emails/general-settings.php:177
+#: admin/settings/send-wp-emails/general-settings.php:182
 msgid ""
 "is blocked on your server. First check the Port Number is Correct. If it is "
 "contact your Hosting support and ask them to <br />1. Open the Port <br />2. "
 "Ensure that it can be listened to from the outside."
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:194
+#: admin/settings/send-wp-emails/general-settings.php:162
+#: admin/settings/send-wp-emails/general-settings.php:171
+msgid "Your API key is invalid"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:213
 #: admin/tabs/send-wp-emails/general-settings-tab.php:78
 #, fuzzy
 msgid "Sending Settings"
 msgstr "Сбросить настройки"
 
-#: admin/settings/send-wp-emails/general-settings.php:238
-msgid "Configure WordPress Email Sending Provider"
+#: admin/settings/send-wp-emails/general-settings.php:257
+msgid "Configure WordPress Email Sending"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:239
+#: admin/settings/send-wp-emails/general-settings.php:258
 msgid ""
 "Email Spammers have made successful email delivery a very complicated and "
 "specialized function. WordPress by default will use your web hosts local "
@@ -657,117 +756,101 @@ msgid ""
 "delivery rate by configuring a custom sending provider."
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:243
-msgid "Configure Sending"
-msgstr ""
-
-#: admin/settings/send-wp-emails/general-settings.php:255
-msgid "Email Sending Options"
-msgstr ""
-
-#: admin/settings/send-wp-emails/general-settings.php:260
+#: admin/settings/send-wp-emails/general-settings.php:264
 msgid "Via Web Host"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:267
+#: admin/settings/send-wp-emails/general-settings.php:271
 msgid ""
 "WordPress Default email send option uses your web host's local mail server "
 "to send emails."
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:280
+#: admin/settings/send-wp-emails/general-settings.php:284
 msgid "GoDaddy Hosting"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:281
+#: admin/settings/send-wp-emails/general-settings.php:285
 msgid ""
 "Turn ON if Hosting with GoDaddy and it auto sets the smtp host to "
 "<strong>relay-hosting.secureserver.net</strong>"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:296
+#: admin/settings/send-wp-emails/general-settings.php:299
 msgid "Via Provider"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:313
-msgid "Select Email Deliver Provider"
+#: admin/settings/send-wp-emails/general-settings.php:317
+#, fuzzy
+msgid "SMTP Activation"
+msgstr "Конфигурация WooCommerce"
+
+#: admin/settings/send-wp-emails/general-settings.php:324
+msgid "SMTP Provider"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:314
-msgid ""
-"Turn ON Provider and Save Changes. Go to that providers Tab and Configure "
-"connection"
+#: admin/settings/send-wp-emails/general-settings.php:339
+#, fuzzy
+msgid "SMTP Configuration"
+msgstr "Конфигурация WooCommerce"
+
+#: admin/settings/send-wp-emails/general-settings.php:344
+#: admin/settings/send-wp-emails/general-settings.php:547
+msgid "Host"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:319
-#: admin/settings/send-wp-emails/mandrill-settings.php:230
-#: admin/settings/send-wp-emails/smtp-settings.php:138
-#: admin/tabs/send-wp-emails/smtp-tab.php:78
-msgid "SMTP"
+#: admin/settings/send-wp-emails/general-settings.php:351
+#: admin/settings/send-wp-emails/general-settings.php:555
+msgid "Port"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:334
-msgid "Gmail SMTP"
-msgstr ""
-
-#: admin/settings/send-wp-emails/general-settings.php:341
-msgid "Gmail limit is 500 emails per day."
-msgstr ""
-
-#: admin/settings/send-wp-emails/general-settings.php:349
-#: admin/settings/send-wp-emails/mandrill-settings.php:170
-#: admin/tabs/send-wp-emails/mandrill-tab.php:78
-msgid "Mandrill"
-msgstr ""
-
-#: admin/settings/send-wp-emails/general-settings.php:356
-msgid "Send up to 12,000 emails per month for free"
-msgstr ""
-
-#: admin/settings/send-wp-emails/general-settings.php:365
-msgid "Send a Test Email"
+#: admin/settings/send-wp-emails/general-settings.php:359
+msgid "Encryption"
 msgstr ""
 
 #: admin/settings/send-wp-emails/general-settings.php:367
-msgid ""
-"Test delivery. Type a valid email address that you have access to and click "
-"Save Changes to send. If the message successfully sends but you do not "
-"receive it - check your Spam folder."
+msgid "No encryption"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:371
-msgid "Send To"
+#: admin/settings/send-wp-emails/general-settings.php:373
+msgid "Use SSL encryption"
 msgstr ""
 
-#: admin/settings/send-wp-emails/general-settings.php:376
-msgid "test@example.com"
+#: admin/settings/send-wp-emails/general-settings.php:379
+msgid "Use TLS encryption."
 msgstr ""
 
-#: admin/settings/send-wp-emails/gmail-settings.php:81
-#, fuzzy
-msgid "Gmail Configuration successfully saved."
-msgstr "Настройки шаблона Email успешно сохранены."
-
-#: admin/settings/send-wp-emails/gmail-settings.php:82
-#, fuzzy
-msgid "Error: Gmail Configuration can not save."
-msgstr "Настройки шаблона Email"
-
-#: admin/settings/send-wp-emails/gmail-settings.php:83
-#, fuzzy
-msgid "Gmail Configuration successfully reseted."
-msgstr "Настройки шаблона Email успешно восстановлены."
-
-#: admin/settings/send-wp-emails/gmail-settings.php:136
-#: admin/tabs/send-wp-emails/gmail-tab.php:78
-msgid "Gmail"
+#: admin/settings/send-wp-emails/general-settings.php:386
+msgid "Enable Authentication"
 msgstr ""
 
-#: admin/settings/send-wp-emails/gmail-settings.php:180
+#: admin/settings/send-wp-emails/general-settings.php:403
+#: admin/settings/send-wp-emails/general-settings.php:564
+msgid "SMTP Username"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:410
+#: admin/settings/send-wp-emails/general-settings.php:571
+msgid "SMTP Password"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:420
+msgid "Gmail SMTP Activation"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:427
+msgid "Gmail SMTP Provider"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:435
+msgid "Gmail limit is 500 emails per day."
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:443
 msgid "Gmail SMTP Credentials"
 msgstr ""
 
-#: admin/settings/send-wp-emails/gmail-settings.php:181
+#: admin/settings/send-wp-emails/general-settings.php:444
 #, php-format
 msgid ""
 "Due to the 500 email a day sending limit recommend that you open a dedicated "
@@ -777,39 +860,32 @@ msgid ""
 "password."
 msgstr ""
 
-#: admin/settings/send-wp-emails/gmail-settings.php:185
+#: admin/settings/send-wp-emails/general-settings.php:449
 #, fuzzy
 msgid "Gmail Username"
 msgstr "Заголовок Email"
 
-#: admin/settings/send-wp-emails/gmail-settings.php:191
+#: admin/settings/send-wp-emails/general-settings.php:456
 msgid "Gmail Password"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:81
-#, fuzzy
-msgid "Mandrill Configuration successfully saved."
-msgstr "Настройки шаблона Email успешно сохранены."
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:82
-#, fuzzy
-msgid "Error: Mandrill Configuration can not save."
-msgstr "Настройки шаблона Email"
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:83
-#, fuzzy
-msgid "Mandrill Configuration successfully reseted."
-msgstr "Настройки шаблона Email успешно восстановлены."
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:202
-msgid "Your API key is invalid"
+#: admin/settings/send-wp-emails/general-settings.php:466
+msgid "Mandrill Activation"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:217
-msgid "Madrill Credentials"
+#: admin/settings/send-wp-emails/general-settings.php:473
+msgid "Mandrill Provider"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:218
+#: admin/settings/send-wp-emails/general-settings.php:481
+msgid "Send up to 12,000 emails per month for free"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:489
+msgid "Mandrill Credentials"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:490
 #, php-format
 msgid ""
 "Send up to 12,000 emails a month for free <a href=\"%s\" target=\"_blank"
@@ -817,88 +893,55 @@ msgid ""
 "creds and enter those here."
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:222
+#: admin/settings/send-wp-emails/general-settings.php:495
 msgid "Connect Type"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:229
+#: admin/settings/send-wp-emails/general-settings.php:502
 msgid "API"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:242
+#: admin/settings/send-wp-emails/general-settings.php:503
+msgid "SMTP"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:512
+msgid "Mandrill API"
+msgstr ""
+
+#: admin/settings/send-wp-emails/general-settings.php:516
 msgid "enter API key"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:245
+#: admin/settings/send-wp-emails/general-settings.php:520
 msgid "Track Opens"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:255
+#: admin/settings/send-wp-emails/general-settings.php:531
 msgid "Track Clicks"
 msgstr ""
 
-#: admin/settings/send-wp-emails/mandrill-settings.php:270
-#: admin/settings/send-wp-emails/smtp-settings.php:186
-msgid "Host"
-msgstr ""
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:277
-#: admin/settings/send-wp-emails/smtp-settings.php:192
-msgid "Port"
-msgstr ""
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:285
-#: admin/settings/send-wp-emails/smtp-settings.php:241
-msgid "SMTP Username"
-msgstr ""
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:291
-#: admin/settings/send-wp-emails/smtp-settings.php:247
-msgid "SMTP Password"
-msgstr ""
-
-#: admin/settings/send-wp-emails/mandrill-settings.php:295
+#: admin/settings/send-wp-emails/general-settings.php:575
 msgid "any valid API key"
 msgstr ""
 
-#: admin/settings/send-wp-emails/smtp-settings.php:81
-#, fuzzy
-msgid "SMTP Configuration successfully saved."
-msgstr "Настройки шаблона Email успешно сохранены."
-
-#: admin/settings/send-wp-emails/smtp-settings.php:82
-#, fuzzy
-msgid "Error: SMTP Configuration can not save."
-msgstr "Настройки шаблона Email"
-
-#: admin/settings/send-wp-emails/smtp-settings.php:83
-#, fuzzy
-msgid "SMTP Configuration successfully reseted."
-msgstr "Настройки шаблона Email успешно восстановлены."
-
-#: admin/settings/send-wp-emails/smtp-settings.php:182
-#, fuzzy
-msgid "SMTP Configuration"
-msgstr "Конфигурация WooCommerce"
-
-#: admin/settings/send-wp-emails/smtp-settings.php:199
-msgid "Encryption"
+#: admin/settings/send-wp-emails/general-settings.php:580
+msgid "Send a Test Email"
 msgstr ""
 
-#: admin/settings/send-wp-emails/smtp-settings.php:206
-msgid "No encryption"
+#: admin/settings/send-wp-emails/general-settings.php:582
+msgid ""
+"Test delivery. Type a valid email address that you have access to and click "
+"Save Changes to send. If the message successfully sends but you do not "
+"receive it - check your Spam folder."
 msgstr ""
 
-#: admin/settings/send-wp-emails/smtp-settings.php:212
-msgid "Use SSL encryption"
+#: admin/settings/send-wp-emails/general-settings.php:588
+msgid "Send To"
 msgstr ""
 
-#: admin/settings/send-wp-emails/smtp-settings.php:218
-msgid "Use TLS encryption."
-msgstr ""
-
-#: admin/settings/send-wp-emails/smtp-settings.php:225
-msgid "Enable Authentication"
+#: admin/settings/send-wp-emails/general-settings.php:593
+msgid "test@example.com"
 msgstr ""
 
 #: admin/settings/social-media-settings.php:81
@@ -915,82 +958,81 @@ msgstr ""
 msgid "Social Media Settings successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/settings/social-media-settings.php:151
+#: admin/settings/social-media-settings.php:148
 #: admin/tabs/admin-social-media-tab.php:78
 msgid "Social Media"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:205
+#: admin/settings/social-media-settings.php:202
 msgid "Follow Us On"
 msgstr "Читайте нас"
 
-#: admin/settings/social-media-settings.php:209
+#: admin/settings/social-media-settings.php:208
 msgid "Facebook URI"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:210
+#: admin/settings/social-media-settings.php:209
 #, fuzzy
 msgid "Enter your Facebook URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт facebook для показа иконки внизу письма"
 
-#: admin/settings/social-media-settings.php:217
+#: admin/settings/social-media-settings.php:216
 msgid "Twitter URI"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:218
+#: admin/settings/social-media-settings.php:217
 msgid "Enter your Twitter URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Twitter для показа иконки внизу письма"
 
-#: admin/settings/social-media-settings.php:225
+#: admin/settings/social-media-settings.php:224
 msgid "LinkedIn URI"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:226
+#: admin/settings/social-media-settings.php:225
 msgid "Enter your Linkedin URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Linkedin для показа иконки внизу письма"
 
-#: admin/settings/social-media-settings.php:233
+#: admin/settings/social-media-settings.php:232
 msgid "Pinterest URI"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:234
+#: admin/settings/social-media-settings.php:233
 msgid "Enter your Pinterest URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Pinterest для показа иконки внизу письма"
 
-#: admin/settings/social-media-settings.php:241
+#: admin/settings/social-media-settings.php:240
 msgid "Google+1 URI"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:242
+#: admin/settings/social-media-settings.php:241
 msgid "Enter your Google+1 URL to show that linked icon in footer."
 msgstr "Введите URL Вашего аккаунт Google+1 для показа иконки внизу письма"
 
-#: admin/settings/social-media-settings.php:250
+#: admin/settings/social-media-settings.php:249
 msgid "Social Media Icons"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:255
+#: admin/settings/social-media-settings.php:256
 msgid "Facebook Icon"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:261
+#: admin/settings/social-media-settings.php:262
 msgid "Twitter Icon"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:267
+#: admin/settings/social-media-settings.php:268
 msgid "LinkedIn Icon"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:273
+#: admin/settings/social-media-settings.php:274
 msgid "Pinterest Icon"
 msgstr ""
 
-#: admin/settings/social-media-settings.php:279
+#: admin/settings/social-media-settings.php:280
 msgid "Google+1 Icon"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:81
-#: admin/settings/style-fonts-settings.php:81
 #: admin/settings/style-footer-settings.php:81
 #: admin/settings/style-header-settings.php:81
 #, fuzzy
@@ -998,7 +1040,6 @@ msgid "WP Email Template Style successfully saved."
 msgstr "Настройки шаблона Email успешно сохранены."
 
 #: admin/settings/style-body-settings.php:82
-#: admin/settings/style-fonts-settings.php:82
 #: admin/settings/style-footer-settings.php:82
 #: admin/settings/style-header-settings.php:82
 #, fuzzy
@@ -1006,32 +1047,23 @@ msgid "Error: WP Email Template Style  can not save."
 msgstr "Настройки шаблона Email"
 
 #: admin/settings/style-body-settings.php:83
-#: admin/settings/style-fonts-settings.php:83
 #: admin/settings/style-footer-settings.php:83
 #: admin/settings/style-header-settings.php:83
 #, fuzzy
 msgid "WP Email Template Style  successfully reseted."
 msgstr "Настройки шаблона Email успешно восстановлены."
 
-#: admin/settings/style-body-settings.php:151
+#: admin/settings/style-body-settings.php:148
 msgid "Body"
 msgstr ""
 
-#: admin/settings/style-body-settings.php:205
+#: admin/settings/style-body-settings.php:203
 #, fuzzy
 msgid "Email Content Font"
 msgstr "Подвал Email"
 
-#: admin/settings/style-body-settings.php:210
-msgid "Content Font"
-msgstr ""
-
 #: admin/settings/style-body-settings.php:211
-#: admin/settings/style-footer-settings.php:229
-#: admin/settings/style-header-settings.php:210
-#, php-format
-msgid ""
-"<strong>Important!</strong> Please read Fonts <a href=\"%s\">help notes</a>"
+msgid "Content Font"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:218
@@ -1039,327 +1071,308 @@ msgid "Content Alignment"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:223
-#: admin/settings/style-header-image-settings.php:217
+#: admin/settings/style-header-image-settings.php:206
 #: admin/settings/style-header-settings.php:222
 msgid "None"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:224
-#: admin/settings/style-body-settings.php:252
-#: admin/settings/style-body-settings.php:280
-#: admin/settings/style-footer-settings.php:256
-#: admin/settings/style-footer-settings.php:284
-#: admin/settings/style-header-image-settings.php:218
-#: admin/settings/style-header-image-settings.php:246
-#: admin/settings/style-header-image-settings.php:273
+#: admin/settings/style-body-settings.php:305
+#: admin/settings/style-body-settings.php:333
+#: admin/settings/style-footer-settings.php:257
+#: admin/settings/style-footer-settings.php:285
+#: admin/settings/style-header-image-settings.php:207
+#: admin/settings/style-header-image-settings.php:237
+#: admin/settings/style-header-image-settings.php:264
 #: admin/settings/style-header-settings.php:223
-#: admin/settings/style-header-settings.php:251
-#: admin/settings/style-header-settings.php:278
+#: admin/settings/style-header-settings.php:254
+#: admin/settings/style-header-settings.php:281
 msgid "Left"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:225
-#: admin/settings/style-body-settings.php:257
-#: admin/settings/style-body-settings.php:285
-#: admin/settings/style-footer-settings.php:261
-#: admin/settings/style-footer-settings.php:289
-#: admin/settings/style-header-image-settings.php:219
-#: admin/settings/style-header-image-settings.php:251
-#: admin/settings/style-header-image-settings.php:278
+#: admin/settings/style-body-settings.php:310
+#: admin/settings/style-body-settings.php:338
+#: admin/settings/style-footer-settings.php:262
+#: admin/settings/style-footer-settings.php:290
+#: admin/settings/style-header-image-settings.php:208
+#: admin/settings/style-header-image-settings.php:242
+#: admin/settings/style-header-image-settings.php:269
 #: admin/settings/style-header-settings.php:224
-#: admin/settings/style-header-settings.php:256
-#: admin/settings/style-header-settings.php:283
+#: admin/settings/style-header-settings.php:259
+#: admin/settings/style-header-settings.php:286
 msgid "Right"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:226
-#: admin/settings/style-header-image-settings.php:220
+#: admin/settings/style-header-image-settings.php:209
 #: admin/settings/style-header-settings.php:225
 msgid "Center"
 msgstr ""
 
 #: admin/settings/style-body-settings.php:232
 #, fuzzy
-msgid "Email Content Container"
+msgid "Content Title Fonts"
 msgstr "Подвал Email"
 
-#: admin/settings/style-body-settings.php:236
-#: admin/settings/style-footer-settings.php:240
-msgid "Container Margin"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:237
-msgid "Margin or space outside of the Email Content container border in px."
-msgstr ""
-
-#: admin/settings/style-body-settings.php:243
-#: admin/settings/style-body-settings.php:271
-#: admin/settings/style-footer-settings.php:247
-#: admin/settings/style-footer-settings.php:275
-#: admin/settings/style-header-image-settings.php:237
-#: admin/settings/style-header-image-settings.php:264
-#: admin/settings/style-header-settings.php:242
-#: admin/settings/style-header-settings.php:269
-msgid "Top"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:247
-#: admin/settings/style-body-settings.php:275
-#: admin/settings/style-footer-settings.php:251
-#: admin/settings/style-footer-settings.php:279
-#: admin/settings/style-header-image-settings.php:241
-#: admin/settings/style-header-image-settings.php:268
-#: admin/settings/style-header-settings.php:246
-#: admin/settings/style-header-settings.php:273
-msgid "Bottom"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:264
-#: admin/settings/style-footer-settings.php:268
-msgid "Container Padding"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:265
-msgid ""
-"Padding or space between the Email Content Container border and the Content."
-msgstr ""
-
-#: admin/settings/style-body-settings.php:292
-#: admin/settings/style-footer-settings.php:296
-#: admin/settings/style-header-image-settings.php:284
-#: admin/settings/style-header-settings.php:289
-#, fuzzy
-msgid "Container Background Colour"
-msgstr "Цвет фона заголовка"
-
-#: admin/settings/style-body-settings.php:293
-#: admin/settings/style-footer-settings.php:297
-msgid "The main body background colour. Default"
-msgstr "Основной цвет фона содержания. По умолчанию"
-
-#: admin/settings/style-body-settings.php:300
-msgid "Content Container Borders"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:301
-#: admin/settings/style-footer-settings.php:305
-#: admin/settings/style-header-image-settings.php:293
-#: admin/settings/style-header-settings.php:298
-msgid ""
-"Please note all versions of Microsoft Outlook do not support borders. Most "
-"other Email Clients and all mobile email including Windows phone do."
-msgstr ""
-
-#: admin/settings/style-body-settings.php:305
-#: admin/settings/style-footer-settings.php:310
-#: admin/settings/style-header-image-settings.php:297
-#: admin/settings/style-header-settings.php:302
-msgid "Border Top"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:312
-#: admin/settings/style-footer-settings.php:317
-#: admin/settings/style-header-image-settings.php:304
-#: admin/settings/style-header-settings.php:309
-msgid "Border Bottom"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:319
-#: admin/settings/style-footer-settings.php:324
-#: admin/settings/style-header-image-settings.php:311
-#: admin/settings/style-header-settings.php:316
-msgid "Border Left"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:326
-#: admin/settings/style-footer-settings.php:331
-#: admin/settings/style-header-image-settings.php:318
-#: admin/settings/style-header-settings.php:323
-msgid "Border Right"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:333
-#: admin/settings/style-footer-settings.php:338
-#: admin/settings/style-header-image-settings.php:325
-#: admin/settings/style-header-settings.php:330
-msgid "Border Corners"
-msgstr ""
-
-#: admin/settings/style-body-settings.php:340
-#, fuzzy
-msgid "Linked Text Colour"
-msgstr "Цвет текста содержания письма"
-
-#: admin/settings/style-body-settings.php:341
-#: admin/settings/style-header-settings.php:290
-msgid "Default"
-msgstr "По умолчанию"
-
-#: admin/settings/style-fonts-settings.php:151
-#: admin/tabs/admin-style-fonts-tab.php:78
-#, fuzzy
-msgid "Fonts"
-msgstr "Шрифт"
-
-#: admin/settings/style-fonts-settings.php:205
-#, fuzzy
-msgid "Email Fonts"
-msgstr "Содержание Email"
-
-#: admin/settings/style-fonts-settings.php:206
-msgid ""
-"<strong>Important!</strong> The a3rev dynamic font editors give you the "
-"choice of 16 Default or Web safe fonts plus 364 Google fonts. The 16 Web "
-"safe fonts work in all email clients but be aware that Google fonts don't. "
-"Google fonts are fetched by &lt;link&gt; from Google. Gmail and Microsoft "
-"Outlook remove all &lt;link&gt; tags and hence default to one of the Web "
-"safe fonts. Interestingly iOS, Android Gmail and Windows mobile don't and "
-"Google fonts show beautifully. Go figure the weird and wonderful world of "
-"HTM email template design."
-msgstr ""
-
-#: admin/settings/style-fonts-settings.php:211
+#: admin/settings/style-body-settings.php:240
 #, fuzzy
 msgid "Title Fonts Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-fonts-settings.php:212
+#: admin/settings/style-body-settings.php:241
 msgid ""
 "The styles below will be applied to all Title fonts (H tag) in the email "
 "content.  Note some plugins that generate emails may have a H tag style that "
 "will override the template Title styles you set here."
 msgstr ""
 
-#: admin/settings/style-fonts-settings.php:216
+#: admin/settings/style-body-settings.php:245
 #, fuzzy
 msgid "H1 Font Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-fonts-settings.php:222
+#: admin/settings/style-body-settings.php:251
 #, fuzzy
 msgid "H2 Font Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-fonts-settings.php:228
+#: admin/settings/style-body-settings.php:257
 #, fuzzy
 msgid "H3 Font Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-fonts-settings.php:234
+#: admin/settings/style-body-settings.php:263
 #, fuzzy
 msgid "H4 Font Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-fonts-settings.php:240
+#: admin/settings/style-body-settings.php:269
 #, fuzzy
 msgid "H5 Font Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-fonts-settings.php:246
+#: admin/settings/style-body-settings.php:275
 #, fuzzy
 msgid "H6 Font Style"
 msgstr "Стиль шрифта"
 
-#: admin/settings/style-footer-settings.php:154
+#: admin/settings/style-body-settings.php:282
+#, fuzzy
+msgid "Email Content Container"
+msgstr "Подвал Email"
+
+#: admin/settings/style-body-settings.php:289
+#: admin/settings/style-footer-settings.php:241
+msgid "Container Margin"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:290
+msgid "Margin or space outside of the Email Content container border in px."
+msgstr ""
+
+#: admin/settings/style-body-settings.php:296
+#: admin/settings/style-body-settings.php:324
+#: admin/settings/style-footer-settings.php:248
+#: admin/settings/style-footer-settings.php:276
+#: admin/settings/style-header-image-settings.php:228
+#: admin/settings/style-header-image-settings.php:255
+#: admin/settings/style-header-settings.php:245
+#: admin/settings/style-header-settings.php:272
+msgid "Top"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:300
+#: admin/settings/style-body-settings.php:328
+#: admin/settings/style-footer-settings.php:252
+#: admin/settings/style-footer-settings.php:280
+#: admin/settings/style-header-image-settings.php:232
+#: admin/settings/style-header-image-settings.php:259
+#: admin/settings/style-header-settings.php:249
+#: admin/settings/style-header-settings.php:276
+msgid "Bottom"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:317
+#: admin/settings/style-footer-settings.php:269
+msgid "Container Padding"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:318
+msgid ""
+"Padding or space between the Email Content Container border and the Content."
+msgstr ""
+
+#: admin/settings/style-body-settings.php:345
+#: admin/settings/style-footer-settings.php:297
+#: admin/settings/style-header-image-settings.php:275
+#: admin/settings/style-header-settings.php:292
+#, fuzzy
+msgid "Container Background Colour"
+msgstr "Цвет фона заголовка"
+
+#: admin/settings/style-body-settings.php:346
+#: admin/settings/style-footer-settings.php:298
+msgid "The main body background colour. Default"
+msgstr "Основной цвет фона содержания. По умолчанию"
+
+#: admin/settings/style-body-settings.php:353
+msgid "Content Container Borders"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:354
+#: admin/settings/style-footer-settings.php:306
+#: admin/settings/style-header-image-settings.php:284
+#: admin/settings/style-header-settings.php:301
+msgid ""
+"Please note all versions of Microsoft Outlook do not support borders. Most "
+"other Email Clients and all mobile email including Windows phone do."
+msgstr ""
+
+#: admin/settings/style-body-settings.php:361
+#: admin/settings/style-footer-settings.php:313
+#: admin/settings/style-header-image-settings.php:290
+#: admin/settings/style-header-settings.php:308
+msgid "Border Top"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:368
+#: admin/settings/style-footer-settings.php:320
+#: admin/settings/style-header-image-settings.php:297
+#: admin/settings/style-header-settings.php:315
+msgid "Border Bottom"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:375
+#: admin/settings/style-footer-settings.php:327
+#: admin/settings/style-header-image-settings.php:304
+#: admin/settings/style-header-settings.php:322
+msgid "Border Left"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:382
+#: admin/settings/style-footer-settings.php:334
+#: admin/settings/style-header-image-settings.php:311
+#: admin/settings/style-header-settings.php:329
+msgid "Border Right"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:389
+#: admin/settings/style-footer-settings.php:341
+#: admin/settings/style-header-image-settings.php:318
+#: admin/settings/style-header-settings.php:336
+msgid "Border Corners"
+msgstr ""
+
+#: admin/settings/style-body-settings.php:396
+#, fuzzy
+msgid "Linked Text Colour"
+msgstr "Цвет текста содержания письма"
+
+#: admin/settings/style-body-settings.php:397
+#: admin/settings/style-header-settings.php:293
+msgid "Default"
+msgstr "По умолчанию"
+
+#: admin/settings/style-footer-settings.php:148
 #: admin/tabs/admin-style-footer-tab.php:78
 msgid "Footer"
 msgstr ""
 
-#: admin/settings/style-footer-settings.php:208
+#: admin/settings/style-footer-settings.php:203
 msgid "Email Footer Content"
 msgstr "Подвал Email"
 
-#: admin/settings/style-footer-settings.php:212
+#: admin/settings/style-footer-settings.php:209
 msgid "Footer Message"
 msgstr ""
 
-#: admin/settings/style-footer-settings.php:213
+#: admin/settings/style-footer-settings.php:210
 msgid "Use the WordPress Editor to create your email template footer content."
 msgstr ""
 
-#: admin/settings/style-footer-settings.php:223
+#: admin/settings/style-footer-settings.php:220
 #, fuzzy
 msgid "Footer Content Font"
 msgstr "Подвал Email"
 
-#: admin/settings/style-footer-settings.php:228
+#: admin/settings/style-footer-settings.php:227
 #, fuzzy
 msgid "Footer Font"
 msgstr "Подвал Email"
 
-#: admin/settings/style-footer-settings.php:236
+#: admin/settings/style-footer-settings.php:234
 #, fuzzy
 msgid "Footer Container"
 msgstr "Подвал Email"
 
-#: admin/settings/style-footer-settings.php:241
+#: admin/settings/style-footer-settings.php:242
 msgid "Margin or space outside of the Footer container border in px."
 msgstr ""
 
-#: admin/settings/style-footer-settings.php:269
+#: admin/settings/style-footer-settings.php:270
 msgid "Padding or space between the Footer Container border and the Content."
 msgstr ""
 
-#: admin/settings/style-footer-settings.php:304
+#: admin/settings/style-footer-settings.php:305
 msgid "Footer Container Borders"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:150
-#: admin/settings/style-header-image-settings.php:207
+#: admin/settings/style-header-image-settings.php:136
+#: admin/settings/style-header-image-settings.php:190
+#: admin/settings/style-header-image-settings.php:196
 #: admin/tabs/admin-style-header-image-tab.php:78
 #, fuzzy
 msgid "Header Image"
 msgstr "Изображение в заголовке"
 
-#: admin/settings/style-header-image-settings.php:203
-#: admin/settings/style-header-image-settings.php:226
-#, fuzzy
-msgid "Header Image Container"
-msgstr "Изображение в заголовке"
-
-#: admin/settings/style-header-image-settings.php:212
+#: admin/settings/style-header-image-settings.php:201
 #, fuzzy
 msgid "Header Image Alignment"
 msgstr "Изображение в заголовке"
 
-#: admin/settings/style-header-image-settings.php:230
-#: admin/settings/style-header-settings.php:235
+#: admin/settings/style-header-image-settings.php:215
+#, fuzzy
+msgid "Header Image Container"
+msgstr "Изображение в заголовке"
+
+#: admin/settings/style-header-image-settings.php:221
+#: admin/settings/style-header-settings.php:238
 msgid "Container Border Margin"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:231
+#: admin/settings/style-header-image-settings.php:222
 msgid "Margin or space outside of the Image container border in px."
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:257
-#: admin/settings/style-header-settings.php:262
+#: admin/settings/style-header-image-settings.php:248
+#: admin/settings/style-header-settings.php:265
 msgid "Container Border Padding"
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:258
+#: admin/settings/style-header-image-settings.php:249
 msgid "Padding or space between the border and the image."
 msgstr ""
 
-#: admin/settings/style-header-image-settings.php:285
+#: admin/settings/style-header-image-settings.php:276
 #, fuzzy
 msgid "Header background colour. Default"
 msgstr "Цвет фона заголовка"
 
-#: admin/settings/style-header-image-settings.php:292
+#: admin/settings/style-header-image-settings.php:283
 msgid "Image Container Borders"
 msgstr ""
 
-#: admin/settings/style-header-settings.php:151
+#: admin/settings/style-header-settings.php:148
 msgid "Email Header"
 msgstr "Заголовок Email"
 
-#: admin/settings/style-header-settings.php:205
-#: admin/tabs/admin-style-header-tab.php:78
+#: admin/settings/style-header-settings.php:203
 #, fuzzy
-msgid "Email Title"
-msgstr "Просмотр Email"
+msgid "Title Font"
+msgstr "Подвал Email"
 
-#: admin/settings/style-header-settings.php:209
+#: admin/settings/style-header-settings.php:210
 #, fuzzy
 msgid "Email Title Font"
 msgstr "Подвал Email"
@@ -1373,15 +1386,15 @@ msgstr ""
 msgid "Email Title Container"
 msgstr "Подвал Email"
 
-#: admin/settings/style-header-settings.php:236
+#: admin/settings/style-header-settings.php:239
 msgid "Margin or space outside of the Title container border in px."
 msgstr ""
 
-#: admin/settings/style-header-settings.php:263
+#: admin/settings/style-header-settings.php:266
 msgid "Padding or space between the border and the Title."
 msgstr ""
 
-#: admin/settings/style-header-settings.php:297
+#: admin/settings/style-header-settings.php:300
 msgid "Title Container Borders"
 msgstr ""
 
@@ -1389,27 +1402,32 @@ msgstr ""
 msgid "Content"
 msgstr ""
 
-#: classes/class-email-functions.php:196
+#: admin/tabs/admin-style-header-tab.php:78
+#, fuzzy
+msgid "Email Title"
+msgstr "Просмотр Email"
+
+#: classes/class-email-functions.php:198
 msgid "Facebook"
 msgstr ""
 
-#: classes/class-email-functions.php:200
+#: classes/class-email-functions.php:202
 msgid "Twitter"
 msgstr ""
 
-#: classes/class-email-functions.php:204
+#: classes/class-email-functions.php:206
 msgid "LinkedIn"
 msgstr ""
 
-#: classes/class-email-functions.php:208
+#: classes/class-email-functions.php:210
 msgid "Pinterest"
 msgstr ""
 
-#: classes/class-email-functions.php:212
+#: classes/class-email-functions.php:214
 msgid "Google+"
 msgstr ""
 
-#: classes/class-email-functions.php:216
+#: classes/class-email-functions.php:218
 msgid "Follow us on"
 msgstr "Читать нас на"
 
@@ -1425,16 +1443,16 @@ msgstr ""
 "администратора > Email Шаблон для настройки этого шаблона или активировать "
 "WooCommerce Email шаблон."
 
-#: classes/class-email-hook.php:138
-#: classes/class-send-wp-email-functions.php:391
+#: classes/class-email-hook.php:135
+#: classes/class-send-wp-email-functions.php:388
 msgid "Email preview"
 msgstr "Просмотр Email"
 
-#: classes/class-email-hook.php:147
+#: classes/class-email-hook.php:144
 msgid "WordPress Email sit amet"
 msgstr ""
 
-#: classes/class-email-hook.php:149
+#: classes/class-email-hook.php:146
 msgid ""
 "Ut ut est qui euismod parum. Dolor veniam tation nihil assum mazim. Possim "
 "fiant habent decima et claritatem. Erat me usus gothica laoreet consequat. "
@@ -1446,139 +1464,127 @@ msgid ""
 "est. "
 msgstr ""
 
-#: classes/class-email-hook.php:189
-msgid "Documentation"
-msgstr "Документация"
-
-#: classes/class-email-hook.php:190
-msgid "Support"
-msgstr "Поддержка"
-
 #: classes/class-email-hook.php:195
 #, fuzzy
-msgid "Settings"
-msgstr "Сбросить настройки"
+msgid "Go to Support Forum"
+msgstr "Поддержка"
 
-#: classes/class-email-hook.php:215
-#, fuzzy
-msgid "Upgrade to WP Email Template Pro"
-msgstr "WP Email шаблон"
-
-#: classes/class-email-hook.php:216
-msgid ""
-"<strong>NOTE:</strong> All the functions inside the Yellow border on the "
-"plugins admin panel are extra functionality that is activated by upgrading "
-"to the Pro version"
-msgstr ""
-
-#: classes/class-email-hook.php:218
+#: classes/class-email-hook.php:201
 #, fuzzy
 msgid "WP Email Template Pro"
 msgstr "WP Email шаблон"
 
-#: classes/class-email-hook.php:220
-msgid "Features"
+#: classes/class-email-hook.php:207
+msgid "Free WordPress Plugins"
+msgstr ""
+
+#: classes/class-email-hook.php:214
+msgid "Is this plugin is just what you needed? If so"
+msgstr ""
+
+#: classes/class-email-hook.php:215
+msgid "Submit Review for Plugin on WordPress"
+msgstr ""
+
+#: classes/class-email-hook.php:222
+msgid "Connect with us via"
 msgstr ""
 
 #: classes/class-email-hook.php:223
-msgid ""
-"Create a fully customized responsive email template in not days but just "
-"minutes."
+msgid "a3rev Facebook"
 msgstr ""
 
 #: classes/class-email-hook.php:224
-msgid ""
-"Web Developers - wow your web clients with an email template that matches "
-"their site."
+msgid "a3rev Twitter"
 msgstr ""
 
-#: classes/class-email-hook.php:225
-msgid ""
-"Site owners (even complete novices) with the Pro Version it will take you "
-"just a few minutes to be wowing your users with your uniquely styled and "
-"branded emails that they get from your site."
-msgstr ""
-
-#: classes/class-email-hook.php:226
-msgid "Lifetime License Fee - no ongoing payments."
-msgstr ""
-
-#: classes/class-email-hook.php:227
-msgid "Lifetime Pro License support from developers."
-msgstr ""
-
-#: classes/class-email-hook.php:230
-msgid "View this plugins"
-msgstr ""
-
-#: classes/class-email-hook.php:230
-#, fuzzy
-msgid "documentation"
+#: classes/class-email-hook.php:238
+msgid "Documentation"
 msgstr "Документация"
 
-#: classes/class-email-hook.php:231
-msgid "Lite Version plugins"
-msgstr ""
-
-#: classes/class-email-hook.php:231
-#, fuzzy
-msgid "support forum"
+#: classes/class-email-hook.php:239
+msgid "Support"
 msgstr "Поддержка"
 
-#: classes/class-email-hook.php:233
-msgid "More a3rev Quality WordPress Plugins"
-msgstr ""
+#: classes/class-email-hook.php:244
+#, fuzzy
+msgid "Settings"
+msgstr "Сбросить настройки"
 
-#: classes/class-email-hook.php:236
-msgid "a3 Lazy Load"
-msgstr ""
-
-#: classes/class-email-hook.php:236 classes/class-email-hook.php:237
-msgid "New Plugin"
-msgstr ""
-
-#: classes/class-email-hook.php:237
-msgid "a3 Portfolio"
-msgstr ""
-
-#: classes/class-email-hook.php:238
-msgid "a3 Responsive Slider"
-msgstr ""
-
-#: classes/class-email-hook.php:238
-msgid "Just released"
-msgstr ""
-
-#: classes/class-email-hook.php:239
-msgid "Contact Us page - Contact People"
-msgstr ""
-
-#: classes/class-email-hook.php:240
-msgid "Page View Count"
-msgstr ""
-
-#: classes/class-email-hook.php:243
-msgid "View all"
-msgstr ""
-
-#: classes/class-email-hook.php:243
-msgid "19 a3rev plugins"
-msgstr ""
-
-#: classes/class-email-hook.php:243
-msgid "on the WordPress repository"
-msgstr ""
-
-#: classes/class-send-wp-email-functions.php:126
+#: classes/class-send-wp-email-functions.php:123
 msgid ""
 "WP Email Template: wp_mail has been declared by another process or plugin, "
 "so you won't be able to use another Email Deliver Provider until the problem "
 "is solved."
 msgstr ""
 
-#: classes/class-send-wp-email-functions.php:133
+#: classes/class-send-wp-email-functions.php:130
 msgid "WP Email Template: You are using Invalid API key for Mandrill"
 msgstr ""
+
+#~ msgid "Live Preview"
+#~ msgstr "Предварительный просмотр"
+
+#~ msgid "WP Email Template"
+#~ msgstr "WP Email шаблон"
+
+#~ msgid "Help Promote This Plugin"
+#~ msgstr "Реклама этого плагина"
+
+#~ msgid ""
+#~ "Help spread the word by showing this at the bottom of your emails. The "
+#~ "text is linked to the plugins WordPress.org page."
+#~ msgstr ""
+#~ "Помогите распространять информацию, показывая это в нижней части вашего "
+#~ "письма. Текст связано со страницей плагинов WordPress.org."
+
+#, fuzzy
+#~ msgid "Gmail Configuration successfully saved."
+#~ msgstr "Настройки шаблона Email успешно сохранены."
+
+#, fuzzy
+#~ msgid "Error: Gmail Configuration can not save."
+#~ msgstr "Настройки шаблона Email"
+
+#, fuzzy
+#~ msgid "Gmail Configuration successfully reseted."
+#~ msgstr "Настройки шаблона Email успешно восстановлены."
+
+#, fuzzy
+#~ msgid "Mandrill Configuration successfully saved."
+#~ msgstr "Настройки шаблона Email успешно сохранены."
+
+#, fuzzy
+#~ msgid "Error: Mandrill Configuration can not save."
+#~ msgstr "Настройки шаблона Email"
+
+#, fuzzy
+#~ msgid "Mandrill Configuration successfully reseted."
+#~ msgstr "Настройки шаблона Email успешно восстановлены."
+
+#, fuzzy
+#~ msgid "SMTP Configuration successfully saved."
+#~ msgstr "Настройки шаблона Email успешно сохранены."
+
+#, fuzzy
+#~ msgid "Error: SMTP Configuration can not save."
+#~ msgstr "Настройки шаблона Email"
+
+#, fuzzy
+#~ msgid "SMTP Configuration successfully reseted."
+#~ msgstr "Настройки шаблона Email успешно восстановлены."
+
+#, fuzzy
+#~ msgid "Fonts"
+#~ msgstr "Шрифт"
+
+#, fuzzy
+#~ msgid "Upgrade to WP Email Template Pro"
+#~ msgstr "WP Email шаблон"
+
+#, fuzzy
+#~ msgid "documentation"
+#~ msgstr "Документация"
 
 #~ msgid "Header background colour"
 #~ msgstr "Цвет фона заголовка"

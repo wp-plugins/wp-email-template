@@ -1,7 +1,7 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.4.2');
-	update_option('a3rev_wp_email_template_lite_version', '1.3.6');
+	update_option('a3rev_wp_email_template_version', '1.5.0');
+	update_option('a3rev_wp_email_template_lite_version', '1.4.0');
 
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -9,6 +9,11 @@ function wp_email_template_install(){
 
 	global $wp_email_template_exclude_subject_data;
 	$wp_email_template_exclude_subject_data->install_database();
+
+	// Remove house keeping option of another version
+	delete_option('wp_email_template_clean_on_deletion');
+
+	delete_metadata( 'user', 0, $wp_email_template_admin_init->plugin_name . '-' . 'plugin_framework_global_box' . '-' . 'opened', '', true );
 
 	update_option('a3rev_wp_email_just_installed', true);
 }
@@ -47,15 +52,7 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	$wp_email_template_admin_init->init();
 
 	// Add upgrade notice to Dashboard pages
-	add_filter( $wp_email_template_admin_init->plugin_name . '_plugin_extension', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension' ) );
-
-	$admin_pages = $wp_email_template_admin_init->admin_pages();
-	if ( is_array( $admin_pages ) && count( $admin_pages ) > 0 ) {
-		foreach ( $admin_pages as $admin_page ) {
-			add_action( $wp_email_template_admin_init->plugin_name . '-' . $admin_page . '_tab_start', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension_start' ) );
-			add_action( $wp_email_template_admin_init->plugin_name . '-' . $admin_page . '_tab_end', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension_end' ) );
-		}
-	}
+	add_filter( $wp_email_template_admin_init->plugin_name . '_plugin_extension_boxes', array( 'WP_Email_Template_Hook_Filter', 'plugin_extension_box' ) );
 
 	add_action('wp_ajax_preview_wp_email_template', array('WP_Email_Template_Hook_Filter', 'preview_wp_email_template') );
 	add_action('wp_ajax_nopriv_preview_wp_email_template', array('WP_Email_Template_Hook_Filter', 'preview_wp_email_template') );
@@ -84,14 +81,18 @@ add_action('plugins_loaded', 'a3rev_wp_email_template_lite_upgrade_plugin');
 function a3rev_wp_email_template_lite_upgrade_plugin () {
 
 	if(version_compare(get_option('a3rev_wp_email_template_version'), '1.0.4') === -1){
-		$wp_email_template_settings = get_option('wp_email_template_settings');
-		if (isset($wp_email_template_settings['header_image']))
-			update_option('wp_email_template_header_image', $wp_email_template_settings['header_image']);
 		update_option('a3rev_wp_email_template_version', '1.0.4');
+
+		$wp_email_template_settings = get_option('wp_email_template_settings');
+		if (isset($wp_email_template_settings['header_image'])) {
+			update_option('wp_email_template_header_image', $wp_email_template_settings['header_image']);
+		}
 	}
 
 	//Upgrade to version 1.0.8
 	if ( version_compare( get_option( 'a3rev_wp_email_template_version'), '1.0.8' ) === -1 ) {
+		update_option( 'a3rev_wp_email_template_version', '1.0.8' );
+
 		$wp_email_template_settings = get_option( 'wp_email_template_settings' );
 
 		$wp_email_template_general = array(
@@ -137,7 +138,6 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 		);
 		update_option( 'wp_email_template_social_media', $wp_email_template_social_media );
 
-		update_option( 'a3rev_wp_email_template_version', '1.0.8' );
 	}
 
 	//Upgrade to version 1.1.0
@@ -150,22 +150,30 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 	}
 
 	if ( version_compare( get_option( 'a3rev_wp_email_template_lite_version'), '1.2.0' ) === -1 ) {
-		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.2.0.php' );
 		update_option( 'a3rev_wp_email_template_lite_version', '1.2.0' );
 
+		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.2.0.php' );
+
 		global $wp_email_template_admin_init;
 		$wp_email_template_admin_init->set_default_settings();
 	}
 
-	if ( version_compare( get_option( 'a3rev_wp_email_template_version'), '1.3.3' ) === -1 ) {
+	if ( version_compare( get_option( 'a3rev_wp_email_template_lite_version'), '1.3.3' ) === -1 ) {
+		update_option( 'a3rev_wp_email_template_lite_version', '1.3.3' );
+
 		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.3.3.php' );
-		update_option( 'a3rev_wp_email_template_version', '1.3.3' );
 
 		global $wp_email_template_admin_init;
 		$wp_email_template_admin_init->set_default_settings();
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.4.2');
-	update_option('a3rev_wp_email_template_lite_version', '1.3.6');
+	if ( version_compare( get_option( 'a3rev_wp_email_template_lite_version'), '1.4.0' ) === -1 ) {
+		update_option( 'a3rev_wp_email_template_lite_version', '1.4.0' );
+
+		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.4.0.php' );
+	}
+
+	update_option('a3rev_wp_email_template_version', '1.5.0');
+	update_option('a3rev_wp_email_template_lite_version', '1.4.0');
 }
 ?>

@@ -88,9 +88,6 @@ class WP_Email_Template_Style_Header_Settings extends WP_Email_Tempate_Admin_UI
 		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
 
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
-
-		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_start', array( $this, 'pro_fields_before' ) );
-		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_end', array( $this, 'pro_fields_after' ) );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -196,18 +193,21 @@ class WP_Email_Template_Style_Header_Settings extends WP_Email_Tempate_Admin_UI
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 
 			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+            	'name' 		=> '',
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'live_preview_box',
            	),
 
 			array(
-            	'name' 		=> __( 'Email Title', 'wp_email_template' ),
+            	'name' 		=> __( 'Title Font', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_title_box',
+                'is_box'	=> true,
            	),
            	array(
 				'name' 		=> __( 'Email Title Font', 'wp_email_template' ),
-				'desc'		=> sprintf( __( '<strong>Important!</strong> Please read Fonts <a href="%s">help notes</a>', 'wp_email_template' ), 'wp-admin/admin.php?page=wp_email_template&tab=style-fonts' ),
 				'id' 		=> 'header_font',
 				'type' 		=> 'typography',
 				'default'	=> array( 'size' => '26px', 'face' => 'Arial, sans-serif', 'style' => 'bold', 'color' => '#000000' )
@@ -230,6 +230,9 @@ class WP_Email_Template_Style_Header_Settings extends WP_Email_Tempate_Admin_UI
 			array(
             	'name' 		=> __( 'Email Title Container', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_title_container_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Container Border Margin', 'wp_email_template' ),
@@ -297,6 +300,9 @@ class WP_Email_Template_Style_Header_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Title Container Borders', 'wp_email_template' ),
             	'desc'		=> __( 'Please note all versions of Microsoft Outlook do not support borders. Most other Email Clients and all mobile email including Windows phone do.', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_title_borders_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Border Top', 'wp_email_template' ),

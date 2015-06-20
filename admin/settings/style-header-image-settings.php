@@ -85,8 +85,6 @@ class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Adm
 
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'clean_on_deletion' ) );
-
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
 	}
 
@@ -108,18 +106,6 @@ class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Adm
 		global $wp_email_template_admin_interface;
 
 		$wp_email_template_admin_interface->reset_settings( $this->form_fields, $this->option_name, false );
-	}
-
-	/*-----------------------------------------------------------------------------------*/
-	/* clean_on_deletion()
-	/* Process when clean on deletion option is un selected */
-	/*-----------------------------------------------------------------------------------*/
-	public function clean_on_deletion() {
-		if ( ( isset( $_POST['bt_save_settings'] ) || isset( $_POST['bt_reset_settings'] ) ) && get_option( 'wp_email_template_clean_on_deletion' ) == 0  )  {
-			$uninstallable_plugins = (array) get_option('uninstall_plugins');
-			unset($uninstallable_plugins[WP_EMAIL_TEMPLATE_NAME]);
-			update_option('uninstall_plugins', $uninstallable_plugins);
-		}
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -195,13 +181,16 @@ class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Adm
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 
 			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+            	'name' 		=> '',
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'live_preview_box',
            	),
 			array(
-            	'name' 		=> __( 'Header Image Container', 'wp_email_template' ),
+            	'name' 		=> __( 'Header Image', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'id'		=> 'header_image_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Header Image', 'wp_email_template' ),
@@ -225,6 +214,8 @@ class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Adm
 			array(
             	'name' 		=> __( 'Header Image Container', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'id'		=> 'header_image_container_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Container Border Margin', 'wp_email_template' ),
@@ -292,6 +283,8 @@ class WP_Email_Template_Style_Header_Image_Settings extends WP_Email_Tempate_Adm
             	'name' 		=> __( 'Image Container Borders', 'wp_email_template' ),
 				'desc'		=> __( 'Please note all versions of Microsoft Outlook do not support borders. Most other Email Clients and all mobile email including Windows phone do.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'image_container_borders_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Border Top', 'wp_email_template' ),

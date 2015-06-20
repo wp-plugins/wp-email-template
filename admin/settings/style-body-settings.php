@@ -88,9 +88,6 @@ class WP_Email_Template_Style_Body_Settings extends WP_Email_Tempate_Admin_UI
 		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
 
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
-
-		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_start', array( $this, 'pro_fields_before' ) );
-		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_end', array( $this, 'pro_fields_after' ) );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -196,19 +193,22 @@ class WP_Email_Template_Style_Body_Settings extends WP_Email_Tempate_Admin_UI
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 
 			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+            	'name' 		=> '',
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'live_preview_box',
            	),
 
 			array(
             	'name' 		=> __( 'Email Content Font', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_content_box',
+                'is_box'	=> true,
            	),
 
            	array(
 				'name' 		=> __( 'Content Font', 'wp_email_template' ),
-				'desc'		=> sprintf( __( '<strong>Important!</strong> Please read Fonts <a href="%s">help notes</a>', 'wp_email_template' ), 'wp-admin/admin.php?page=wp_email_template&tab=style-fonts' ),
 				'id' 		=> 'content_font',
 				'type' 		=> 'typography',
 				'default'	=> array( 'size' => '14px', 'face' => 'Verdana, Geneva, sans-serif', 'style' => 'normal', 'color' => '#999999' )
@@ -228,9 +228,62 @@ class WP_Email_Template_Style_Body_Settings extends WP_Email_Tempate_Admin_UI
 				'css' 		=> 'width:160px;',
 			),
 
+			array(
+            	'name' 		=> __( 'Content Title Fonts', 'wp_email_template' ),
+                'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_fonts_box',
+                'is_box'	=> true,
+           	),
+
+           	array(
+            	'name' 		=> __( 'Title Fonts Style', 'wp_email_template' ),
+				'desc'		=> __( 'The styles below will be applied to all Title fonts (H tag) in the email content.  Note some plugins that generate emails may have a H tag style that will override the template Title styles you set here.', 'wp_email_template' ),
+                'type' 		=> 'heading',
+           	),
+			array(
+				'name' 		=> __( 'H1 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h1_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '26px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' ),
+			),
+			array(
+				'name' 		=> __( 'H2 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h2_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '20px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' ),
+			),
+			array(
+				'name' 		=> __( 'H3 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h3_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '18px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' ),
+			),
+			array(
+				'name' 		=> __( 'H4 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h4_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '16px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' ),
+			),
+			array(
+				'name' 		=> __( 'H5 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h5_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '14px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' ),
+			),
+			array(
+				'name' 		=> __( 'H6 Font Style', 'wp_email_template' ),
+				'id' 		=> 'h6_font',
+				'type' 		=> 'typography',
+				'default'	=> array( 'size' => '12px', 'face' => 'Century Gothic, sans-serif', 'style' => 'italic', 'color' => '#0A0A0A' ),
+			),
+
            	array(
             	'name' 		=> __( 'Email Content Container', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_content_container_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Container Margin', 'wp_email_template' ),
@@ -300,6 +353,9 @@ class WP_Email_Template_Style_Body_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Content Container Borders', 'wp_email_template' ),
             	'desc'		=> __( 'Please note all versions of Microsoft Outlook do not support borders. Most other Email Clients and all mobile email including Windows phone do.', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_content_borders_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Border Top', 'wp_email_template' ),

@@ -1,9 +1,9 @@
 === WP Email Template  ===
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
-Requires at least: 3.7
+Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.3.6
+Stable tag: 1.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -87,20 +87,18 @@ Some of the better known plugins of the 1,000's of plugins that WP Email Templat
 * BackupBuddy - I love it when even my admin emails are branded - see the screenshots
 * Wordfence - Branded security emails - nice.
 
-= Mobile Responsive App style admin interface =
+= Mobile First App style admin interface =
 
 * 100% compatible with WordPress v4.2.2 admin interface.
-* Backward compatibility to WordPress v3.9.0
-* App style admin interface.
-* Admin app interface is fully mobile and tablet responsive.
+* Backward compatibility to WordPress v4.0
+* Mobile first admin interface.
 
 = a3rev Plugins Lite & Pro Version Admin Interface =
 
 * All a3rev Lite Version plugins have exactly the same admin interface as the Pro Version.
-* Pro Version features and settings are inside of a Yellow border.
+* Pro Version feature Setting Boxes have a green box header.
 * The Pro Version settings are all active on the admin panels But do not save and are not applied to the front end.
-* Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Yellow side bar and borders.
-
+* Upgrading to the Pro version activates all the Pro version Features and Settings and removes the Setting Box header green background
 >= Premium Support =
 
 >The a3rev team does not provide support for the WP Email Template plugin on the WordPress.org forums. One on one developer support is available via the plugins a3rev [support forum](https://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/) to people who have purchased a [WP Email Template Pro](http://a3rev.com/shop/wp-email-template/) plugin Lifetime License.
@@ -137,9 +135,9 @@ If you do a translation for your site please send it to us and we'll include it 
 
 = Minimum Requirements =
 
-* WordPress 3.9.0
+* WordPress 4.0
 * PHP version 5.2.4 or greater
-* MySQL version 5.0 or greater
+* MySQL version 5.3 or greater
 
 = Automatic installation =
 
@@ -178,6 +176,23 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.4.0 - 2015/06/20 =
+* Feature - Plugin framework Mobile First focus upgrade
+* Feature - Massive improvement in admin UI and UX in PC, tablet and mobile browsers
+* Feature - Introducing opening and closing Setting Boxes on admin panels.
+* Feature - Added Plugin Framework Customization settings. Control how the admin panel settings show when editing.
+* Feature - New interface has allowed us to do away with the 4 Tab menus on the admin panel
+* Feature - Includes a script to automatically combine removed tab settings into Tabs main table when upgrading
+* Feature - Added Option to set Google Fonts API key to directly access latest fonts and font updates from Google 
+* Feature - Added full support for Right to Left RTL layout on plugins admin dashboard. 
+* Feature - Added a 260px wide images to the right sidebar for support forum link, Documentation links.
+* Tweak - Send WP Emails now just 1 menu page - combined the STMP, Gmail and Mandrill tabs in the main page
+* Tweak - Template menu - moved Fonts tab settings to the Content tab in its own Settings Box
+* Tweak - Moved Clean up on Deletion setting to the new Plugin Framework Global Settings Box
+* Tweak - Updated some admin panel Description and Help text
+* Tweak - Tested for full compatibility with WooCommerce Version 2.3.11
+* Fix - Check 'request_filesystem_credentials' function, if it does not exists then require the core php lib file from WP where it is defined
 
 = 1.3.6 - 2015/06/03 =
 * Tweak - Tested for full compatibility with WooCommerce Version 2.3.10
@@ -370,6 +385,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.4.0 =
+Major Feature Upgrade. Massive admin panel UI and UX upgrade. Includes 6 new features, 4 Tweaks and 1 bug fix plus full compatibility with WooCommerce Version 2.3.11
 
 = 1.3.6 =
 Important Maintenance Upgrade. 2 x major a3rev Plugin Framework Security Hardening Tweaks plus 1 https bug fix and full compatibility with WooCommerce Version 2.3.10

@@ -9,40 +9,37 @@
  */
 class WP_Email_Template_Send_Wp_Emails_Functions
 {
-	public $get_email_delivery_provider = 'smtp'; 
-	
+	public $get_email_delivery_provider = 'smtp';
+
 	public function __construct() {
 		$wp_et_send_wp_emails_general = get_option( 'wp_et_send_wp_emails_general', array() );
-		
+
 		$get_email_delivery_provider = $wp_et_send_wp_emails_general['email_delivery_provider'];
-		
+
 		// Check if allow custom email wordpress delivery
-		if ( $wp_et_send_wp_emails_general['enable_configure_email_sending_provider'] == 'yes' ) {
-			
-			if ( $wp_et_send_wp_emails_general['email_sending_option'] == 'provider' ) {
-				
-				// Update Email Wordpress to Email Delivery Provider
-				switch( $get_email_delivery_provider ) :
-					case 'mandrill':
-						$this->mandrill_init();
-					break;
-					case 'gmail-smtp':
-						$this->gmail_smtp_init();
-					break;
-					default:
-						$this->smtp_init();
-					break;
-				endswitch;
-				
-			} elseif ( $wp_et_send_wp_emails_general['is_godaddy_hosting'] == 'yes' ) {
-				
-				// Update SMTP Host to relay-hosting.secureserver.net if it's GoDaddy Hosting
-				$this->godaddy_init();
-					
-			}
+		if ( $wp_et_send_wp_emails_general['email_sending_option'] == 'provider' ) {
+
+			// Update Email Wordpress to Email Delivery Provider
+			switch( $get_email_delivery_provider ) :
+				case 'mandrill':
+					$this->mandrill_init();
+				break;
+				case 'gmail-smtp':
+					$this->gmail_smtp_init();
+				break;
+				default:
+					$this->smtp_init();
+				break;
+			endswitch;
+
+		} elseif ( $wp_et_send_wp_emails_general['is_godaddy_hosting'] == 'yes' ) {
+
+			// Update SMTP Host to relay-hosting.secureserver.net if it's GoDaddy Hosting
+			$this->godaddy_init();
+
 		}
 	}
-	
+
 	public function godaddy_init() {
 		global $wp_et_smtp_class;
 		
@@ -127,7 +124,7 @@ class WP_Email_Template_Send_Wp_Emails_Functions
 	}
 	
 	public function mandrill_api_key_invalid() {
-		if ( in_array (basename($_SERVER['PHP_SELF']), array('admin.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'send_wp_emails' && isset( $_GET['tab'] ) && $_GET['tab'] == 'mandrill' ) return;
+		if ( in_array (basename($_SERVER['PHP_SELF']), array('admin.php') ) && isset( $_GET['page'] ) && $_GET['page'] == 'send_wp_emails' ) return;
 		
 		if ( get_option( 'wp_et_mandrill_api_key_valid', 0 ) != 1 ) {
 			echo '<div class="error"><p>'. __( "WP Email Template: You are using Invalid API key for Mandrill", 'wp_email_template' ) . '</p></div>';

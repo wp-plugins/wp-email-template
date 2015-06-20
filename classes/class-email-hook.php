@@ -81,7 +81,6 @@ class WP_Email_Template_Hook_Filter
 	}
 
 	public static function style_inline_h1_tag( $styles ) {
-		global $wp_email_template_fonts_face, $wp_email_template_general;
 
 		if ( self::check_apply_template_for_woocommerce_emails() ) {
 
@@ -95,7 +94,6 @@ class WP_Email_Template_Hook_Filter
 	}
 
 	public static function style_inline_h2_tag( $styles ) {
-		global $wp_email_template_fonts_face, $wp_email_template_general;
 
 		if ( self::check_apply_template_for_woocommerce_emails() ) {
 
@@ -109,7 +107,6 @@ class WP_Email_Template_Hook_Filter
 	}
 
 	public static function style_inline_h3_tag( $styles ) {
-		global $wp_email_template_fonts_face, $wp_email_template_general;
 
 		if ( self::check_apply_template_for_woocommerce_emails() ) {
 
@@ -194,6 +191,46 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		wp_enqueue_style( 'a3rev-wp-et-admin-sidebar-menu-style', WP_EMAIL_TEMPLATE_CSS_URL . '/admin_sidebar_menu.css' );
 	}
 
+	public static function plugin_extension_box( $boxes = array() ) {
+		$support_box = '<a href="https://wordpress.org/support/plugin/wp-email-template" target="_blank" alt="'.__('Go to Support Forum', 'wp_email_template').'"><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/go-to-support-forum.png" /></a>';
+		$boxes[] = array(
+			'content' => $support_box,
+			'css' => 'border: none; padding: 0; background: none;'
+		);
+
+		$pro_box = '<a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank" alt="'.__('WP Email Template Pro', 'wp_email_template').'"><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/pro-version.png" /></a>';
+		$boxes[] = array(
+			'content' => $pro_box,
+			'css' => 'border: none; padding: 0; background: none;'
+		);
+
+		$free_wordpress_box = '<a href="https://profiles.wordpress.org/a3rev/#content-plugins" target="_blank" alt="'.__('Free WordPress Plugins', 'wp_email_template').'"><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/free-wordpress-plugins.png" /></a>';
+
+		$boxes[] = array(
+			'content' => $free_wordpress_box,
+			'css' => 'border: none; padding: 0; background: none;'
+		);
+
+        $review_box = '<div style="margin-bottom: 5px; font-size: 12px;"><strong>' . __('Is this plugin is just what you needed? If so', 'wp_email_template') . '</strong></div>';
+        $review_box .= '<a href="https://wordpress.org/support/view/plugin-reviews/wp-email-template?filter=5#postform" target="_blank" alt="'.__('Submit Review for Plugin on WordPress', 'wp_email_template').'"><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/a-5-star-rating-would-be-appreciated.png" /></a>';
+
+        $boxes[] = array(
+            'content' => $review_box,
+            'css' => 'border: none; padding: 0; background: none;'
+        );
+
+        $connect_box = '<div style="margin-bottom: 5px;">' . __('Connect with us via','wp_email_template') . '</div>';
+		$connect_box .= '<a href="https://www.facebook.com/a3rev" target="_blank" alt="'.__('a3rev Facebook', 'wp_email_template').'" style="margin-right: 5px;"><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/follow-facebook.png" /></a> ';
+		$connect_box .= '<a href="https://twitter.com/a3rev" target="_blank" alt="'.__('a3rev Twitter', 'wp_email_template').'"><img src="'.WP_EMAIL_TEMPLATE_IMAGES_URL.'/follow-twitter.png" /></a>';
+
+		$boxes[] = array(
+			'content' => $connect_box,
+			'css' => 'border-color: #3a5795;'
+		);
+
+		return $boxes;
+	}
+
 	public static function plugin_extra_links($links, $plugin_name) {
 		if ( $plugin_name != WP_EMAIL_TEMPLATE_NAME) {
 			return $links;
@@ -207,53 +244,6 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		$actions = array_merge( array( 'settings' => '<a href="admin.php?page=wp_email_template">' . __( 'Settings', 'wp_email_template' ) . '</a>' ), $actions );
 
 		return $actions;
-	}
-
-	public static function plugin_extension_start() {
-		global $wp_email_template_admin_init;
-
-		$wp_email_template_admin_init->plugin_extension_start();
-	}
-
-	public static function plugin_extension_end() {
-		global $wp_email_template_admin_init;
-
-		$wp_email_template_admin_init->plugin_extension_end();
-	}
-
-	public static function plugin_extension() {
-		$html = '';
-		$html .= '<a href="http://a3rev.com/shop/" target="_blank" style="float:right;margin-top:5px; margin-left:10px;" ><div class="a3-plugin-ui-icon a3-plugin-ui-a3-rev-logo"></div></a>';
-		$html .= '<h3>'.__('Upgrade to WP Email Template Pro', 'wp_email_template').'</h3>';
-		$html .= '<p>'.__("<strong>NOTE:</strong> All the functions inside the Yellow border on the plugins admin panel are extra functionality that is activated by upgrading to the Pro version", 'wp_email_template').':</p>';
-		$html .= '<p>';
-		$html .= '<h3 style="margin-bottom:5px;">* <a href="'.WP_EMAIL_TEMPLATE_AUTHOR_URI.'" target="_blank">'.__('WP Email Template Pro', 'wp_email_template').'</a></h3>';
-
-		$html .= '<div><strong>'.__('Features', 'wp_email_template').':</strong></div>';
-		$html .= '<p>';
-		$html .= '<ul style="padding-left:10px;">';
-		$html .= '<li>1. '.__("Create a fully customized responsive email template in not days but just minutes.", 'wp_email_template').'</li>';
-		$html .= '<li>2. '.__("Web Developers - wow your web clients with an email template that matches their site.", 'wp_email_template').'</li>';
-		$html .= '<li>3. '.__('Site owners (even complete novices) with the Pro Version it will take you just a few minutes to be wowing your users with your uniquely styled and branded emails that they get from your site.', 'wp_email_template').'</li>';
-		$html .= '<li>4. '.__('Lifetime License Fee - no ongoing payments.', 'wp_email_template').'</li>';
-		$html .= '<li>5. '.__('Lifetime Pro License support from developers.', 'wp_email_template').'</li>';
-		$html .= '</ul>';
-		$html .= '</p>';
-		$html .= '<h3>'.__('View this plugins', 'wp_email_template').' <a href="'.WP_EMAIL_TEMPLATE_DOCS_URI.'" target="_blank">'.__('documentation', 'wp_email_template').'</a></h3>';
-		$html .= '<h3>'.__('Lite Version plugins', 'wp_email_template').' <a href="http://wordpress.org/support/plugin/wp-email-template/" target="_blank">'.__('support forum', 'wp_email_template').'</a></h3>';
-
-		$html .= '<h3>'.__('More a3rev Quality WordPress Plugins', 'wp_email_template').'</h3>';
-		$html .= '<p>';
-		$html .= '<ul style="padding-left:10px;">';
-		$html .= '<li>* <a href="https://wordpress.org/plugins/a3-lazy-load/" target="_blank">'.__('a3 Lazy Load', 'wp_email_template').'</a> &nbsp;&nbsp;&nbsp; <sup>*</sup>'.__( 'New Plugin' , 'wp_email_template' ).'</li>';
-		$html .= '<li>* <a href="https://wordpress.org/plugins/a3-portfolio/" target="_blank">'.__('a3 Portfolio', 'wp_email_template').'</a> &nbsp;&nbsp;&nbsp; <sup>*</sup>'.__( 'New Plugin' , 'wp_email_template' ).'</li>';
-		$html .= '<li>* <a href="http://wordpress.org/plugins/a3-responsive-slider/" target="_blank">'.__('a3 Responsive Slider', 'wp_email_template').'</a>&nbsp;&nbsp;&nbsp; ('.__( 'Just released', 'wp_email_template' ).')</li>';
-		$html .= '<li>* <a href="http://wordpress.org/plugins/contact-us-page-contact-people/" target="_blank">'.__('Contact Us page - Contact People', 'wp_email_template').'</a></li>';
-		$html .= '<li>* <a href="http://wordpress.org/extend/plugins/page-views-count/" target="_blank">'.__('Page View Count', 'wp_email_template').'</a></li>';
-		$html .= '</ul>';
-		$html .= '</p>';
-		$html .= '<p>'.__("View all", 'wp_email_template').' <a href="http://profiles.wordpress.org/a3rev/" target="_blank">'.__("19 a3rev plugins", 'wp_email_template').'</a> '.__('on the WordPress repository', 'wp_email_template').'</p>';
-		return $html;
 	}
 }
 ?>

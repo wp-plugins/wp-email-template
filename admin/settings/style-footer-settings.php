@@ -1,4 +1,4 @@
-<?php
+ <?php
 /* "Copyright 2012 A3 Revolution Web Design" This software is distributed under the terms of GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007 */
 // File Security Check
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -83,17 +83,11 @@ class WP_Email_Template_Style_Footer_Settings extends WP_Email_Tempate_Admin_UI
 				'reset_message'		=> __( 'WP Email Template Style  successfully reseted.', 'wp_email_template' ),
 			);
 
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_end', array( $this, 'include_script' ) );
-
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 
 		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
 
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
-
-		// Add yellow border for pro fields
-		add_action( $this->plugin_name . '_settings_footer_content_font_before', array( $this, 'pro_fields_before' ) );
-		add_action( $this->plugin_name . '_settings_footer_container_borders_after', array( $this, 'pro_fields_after' ) );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -199,14 +193,17 @@ class WP_Email_Template_Style_Footer_Settings extends WP_Email_Tempate_Admin_UI
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 
 			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+            	'name' 		=> '',
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'live_preview_box',
            	),
 
 			array(
             	'name' 		=> __( 'Email Footer Content', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'id'		=> 'email_footer_content_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Footer Message', 'wp_email_template' ),
@@ -222,11 +219,12 @@ class WP_Email_Template_Style_Footer_Settings extends WP_Email_Tempate_Admin_UI
 			array(
             	'name' 		=> __( 'Footer Content Font', 'wp_email_template' ),
                 'type' 		=> 'heading',
-                'id'		=> 'footer_content_font'
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_footer_font_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Footer Font', 'wp_email_template' ),
-				'desc'		=> sprintf( __( '<strong>Important!</strong> Please read Fonts <a href="%s">help notes</a>', 'wp_email_template' ), 'wp-admin/admin.php?page=wp_email_template&tab=style-fonts' ),
 				'id' 		=> 'footer_font',
 				'type' 		=> 'typography',
 				'default'	=> array( 'size' => '11px', 'face' => 'Arial, sans-serif', 'style' => 'normal', 'color' => '#999999' )
@@ -235,6 +233,9 @@ class WP_Email_Template_Style_Footer_Settings extends WP_Email_Tempate_Admin_UI
 			array(
             	'name' 		=> __( 'Footer Container', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_footer_container_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Container Margin', 'wp_email_template' ),
@@ -304,7 +305,9 @@ class WP_Email_Template_Style_Footer_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Footer Container Borders', 'wp_email_template' ),
             	'desc'		=> __( 'Please note all versions of Microsoft Outlook do not support borders. Most other Email Clients and all mobile email including Windows phone do.', 'wp_email_template' ),
                 'type' 		=> 'heading',
-                'id'		=> 'footer_container_borders'
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'email_footer_borders_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Border Top', 'wp_email_template' ),
@@ -342,17 +345,6 @@ class WP_Email_Template_Style_Footer_Settings extends WP_Email_Tempate_Admin_UI
 			),
 
         ));
-	}
-
-	public function include_script() {
-	?>
-<style>
-#a3_plugin_panel_extensions {
-	position:absolute;
-	bottom:50px;
-}
-</style>
-	<?php
 	}
 }
 

@@ -42,6 +42,10 @@ class WP_Email_Template_Less
 
         $form_url = wp_nonce_url( esc_url( add_query_arg( 'compile-sass', 'true' ) ), 'compile-sass' );
 
+        if ( ! function_exists( 'request_filesystem_credentials' ) ) {
+            require_once( ABSPATH . 'wp-admin/includes/file.php' );
+        }
+
         if ( false === ( $creds = request_filesystem_credentials( $form_url, '', false, false, null ) ) ) {
             return true;
         }

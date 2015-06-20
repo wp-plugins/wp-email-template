@@ -113,11 +113,10 @@ class WP_Email_Template_Generate_Tab extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
 		global $wp_email_template_general_settings;
-		
+
 		$this->plugin_extension_start();
 		$wp_email_template_general_settings->settings_form();
 		$this->plugin_extension_end();
-		
 	}
 }
 

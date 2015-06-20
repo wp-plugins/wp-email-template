@@ -117,7 +117,7 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 	/* Process when clean on deletion option is un selected */
 	/*-----------------------------------------------------------------------------------*/
 	public function clean_on_deletion() {
-		if ( ( isset( $_POST['bt_save_settings'] ) || isset( $_POST['bt_reset_settings'] ) ) && get_option( 'wp_email_template_clean_on_deletion' ) == 0  )  {
+		if ( ( isset( $_POST['bt_save_settings'] ) || isset( $_POST['bt_reset_settings'] ) ) && get_option( 'wp_email_template_lite_clean_on_deletion' ) == 0  )  {
 			$uninstallable_plugins = (array) get_option('uninstall_plugins');
 			unset($uninstallable_plugins[WP_EMAIL_TEMPLATE_NAME]);
 			update_option('uninstall_plugins', $uninstallable_plugins);
@@ -196,15 +196,85 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
   		// Define settings
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 
-			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+     		array(
+            	'name' 		=> '',
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'live_preview_box',
            	),
 
-           	array(
-            	'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
+     		array(
+            	'name' 		=> __( 'Plugin Framework Global Settings', 'wp_email_template' ),
+            	'id'		=> 'plugin_framework_global_box',
                 'type' 		=> 'heading',
+                'first_open'=> true,
+                'is_box'	=> true,
+           	),
+           	array(
+           		'name'		=> __( 'Customize Admin Setting Box Display', 'wp_email_template' ),
+           		'desc'		=> __( 'By default each admin panel will open with all Setting Boxes in the CLOSED position.', 'wp_email_template' ),
+                'type' 		=> 'heading',
+           	),
+           	array(
+				'type' 		=> 'onoff_toggle_box',
+			),
+			array(
+           		'name'		=> __( 'Google Fonts', 'wp_email_template' ),
+           		'desc'		=> __( 'By Default Google Fonts are pulled from a static JSON file in this plugin. This file is updated but does not have the latest font releases from Google.', 'wp_email_template' ),
+                'type' 		=> 'heading',
+           	),
+           	array(
+                'type' 		=> 'google_api_key',
+           	),
+           	array(
+            	'name' 		=> __( 'House Keeping', 'wp_email_template' ),
+                'type' 		=> 'heading',
+            ),
+			array(
+				'name' 		=> __( 'Clean up on Deletion', 'wp_email_template' ),
+				'desc' 		=> __( 'On deletion (not deactivate) the plugin will completely remove all tables and data it created, leaving no trace it was ever here.', 'wp_email_template'),
+				'id' 		=> 'wp_email_template_lite_clean_on_deletion',
+				'type' 		=> 'onoff_checkbox',
+				'default'	=> '0',
+				'separate_option'	=> true,
+				'free_version'		=> true,
+				'checked_value'		=> '1',
+				'unchecked_value'	=> '0',
+				'checked_label'		=> __( 'ON', 'wp_email_template' ),
+				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
+			),
+			array(
+            	'name' 		=> __( 'Advanced Features Setting Boxes', 'wp_email_template' ),
+                'type' 		=> 'heading',
+            ),
+            array(
+				'name' 		=> __( 'Explanation', 'wp_email_template' ),
+				'desc' 		=> '</span><div style="height:15px;">&nbsp;</div><div class="psad_explanation_message" style="clear:both;">
+<ul>
+	<li>* ' . __( 'This plugin has Pro Version upgrade with advanced features.', 'wp_email_template' ) . '</li>
+	<li>* ' . __( 'All Pro Version advanced features settings show here on the Lite Version admin panel.', 'wp_email_template' ) . '</li>
+	<li>* ' . __( 'The Pro Version settings work on this admin panel but changes are NOT saved and NOT applied to the front end.', 'wp_email_template' ) . '</li>
+	<li>* ' . __( 'Upgrading to a Lifetime License Pro Version of this plugin activates all settings.', 'wp_email_template' ) . '</li>
+	<li>* ' . __( 'The Pro Version Lifetime License Fee is a once only payment.', 'wp_email_template' ) . '</li>
+	<li>* ' . __( 'No data lost in upgrade. Deactivate the Lite version, install and activate the Pro Version. All data is preserved.', 'wp_email_template' ) . '</li>
+</ul>
+				</div><span>',
+				'class'		=> 'psad_explanation',
+				'id' 		=> 'psad_explanation',
+				'type' 		=> 'onoff_checkbox',
+				'default'	=> 'no',
+				'free_version'		=> true,
+				'checked_value'		=> 'yes',
+				'unchecked_value'	=> 'no',
+				'checked_label'		=> __( 'SHOW', 'wp_email_template' ),
+				'unchecked_label' 	=> __( 'HIDE', 'wp_email_template' ),
+			),
+
+           	array(
+            	'name' 		=> __( 'WP Email Template Activation', 'wp_email_template' ),
+                'type' 		=> 'heading',
+                'id'		=> 'wp_email_template_activation_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Apply Template', 'wp_email_template' ),
@@ -224,6 +294,8 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Template Width', 'wp_email_template' ),
                 'type' 		=> 'heading',
                 'class'		=> 'show_template_container',
+                'id'		=> 'template_width_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Width', 'wp_email_template' ),
@@ -238,6 +310,8 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Template Background', 'wp_email_template' ),
                 'type' 		=> 'heading',
                 'class'		=> 'show_template_container',
+                'id'		=> 'template_bg_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Background colour', 'wp_email_template' ),
@@ -263,6 +337,8 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Outlook 2007 / 2010 / 2013 Box Border', 'wp_email_template' ),
                 'type' 		=> 'heading',
                 'class'		=> 'show_template_container',
+                'id'		=> 'outlook_border_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Box Border', 'wp_email_template' ),
@@ -281,6 +357,8 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'WooCommerce Configuration', 'wp_email_template' ),
                 'type' 		=> 'heading',
                 'class'		=> 'show_template_container',
+                'id'		=> 'wc_configuration_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Apply to WooCommerce emails', 'wp_email_template' ),
@@ -296,40 +374,18 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 			),
 
 			array(
-            	'name' 		=> __( 'Help Promote This Plugin', 'wp_email_template' ),
+            	'name' 		=> __( 'Help Notes', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'id'		=> 'font_help_notes_box',
                 'class'		=> 'show_template_container',
+                'is_box'	=> true,
            	),
-			array(
-				'name' 		=> __( 'WP Email Template', 'wp_email_template' ),
-				'desc' 		=> __( 'Help spread the word by showing this at the bottom of your emails. The text is linked to the plugins WordPress.org page.', 'wp_email_template' ),
-				'id' 		=> 'show_plugin_url',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'yes',
-				'free_version'		=> true,
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
-			),
-
-			array(
-            	'name' 		=> __( 'House Keeping :', 'wp_email_template' ),
+           	array(
+            	'name' 		=> __( 'Email Font Render', 'wp_email_template' ),
+				'desc'		=> __( "<strong>Important!</strong> The a3rev dynamic font editors give you the choice of 16 Default or Web safe fonts plus 364 Google fonts. The 16 Web safe fonts work in all email clients but be aware that Google fonts don't. Google fonts are fetched by &lt;link&gt; from Google. Gmail and Microsoft Outlook remove all &lt;link&gt; tags and hence default to one of the Web safe fonts. Interestingly iOS, Android Gmail and Windows mobile don't and Google fonts show beautifully. Go figure the weird and wonderful world of HTM email template design.", 'wp_email_template' ),
                 'type' 		=> 'heading',
            	),
-			array(
-				'name' 		=> __( 'Clean up on Deletion', 'wp_email_template' ),
-				'desc' 		=> __( "Check this box and if you ever delete this plugin it will completely remove all tables and data it created, leaving no trace it was ever here.", 'wp_email_template' ),
-				'id' 		=> 'wp_email_template_clean_on_deletion',
-				'type' 		=> 'onoff_checkbox',
-				'default'	=> '1',
-				'free_version'		=> true,
-				'separate_option'	=> true,
-				'checked_value'		=> '1',
-				'unchecked_value'	=> '0',
-				'checked_label'		=> __( 'ON', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'OFF', 'wp_email_template' ),
-			),
+
         ));
 	}
 
@@ -338,15 +394,26 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 <script>
 (function($) {
 $(document).ready(function() {
-
-	if ( $("input.apply_template_all_emails:checked").val() == 'yes') {
-		$(".show_template_container").css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+	if ( $("input.psad_explanation:checked").val() == 'yes') {
+		$(".psad_explanation_message").show();
 	} else {
-		$(".show_template_container").css( {'visibility': 'hidden', 'height' : '0px', 'overflow' : 'hidden'} );
+		$(".psad_explanation_message").hide();
 	}
 
+	if ( $("input.apply_template_all_emails:checked").val() != 'yes') {
+		$(".show_template_container").css( {'visibility': 'hidden', 'height' : '0px', 'overflow' : 'hidden', 'margin-bottom' : '0px'} );
+	}
+
+	$(document).on( "a3rev-ui-onoff_checkbox-switch", '.psad_explanation', function( event, value, status ) {
+		if ( status == 'true' ) {
+			$(".psad_explanation_message").slideDown();
+		} else {
+			$(".psad_explanation_message").slideUp();
+		}
+	});
+
 	$(document).on( "a3rev-ui-onoff_checkbox-switch", '.apply_template_all_emails', function( event, value, status ) {
-		$(".show_template_container").hide().css( {'visibility': 'visible', 'height' : 'auto', 'overflow' : 'inherit'} );
+		$(".show_template_container").attr('style','display:none;');
 		if ( status == 'true' ) {
 			$(".show_template_container").slideDown();
 		} else {

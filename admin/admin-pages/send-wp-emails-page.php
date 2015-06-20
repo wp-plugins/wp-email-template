@@ -66,7 +66,7 @@ class WP_Email_Template_Send_WP_Emails_Page extends WP_Email_Tempate_Admin_UI
 			'menu_slug'			=> $this->menu_slug,
 			'function'			=> 'wp_email_template_send_wp_emails_page_show',
 			'admin_url'			=> 'admin.php',
-			'callback_function' => '',
+			'callback_function' => 'callback_wp_email_template_send_wp_emails_page_show',
 			'script_function' 	=> '',
 			'view_doc'			=> '',
 		);
@@ -95,9 +95,6 @@ class WP_Email_Template_Send_WP_Emails_Page extends WP_Email_Tempate_Admin_UI
 	public function tabs_include() {
 		
 		include_once( $this->admin_plugin_dir() . '/tabs/send-wp-emails/general-settings-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/send-wp-emails/smtp-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/send-wp-emails/gmail-tab.php' );
-		include_once( $this->admin_plugin_dir() . '/tabs/send-wp-emails/mandrill-tab.php' );
 		
 	}
 	
@@ -109,6 +106,18 @@ class WP_Email_Template_Send_WP_Emails_Page extends WP_Email_Tempate_Admin_UI
 		global $wp_email_template_admin_init;
 		
 		$wp_email_template_admin_init->admin_settings_page( $this->page_data() );
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/* admin_settings_page() */
+	/* Show Settings Page */
+	/*-----------------------------------------------------------------------------------*/
+	public function callback_admin_settings_page() {
+		global $wp_et_send_wp_emails_general_settings;
+
+		$this->plugin_extension_start();
+		$wp_et_send_wp_emails_general_settings->settings_form();
+		$this->plugin_extension_end();
 	}
 	
 }
@@ -123,6 +132,11 @@ $wp_email_template_send_wp_emails_page = new WP_Email_Template_Send_WP_Emails_Pa
 function wp_email_template_send_wp_emails_page_show() {
 	global $wp_email_template_send_wp_emails_page;
 	$wp_email_template_send_wp_emails_page->admin_settings_page();
+}
+
+function callback_wp_email_template_send_wp_emails_page_show() {
+	global $wp_email_template_send_wp_emails_page;
+	$wp_email_template_send_wp_emails_page->callback_admin_settings_page();
 }
 
 ?>

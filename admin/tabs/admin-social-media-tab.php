@@ -113,11 +113,10 @@ class WP_Email_Template_Social_Media_Tab extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
 		global $wp_email_template_social_media_settings;
-		
+
 		$this->plugin_extension_start();
 		$wp_email_template_social_media_settings->settings_form();
 		$this->plugin_extension_end();
-		
 	}
 }
 

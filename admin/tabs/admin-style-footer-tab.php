@@ -113,11 +113,10 @@ class WP_Email_Template_Style_Footer_Tab extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
 		global $wp_email_template_style_footer_settings;
-		
+
 		$this->plugin_extension_start();
 		$wp_email_template_style_footer_settings->settings_form();
 		$this->plugin_extension_end();
-		
 	}
 }
 

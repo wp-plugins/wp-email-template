@@ -21,7 +21,6 @@ class WP_Email_Template_Functions
 
 	public static function replace_shortcode_header ($template_html='', $email_heading='') {
 		global $wp_email_template_general, $wp_email_template_style_header_image, $wp_email_template_social_media;
-		global $wp_email_template_style_fonts;
 		$background_pattern_image = 'url('.WP_EMAIL_TEMPLATE_IMAGES_URL.'/pattern.png)';
 
 		$email_container_width = trim( $wp_email_template_general['email_container_width'] );
@@ -104,11 +103,14 @@ class WP_Email_Template_Functions
 
 		$footer_border	= 'border: none !important;';
 
+		$rtl = is_rtl() ? 'rtl' : '';
 		$list_header_shortcode = array(
 			'blog_name'                     => get_bloginfo('name'),
 			'external_link'                 => $external_link,
 			'outlook_container_border'      => $outlook_container_border,
 			'email_container_width'			=> $email_container_width,
+
+			'text_dir'						=> $rtl,
 
 			'header_image'                  => $header_image_html,
 			'header_image_margin_bottom'    => $header_image_margin_bottom,
@@ -215,9 +217,6 @@ class WP_Email_Template_Functions
 		if (trim($facebook_html) != '' || trim($twitter_html) != '' || trim($linkedIn_html) != '' || trim($pinterest_html) != '' || trim($googleplus_html) != '')
 			$follow_text = __('Follow us on', 'wp_email_template');
 
-		$wordpress_email_template_url = '<div style="clear:both"></div><div style="float:right;"><a style="color: #1155CC;" href="http://a3rev.com/shop/wp-email-template/" target="_blank">'.__('WP Email Template', 'wp_email_template').'</a></div>';
-		if (isset($wp_email_template_general['show_plugin_url']) && trim(esc_attr($wp_email_template_general['show_plugin_url'])) == 'no') $wordpress_email_template_url = '';
-
 		if ( isset($wp_email_template_general['deactivate_pattern_background']) && $wp_email_template_general['deactivate_pattern_background'] == 'yes') {
 			$background_pattern_image= '';
 		}
@@ -238,7 +237,6 @@ class WP_Email_Template_Functions
 
 			'background_colour'            => stripslashes($wp_email_template_general['background_colour']),
 			'background_pattern_image'     => $background_pattern_image,
-			'wordpress_email_template_url' => $wordpress_email_template_url,
 			'footer_font'                  => $footer_font ,
 			'footer_background_colour'     => '#ffffff',
 			'footer_padding_top'           => 24,

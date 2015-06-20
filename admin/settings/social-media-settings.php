@@ -82,15 +82,12 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
 				'error_message'		=> __( 'Error: Social Media Settings can not save.', 'wp_email_template' ),
 				'reset_message'		=> __( 'Social Media Settings successfully reseted.', 'wp_email_template' ),
 			);
-		
-		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_end', array( $this, 'include_script' ) );
 			
 		add_action( $this->plugin_name . '_set_default_settings' , array( $this, 'set_default_settings' ) );
 		
 		add_action( $this->plugin_name . '-' . $this->form_key . '_settings_init' , array( $this, 'reset_default_settings' ) );
 		
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
-		
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
@@ -196,14 +193,16 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 		
 			array(
-            	'name' 		=> __( 'Live Preview', 'wp_email_template' ),
+            	'name' 		=> '',
 				'desc'		=> __( 'For a live preview of changes save them and then', 'wp_email_template' ) . ' <a href="' . admin_url( 'admin-ajax.php', 'relative' ) . '?action=preview_wp_email_template&security='.$preview_wp_email_template.'" target="_blank">' . __( 'Click here to preview your email template.', 'wp_email_template' ) . '</a>',
                 'type' 		=> 'heading',
+                'id'		=> 'live_preview_box',
            	),
-			
 			array(
             	'name' 		=> __( 'Follow Us On', 'wp_email_template' ),
                 'type' 		=> 'heading',
+                'id'		=> 'follow_us_box',
+                'is_box'	=> true,
            	),
 			array(  
 				'name' 		=> __( 'Facebook URI', 'wp_email_template' ),
@@ -250,6 +249,8 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
             	'name' 		=> __( 'Social Media Icons', 'wp_email_template' ),
 				'class'		=> 'pro_feature_fields',
                 'type' 		=> 'heading',
+                'id'		=> 'social_media_box',
+                'is_box'	=> true,
            	),
 			array(  
 				'name' 		=> __( 'Facebook Icon', 'wp_email_template' ),
@@ -283,17 +284,6 @@ class WP_Email_Template_Social_Media_Settings extends WP_Email_Tempate_Admin_UI
 			),
 			
         ));
-	}
-	
-	public function include_script() {
-	?>
-<style>
-#a3_plugin_panel_extensions {
-	position:absolute;
-	bottom:50px;	
-}
-</style>
-	<?php
 	}
 }
 

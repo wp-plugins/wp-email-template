@@ -47,7 +47,7 @@ class WP_ET_Send_WP_Emails_Generate_Tab extends WP_Email_Tempate_Admin_UI
 	public function __construct() {
 		
 		$this->settings_include();
-		$this->tab_init();
+		//$this->tab_init();
 	}
 	
 	/*-----------------------------------------------------------------------------------*/
@@ -113,9 +113,10 @@ class WP_ET_Send_WP_Emails_Generate_Tab extends WP_Email_Tempate_Admin_UI
 	/*-----------------------------------------------------------------------------------*/
 	public function tab_manager() {
 		global $wp_et_send_wp_emails_general_settings;
-		
+
+		$this->plugin_extension_start();
 		$wp_et_send_wp_emails_general_settings->settings_form();
-		
+		$this->plugin_extension_end();
 	}
 }
 

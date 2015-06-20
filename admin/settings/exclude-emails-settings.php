@@ -93,12 +93,9 @@ class WP_Email_Template_Exclude_Emails_Settings extends WP_Email_Tempate_Admin_U
 
 		add_action( $this->plugin_name . '_get_all_settings' , array( $this, 'get_settings' ) );
 
-		add_action( $this->plugin_name . '_settings_' . 'exclude_by_subject_title' . '_start', array( $this, 'exclude_email_subject_lists' ) );
+		add_action( $this->plugin_name . '_settings_' . 'exclude_by_subject_title_box' . '_start', array( $this, 'exclude_email_subject_lists' ) );
 
-		add_action( $this->plugin_name . '_settings_' . 'help_notes_container' . '_before', array( $this, 'help_notes_container' ) );
-
-		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_start', array( $this, 'pro_fields_before' ) );
-		add_action( $this->plugin_name . '-'. $this->form_key.'_settings_end', array( $this, 'pro_fields_after' ) );
+		add_action( $this->plugin_name . '_settings_' . 'help_notes_box' . '_start', array( $this, 'help_notes_container' ) );
 	}
 
 	/*-----------------------------------------------------------------------------------*/
@@ -226,34 +223,13 @@ class WP_Email_Template_Exclude_Emails_Settings extends WP_Email_Tempate_Admin_U
   		// Define settings
      	$this->form_fields = apply_filters( $this->option_name . '_settings_fields', array(
 
-     		array(
-            	'name' 		=> '',
-                'type' 		=> 'heading',
-           	),
-           	array(
-				'name' 		=> __( 'Help Notes', 'wp_email_template' ),
-				'id' 		=> 'show_help_notes',
-				'class'		=> 'show_help_notes',
-				'type' 		=> 'onoff_checkbox',
-				'default' 	=> 'no',
-				'checked_value'		=> 'yes',
-				'unchecked_value'	=> 'no',
-				'checked_label'		=> __( 'SHOW', 'wp_email_template' ),
-				'unchecked_label' 	=> __( 'HIDE', 'wp_email_template' ),
-			),
-
 			array(
-            	'name' 		=> '',
-                'type' 		=> 'heading',
-                'class'		=> 'help_notes_container',
-                'id'		=> 'help_notes_container',
-           	),
-
-			array(
-            	'name' 		=> __( "Exclude by Shortcode", 'wp_email_template' ),
+            	'name' 		=> __( "Exclude Emails by Shortcode", 'wp_email_template' ),
             	'desc' 		=> '<p>'.__("For security reason please change the Default shortcode in the box to your own unique shortcode. Just create new using the shortcode format [name_name] and Save Changes.", 'wp_email_template' ).'</p>',
                 'type' 		=> 'heading',
-                'class'		=> 'show_template_container',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'exclude_by_shortcode_box',
+                'is_box'	=> true,
            	),
 			array(
 				'name' 		=> __( 'Shortcode Creator', 'wp_email_template' ),
@@ -263,10 +239,19 @@ class WP_Email_Template_Exclude_Emails_Settings extends WP_Email_Tempate_Admin_U
 			),
 
 			array(
-            	'name' 		=> '',
+            	'name' 		=> __( "Exclude Emails by Subject Title", 'wp_email_template' ),
                 'type' 		=> 'heading',
-                'class'		=> 'exclude_by_subject_title',
-                'id'		=> 'exclude_by_subject_title',
+                'class'		=> 'exclude_by_subject_title pro_feature_fields',
+                'id'		=> 'exclude_by_subject_title_box',
+                'is_box'	=> true,
+           	),
+
+           	array(
+            	'name' 		=> __( 'Help Notes', 'wp_email_template' ),
+                'type' 		=> 'heading',
+                'class'		=> 'pro_feature_fields',
+                'id'		=> 'help_notes_box',
+                'is_box'	=> true,
            	),
 
         ));
@@ -329,6 +314,7 @@ input.email_subject {
 
 	public function help_notes_container() {
 ?>
+</table>
 <div class="a3rev_panel_inner help_notes_container">
 
 <h3 style="margin-top: 0;"><?php echo __( 'Exclude by Shortode', 'wp_email_template' ); ?></h3>
@@ -362,6 +348,7 @@ input.email_subject {
 </p>
 
 </div>
+<table>
 <?php
 	}
 
@@ -370,19 +357,6 @@ input.email_subject {
 <script>
 (function($) {
 $(document).ready(function() {
-	if ( $("input.show_help_notes:checked").val() == 'yes') {
-		$(".help_notes_container").show();
-	} else {
-		$(".help_notes_container").hide();
-	}
-
-	$(document).on( "a3rev-ui-onoff_checkbox-switch", '.show_help_notes', function( event, value, status ) {
-		if ( status == 'true' ) {
-			$(".help_notes_container").slideDown();
-		} else {
-			$(".help_notes_container").slideUp();
-		}
-	});
 
 	var tr_html = '<tr><td><input class="email_sent_by" type="text" name="email_sent_by[]" value="" /></td><td><input class="email_subject" type="text" name="email_subjects[]" value="" /></td><td><input type="button" class="button exclude_email_remove" value="&ndash;" /></td></tr>';
 
