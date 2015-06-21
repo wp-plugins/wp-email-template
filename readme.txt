@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 4.0
 Tested up to: 4.2.2
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -176,6 +176,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.4.1 - 2015/06/21 =
+* Fix - Delete trailing space on the top of style-footer-settings.php file when upgrading to version 1.4.0
 
 = 1.4.0 - 2015/06/20 =
 * Feature - Plugin framework Mobile First focus upgrade
@@ -385,6 +388,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.4.1 =
+Important Maintenance Upgrade. 1 bug fix when upgradig to version 1.4.0
 
 = 1.4.0 =
 Major Feature Upgrade. Massive admin panel UI and UX upgrade. Includes 6 new features, 4 Tweaks and 1 bug fix plus full compatibility with WooCommerce Version 2.3.11
