@@ -2,8 +2,8 @@
 Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 4.0
-Tested up to: 4.2.2
-Stable tag: 1.4.1
+Tested up to: 4.3
+Stable tag: 1.4.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -176,6 +176,16 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.4.2 - 2015/08/21 =
+* Tweak - include new CSSMin lib from https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port into plugin framework instead of old CSSMin lib from http://code.google.com/p/cssmin/ , to avoid conflict with plugins or themes that have CSSMin lib
+* Tweak - make __construct() function for 'Compile_Less_Sass' class instead of using a method with the same name as the class for compatibility on WP 4.3 and is deprecated on PHP4
+* Tweak - change class name from 'lessc' to 'a3_lessc' so that it does not conflict with plugins or themes that have another Lessc lib
+* Tweak - Plugin Framework DB query optimization. Refactored settings_get_option call for dynamic style elements, example typography, border, border_styles, border_corner, box_shadow
+* Tweak - Tested for full compatibility with WooCommerce Version 2.4.5
+* Tweak - Tested for full compatibility with WordPress major version 4.3.0
+* Fix - Update the plugin framework for setup correct default settings on first installed
+* Fix - Update the plugin framework for reset to correct default settings when hit on 'Reset Settings' button on each settings tab
 
 = 1.4.1 - 2015/06/21 =
 * Fix - Delete trailing space on the top of style-footer-settings.php file when upgrading to version 1.4.0
@@ -388,6 +398,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.4.2 =
+Major Maintenance Upgrade. 6 Code Tweaks plus 2 bug fixes for full compatibility with WordPress v 4.3.0 and WooCommerce v 2.4.5
 
 = 1.4.1 =
 Important Maintenance Upgrade. 1 bug fix when upgradig to version 1.4.0

@@ -1,7 +1,7 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.5.0');
-	update_option('a3rev_wp_email_template_lite_version', '1.4.1');
+	update_option('a3rev_wp_email_template_version', '1.5.2');
+	update_option('a3rev_wp_email_template_lite_version', '1.4.2');
 
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -173,7 +173,7 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.4.0.php' );
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.5.0');
-	update_option('a3rev_wp_email_template_lite_version', '1.4.1');
+	update_option('a3rev_wp_email_template_version', '1.5.2');
+	update_option('a3rev_wp_email_template_lite_version', '1.4.2');
 }
 ?>

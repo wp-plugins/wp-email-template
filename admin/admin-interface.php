@@ -34,23 +34,23 @@ TABLE OF CONTENTS
 
 class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 {
-	
+
 	/*-----------------------------------------------------------------------------------*/
 	/* Admin Interface Constructor */
 	/*-----------------------------------------------------------------------------------*/
 	public function __construct() {
-		
+
 		$this->admin_includes();
-		
+
 		add_action( 'init', array( $this, 'init_scripts' ) );
 		add_action( 'init', array( $this, 'init_styles' ) );
 
 		// AJAX hide yellow message dontshow
 		add_action( 'wp_ajax_'.$this->plugin_name.'_a3_admin_ui_event', array( $this, 'a3_admin_ui_event' ) );
 		add_action( 'wp_ajax_nopriv_'.$this->plugin_name.'_a3_admin_ui_event', array( $this, 'a3_admin_ui_event' ) );
-		
+
 	}
-	
+
 	/*-----------------------------------------------------------------------------------*/
 	/* Init scripts */
 	/*-----------------------------------------------------------------------------------*/
@@ -697,18 +697,19 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				if ( strstr( $value['id'], '[' ) ) {
 					// Set keys and value
 					$key = key( $option_array[ $id_attribute ] );
-	
-					$update_options[ $id_attribute ][ $key ] = $option_value;
 					
 					if ( trim( $option_name ) != '' && $value['separate_option'] != false ) {
 						$update_separate_options[ $id_attribute ][ $key ] = $option_value;
+					} else {
+						$update_options[ $id_attribute ][ $key ] = $option_value;
 					}
 					
 				} else {
-					$update_options[ $id_attribute ] = $option_value;
 					
 					if ( trim( $option_name ) != '' && $value['separate_option'] != false ) {
 						$update_separate_options[ $id_attribute ] = $option_value;
+					} else {
+						$update_options[ $id_attribute ] = $option_value;
 					}
 				}
 			}
@@ -830,6 +831,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 						}
 						
 						// Remove [, ] characters from id argument
+						$key = false;
 						if ( strstr( $text_field['id'], '[' ) ) {
 							parse_str( esc_attr( $text_field['id'] ), $option_array );
 				
@@ -838,17 +840,48 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 							$first_key = current( $option_keys );
 								
 							$id_attribute		= $first_key;
+
+							$key = key( $option_array[ $id_attribute ] );
 						} else {
 							$id_attribute		= esc_attr( $text_field['id'] );
 						}
 						
 						if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
 							if ( $reset && $text_field['free_version'] && !$free_version ) {
-								update_option( $id_attribute,  $text_field['default'] );
+								if ( $key != false ) {
+									$current_settings = get_option( $id_attribute, array() );
+									if ( ! is_array( $current_settings) ) {
+										$current_settings = array();
+									}
+									$current_settings[$key] = $text_field['default'];
+									update_option( $id_attribute,  $current_settings );
+								} else {
+									update_option( $id_attribute,  $text_field['default'] );
+								}
 							} elseif ( $reset && !$text_field['free_version'] ) {
-								update_option( $id_attribute,  $text_field['default'] );
+								if ( $key != false ) {
+									$current_settings = get_option( $id_attribute, array() );
+									if ( ! is_array( $current_settings) ) {
+										$current_settings = array();
+									}
+									$current_settings[$key] = $text_field['default'];
+									update_option( $id_attribute,  $current_settings );
+								} else {
+									update_option( $id_attribute,  $text_field['default'] );
+								}
 							} else {
-								add_option( $id_attribute,  $text_field['default'] );
+								if ( $key != false ) {
+								$current_settings = get_option( $id_attribute, array() );
+								if ( ! is_array( $current_settings) ) {
+									$current_settings = array();
+								}
+								if ( ! isset( $current_settings[$key] ) ) {
+									$current_settings[$key] = $text_field['default'];
+									update_option( $id_attribute,  $current_settings );
+								}
+								} else {
+									add_option( $id_attribute,  $text_field['default'] );
+								}
 							}
 						}
 					}
@@ -857,6 +890,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 							
 				default :
 					// Remove [, ] characters from id argument
+					$key = false;
 					if ( strstr( $value['id'], '[' ) ) {
 						parse_str( esc_attr( $value['id'] ), $option_array );
 			
@@ -865,17 +899,48 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 						$first_key = current( $option_keys );
 							
 						$id_attribute		= $first_key;
+
+						$key = key( $option_array[ $id_attribute ] );
 					} else {
 						$id_attribute		= esc_attr( $value['id'] );
 					}
 					
 					if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
 						if ( $reset && $value['free_version'] && !$free_version ) {
-							update_option( $id_attribute,  $value['default'] );
+							if ( $key != false ) {
+								$current_settings = get_option( $id_attribute, array() );
+								if ( ! is_array( $current_settings) ) {
+									$current_settings = array();
+								}
+								$current_settings[$key] = $value['default'];
+								update_option( $id_attribute,  $current_settings );
+							} else {
+								update_option( $id_attribute,  $value['default'] );
+							}
 						} elseif ( $reset && !$value['free_version'] ) {
-							update_option( $id_attribute,  $value['default'] );
+							if ( $key != false ) {
+								$current_settings = get_option( $id_attribute, array() );
+								if ( ! is_array( $current_settings) ) {
+									$current_settings = array();
+								}
+								$current_settings[$key] = $value['default'];
+								update_option( $id_attribute,  $current_settings );
+							} else {
+								update_option( $id_attribute,  $value['default'] );
+							}
 						} else {
-							add_option( $id_attribute,  $value['default'] );
+							if ( $key != false ) {
+								$current_settings = get_option( $id_attribute, array() );
+								if ( ! is_array( $current_settings) ) {
+									$current_settings = array();
+								}
+								if ( ! isset( $current_settings[$key] ) ) {
+									$current_settings[$key] = $value['default'];
+									update_option( $id_attribute,  $current_settings );
+								}
+							} else {
+								add_option( $id_attribute,  $value['default'] );
+							}
 						}
 					}
 							
@@ -1208,7 +1273,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 			}
 			
 			// Remove [, ] characters from id argument
-			$key = false;
+			$child_key = false;
 			if ( strstr( $value['id'], '[' ) ) {
 				parse_str( esc_attr( $value['id'] ), $option_array );
 	
@@ -1218,7 +1283,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 					
 				$id_attribute		= $first_key;
 				
-				$key = key( $option_array[ $id_attribute ] );
+				$child_key = key( $option_array[ $id_attribute ] );
 			} else {
 				$id_attribute		= esc_attr( $value['id'] );
 			}
@@ -1229,8 +1294,8 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 			}
 			// Get option value when it's an element from option array 
 			else {
-				if ( $key != false ) {
-					$option_value 		= ( isset( $option_values[ $id_attribute ][ $key ] ) ) ? $option_values[ $id_attribute ][ $key ] : $value['default'];
+				if ( $child_key != false ) {
+					$option_value 		= ( isset( $option_values[ $id_attribute ][ $child_key ] ) ) ? $option_values[ $id_attribute ][ $child_key ] : $value['default'];
 				} else {
 					$option_value 		= ( isset( $option_values[ $id_attribute ] ) ) ? $option_values[ $id_attribute ] : $value['default'];
 				}
@@ -1796,15 +1861,9 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				// Image size settings
 				case 'image_size' :
 	
-					if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
-						$width 	= $this->settings_get_option( $value['id'] . '[width]', $value['default']['width'] );
-						$height = $this->settings_get_option( $value['id'] . '[height]', $value['default']['height'] );
-						$crop 	= checked( 1, $this->settings_get_option( $value['id'] . '[crop]', $value['default']['crop'] ), false );
-					} else {
-						$width 	= $option_value['width'];
-						$height = $option_value['height'];
-						$crop 	= checked( 1, $option_value['crop'], false );
-					}
+					$width 	= $option_value['width'];
+					$height = $option_value['height'];
+					$crop 	= checked( 1, $option_value['crop'], false );
 	
 					?><tr valign="top">
 						<th scope="row" class="titledesc"><?php echo $tip; ?><?php echo esc_html( $value['name'] ) ?></th>
@@ -1854,17 +1913,10 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				
 					$default_color = ' data-default-color="' . esc_attr( $value['default']['color'] ) . '"';
 					
-					if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
-						$size	= $this->settings_get_option( $value['id'] . '[size]', $value['default']['size'] );
-						$face	= $this->settings_get_option( $value['id'] . '[face]', $value['default']['face'] );
-						$style	= $this->settings_get_option( $value['id'] . '[style]', $value['default']['style'] );
-						$color	= $this->settings_get_option( $value['id'] . '[color]', $value['default']['color'] );
-					} else {
-						$size	= $option_value['size'];
-						$face	= $option_value['face'];
-						$style	= $option_value['style'];
-						$color	= $option_value['color'];
-					}
+					$size	= $option_value['size'];
+					$face	= $option_value['face'];
+					$style	= $option_value['style'];
+					$color	= $option_value['color'];
 				
 					?><tr valign="top">
 						<th scope="row" class="titledesc"><?php echo $tip; ?><?php echo esc_html( $value['name'] ) ?></th>
@@ -1963,57 +2015,32 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 					// For Border Styles
 					$default_color = ' data-default-color="' . esc_attr( $value['default']['color'] ) . '"';
 					
-					if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
-						$width	= $this->settings_get_option( $value['id'] . '[width]', $value['default']['width'] );
-						$style	= $this->settings_get_option( $value['id'] . '[style]', $value['default']['style'] );
-						$color	= $this->settings_get_option( $value['id'] . '[color]', $value['default']['color'] );
-					} else {
-						$width	= $option_value['width'];
-						$style	= $option_value['style'];
-						$color	= $option_value['color'];
-					}
+					$width	= $option_value['width'];
+					$style	= $option_value['style'];
+					$color	= $option_value['color'];
 					
 					// For Border Corner
 					if ( ! isset( $value['min'] ) ) $value['min'] = 0;
 					if ( ! isset( $value['max'] ) ) $value['max'] = 100;
 					if ( ! isset( $value['increment'] ) ) $value['increment'] = 1;
 					
-					if ( trim( $option_name ) != '' && $value['separate_option'] != false ) {
-						$corner					= $this->settings_get_option( $value['id'] . '[corner]', $value['default']['corner'] );
-						
-						if ( ! isset( $value['default']['rounded_value'] ) ) $value['default']['rounded_value'] = 3;
-						$rounded_value			= $this->settings_get_option( $value['id'] . '[rounded_value]', $value['default']['rounded_value'] );
-						
-						if ( ! isset( $value['default']['top_left_corner'] ) ) $value['default']['top_left_corner'] = 3;
-						$top_left_corner		= $this->settings_get_option( $value['id'] . '[top_left_corner]', $value['default']['top_left_corner'] );
-						
-						if ( ! isset( $value['default']['top_right_corner'] ) ) $value['default']['top_right_corner'] = 3;
-						$top_right_corner		= $this->settings_get_option( $value['id'] . '[top_right_corner]', $value['default']['top_right_corner'] );
-						
-						if ( ! isset( $value['default']['bottom_left_corner'] ) ) $value['default']['bottom_left_corner'] = 3;
-						$bottom_left_corner		= $this->settings_get_option( $value['id'] . '[bottom_left_corner]', $value['default']['bottom_left_corner'] );
-						
-						if ( ! isset( $value['default']['bottom_right_corner'] ) ) $value['default']['bottom_right_corner'] = 3;
-						$bottom_right_corner	= $this->settings_get_option( $value['id'] . '[bottom_right_corner]', $value['default']['bottom_right_corner'] );
-					} else {
-						if ( ! isset( $option_value['corner'] ) ) $option_value['corner'] = '';
-						$corner					= $option_value['corner'];
-						
-						if ( ! isset( $option_value['rounded_value'] ) ) $option_value['rounded_value'] = 3;
-						$rounded_value			= $option_value['rounded_value'];
-						
-						if ( ! isset( $option_value['top_left_corner'] ) ) $option_value['top_left_corner'] = 3;
-						$top_left_corner		= $option_value['top_left_corner'];
-						
-						if ( ! isset( $option_value['top_right_corner'] ) ) $option_value['top_right_corner'] = 3;
-						$top_right_corner		= $option_value['top_right_corner'];
-						
-						if ( ! isset( $option_value['bottom_left_corner'] ) ) $option_value['bottom_left_corner'] = 3;
-						$bottom_left_corner		= $option_value['bottom_left_corner'];
-						
-						if ( ! isset( $option_value['bottom_right_corner'] ) ) $option_value['bottom_right_corner'] = 3;
-						$bottom_right_corner	= $option_value['bottom_right_corner'];
-					}
+					if ( ! isset( $option_value['corner'] ) ) $option_value['corner'] = '';
+					$corner					= $option_value['corner'];
+					
+					if ( ! isset( $option_value['rounded_value'] ) ) $option_value['rounded_value'] = 3;
+					$rounded_value			= $option_value['rounded_value'];
+					
+					if ( ! isset( $option_value['top_left_corner'] ) ) $option_value['top_left_corner'] = 3;
+					$top_left_corner		= $option_value['top_left_corner'];
+					
+					if ( ! isset( $option_value['top_right_corner'] ) ) $option_value['top_right_corner'] = 3;
+					$top_right_corner		= $option_value['top_right_corner'];
+					
+					if ( ! isset( $option_value['bottom_left_corner'] ) ) $option_value['bottom_left_corner'] = 3;
+					$bottom_left_corner		= $option_value['bottom_left_corner'];
+					
+					if ( ! isset( $option_value['bottom_right_corner'] ) ) $option_value['bottom_right_corner'] = 3;
+					$bottom_right_corner	= $option_value['bottom_right_corner'];
 					
 					if ( trim( $rounded_value ) == '' || trim( $rounded_value ) <= 0  ) $rounded_value = $value['min'];
 					$rounded_value = intval( $rounded_value );
@@ -2193,15 +2220,9 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				
 					$default_color = ' data-default-color="' . esc_attr( $value['default']['color'] ) . '"';
 					
-					if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
-						$width	= $this->settings_get_option( $value['id'] . '[width]', $value['default']['width'] );
-						$style	= $this->settings_get_option( $value['id'] . '[style]', $value['default']['style'] );
-						$color	= $this->settings_get_option( $value['id'] . '[color]', $value['default']['color'] );
-					} else {
-						$width	= $option_value['width'];
-						$style	= $option_value['style'];
-						$color	= $option_value['color'];
-					}
+					$width	= $option_value['width'];
+					$style	= $option_value['style'];
+					$color	= $option_value['color'];
 				
 					?><tr valign="top">
 						<th scope="row" class="titledesc"><?php echo $tip; ?><?php echo esc_html( $value['name'] ) ?></th>
@@ -2268,42 +2289,23 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 					if ( ! isset( $value['max'] ) ) $value['max'] = 100;
 					if ( ! isset( $value['increment'] ) ) $value['increment'] = 1;
 					
-					if ( trim( $option_name ) != '' && $value['separate_option'] != false ) {
-						$corner					= $this->settings_get_option( $value['id'] . '[corner]', $value['default']['corner'] );
-						
-						if ( ! isset( $value['default']['rounded_value'] ) ) $value['default']['rounded_value'] = 3;
-						$rounded_value			= $this->settings_get_option( $value['id'] . '[rounded_value]', $value['default']['rounded_value'] );
-						
-						if ( ! isset( $value['default']['top_left_corner'] ) ) $value['default']['top_left_corner'] = 3;
-						$top_left_corner		= $this->settings_get_option( $value['id'] . '[top_left_corner]', $value['default']['top_left_corner'] );
-						
-						if ( ! isset( $value['default']['top_right_corner'] ) ) $value['default']['top_right_corner'] = 3;
-						$top_right_corner		= $this->settings_get_option( $value['id'] . '[top_right_corner]', $value['default']['top_right_corner'] );
-						
-						if ( ! isset( $value['default']['bottom_left_corner'] ) ) $value['default']['bottom_left_corner'] = 3;
-						$bottom_left_corner		= $this->settings_get_option( $value['id'] . '[bottom_left_corner]', $value['default']['bottom_left_corner'] );
-						
-						if ( ! isset( $value['default']['bottom_right_corner'] ) ) $value['default']['bottom_right_corner'] = 3;
-						$bottom_right_corner	= $this->settings_get_option( $value['id'] . '[bottom_right_corner]', $value['default']['bottom_right_corner'] );
-					} else {
-						if ( ! isset( $option_value['corner'] ) ) $option_value['corner'] = '';
-						$corner					= $option_value['corner'];
-						
-						if ( ! isset( $option_value['rounded_value'] ) ) $option_value['rounded_value'] = 3;
-						$rounded_value			= $option_value['rounded_value'];
-						
-						if ( ! isset( $option_value['top_left_corner'] ) ) $option_value['top_left_corner'] = 3;
-						$top_left_corner		= $option_value['top_left_corner'];
-						
-						if ( ! isset( $option_value['top_right_corner'] ) ) $option_value['top_right_corner'] = 3;
-						$top_right_corner		= $option_value['top_right_corner'];
-						
-						if ( ! isset( $option_value['bottom_left_corner'] ) ) $option_value['bottom_left_corner'] = 3;
-						$bottom_left_corner		= $option_value['bottom_left_corner'];
-						
-						if ( ! isset( $option_value['bottom_right_corner'] ) ) $option_value['bottom_right_corner'] = 3;
-						$bottom_right_corner	= $option_value['bottom_right_corner'];
-					}
+					if ( ! isset( $option_value['corner'] ) ) $option_value['corner'] = '';
+					$corner					= $option_value['corner'];
+					
+					if ( ! isset( $option_value['rounded_value'] ) ) $option_value['rounded_value'] = 3;
+					$rounded_value			= $option_value['rounded_value'];
+					
+					if ( ! isset( $option_value['top_left_corner'] ) ) $option_value['top_left_corner'] = 3;
+					$top_left_corner		= $option_value['top_left_corner'];
+					
+					if ( ! isset( $option_value['top_right_corner'] ) ) $option_value['top_right_corner'] = 3;
+					$top_right_corner		= $option_value['top_right_corner'];
+					
+					if ( ! isset( $option_value['bottom_left_corner'] ) ) $option_value['bottom_left_corner'] = 3;
+					$bottom_left_corner		= $option_value['bottom_left_corner'];
+					
+					if ( ! isset( $option_value['bottom_right_corner'] ) ) $option_value['bottom_right_corner'] = 3;
+					$bottom_right_corner	= $option_value['bottom_right_corner'];
 					
 					if ( trim( $rounded_value ) == '' || trim( $rounded_value ) <= 0  ) $rounded_value = $value['min'];
 					$rounded_value = intval( $rounded_value );
@@ -2437,25 +2439,15 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				
 					$default_color = ' data-default-color="' . esc_attr( $value['default']['color'] ) . '"';
 					
-					if ( trim( $option_name ) == '' || $value['separate_option'] != false ) {
-						$enable		= $this->settings_get_option( $value['id'] . '[enable]', $value['default']['enable'] );
-						$h_shadow	= $this->settings_get_option( $value['id'] . '[h_shadow]', $value['default']['h_shadow'] );
-						$v_shadow	= $this->settings_get_option( $value['id'] . '[v_shadow]', $value['default']['v_shadow'] );
-						$blur		= $this->settings_get_option( $value['id'] . '[blur]', $value['default']['blur'] );
-						$spread		= $this->settings_get_option( $value['id'] . '[spread]', $value['default']['spread'] );
-						$color		= $this->settings_get_option( $value['id'] . '[color]', $value['default']['color'] );
-						$inset		= $this->settings_get_option( $value['id'] . '[inset]', $value['default']['inset'] );
-					} else {
-						if ( ! isset( $option_value['enable'] ) ) $option_value['enable'] = 0;
-						$enable		= $option_value['enable'];
-						if ( ! isset( $option_value['inset'] ) ) $option_value['inset'] = '';
-						$h_shadow	= $option_value['h_shadow'];
-						$v_shadow	= $option_value['v_shadow'];
-						$blur		= $option_value['blur'];
-						$spread		= $option_value['spread'];
-						$color		= $option_value['color'];
-						$inset		= $option_value['inset'];
-					}
+					if ( ! isset( $option_value['enable'] ) ) $option_value['enable'] = 0;
+					$enable		= $option_value['enable'];
+					if ( ! isset( $option_value['inset'] ) ) $option_value['inset'] = '';
+					$h_shadow	= $option_value['h_shadow'];
+					$v_shadow	= $option_value['v_shadow'];
+					$blur		= $option_value['blur'];
+					$spread		= $option_value['spread'];
+					$color		= $option_value['color'];
+					$inset		= $option_value['inset'];
 				
 					?><tr valign="top">
 						<th scope="row" class="titledesc"><?php echo $tip; ?><?php echo esc_html( $value['name'] ) ?></th>

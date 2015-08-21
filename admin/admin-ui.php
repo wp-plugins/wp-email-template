@@ -65,8 +65,8 @@ class WP_Email_Tempate_Admin_UI
 	 * You must change to correct page you want to include scripts & styles, if you have many pages then use array() : array( 'quotes-orders-mode', 'quotes-orders-rule' )
 	 */
 	public $admin_pages = array();
-
-
+	
+	
 	/*-----------------------------------------------------------------------------------*/
 	/* admin_plugin_url() */
 	/*-----------------------------------------------------------------------------------*/
