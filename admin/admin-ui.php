@@ -38,6 +38,13 @@ class WP_Email_Tempate_Admin_UI
 
 	public $is_free_plugin = true;
 
+	public $version_transient = 'a3rev_wp_email_template_update_info';
+
+	public $plugin_option_key = 'a3rev_wp_email_template_plugin';
+
+	public $support_url = 'https://a3rev.com/forums/forum/wordpress-plugins/wp-email-template/';
+
+
 	/**
 	 * @var string
 	 * You must change to correct class name that you are working
@@ -207,6 +214,44 @@ class WP_Email_Tempate_Admin_UI
 		$message = apply_filters( $this->plugin_name . '_blue_message_box', $message );
 
 		return $message;
+	}
+
+	/*-----------------------------------------------------------------------------------*/
+	/* get_version_message() */
+	/* Get new version message, also include error connect
+	/*-----------------------------------------------------------------------------------*/
+	public function get_version_message() {
+		$version_message = '';
+
+		//Getting version number
+		$version_transient = get_transient( $this->version_transient );
+		if ( false !== $version_transient ) {
+			$transient_timeout = '_transient_timeout_' . $this->version_transient;
+			$timeout = get_option( $transient_timeout, false );
+			if ( false === $timeout ) {
+				$version_message = __( 'You should check now to see if have any new version is available', 'wp_email_template' );
+			} elseif ( 'cannot_connect_api' == $version_transient ) {
+				$version_message = sprintf( __( 'Connection Failure! Please try again. If this issue persists please create a support request on the plugin <a href="%s" target="_blank">a3rev support forum</a>.', 'wp_email_template' ), $this->support_url );
+			} else {
+				$version_info = explode( '||', $version_transient );
+				if ( FALSE !== stristr( $version_transient, '||' )
+					&& is_array( $version_info )
+					&& isset( $version_info[1] ) && $version_info[1] == 'valid'
+					&& version_compare( get_option('a3rev_wp_email_template_version') , $version_info[0], '<' ) ) {
+
+						$version_message = sprintf( __( 'There is a new version <span class="a3rev-ui-new-plugin-version">%s</span> available, <a href="%s" target="_blank">update now</a> or download direct from <a href="%s" target="_blank">My Account</a> on a3rev.com', 'wp_email_template' ),
+							$version_info[0],
+							wp_nonce_url( self_admin_url( 'update.php?action=upgrade-plugin&plugin=' . WP_EMAIL_TEMPLATE_NAME ), 'upgrade-plugin_' . WP_EMAIL_TEMPLATE_NAME ),
+							'https://a3rev.com/my-account/downloads/'
+						);
+				}
+			}
+
+		} else {
+			$version_message = __( 'You should check now to see if have any new version is available', 'wp_email_template' );
+		}
+
+		return $version_message;
 	}
 
 }

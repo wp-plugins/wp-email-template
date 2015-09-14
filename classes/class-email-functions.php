@@ -84,7 +84,8 @@ class WP_Email_Template_Functions
 			$header_image_margin_bottom    = '0';
 			$header_image_margin_left      = '0';
 			$header_image_margin_right     = '0';
-			$header_image_border           = 'border-top: 0px solid #ffffff !important;border-bottom: 0px solid #ffffff !important;border-left: 0px solid #ffffff !important;border-right: 0px solid #ffffff !important;border-radius: 0px !important;-moz-border-radius: 0px !important;-webkit-border-radius: 0px !important;';
+			$header_image_border_corner    = 'border-radius: 0px !important;-moz-border-radius: 0px !important;-webkit-border-radius: 0px !important;';
+			$header_image_border           = 'border-top: 0px solid #ffffff !important;border-bottom: 0px solid #ffffff !important;border-left: 0px solid #ffffff !important;border-right: 0px solid #ffffff !important;'.$header_image_border_corner;
 		}
 
 		$header_font = 'font:bold 26px Arial, sans-serif !important; color: #000000 !important;';
@@ -97,11 +98,14 @@ class WP_Email_Template_Functions
 		$footer_font = 'font:normal 11px Arial, sans-serif !important; color: #999999 !important;';
 
 
-		$header_border	= 'border: none !important;';
+		$header_border_corner  = 'border-radius: 0px !important;';
+		$header_border         = 'border: none !important;';
 
-		$content_border	= 'border: none !important;';
+		$content_border_corner = 'border-radius: 0px !important;';
+		$content_border        = 'border: none !important;';
 
-		$footer_border	= 'border: none !important;';
+		$footer_border_corner  = 'border-radius: 0px !important;';
+		$footer_border         = 'border: none !important;';
 
 		$rtl = is_rtl() ? 'rtl' : '';
 		$list_header_shortcode = array(
@@ -127,6 +131,7 @@ class WP_Email_Template_Functions
 			'header_image_margin_right'     => $header_image_margin_right,
 
 			'header_image_border'           => $header_image_border,
+			'header_image_border_corner'    => $header_image_border_corner,
 
 			'email_heading'                 => stripslashes($email_heading),
 			'base_colour'                   => '#ffffff',
@@ -141,6 +146,7 @@ class WP_Email_Template_Functions
 			'header_margin_left'            => 0,
 			'header_margin_right'           => 0,
 			'header_border'                 => $header_border,
+			'header_border_corner'          => $header_border_corner,
 
 			'header_font'                   => $header_font,
 			'h1_font'                       => $h1_font,
@@ -167,6 +173,7 @@ class WP_Email_Template_Functions
 			'content_margin_right'          => 0,
 
 			'content_border'                => $content_border,
+			'content_border_corner'			=> $content_border_corner,
 
 			'content_text_colour'           => '#999999',
 			'content_link_colour'           => '#1155CC',
@@ -177,6 +184,7 @@ class WP_Email_Template_Functions
 			'footer_font'                   => $footer_font,
 			'footer_background_colour'      => '#ffffff',
 			'footer_border'                 => $footer_border,
+			'footer_border_corner'          => $footer_border_corner,
 
 		);
 
@@ -223,6 +231,7 @@ class WP_Email_Template_Functions
 
 		$footer_font = 'font:normal 11px Arial, sans-serif !important; color: #999999 !important;';
 
+		$footer_border_corner = 'border-radius: 0px !important;';
 		$footer_border	= 'border: none !important;';
 
 
@@ -248,6 +257,7 @@ class WP_Email_Template_Functions
 			'footer_margin_left'           => 0,
 			'footer_margin_right'          => 0,
 			'footer_border'                => $footer_border,
+			'footer_border_corner'         => $footer_border_corner,
 		);
 
 		foreach ($list_footer_shortcode as $shortcode => $value) {

@@ -256,5 +256,41 @@
 				$.post( a3_admin_ui_script_params.ajax_url, box_data );
 			}
 		});
+
+		$(document).on( 'click', '.a3rev-ui-manual_check_version', function(){
+			var bt_check_version = $(this);
+			var version_message_container = $(this).siblings('.a3rev-ui-check-version-message');
+			var version_checking_status = $(this).siblings('.a3rev-ui-version-checking');
+			var transient_name = bt_check_version.data('transient-name');
+			if ( ! bt_check_version.hasClass('a3-version-checking') ) {
+				bt_check_version.addClass('a3-version-checking');
+				version_checking_status.css('display', 'inline-block');
+				version_message_container.slideUp();
+
+				var check_data = {
+					action:			a3_admin_ui_script_params.plugin + '_a3_admin_ui_event',
+					type: 			'check_new_version',
+					transient_name: transient_name,
+					security:		a3_admin_ui_script_params.security
+				};
+
+				$.post( a3_admin_ui_script_params.ajax_url, check_data, function(response){
+					bt_check_version.removeClass('a3-version-checking');
+					version_checking_status.css('display', 'none');
+
+					// Get response
+					data = $.parseJSON( response );
+					if ( 0 == data.has_new_version ) {
+						version_message_container.removeClass('a3rev-ui-new-version-message');
+						version_message_container.addClass('a3rev-ui-latest-version-message');
+					} else {
+						version_message_container.addClass('a3rev-ui-new-version-message');
+						version_message_container.removeClass('a3rev-ui-latest-version-message');
+					}
+					version_message_container.html(data.version_message);
+					version_message_container.slideDown();
+				});
+			}
+		});
 	});
 })(jQuery);

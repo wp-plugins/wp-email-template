@@ -219,6 +219,14 @@
 .a3rev_panel_container .a3rev-ui-google-valid-key .a3rev-ui-google-valid-key-message,
 .a3rev_panel_container .a3rev-ui-google-unvalid-key .a3rev-ui-google-unvalid-key-message { display: block; }
 
+/* Manual Check New Version Control */
+.a3rev_panel_container .a3rev-ui-version-checking { display: none; margin-top: 6px; background-image: url('../images/loading-bottom.gif'); background-repeat: no-repeat; background-size: 100% auto; width: 16px; height: 16px; }
+.a3rev_panel_container .a3rev-ui-check-version-message { font-size: 13px; }
+.a3rev_panel_container .a3rev-ui-new-version-message,
+.a3rev_panel_container .a3rev-ui-latest-version-message { padding: 8px 10px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin-top: 8px; }
+.a3rev_panel_container .a3rev-ui-latest-version-message { background-color: #dff0d8; border: 1px solid #468847; color: #468847; }
+.a3rev_panel_container .a3rev-ui-new-version-message { background-color: #ffebe8; border: 1px solid #dd3d36; color: #dd3d36; }
+
 /* Textarea Control */
 .a3rev_panel_container .a3rev-ui-textarea { width:600px; max-width:70%; }
 

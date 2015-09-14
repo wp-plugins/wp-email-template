@@ -291,6 +291,25 @@ class WP_Email_Template_General_Settings extends WP_Email_Tempate_Admin_UI
 			),
 
 			array(
+            	'name' 		=> __( 'WP Email Content Type', 'wp_email_template' ),
+                'type' 		=> 'heading',
+                'class'		=> 'show_template_container',
+                'id'		=> 'wp_email_content_type_box',
+                'is_box'	=> true,
+           	),
+			array(
+				'name' 		=> __( 'Email Content Type', 'wp_email_template' ),
+				'id' 		=> 'email_content_type',
+				'type' 		=> 'select',
+				'default'	=> 'multipart',
+				'options'	=> array(
+						'html'      => __( 'HTML', 'wp_email_template' ),
+						'multipart' => __( 'Multipart', 'wp_email_template' ),
+					),
+				'free_version'		=> true,
+			),
+
+			array(
             	'name' 		=> __( 'Template Width', 'wp_email_template' ),
                 'type' 		=> 'heading',
                 'class'		=> 'show_template_container',

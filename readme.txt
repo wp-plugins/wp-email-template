@@ -3,7 +3,7 @@ Contributors: a3rev, A3 Revolution Software Development team
 Tags: wordpress email template, wordpress email, email, email template, contact, contact forms,  wp e-commerce email, woocommerce email, contact form 7, e-commerce email, comment forms, comments, forms
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 1.4.2
+Stable tag: 1.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -176,6 +176,15 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Changelog ==
+
+= 1.5.0 - 2015/09/14 =
+* Feature - Added 'WP Email Content Type' setting box with HTML and Multipart option. Multipart supports plain text fallback for email clients set to plain text instead of HTML.
+* Feature - Hook into 'phpmailer_init' action tag for make new Plain text version from original email content when content Type Multipart option is selected
+* Feature - Separate 'Send Email Test' feature with another button to send email instead of use 'Save Changes' button of settings panel
+* Fixed - Fix Border corner Round work on Image Container, Header Title Container , Content Container and Footer Container of email template
+* Credit - Thanks to Christopher for the Plain Text support [feature suggestion](https://a3rev.com/forums/topic/plain-text-version/)
+* Credit - Thanks to Micah for the Send Now button [feature suggestion](https://a3rev.com/forums/topic/send-wp-emails-send-a-test-email/)
+* Credit - Thanks to NineSixOne for alerting us to the [border corner round bug](https://a3rev.com/forums/topic/rounded-corner-doesnt-work/)
 
 = 1.4.2 - 2015/08/21 =
 * Tweak - include new CSSMin lib from https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port into plugin framework instead of old CSSMin lib from http://code.google.com/p/cssmin/ , to avoid conflict with plugins or themes that have CSSMin lib
@@ -398,6 +407,9 @@ The manual installation method involves down loading our plugin and uploading it
 
 
 == Upgrade Notice ==
+
+= 1.5.0 =
+New Features Upgrade. 3 new features and 1 border corner round bug fix.
 
 = 1.4.2 =
 Major Maintenance Upgrade. 6 Code Tweaks plus 2 bug fixes for full compatibility with WordPress v 4.3.0 and WooCommerce v 2.4.5

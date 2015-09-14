@@ -1,7 +1,7 @@
 <?php
 function wp_email_template_install(){
-	update_option('a3rev_wp_email_template_version', '1.5.2');
-	update_option('a3rev_wp_email_template_lite_version', '1.4.2');
+	update_option('a3rev_wp_email_template_version', '1.6.0');
+	update_option('a3rev_wp_email_template_lite_version', '1.5.0');
 
 	// Set Settings Default from Admin Init
 	global $wp_email_template_admin_init;
@@ -75,6 +75,8 @@ add_filter( 'plugin_row_meta', array('WP_Email_Template_Hook_Filter', 'plugin_ex
 	// Apply the email template to wp_mail of wordpress
 	add_filter('wp_mail_content_type', array('WP_Email_Template_Hook_Filter', 'set_content_type'), 20);
 	add_filter('wp_mail', array('WP_Email_Template_Hook_Filter', 'change_wp_mail'), 20);
+	// For multipart messages
+	add_action( 'phpmailer_init', array( 'WP_Email_Template_Hook_Filter', 'handle_multipart' ) );
 
 // Check upgrade functions
 add_action('plugins_loaded', 'a3rev_wp_email_template_lite_upgrade_plugin');
@@ -173,7 +175,7 @@ function a3rev_wp_email_template_lite_upgrade_plugin () {
 		include( WP_EMAIL_TEMPLATE_DIR. '/includes/updates/wp-email-update-1.4.0.php' );
 	}
 
-	update_option('a3rev_wp_email_template_version', '1.5.2');
-	update_option('a3rev_wp_email_template_lite_version', '1.4.2');
+	update_option('a3rev_wp_email_template_version', '1.6.0');
+	update_option('a3rev_wp_email_template_lite_version', '1.5.0');
 }
 ?>

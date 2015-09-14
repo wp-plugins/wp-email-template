@@ -147,6 +147,9 @@ class WP_Email_Template_Hook_Filter
 
 Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam aliquip litterarum. Lius videntur nisl facilisis claritatem nunc. Praesent in iusto me tincidunt iusto. Dolore lectores sed putamus exerci est. ', 'wp_email_template') );
 
+		global $wp_email_original_message;
+		$wp_email_original_message = $message;
+
 		return WP_Email_Template_Functions::email_content($email_heading, $message, true );
 
 	}
@@ -154,11 +157,11 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 	public static function set_content_type( $content_type='' ) {
 		global $wp_email_template_general;
 
-		if ( $wp_email_template_general['apply_template_all_emails'] != 'yes' ) {
+		if ( 'yes' != $wp_email_template_general['apply_template_all_emails'] ) {
 			return $content_type;
 		}
 
-		if ( stristr( $content_type, 'multipart') !== false ) {
+		if ( false !== stristr( $content_type, 'multipart' ) || 'multipart' == $wp_email_template_general['email_content_type'] ) {
 			$content_type = 'multipart/alternative';
 		} else {
 			$content_type = 'text/html';
@@ -166,11 +169,35 @@ Gothica minim lectores demonstraverunt ut soluta. Sequitur quam exerci veniam al
 		return $content_type;
 	}
 
+	public static function handle_multipart( $phpmailer )  {
+		global $wp_email_template_general;
+
+		if ( 'yes' != $wp_email_template_general['apply_template_all_emails'] ) {
+			return $phpmailer;
+		}
+
+		if ( 'multipart' == $wp_email_template_general['email_content_type'] ) {
+			if ( empty( $phpmailer->AltBody ) ) {
+				global $wp_email_original_message;
+				if ( empty( $wp_email_original_message ) ) {
+					$phpmailer->AltBody = wordwrap( $phpmailer->html2text( $phpmailer->Body ) );
+				} else {
+					$phpmailer->AltBody = wordwrap( $phpmailer->html2text( $wp_email_original_message ) );
+				}
+			}
+		}
+
+		return $phpmailer;
+	}
+
 	public static function change_wp_mail( $email_data=array() ) {
 		$email_heading = $email_data['subject'] ;
+		global $wp_email_original_message;
 		if ( isset( $email_data['message'] ) && stristr( $email_data['message'], '<!--NO_USE_EMAIL_TEMPLATE-->' ) === false ) {
+			$wp_email_original_message = $email_data['message'];
 			$email_data['message'] = WP_Email_Template_Functions::email_content($email_heading, $email_data['message']);
 		} elseif ( isset( $email_data['html'] ) && stristr( $email_data['html'], '<!--NO_USE_EMAIL_TEMPLATE-->' ) === false ) {
+			$wp_email_original_message = $email_data['html'];
 			$email_data['html'] = WP_Email_Template_Functions::email_content($email_heading, $email_data['html']);
 		}
 

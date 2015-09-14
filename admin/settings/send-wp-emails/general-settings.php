@@ -124,17 +124,21 @@ class WP_ET_Send_WP_Emails_General_Settings extends WP_Email_Tempate_Admin_UI
 			$settings_array['email_delivery_provider'] = 'smtp';
 			update_option( $this->option_name, $settings_array );
 		}
-		if ( isset( $_POST['bt_save_settings'] ) && trim( get_option( 'wp_email_template_test_send_email', '' ) ) != '' ) {
-			$wp_email_template_test_send_email = get_option( 'wp_email_template_test_send_email', '' );
-			delete_option( 'wp_email_template_test_send_email' );
-			
-			// Send a test email here
-			global $wp_et_send_wp_emails;
-			$sent_result = $wp_et_send_wp_emails->send_a_test_email( $wp_email_template_test_send_email  );
-			if ( $sent_result ) {
-				echo $wp_email_template_admin_interface->get_success_message( __( 'Test Email successfully sent', 'wp_email_template' ) );		
+		if ( isset( $_POST['wp-email-template-send-test-email-now'] ) ) {
+			$wp_email_template_test_send_email = trim( $_POST['wp_email_template_test_send_email'] );
+			update_option( 'wp_email_template_test_send_email', $wp_email_template_test_send_email );
+			if ( '' != trim( $wp_email_template_test_send_email ) ) {
+
+				// Send a test email here
+				global $wp_et_send_wp_emails;
+				$sent_result = $wp_et_send_wp_emails->send_a_test_email( $wp_email_template_test_send_email  );
+				if ( $sent_result ) {
+					echo $wp_email_template_admin_interface->get_success_message( __( 'Test Email successfully sent', 'wp_email_template' ) );
+				} else {
+					echo $wp_email_template_admin_interface->get_error_message( __( 'Error: Test Email can not send', 'wp_email_template' ) . '<br /><a href="#TB_inline?width=600&height=550&inlineId=test_error_container" class="thickbox" >' . __( 'View Detailed Debug', 'wp_email_template' ) . '</a>' );
+				}
 			} else {
-				echo $wp_email_template_admin_interface->get_error_message( __( 'Error: Test Email can not send', 'wp_email_template' ) . '<br /><a href="#TB_inline?width=600&height=550&inlineId=test_error_container" class="thickbox" >' . __( 'View Detailed Debug', 'wp_email_template' ) . '</a>' );
+				echo $wp_email_template_admin_interface->get_error_message( __( 'The email address for test need to enter', 'wp_email_template' ) );
 			}
 		}
 		
@@ -579,7 +583,7 @@ class WP_ET_Send_WP_Emails_General_Settings extends WP_Email_Tempate_Admin_UI
 			array(
             	'name' 		=> __( 'Send a Test Email', 'wp_email_template' ),
 				'class'		=> 'send_a_test_email_container',
-				'desc'		=> __( "Test delivery. Type a valid email address that you have access to and click Save Changes to send. If the message successfully sends but you do not receive it - check your Spam folder.", 'wp_email_template' ),
+				'desc'		=> __( "Test delivery. Type a valid email address that you have access to and click Send Now. If the message successfully sends but you do not receive it - check your Spam folder.", 'wp_email_template' ),
                 'type' 		=> 'heading',
                 'id'		=> 'send_a_test_email_box',
                 'is_box'	=> true,
@@ -587,6 +591,7 @@ class WP_ET_Send_WP_Emails_General_Settings extends WP_Email_Tempate_Admin_UI
 			array(  
 				'name' 		=> __( 'Send To', 'wp_email_template' ),
 				'id' 		=> 'wp_email_template_test_send_email',
+				'desc'		=> '</span><input type="submit" class="button button-primary" name="wp-email-template-send-test-email-now" value="'. __('Send Now', 'wp_email_template').'" /><span>',
 				'type' 		=> 'text',
 				'separate_option'	=> true,
 				'default'	=> '',

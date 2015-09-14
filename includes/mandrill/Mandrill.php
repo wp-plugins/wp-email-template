@@ -99,10 +99,14 @@ class Mandrill {
         $params = json_encode($params);
 		$response_body = false;
 		
-		if ( function_exists('wp_remote_request') ) { 
+		if ( function_exists('wp_remote_request') ) {
+            $timeout = 45;
+            if ( false !== stristr( $url, 'ping' ) ) {
+                $timeout = 8;
+            }
 			$options = array(
 				'method' 	=> 'POST', 
-				'timeout' 	=> 45, 
+				'timeout' 	=> $timeout, 
 				'body' 		=> $params,
 				);
 	

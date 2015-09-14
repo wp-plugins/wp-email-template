@@ -155,6 +155,47 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 					}
 					update_user_meta( $user_id, $this->plugin_name . '-' . trim( $form_key ), $opened_box );
 					break;
+
+				case 'check_new_version':
+					$transient_name = $_REQUEST['transient_name'];
+					delete_transient( $transient_name );
+
+					$new_version = '';
+					if ( class_exists( 'WP_Email_Template_Upgrade' ) ) {
+						$new_version = WP_Email_Template_Upgrade::get_version_info();
+					}
+
+					$version_message = $this->get_version_message();
+					$has_new_version = 1;
+					if ( '' == trim( $version_message ) ) {
+						$version_message = __( 'Great! You have the latest version installed.', 'wp_email_template' );
+						$has_new_version = 0;
+					} else {
+						delete_option('wp_email_template_clean_on_deletion');
+						if ( is_array( $new_version ) && 'valid' == $new_version['is_valid_key'] ) {
+							$current_update_plugins = get_site_transient( 'update_plugins' );
+							if ( isset( $current_update_plugins->response ) ) {
+								$plugin_name = WP_EMAIL_TEMPLATE_NAME;
+								if ( empty( $current_update_plugins->response[$plugin_name] ) ) {
+									$current_update_plugins->response[$plugin_name] = new stdClass();
+								}
+								$current_update_plugins->response[$plugin_name]->url = "http://www.a3rev.com";
+								$current_update_plugins->response[$plugin_name]->slug = get_option( $this->plugin_option_key );
+								$current_update_plugins->response[$plugin_name]->package = $new_version["url"];
+								$current_update_plugins->response[$plugin_name]->new_version = $new_version['version'];
+								$current_update_plugins->response[$plugin_name]->upgrade_notice = $new_version['upgrade_notice'];
+								$current_update_plugins->response[$plugin_name]->id = "0";
+								set_site_transient( 'update_plugins', $current_update_plugins );
+							}
+						}
+					}
+
+					$response_data = array(
+						'has_new_version' => $has_new_version,
+						'version_message' => $version_message,
+					);
+					echo json_encode( $response_data );
+					break;
 			}
 
 		}
@@ -1176,10 +1217,10 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 				$description = $tip = '';
 			}
 	
-			if ( $description && in_array( $value['type'], array( 'textarea', 'radio', 'onoff_radio', 'typography', 'border', 'border_styles', 'border_corner', 'box_shadow', 'array_textfields', 'wp_editor', 'upload' ) ) ) {
-				$description = '<div class="desc" style="margin-bottom:5px;">' . wp_kses_post( $description ) . '</div>';
+			if ( $description && in_array( $value['type'], array( 'manual_check_version', 'textarea', 'radio', 'onoff_radio', 'typography', 'border', 'border_styles', 'border_corner', 'box_shadow', 'array_textfields', 'wp_editor', 'upload' ) ) ) {
+				$description = '<div class="desc" style="margin-bottom:5px;">' . $description . '</div>';
 			} elseif ( $description ) {
-				$description = '<span class="description" style="margin-left:5px;">' . wp_kses_post( $description ) . '</span>';
+				$description = '<span class="description" style="margin-left:5px;">' . $description . '</span>';
 			}
 			
 			/**
@@ -1442,7 +1483,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 
 					if ( ! empty( $value['desc'] ) ) {
 						echo '<div class="a3rev_panel_box_description" >' . "\n\n";
-						echo wpautop( wptexturize( wp_kses_post( $value['desc'] ) ) );
+						echo wpautop( wptexturize( $value['desc'] ) );
 						echo '</div>' . "\n\n";
 					}
 
@@ -1502,6 +1543,37 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 									<p class="a3rev-ui-google-unvalid-key-message"><?php echo __( 'Please enter a valid Google API Key.', 'wp_email_template' ); ?></p>
 								</div>
 							</div>
+						</td>
+					</tr><?php
+
+				break;
+
+				// Manual Check New Version when click on the button instead of wait for daily
+				case 'manual_check_version':
+					$version_message = $this->get_version_message();
+					$new_version_class = '';
+					if ( '' != trim( $version_message ) ) {
+						$new_version_class = 'a3rev-ui-new-version-message';
+					}
+
+					?><tr valign="top">
+						<th scope="row" class="titledesc">
+                        	<?php echo $tip; ?>
+							<label><?php echo __( 'Check New Version', 'wp_email_template' ); ?></label>
+						</th>
+						<td class="forminp forminp-manual_check_version">
+							<?php echo $description; ?>
+
+							<input
+								data-transient-name="<?php echo $this->version_transient; ?>"
+								name="<?php echo $this->plugin_name . '-check-version'; ?>"
+                                id="<?php echo $this->plugin_name . '-check-version'; ?>"
+								class="button button-primary a3rev-ui-manual_check_version"
+                                type="button"
+								value="<?php echo __( 'Check Now', 'wp_email_template' ); ?>"
+								/> <span class="a3rev-ui-version-checking"> </span>
+								<p class="a3rev-ui-check-version-message <?php echo $new_version_class; ?>"><?php echo $version_message; ?></p>
+
 						</td>
 					</tr><?php
 
@@ -2931,7 +3003,7 @@ class WP_Email_Template_Admin_Interface extends WP_Email_Tempate_Admin_UI
 
 		if ( ! empty( $options['desc'] ) ) {
 			echo '<div class="a3rev_panel_box_description" >' . "\n\n";
-			echo wpautop( wptexturize( wp_kses_post( $options['desc'] ) ) );
+			echo wpautop( wptexturize( $options['desc'] ) );
 			echo '</div>' . "\n\n";
 		}
 
